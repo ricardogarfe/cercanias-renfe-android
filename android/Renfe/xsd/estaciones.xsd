@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">    
+    <xs:complexType name="EstacionType">    
+        <xs:sequence>
+            <xs:element name="Codigo" type="xs:string" minOccurs="0" maxOccurs="1"></xs:element>
+            <xs:element name="Descripcion" type="xs:string" minOccurs="0" maxOccurs="1"></xs:element>            
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="PeticionEstaciones">        
+        <xs:complexType>            
+            <xs:sequence>                
+                <xs:element name="Nucleo" type="xs:string"></xs:element>
+                <xs:element name="Estaciones" minOccurs="0" maxOccurs="1">
+					<xs:complexType>                        
+                        <xs:sequence>                            
+                            <xs:element name="Estacion" minOccurs="1" maxOccurs="unbounded" type="EstacionType"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+</xs:schema>

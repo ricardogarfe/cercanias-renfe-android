@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:complexType name="ValidezType">        
+        <xs:sequence>            
+            <xs:element name="Desde" type="xs:date"></xs:element>
+            <xs:element name="Hasta" type="xs:date"></xs:element>            
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DatosPeticionType">        
+        <xs:sequence>            
+            <xs:element name="Origen" type="xs:string" maxOccurs="1" minOccurs="1"></xs:element>
+            <xs:element name="Destino" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+            <xs:element name="FechaViaje" type="xs:date" minOccurs="0" maxOccurs="1"></xs:element>
+            <xs:element name="Intervalo" minOccurs="0" maxOccurs="1">                
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Desde" type="xs:time" minOccurs="0" maxOccurs="1"></xs:element>
+                        <xs:element name="Hasta" type="xs:time" minOccurs="0" maxOccurs="1"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+           </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="TransbordoType">        
+        <xs:sequence>            
+            <xs:element name="Enlace" type="xs:string" minOccurs="0" maxOccurs="1"></xs:element>
+            <xs:element name="HoraLlegada" type="xs:time" minOccurs="0" maxOccurs="1" nillable="true"></xs:element>
+            <xs:element name="HoraSalida" type="xs:time" minOccurs="0" maxOccurs="1" nillable="true"></xs:element>
+            <xs:element name="Linea" type="xs:string" minOccurs="0" maxOccurs="1" nillable="true"></xs:element>            
+        </xs:sequence>
+    </xs:complexType>
+    
+   
+    <xs:complexType name="HorarioType">    
+        <xs:sequence>
+            <xs:element name="Linea" type="xs:string" minOccurs="0" maxOccurs="1" nillable="true"></xs:element>
+            <xs:element name="HoraSalida" type="xs:time" minOccurs="0" maxOccurs="1" nillable="true"></xs:element>
+            <xs:element name="Transbordo" type="TransbordoType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+            <xs:element name="HoraLlegada" type="xs:time" minOccurs="0" maxOccurs="1" nillable="true"></xs:element>
+            <xs:element name="Duracion" type="xs:time" minOccurs="0" maxOccurs="1" nillable="true"></xs:element>
+            <xs:element name="CodCivis" type="xs:string" minOccurs="0" maxOccurs="1" nillable="true"></xs:element>
+        </xs:sequence>
+    </xs:complexType>  
+
+    <xs:element name="PeticionHorarios">        
+        <xs:complexType>            
+            <xs:sequence>   
+	            <xs:element name="Error" type="xs:string" minOccurs="0" maxOccurs="1"></xs:element>                 
+                <xs:element name="Fecha" type="xs:dateTime"  minOccurs="0" maxOccurs="1"></xs:element>
+                <xs:element name="Validez" type="ValidezType" minOccurs="0" maxOccurs="1"></xs:element>
+                <xs:element name="Peticion" type="DatosPeticionType"  minOccurs="0" maxOccurs="1"></xs:element>
+                <xs:element name="Horarios" minOccurs="0" maxOccurs="1">
+					<xs:complexType>                        
+                        <xs:sequence>                            
+                            <xs:element name="Horario" minOccurs="1" maxOccurs="unbounded" type="HorarioType"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+</xs:schema>
