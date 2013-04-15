@@ -1,0 +1,852 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<PeticionHorarios xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="horarios.xsd">
+
+  <Fecha>2013-02-27T10:38:15</Fecha>
+  <Validez>
+    <Desde>2013-01-29</Desde>
+    <Hasta>2013-01-29</Hasta>
+  </Validez>
+  <Peticion>
+    <Origen>65300</Origen>
+    <Destino>64105</Destino>
+
+    <FechaViaje>2013-01-29</FechaViaje>
+
+
+    <Intervalo>
+
+      <Desde>13:00:00</Desde>
+
+      <Hasta>24:59:00</Hasta>
+
+    </Intervalo>
+
+  </Peticion>
+
+  <Horarios>
+
+    <Horario>
+
+      <Linea>C6  </Linea>
+
+
+      <CodCivis>
+      </CodCivis>
+
+
+      <HoraSalida>13:25:00</HoraSalida>
+
+
+
+      <Transbordo>
+
+        <Enlace>65000</Enlace>
+
+
+        <HoraLlegada>14:42:00</HoraLlegada>
+
+
+
+        <HoraSalida>14:53:00</HoraSalida>
+
+
+        <Linea>C2  </Linea>
+
+
+        <CodCivis>
+        </CodCivis>
+
+
+      </Transbordo>
+
+
+
+      <HoraLlegada>15:21:00</HoraLlegada>
+
+
+
+      <Duracion>01:56:00</Duracion>
+
+
+
+    </Horario>
+
+    <Horario>
+
+      <Linea>C6  </Linea>
+
+
+      <CodCivis>
+      </CodCivis>
+
+
+      <HoraSalida>13:50:00</HoraSalida>
+
+
+
+      <Transbordo>
+
+        <Enlace>65000</Enlace>
+
+
+        <HoraLlegada>14:54:00</HoraLlegada>
+
+
+
+        <HoraSalida>15:05:00</HoraSalida>
+
+
+        <Linea>C2  </Linea>
+
+
+        <CodCivis>VVV</CodCivis>
+
+
+      </Transbordo>
+
+
+
+      <HoraLlegada>15:30:00</HoraLlegada>
+
+
+
+      <Duracion>01:40:00</Duracion>
+
+
+
+    </Horario>
+
+    <Horario>
+
+      <Linea>C6  </Linea>
+
+
+      <CodCivis>VVV</CodCivis>
+
+
+      <HoraSalida>14:20:00</HoraSalida>
+
+
+
+      <Transbordo>
+
+        <Enlace>65000</Enlace>
+
+
+        <HoraLlegada>15:13:00</HoraLlegada>
+
+
+
+        <HoraSalida>15:23:00</HoraSalida>
+
+
+        <Linea>C2  </Linea>
+
+
+        <CodCivis>
+        </CodCivis>
+
+
+      </Transbordo>
+
+
+
+      <HoraLlegada>15:51:00</HoraLlegada>
+
+
+
+      <Duracion>01:31:00</Duracion>
+
+
+
+    </Horario>
+
+    <Horario>
+
+      <Linea>C6  </Linea>
+
+
+      <CodCivis>
+      </CodCivis>
+
+
+      <HoraSalida>14:30:00</HoraSalida>
+
+
+
+      <Transbordo>
+
+        <Enlace>65000</Enlace>
+
+
+        <HoraLlegada>15:41:00</HoraLlegada>
+
+
+
+        <HoraSalida>15:53:00</HoraSalida>
+
+
+        <Linea>C2  </Linea>
+
+
+        <CodCivis>
+        </CodCivis>
+
+
+      </Transbordo>
+
+
+
+      <HoraLlegada>16:21:00</HoraLlegada>
+
+
+
+      <Duracion>01:51:00</Duracion>
+
+
+
+    </Horario>
+
+    <Horario>
+
+      <Linea>C6  </Linea>
+
+
+      <CodCivis>VVV</CodCivis>
+
+
+      <HoraSalida>15:20:00</HoraSalida>
+
+
+
+      <Transbordo>
+
+        <Enlace>65000</Enlace>
+
+
+        <HoraLlegada>16:14:00</HoraLlegada>
+
+
+
+        <HoraSalida>16:23:00</HoraSalida>
+
+
+        <Linea>C2  </Linea>
+
+
+        <CodCivis>
+        </CodCivis>
+
+
+      </Transbordo>
+
+
+
+      <HoraLlegada>16:51:00</HoraLlegada>
+
+
+
+      <Duracion>01:31:00</Duracion>
+
+
+
+    </Horario>
+
+    <Horario>
+
+      <Linea>C6  </Linea>
+
+
+      <CodCivis>
+      </CodCivis>
+
+
+      <HoraSalida>15:35:00</HoraSalida>
+
+
+
+      <Transbordo>
+
+        <Enlace>65000</Enlace>
+
+
+        <HoraLlegada>16:44:00</HoraLlegada>
+
+
+
+        <HoraSalida>16:53:00</HoraSalida>
+
+
+        <Linea>C2  </Linea>
+
+
+        <CodCivis>
+        </CodCivis>
+
+
+      </Transbordo>
+
+
+
+      <HoraLlegada>17:21:00</HoraLlegada>
+
+
+
+      <Duracion>01:46:00</Duracion>
+
+
+
+    </Horario>
+
+    <Horario>
+
+      <Linea>C6  </Linea>
+
+
+      <CodCivis>
+      </CodCivis>
+
+
+      <HoraSalida>15:50:00</HoraSalida>
+
+
+
+      <Transbordo>
+
+        <Enlace>65000</Enlace>
+
+
+        <HoraLlegada>16:54:00</HoraLlegada>
+
+
+
+        <HoraSalida>17:23:00</HoraSalida>
+
+
+        <Linea>C2  </Linea>
+
+
+        <CodCivis>
+        </CodCivis>
+
+
+      </Transbordo>
+
+
+
+      <HoraLlegada>17:51:00</HoraLlegada>
+
+
+
+      <Duracion>02:01:00</Duracion>
+
+
+
+    </Horario>
+
+    <Horario>
+
+      <Linea>C6  </Linea>
+
+
+      <CodCivis>
+      </CodCivis>
+
+
+      <HoraSalida>16:20:00</HoraSalida>
+
+
+
+      <Transbordo>
+
+        <Enlace>65000</Enlace>
+
+
+        <HoraLlegada>17:32:00</HoraLlegada>
+
+
+
+        <HoraSalida>17:53:00</HoraSalida>
+
+
+        <Linea>C2  </Linea>
+
+
+        <CodCivis>
+        </CodCivis>
+
+
+      </Transbordo>
+
+
+
+      <HoraLlegada>18:21:00</HoraLlegada>
+
+
+
+      <Duracion>02:01:00</Duracion>
+
+
+
+    </Horario>
+
+    <Horario>
+
+      <Linea>C6  </Linea>
+
+
+      <CodCivis>
+      </CodCivis>
+
+
+      <HoraSalida>16:50:00</HoraSalida>
+
+
+
+      <Transbordo>
+
+        <Enlace>65000</Enlace>
+
+
+        <HoraLlegada>17:55:00</HoraLlegada>
+
+
+
+        <HoraSalida>18:08:00</HoraSalida>
+
+
+        <Linea>C2  </Linea>
+
+
+        <CodCivis>VVV</CodCivis>
+
+
+      </Transbordo>
+
+
+
+      <HoraLlegada>18:33:00</HoraLlegada>
+
+
+
+      <Duracion>01:43:00</Duracion>
+
+
+
+    </Horario>
+
+    <Horario>
+
+      <Linea>C6  </Linea>
+
+
+      <CodCivis>
+      </CodCivis>
+
+
+      <HoraSalida>17:20:00</HoraSalida>
+
+
+
+      <Transbordo>
+
+        <Enlace>65000</Enlace>
+
+
+        <HoraLlegada>18:38:00</HoraLlegada>
+
+
+
+        <HoraSalida>18:53:00</HoraSalida>
+
+
+        <Linea>C2  </Linea>
+
+
+        <CodCivis>
+        </CodCivis>
+
+
+      </Transbordo>
+
+
+
+      <HoraLlegada>19:21:00</HoraLlegada>
+
+
+
+      <Duracion>02:01:00</Duracion>
+
+
+
+    </Horario>
+
+    <Horario>
+
+      <Linea>C6  </Linea>
+
+
+      <CodCivis>VVV</CodCivis>
+
+
+      <HoraSalida>18:20:00</HoraSalida>
+
+
+
+      <Transbordo>
+
+        <Enlace>65000</Enlace>
+
+
+        <HoraLlegada>19:12:00</HoraLlegada>
+
+
+
+        <HoraSalida>19:23:00</HoraSalida>
+
+
+        <Linea>C2  </Linea>
+
+
+        <CodCivis>
+        </CodCivis>
+
+
+      </Transbordo>
+
+
+
+      <HoraLlegada>19:51:00</HoraLlegada>
+
+
+
+      <Duracion>01:31:00</Duracion>
+
+
+
+    </Horario>
+
+    <Horario>
+
+      <Linea>C6  </Linea>
+
+
+      <CodCivis>
+      </CodCivis>
+
+
+      <HoraSalida>18:25:00</HoraSalida>
+
+
+
+      <Transbordo>
+
+        <Enlace>65000</Enlace>
+
+
+        <HoraLlegada>19:34:00</HoraLlegada>
+
+
+
+        <HoraSalida>19:38:00</HoraSalida>
+
+
+        <Linea>C2  </Linea>
+
+
+        <CodCivis>VVV</CodCivis>
+
+
+      </Transbordo>
+
+
+
+      <HoraLlegada>20:03:00</HoraLlegada>
+
+
+
+      <Duracion>01:38:00</Duracion>
+
+
+
+    </Horario>
+
+    <Horario>
+
+      <Linea>C6  </Linea>
+
+
+      <CodCivis>
+      </CodCivis>
+
+
+      <HoraSalida>18:50:00</HoraSalida>
+
+
+
+      <Transbordo>
+
+        <Enlace>65000</Enlace>
+
+
+        <HoraLlegada>19:54:00</HoraLlegada>
+
+
+
+        <HoraSalida>20:08:00</HoraSalida>
+
+
+        <Linea>C2  </Linea>
+
+
+        <CodCivis>
+        </CodCivis>
+
+
+      </Transbordo>
+
+
+
+      <HoraLlegada>20:36:00</HoraLlegada>
+
+
+
+      <Duracion>01:46:00</Duracion>
+
+
+
+    </Horario>
+
+    <Horario>
+
+      <Linea>C6  </Linea>
+
+
+      <CodCivis>VVV</CodCivis>
+
+
+      <HoraSalida>19:15:00</HoraSalida>
+
+
+
+      <Transbordo>
+
+        <Enlace>65000</Enlace>
+
+
+        <HoraLlegada>20:07:00</HoraLlegada>
+
+
+
+        <HoraSalida>20:23:00</HoraSalida>
+
+
+        <Linea>C2  </Linea>
+
+
+        <CodCivis>
+        </CodCivis>
+
+
+      </Transbordo>
+
+
+
+      <HoraLlegada>20:51:00</HoraLlegada>
+
+
+
+      <Duracion>01:36:00</Duracion>
+
+
+
+    </Horario>
+
+    <Horario>
+
+      <Linea>C6  </Linea>
+
+
+      <CodCivis>
+      </CodCivis>
+
+
+      <HoraSalida>19:20:00</HoraSalida>
+
+
+
+      <Transbordo>
+
+        <Enlace>65000</Enlace>
+
+
+        <HoraLlegada>20:34:00</HoraLlegada>
+
+
+
+        <HoraSalida>20:38:00</HoraSalida>
+
+
+        <Linea>C2  </Linea>
+
+
+        <CodCivis>VVV</CodCivis>
+
+
+      </Transbordo>
+
+
+
+      <HoraLlegada>21:04:00</HoraLlegada>
+
+
+
+      <Duracion>01:44:00</Duracion>
+
+
+
+    </Horario>
+
+    <Horario>
+
+      <Linea>C6  </Linea>
+
+
+      <CodCivis>
+      </CodCivis>
+
+
+      <HoraSalida>19:50:00</HoraSalida>
+
+
+
+      <Transbordo>
+
+        <Enlace>65000</Enlace>
+
+
+        <HoraLlegada>21:01:00</HoraLlegada>
+
+
+
+        <HoraSalida>21:08:00</HoraSalida>
+
+
+        <Linea>C2  </Linea>
+
+
+        <CodCivis>
+        </CodCivis>
+
+
+      </Transbordo>
+
+
+
+      <HoraLlegada>21:36:00</HoraLlegada>
+
+
+
+      <Duracion>01:46:00</Duracion>
+
+
+
+    </Horario>
+
+    <Horario>
+
+      <Linea>C6  </Linea>
+
+
+      <CodCivis>
+      </CodCivis>
+
+
+      <HoraSalida>20:20:00</HoraSalida>
+
+
+
+      <Transbordo>
+
+        <Enlace>65000</Enlace>
+
+
+        <HoraLlegada>21:17:00</HoraLlegada>
+
+
+
+        <HoraSalida>21:23:00</HoraSalida>
+
+
+        <Linea>C2  </Linea>
+
+
+        <CodCivis>
+        </CodCivis>
+
+
+      </Transbordo>
+
+
+
+      <HoraLlegada>21:51:00</HoraLlegada>
+
+
+
+      <Duracion>01:31:00</Duracion>
+
+
+
+    </Horario>
+
+    <Horario>
+
+      <Linea>C6  </Linea>
+
+
+      <CodCivis>
+      </CodCivis>
+
+
+      <HoraSalida>20:50:00</HoraSalida>
+
+
+
+      <Transbordo>
+
+        <Enlace>65000</Enlace>
+
+
+        <HoraLlegada>21:59:00</HoraLlegada>
+
+
+
+        <HoraSalida>22:33:00</HoraSalida>
+
+
+        <Linea>C2  </Linea>
+
+
+        <CodCivis>
+        </CodCivis>
+
+
+      </Transbordo>
+
+
+
+      <HoraLlegada>23:01:00</HoraLlegada>
+
+
+
+      <Duracion>02:11:00</Duracion>
+
+
+
+    </Horario>
+
+  </Horarios>
+
+
+</PeticionHorarios>		     
