@@ -1,0 +1,996 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Estaciones>
+  <Estacion>
+    <Codigo>65005</Codigo>
+    <Descripcion>Albuixech</Descripcion>
+    <Lon>-0.3205777777777777</Lon>
+    <Lat>39.5433</Lat>
+	<Zona>2</Zona>
+    <Servicios>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66211</Codigo>
+    <Descripcion>Aldaia</Descripcion>
+    <Lon>-0.4632388888888889</Lon>
+    <Lat>39.46104444444445</Lat>
+	<Zona>2</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos, Autobuses Urbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64203</Codigo>
+    <Descripcion>Alfafar-Benetússer</Descripcion>
+    <Lon>-0.3926</Lon>
+    <Lat>39.42232777777777</Lat>
+	<Zona>1</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64105</Codigo>
+    <Descripcion>Algemesí</Descripcion>
+    <Lon>-0.4409083333333334</Lon>
+    <Lat>39.19311111111111</Lat>
+	<Zona>3</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>67216</Codigo>
+    <Descripcion>Algimia</Descripcion>
+    <Lon>-0.3673135509063314</Lon>
+    <Lat>39.74606388712931</Lat>
+	<Zona>5</Zona>
+    <Servicios>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65209</Codigo>
+    <Descripcion>Almassora</Descripcion>
+    <Lon>-0.07677222222222223</Lon>
+    <Lat>39.95484444444445</Lat>
+	<Zona>6</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos, Autobuses Urbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65202</Codigo>
+    <Descripcion>Almenara</Descripcion>
+    <Lon>-0.2183805555555556</Lon>
+    <Lat>39.74875555555556</Lat>
+	<Zona>4</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64104</Codigo>
+    <Descripcion>Alzira</Descripcion>
+    <Lon>-0.4506000000000001</Lon>
+    <Lat>39.15311944444444</Lat>
+	<Zona>4</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64107</Codigo>
+    <Descripcion>Benifaió-Almussafes</Descripcion>
+    <Lon>-0.4299500000000001</Lon>
+    <Lat>39.28421944444445</Lat>
+	<Zona>2</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66206</Codigo>
+    <Descripcion>Buñol</Descripcion>
+    <Lon>-0.7868888888888889</Lon>
+    <Lat>39.427175</Lat>
+	<Zona>4</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos, Autobuses Urbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65207</Codigo>
+    <Descripcion>Burriana-Alquerías del Niño Perdido</Descripcion>
+    <Lon>-0.1038666285607393</Lon>
+    <Lat>39.89642877274136</Lat>
+	<Zona>6</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos, Autobuses Urbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64103</Codigo>
+    <Descripcion>Carcaixent</Descripcion>
+    <Lon>-0.4543833333333333</Lon>
+    <Lat>39.12046944444445</Lat>
+	<Zona>4</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65300</Codigo>
+    <Descripcion>Castelló</Descripcion>
+    <Lon>-0.05241266033350201</Lon>
+    <Lat>39.98825525444281</Lat>
+	<Zona>6</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos, Autobuses Urbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64201</Codigo>
+    <Descripcion>Catarroja</Descripcion>
+    <Lon>-0.3991916666666668</Lon>
+    <Lat>39.39996111111111</Lat>
+	<Zona>1</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>67211</Codigo>
+    <Descripcion>Caudiel</Descripcion>
+    <Lon>-0.5720277777777778</Lon>
+    <Lat>39.94731666666667</Lat>
+	<Zona>6</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66208</Codigo>
+    <Descripcion>Cheste</Descripcion>
+    <Lon>-0.6862916666666666</Lon>
+    <Lat>39.49082222222222</Lat>
+	<Zona>3</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66207</Codigo>
+    <Descripcion>Chiva</Descripcion>
+    <Lon>-0.7228888888888889</Lon>
+    <Lat>39.47104444444445</Lat>
+	<Zona>4</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos, Autobuses Urbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66210</Codigo>
+    <Descripcion>Circuit R.Tormo</Descripcion>
+    <Lon>-0.6255277777777778</Lon>
+    <Lat>39.49555277777778</Lat>
+	<Zona>3</Zona>
+    <Servicios>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>69104</Codigo>
+    <Descripcion>Cullera</Descripcion>
+    <Lon>-0.2632361111111111</Lon>
+    <Lat>39.17783055555555</Lat>
+	<Zona>4</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos, Autobuses Urbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65007</Codigo>
+    <Descripcion>El Puig</Descripcion>
+    <Lon>-0.3116472222222222</Lon>
+    <Lat>39.58821111111111</Lat>
+	<Zona>3</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66203</Codigo>
+    <Descripcion>El Rebollar</Descripcion>
+    <Lon>-1.011597222222222</Lon>
+    <Lat>39.47726111111111</Lat>
+	<Zona>6</Zona>
+    <Servicios>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>69101</Codigo>
+    <Descripcion>El Romaní</Descripcion>
+    <Lon>-0.3941055555555556</Lon>
+    <Lat>39.30297777777778</Lat>
+	<Zona>2</Zona>
+    <Servicios>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>67221</Codigo>
+    <Descripcion>Estivella-Albalat dels Tarongers</Descripcion>
+    <Lon>-0.3483269237096351</Lon>
+    <Lat>39.70637537997617</Lat>
+	<Zona>4</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>69110</Codigo>
+    <Descripcion>Gandia</Descripcion>
+    <Lon>-0.1797722222222222</Lon>
+    <Lat>38.97028055555555</Lat>
+	<Zona>6</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos, Autobuses Urbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>67223</Codigo>
+    <Descripcion>Gilet</Descripcion>
+    <Lon>-0.3206055555555555</Lon>
+    <Lat>39.67928611111111</Lat>
+	<Zona>4</Zona>
+    <Servicios>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>67212</Codigo>
+    <Descripcion>Jérica-Viver</Descripcion>
+    <Lon>-0.5689031888718432</Lon>
+    <Lat>39.91463097261916</Lat>
+	<Zona>6</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64006</Codigo>
+    <Descripcion>L'Alcúdia de Crespins</Descripcion>
+    <Lon>-0.5864111111111111</Lon>
+    <Lat>38.96906388888889</Lat>
+	<Zona>6</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64007</Codigo>
+    <Descripcion>L'Ènova-Manuel</Descripcion>
+    <Lon>-0.4915666666666667</Lon>
+    <Lat>39.04636666666666</Lat>
+	<Zona>5</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65203</Codigo>
+    <Descripcion>La Llosa</Descripcion>
+    <Lon>-0.2030695125343496</Lon>
+    <Lat>39.76801183178434</Lat>
+	<Zona>4</Zona>
+    <Servicios>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64102</Codigo>
+    <Descripcion>La Pobla Llarga</Descripcion>
+    <Lon>-0.4697027777777778</Lon>
+    <Lat>39.083475</Lat>
+	<Zona>4</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65201</Codigo>
+    <Descripcion>Les Valls</Descripcion>
+    <Lon>-0.2397542162367017</Lon>
+    <Lat>39.71928015146688</Lat>
+	<Zona>4</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66209</Codigo>
+    <Descripcion>Loriguilla-Reva</Descripcion>
+    <Lon>-0.5673694444444445</Lon>
+    <Lat>39.48570277777778</Lat>
+	<Zona>2</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65006</Codigo>
+    <Descripcion>Massalfassar</Descripcion>
+    <Lon>-0.3182861111111111</Lon>
+    <Lat>39.55563333333333</Lat>
+	<Zona>2</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64202</Codigo>
+    <Descripcion>Massanassa</Descripcion>
+    <Lon>-0.3953194444444446</Lon>
+    <Lat>39.40916388888889</Lat>
+	<Zona>1</Zona>
+    <Servicios>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64003</Codigo>
+    <Descripcion>Moixent</Descripcion>
+    <Lon>-0.7536722222222222</Lon>
+    <Lat>38.87761388888889</Lat>
+	<Zona>6</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65205</Codigo>
+    <Descripcion>Moncofa</Descripcion>
+    <Lon>-0.1626861111111111</Lon>
+    <Lat>39.82086388888889</Lat>
+	<Zona>5</Zona>
+    <Servicios>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64005</Codigo>
+    <Descripcion>Montesa</Descripcion>
+    <Lon>-0.6411055555555555</Lon>
+    <Lat>38.94284444444444</Lat>
+	<Zona>6</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>67213</Codigo>
+    <Descripcion>Navajas</Descripcion>
+    <Lon>-0.5060235203724659</Lon>
+    <Lat>39.87402710090095</Lat>
+	<Zona>6</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65206</Codigo>
+    <Descripcion>Nules-La Vilavella</Descripcion>
+    <Lon>-0.1527555555555556</Lon>
+    <Lat>39.85312222222223</Lat>
+	<Zona>5</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos, Autobuses Urbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>69111</Codigo>
+    <Descripcion>Platja i Grau de Gandia</Descripcion>
+    <Lon>-0.1611829525598836</Lon>
+    <Lat>38.99133197276332</Lat>
+	<Zona>6</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos, Autobuses Urbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65008</Codigo>
+    <Descripcion>Puçol</Descripcion>
+    <Lon>-0.3048578462713414</Lon>
+    <Lat>39.61719034213801</Lat>
+	<Zona>3</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos, Autobuses Urbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66202</Codigo>
+    <Descripcion>Requena</Descripcion>
+    <Lon>-1.104675</Lon>
+    <Lat>39.4912</Lat>
+	<Zona>6</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos, Autobuses Urbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65001</Codigo>
+    <Descripcion>Roca-Cúper</Descripcion>
+    <Lon>-0.3237777777777778</Lon>
+    <Lat>39.52612777777777</Lat>
+	<Zona>2</Zona>
+    <Servicios>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65200</Codigo>
+    <Descripcion>Sagunt</Descripcion>
+    <Lon>-0.2715972222222222</Lon>
+    <Lat>39.67566111111111</Lat>
+	<Zona>4</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos, Autobuses Urbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66201</Codigo>
+    <Descripcion>San Antonio de Requena</Descripcion>
+    <Lon>-1.150352777777778</Lon>
+    <Lat>39.52224444444445</Lat>
+	<Zona>6</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>67214</Codigo>
+    <Descripcion>Segorbe-Arrabal</Descripcion>
+    <Lon>-0.4932694444444445</Lon>
+    <Lat>39.85445</Lat>
+	<Zona>6</Zona>
+    <Servicios>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>67215</Codigo>
+    <Descripcion>Segorbe-Ciudad</Descripcion>
+    <Lon>-0.4824138888888889</Lon>
+    <Lat>39.84695833333333</Lat>
+	<Zona>6</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66204</Codigo>
+    <Descripcion>Siete Aguas</Descripcion>
+    <Lon>-0.9030444444444444</Lon>
+    <Lat>39.45686388888889</Lat>
+	<Zona>5</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64200</Codigo>
+    <Descripcion>Silla</Descripcion>
+    <Lon>-0.4149472222222224</Lon>
+    <Lat>39.36173888888889</Lat>
+	<Zona>1</Zona>
+    <Servicios>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>69102</Codigo>
+    <Descripcion>Sollana</Descripcion>
+    <Lon>-0.3793138888888888</Lon>
+    <Lat>39.27930833333333</Lat>
+	<Zona>3</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>67217</Codigo>
+    <Descripcion>Soneja</Descripcion>
+    <Lon>-0.4318972222222224</Lon>
+    <Lat>39.81255</Lat>
+	<Zona>5</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>69103</Codigo>
+    <Descripcion>Sueca</Descripcion>
+    <Lon>-0.307825</Lon>
+    <Lat>39.20556111111112</Lat>
+	<Zona>4</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos, Autobuses Urbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>69105</Codigo>
+    <Descripcion>Tavernes de la Valldigna</Descripcion>
+    <Lon>-0.2262833333333334</Lon>
+    <Lat>39.07900277777778</Lat>
+	<Zona>5</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos, Autobuses Urbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66200</Codigo>
+    <Descripcion>Utiel</Descripcion>
+    <Lon>-1.2036330482</Lon>
+    <Lat>39.5717140209</Lat>
+	<Zona>6</Zona>
+    <Servicios>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65003</Codigo>
+    <Descripcion>València-Cabanyal</Descripcion>
+    <Lon>-0.3345694444444444</Lon>
+    <Lat>39.46895277777778</Lat>
+	<Zona>2</Zona>
+    <Servicios>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Urbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65002</Codigo>
+    <Descripcion>València-F.S.L.</Descripcion>
+    <Lon>-0.3698944444444444</Lon>
+    <Lat>39.44146666666666</Lat>
+	<Zona>1</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66212</Codigo>
+    <Descripcion>València-Sant Isidre</Descripcion>
+    <Lon>-0.4058694444444444</Lon>
+    <Lat>39.45268333333333</Lat>
+	<Zona>1</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>metro_valencia.png</Icono>
+        <Descripcion>L1 y L5 de Metro</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Urbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65000</Codigo>
+    <Descripcion>València Nord</Descripcion>
+    <Lon>-0.3771842973461059</Lon>
+    <Lat>39.46693463866386</Lat>
+	<Zona>1</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>metro_valencia.png</Icono>
+        <Descripcion>L1 de Metro</Descripcion>
+      </Servicio>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos, Autobuses Urbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64004</Codigo>
+    <Descripcion>Vallada</Descripcion>
+    <Lon>-0.6902666666666667</Lon>
+    <Lat>38.90881666666667</Lat>
+	<Zona>6</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos, Autobuses Urbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66205</Codigo>
+    <Descripcion>Venta Mina</Descripcion>
+    <Lon>-0.8701861111111111</Lon>
+    <Lat>39.45428611111112</Lat>
+	<Zona>5</Zona>
+    <Servicios>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65208</Codigo>
+    <Descripcion>Vila-real</Descripcion>
+    <Lon>-0.09677222222222222</Lon>
+    <Lat>39.93302222222222</Lat>
+	<Zona>6</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Urbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64100</Codigo>
+    <Descripcion>Xàtiva</Descripcion>
+    <Lon>-0.5244888888888889</Lon>
+    <Lat>38.99209722222222</Lat>
+	<Zona>5</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos, Autobuses Urbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>69107</Codigo>
+    <Descripcion>Xeraco</Descripcion>
+    <Lon>-0.2146694444444444</Lon>
+    <Lat>39.02626944444445</Lat>
+	<Zona>5</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65204</Codigo>
+    <Descripcion>Xilxes</Descripcion>
+    <Lon>-0.1903333333333333</Lon>
+    <Lat>39.78259444444444</Lat>
+	<Zona>5</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66214</Codigo>
+    <Descripcion>Xirivella-Alqueríes</Descripcion>
+    <Lon>-0.4321861111111111</Lon>
+    <Lat>39.46255277777778</Lat>
+	<Zona>1</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+	  <Servicio>
+	    <Icono>autobus.png</Icono>
+        <Descripcion>Autobuses Interurbanos</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+  <Estacion>
+    <Codigo>69200</Codigo>
+    <Descripcion>Xirivella-L'Alter</Descripcion>
+    <Lon>-0.4209361111111111</Lon>
+    <Lat>39.46364722222223</Lat>
+	<Zona>1</Zona>
+    <Servicios>
+      <Servicio>
+        <Icono>parking.png</Icono>
+        <Descripcion>Parking</Descripcion>
+      </Servicio>
+    </Servicios>
+  </Estacion>
+
+</Estaciones>

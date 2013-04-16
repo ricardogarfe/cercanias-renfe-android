@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<app>
+	<date><![CDATA[20130308000100]]></date>
+	<alert>
+        	<activeAlert><![CDATA[0]]></activeAlert>
+        	<appVersion><![CDATA[1]]></appVersion>
+                <messageAlert><![CDATA[Alert text ES hello!]]></messageAlert>
+                <activeButtonContinue><![CDATA[0]]></activeButtonContinue>
+                <activeButtonUpdate><![CDATA[0]]></activeButtonUpdate>
+		<urlUpdate><![CDATA[market://details?id=com.mo2o.renfe]]></urlUpdate>
+	</alert>
+	<proxy>
+		<active><![CDATA[0]]></active>
+		<url><![CDATA[http://api.mo2o.com/apps/RenfeApp/proxy.php]]></url>
+	</proxy>
+	<splashScreen>
+		<active><![CDATA[0]]></active>
+		<image><![CDATA[http://api.mo2o.com/apps/RenfeApp/images/interstitial.jpg]]></image>
+		<timeToShow><![CDATA[5]]></timeToShow>
+		<url><![CDATA[http://m.samsung.com/es]]></url>			
+	</splashScreen>
+	<transcoder><![CDATA[http://api.mo2o.com/apps/RenfeApp/imagetrascoder.php?inputImage=__URL_IMAGE__&outputWidth=__WIDTH__&cache=true]]></transcoder>
+	<version>
+		<numberVersion><![CDATA[1.07]]></numberVersion>
+		<descriptionVersion><![CDATA[NUEVA VERSION v1.07!!!]]></descriptionVersion>
+		<urlDownloadVersion><![CDATA[http://api.mo2o.com/apps/RenfeApp/apk/Renfe_v1.07.apk]]></urlDownloadVersion>
+	</version>
+	<contents>
+		<ratio>5</ratio> <!-- ration seach 5km default -->
+		<config_nucleos>
+			<dateTimeUpdate><![CDATA[20120725011500]]></dateTimeUpdate>
+			<file><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/nucleos_cercanias.xml.gz]]></file>
+		</config_nucleos>
+		<config_tarifas>
+			<dateTimeUpdate><![CDATA[20130307000100]]></dateTimeUpdate>
+			<file><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/maestra_tarifas.xml.gz]]></file>
+		</config_tarifas>
+		<nucleos>
+			<nucleo>	
+				<id><![CDATA[10]]></id>
+				<name><![CDATA[MADRID]]></name>
+				<dateTimeUpdate><![CDATA[20130101113000]]></dateTimeUpdate>
+				<estaciones><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/estaciones_10.xml.gz]]></estaciones>
+				<lineas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/lineas_10.xml.gz]]></lineas>
+				<mapaesquematico><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/mapaesquematico_10.xml.gz]]></mapaesquematico>
+				<!--<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/esquematico_10.jpg.gz]]></mapaesquematicoimg>-->
+				<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/redirect.php?file=esquematico_10.jpg.gz]]></mapaesquematicoimg>
+				<tarifas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/matriz_10.xml.gz]]></tarifas>
+			</nucleo>
+
+			<nucleo>
+				<id><![CDATA[20]]></id>
+				<name><![CDATA[ASTURIAS]]></name>
+				<dateTimeUpdate><![CDATA[20120904131100]]></dateTimeUpdate>
+				<estaciones><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/estaciones_20.xml.gz]]></estaciones>
+				<lineas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/lineas_20.xml.gz]]></lineas>
+				<mapaesquematico><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/mapaesquematico_20.xml.gz]]></mapaesquematico>
+				<!--<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/esquematico_20.jpg.gz]]></mapaesquematicoimg>-->
+				<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/redirect.php?file=esquematico_20.jpg.gz]]></mapaesquematicoimg>
+				<tarifas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/matriz_20.xml.gz]]></tarifas>
+			</nucleo>
+
+			<nucleo>
+				<id><![CDATA[30]]></id>
+				<name><![CDATA[SEVILLA]]></name>
+				<dateTimeUpdate><![CDATA[20130101113000]]></dateTimeUpdate>
+				<estaciones><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/estaciones_30.xml.gz]]></estaciones>
+				<lineas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/lineas_30.xml.gz]]></lineas>
+				<mapaesquematico><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/mapaesquematico_30.xml.gz]]></mapaesquematico>
+				<!--<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/esquematico_30.jpg.gz]]></mapaesquematicoimg>-->
+				<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/redirect.php?file=esquematico_30.jpg.gz]]></mapaesquematicoimg>
+				<tarifas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/matriz_30.xml.gz]]></tarifas>
+			</nucleo>
+
+			<nucleo>
+				<id><![CDATA[31]]></id>
+				<name><![CDATA[CADIZ]]></name>
+				<dateTimeUpdate><![CDATA[20120904131100]]></dateTimeUpdate>
+				<estaciones><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/estaciones_31.xml.gz]]></estaciones>
+				<lineas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/lineas_31.xml.gz]]></lineas>
+				<mapaesquematico><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/mapaesquematico_31.xml.gz]]></mapaesquematico>
+				<!--<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/esquematico_31.jpg.gz]]></mapaesquematicoimg>-->
+				<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/redirect.php?file=esquematico_31.jpg.gz]]></mapaesquematicoimg>
+				<tarifas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/matriz_31.xml.gz]]></tarifas>
+			</nucleo>
+			<nucleo>
+				<id><![CDATA[32]]></id>
+				<name><![CDATA[MALAGA]]></name>
+				<dateTimeUpdate><![CDATA[20120904131100]]></dateTimeUpdate>
+				<estaciones><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/estaciones_32.xml.gz]]></estaciones>
+				<lineas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/lineas_32.xml.gz]]></lineas>
+				<mapaesquematico><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/mapaesquematico_32.xml.gz]]></mapaesquematico>
+				<!--<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/esquematico_32.jpg.gz]]></mapaesquematicoimg>-->
+				<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/redirect.php?file=esquematico_32.jpg.gz]]></mapaesquematicoimg>
+				<tarifas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/matriz_32.xml.gz]]></tarifas>
+			</nucleo>
+				
+			<nucleo>
+				<id><![CDATA[40]]></id>
+				<name><![CDATA[VALENCIA]]></name>
+				<dateTimeUpdate><![CDATA[20120904131100]]></dateTimeUpdate>
+				<estaciones><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/estaciones_40.xml.gz]]></estaciones>
+				<lineas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/lineas_40.xml.gz]]></lineas>
+				<mapaesquematico><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/mapaesquematico_40.xml.gz]]></mapaesquematico>
+				<!--<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/esquematico_40.jpg.gz]]></mapaesquematicoimg>-->
+				<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/redirect.php?file=esquematico_40.jpg.gz]]></mapaesquematicoimg>
+				<tarifas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/matriz_40.xml.gz]]></tarifas>
+			</nucleo>
+
+			<nucleo>
+				<id><![CDATA[41]]></id>
+				<name><![CDATA[MURCIA/ALICANTE]]></name>
+				<dateTimeUpdate><![CDATA[20120904131100]]></dateTimeUpdate>
+				<estaciones><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/estaciones_41.xml.gz]]></estaciones>
+				<lineas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/lineas_41.xml.gz]]></lineas>
+				<mapaesquematico><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/mapaesquematico_41.xml.gz]]></mapaesquematico>
+				<!--<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/esquematico_41.jpg.gz]]></mapaesquematicoimg>-->
+				<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/redirect.php?file=esquematico_41.jpg.gz]]></mapaesquematicoimg>
+				<tarifas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/matriz_41.xml.gz]]></tarifas>
+			</nucleo>
+
+			<nucleo>
+				<id><![CDATA[50]]></id>
+				<name><![CDATA[BARCELONA]]></name>
+				<dateTimeUpdate><![CDATA[20120904131100]]></dateTimeUpdate>
+				<estaciones><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/estaciones_50.xml.gz]]></estaciones>
+				<lineas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/lineas_50.xml.gz]]></lineas>
+				<mapaesquematico><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/mapaesquematico_50.xml.gz]]></mapaesquematico>
+				<!--<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/esquematico_50.jpg.gz]]></mapaesquematicoimg>-->
+				<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/redirect.php?file=esquematico_50.jpg.gz]]></mapaesquematicoimg>
+				<tarifas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/matriz_50.xml.gz]]></tarifas>
+			</nucleo>
+
+			<nucleo>
+				<id><![CDATA[60]]></id>
+				<name><![CDATA[BILBAO]]></name>
+				<dateTimeUpdate><![CDATA[20130308000100]]></dateTimeUpdate>
+				<estaciones><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/estaciones_60.xml.gz]]></estaciones>
+				<lineas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/lineas_60.xml.gz]]></lineas>
+				<mapaesquematico><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/mapaesquematico_60.xml.gz]]></mapaesquematico>
+				<!--<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/esquematico_60.jpg.gz]]></mapaesquematicoimg>-->
+				<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/redirect.php?file=esquematico_60.jpg.gz]]></mapaesquematicoimg>
+				<tarifas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/matriz_60.xml.gz]]></tarifas>
+			</nucleo>
+
+			<nucleo>
+				<id><![CDATA[61]]></id>
+				<name><![CDATA[SAN SEBASTIAN]]></name>
+				<dateTimeUpdate><![CDATA[20120904131100]]></dateTimeUpdate>
+				<estaciones><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/estaciones_61.xml.gz]]></estaciones>
+				<lineas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/lineas_61.xml.gz]]></lineas>
+				<mapaesquematico><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/mapaesquematico_61.xml.gz]]></mapaesquematico>
+				<!--<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/esquematico_61.jpg.gz]]></mapaesquematicoimg>-->
+				<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/redirect.php?file=esquematico_61.jpg.gz]]></mapaesquematicoimg>
+				<tarifas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/matriz_61.xml.gz]]></tarifas>
+			</nucleo>
+
+			<nucleo>
+				<id><![CDATA[62]]></id>
+				<name><![CDATA[SANTANDER]]></name>
+				<dateTimeUpdate><![CDATA[20120904131100]]></dateTimeUpdate>
+				<estaciones><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/estaciones_62.xml.gz]]></estaciones>
+				<lineas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/lineas_62.xml.gz]]></lineas>
+				<mapaesquematico><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/mapaesquematico_62.xml.gz]]></mapaesquematico>
+				<!--<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/esquematico_62.jpg.gz]]></mapaesquematicoimg>-->
+				<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/redirect.php?file=esquematico_62.jpg.gz]]></mapaesquematicoimg>
+				<tarifas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/matriz_62.xml.gz]]></tarifas>
+			</nucleo>
+
+			<nucleo>
+				<id><![CDATA[70]]></id>
+				<name><![CDATA[ZARAGOZA]]></name>
+				<dateTimeUpdate><![CDATA[20130101113000]]></dateTimeUpdate>
+				<estaciones><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/estaciones_70.xml.gz]]></estaciones>
+				<lineas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/lineas_70.xml.gz]]></lineas>
+				<mapaesquematico><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/mapaesquematico_70.xml.gz]]></mapaesquematico>
+				<!--<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/esquematico_70.jpg.gz]]></mapaesquematicoimg>-->
+				<mapaesquematicoimg><![CDATA[http://api.mo2o.com/apps/RenfeApp/redirect.php?file=esquematico_70.jpg.gz]]></mapaesquematicoimg>
+				<tarifas><![CDATA[http://api.mo2o.com/apps/RenfeApp/contents/matriz_70.xml.gz]]></tarifas>
+			</nucleo>
+		</nucleos>
+		<incidencias>http://api.mo2o.com/apps/RenfeApp/incidencias/incidenciasXML.xml</incidencias>
+	</contents>	
+</app>

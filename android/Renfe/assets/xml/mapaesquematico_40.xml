@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="UTF-8"?> 
+
+<Estaciones>
+  <Estacion>
+    <Codigo>65005</Codigo>
+    <Descripcion>Albuixech</Descripcion>
+    <X>692</X>
+    <Y>492</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66211</Codigo>
+    <Descripcion>Aldaia</Descripcion>
+    <X>527</X>
+    <Y>606</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64203</Codigo>
+    <Descripcion>Alfafar-Benetússer</Descripcion>
+    <X>692</X>
+    <Y>634</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64105</Codigo>
+    <Descripcion>Algemesí</Descripcion>
+    <X>636</X>
+    <Y>758</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>67216</Codigo>
+    <Descripcion>Algimia</Descripcion>
+    <X>587</X>
+    <Y>277</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65209</Codigo>
+    <Descripcion>Almassora</Descripcion>
+    <X>786</X>
+    <Y>147</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65202</Codigo>
+    <Descripcion>Almenara</Descripcion>
+    <X>692</X>
+    <Y>315</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64104</Codigo>
+    <Descripcion>Alzira</Descripcion>
+    <X>615</X>
+    <Y>777</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64107</Codigo>
+    <Descripcion>Benifaió-Almussafes</Descripcion>
+    <X>657</X>
+    <Y>738</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66206</Codigo>
+    <Descripcion>Buñol</Descripcion>
+    <X>380</X>
+    <Y>606</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65207</Codigo>
+    <Descripcion>Burriana-Alquerías del Niño Perdido</Descripcion>
+    <X>747</X>
+    <Y>183</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64103</Codigo>
+    <Descripcion>Carcaixent</Descripcion>
+    <X>596</X>
+    <Y>795</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65300</Codigo>
+    <Descripcion>Castelló</Descripcion>
+    <X>807</X>
+    <Y>93</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64201</Codigo>
+    <Descripcion>Catarroja</Descripcion>
+    <X>692</X>
+    <Y>688</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>67211</Codigo>
+    <Descripcion>Caudiel</Descripcion>
+    <X>447</X>
+    <Y>104</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66208</Codigo>
+    <Descripcion>Cheste</Descripcion>
+    <X>436</X>
+    <Y>606</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66207</Codigo>
+    <Descripcion>Chiva</Descripcion>
+    <X>409</X>
+    <Y>606</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66210</Codigo>
+    <Descripcion>Circuit R.Tormo</Descripcion>
+    <X>465</X>
+    <Y>606</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>69104</Codigo>
+    <Descripcion>Cullera</Descripcion>
+    <X>692</X>
+    <Y>825</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65007</Codigo>
+    <Descripcion>El Puig</Descripcion>
+    <X>692</X>
+    <Y>436</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66203</Codigo>
+    <Descripcion>El Rebollar</Descripcion>
+    <X>281</X>
+    <Y>579</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>69101</Codigo>
+    <Descripcion>El Romaní</Descripcion>
+    <X>692</X>
+    <Y>747</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>67221</Codigo>
+    <Descripcion>Estivella-Albalat dels Tarongers</Descripcion>
+    <X>610</X>
+    <Y>298</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>69110</Codigo>
+    <Descripcion>Gandia</Descripcion>
+    <X>692</X>
+    <Y>958</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>67223</Codigo>
+    <Descripcion>Gilet</Descripcion>
+    <X>635</X>
+    <Y>320</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>67212</Codigo>
+    <Descripcion>Jérica-Viver</Descripcion>
+    <X>479</X>
+    <Y>178</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64006</Codigo>
+    <Descripcion>L'Alcúdia de Crespins</Descripcion>
+    <X>514</X>
+    <Y>870</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64007</Codigo>
+    <Descripcion>L'Ènova-Manuel</Descripcion>
+    <X>555</X>
+    <Y>833</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65203</Codigo>
+    <Descripcion>La Llosa</Descripcion>
+    <X>692</X>
+    <Y>287</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64102</Codigo>
+    <Descripcion>La Pobla Llarga</Descripcion>
+    <X>575</X>
+    <Y>814</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65201</Codigo>
+    <Descripcion>Les Valls</Descripcion>
+    <X>692</X>
+    <Y>342</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66209</Codigo>
+    <Descripcion>Loriguilla-Reva</Descripcion>
+    <X>494</X>
+    <Y>606</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65006</Codigo>
+    <Descripcion>Massalfassar</Descripcion>
+    <X>692</X>
+    <Y>465</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64202</Codigo>
+    <Descripcion>Massanassa</Descripcion>
+    <X>692</X>
+    <Y>661</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64003</Codigo>
+    <Descripcion>Moixent</Descripcion>
+    <X>462</X>
+    <Y>937</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65205</Codigo>
+    <Descripcion>Moncofa</Descripcion>
+    <X>704</X>
+    <Y>222</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64005</Codigo>
+    <Descripcion>Montesa</Descripcion>
+    <X>494</X>
+    <Y>889</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>67213</Codigo>
+    <Descripcion>Navajas</Descripcion>
+    <X>502</X>
+    <Y>199</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65206</Codigo>
+    <Descripcion>Nules-La Vilavella</Descripcion>
+    <X>725</X>
+    <Y>203</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>69111</Codigo>
+    <Descripcion>Platja i Grau de Gandia</Descripcion>
+    <X>748</X>
+    <Y>950</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65008</Codigo>
+    <Descripcion>Puçol</Descripcion>
+    <X>692</X>
+    <Y>408</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66202</Codigo>
+    <Descripcion>Requena</Descripcion>
+    <X>254</X>
+    <Y>555</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65001</Codigo>
+    <Descripcion>Roca-Cúper</Descripcion>
+    <X>692</X>
+    <Y>516</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65200</Codigo>
+    <Descripcion>Sagunt</Descripcion>
+    <X>692</X>
+    <Y>376</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66201</Codigo>
+    <Descripcion>San Antonio de Requena</Descripcion>
+    <X>227</X>
+    <Y>529</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>67214</Codigo>
+    <Descripcion>Segorbe-Arrabal</Descripcion>
+    <X>521</X>
+    <Y>216</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>67215</Codigo>
+    <Descripcion>Segorbe-Ciudad</Descripcion>
+    <X>542</X>
+    <Y>235</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66204</Codigo>
+    <Descripcion>Siete Aguas</Descripcion>
+    <X>325</X>
+    <Y>606</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64200</Codigo>
+    <Descripcion>Silla</Descripcion>
+    <X>692</X>
+    <Y>714</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>69102</Codigo>
+    <Descripcion>Sollana</Descripcion>
+    <X>692</X>
+    <Y>771</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>67217</Codigo>
+    <Descripcion>Soneja</Descripcion>
+    <X>563</X>
+    <Y>255</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>69103</Codigo>
+    <Descripcion>Sueca</Descripcion>
+    <X>692</X>
+    <Y>800</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>69105</Codigo>
+    <Descripcion>Tavernes de la Valldigna</Descripcion>
+    <X>692</X>
+    <Y>852</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66200</Codigo>
+    <Descripcion>Utiel</Descripcion>
+    <X>163</X>
+    <Y>498</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65003</Codigo>
+    <Descripcion>València-Cabanyal</Descripcion>
+    <X>692</X>
+    <Y>545</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65002</Codigo>
+    <Descripcion>València-F.S.L.</Descripcion>
+    <X>692</X>
+    <Y>570</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66212</Codigo>
+    <Descripcion>València-Sant Isidre</Descripcion>
+    <X>605</X>
+    <Y>606</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65000</Codigo>
+    <Descripcion>València Nord</Descripcion>
+    <X>692</X>
+    <Y>605</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64004</Codigo>
+    <Descripcion>Vallada</Descripcion>
+    <X>474</X>
+    <Y>907</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66205</Codigo>
+    <Descripcion>Venta Mina</Descripcion>
+    <X>352</X>
+    <Y>606</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65208</Codigo>
+    <Descripcion>Vila-real</Descripcion>
+    <X>766</X>
+    <Y>166</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>64100</Codigo>
+    <Descripcion>Xàtiva</Descripcion>
+    <X>534</X>
+    <Y>852</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>69107</Codigo>
+    <Descripcion>Xeraco</Descripcion>
+    <X>692</X>
+    <Y>879</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>65204</Codigo>
+    <Descripcion>Xilxes</Descripcion>
+    <X>692</X>
+    <Y>260</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>66214</Codigo>
+    <Descripcion>Xirivella-Alqueríes</Descripcion>
+    <X>557</X>
+    <Y>606</Y>	
+  </Estacion>
+
+  <Estacion>
+    <Codigo>69200</Codigo>
+    <Descripcion>Xirivella-L'Alter</Descripcion>
+    <X>574</X>
+    <Y>563</Y>	
+  </Estacion>
+
+</Estaciones>

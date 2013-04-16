@@ -1,0 +1,869 @@
+﻿<?xml version="1.0" encoding="UTF-8"?> 
+
+<Lineas>
+
+   <Linea>
+    <Codigo>C1</Codigo>
+	<rgb>508FC4</rgb>
+    <Descripcion>València Nord-Gandia</Descripcion>
+	<Origen>València Nord</Origen>
+	<Destino>Gandia</Destino>
+	<Estaciones>
+	  <Estacion>
+		<Codigo>65000</Codigo>
+		<Descripcion>València Nord</Descripcion>
+		<ViaSentidoDestino>ns</ViaSentidoDestino>
+		<ViaSentidoOrigen>ns</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C2, C5 y C6 de Cercanias</descripcion>
+		  </Correspondencia>
+		  <Correspondencia>
+		    <tipo>metro</tipo>
+			<descripcion>L1</descripcion>
+		  </Correspondencia>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>64203</Codigo>
+		<Descripcion>Alfafar-Benetússer</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C2 de Cercanias</descripcion>
+		  </Correspondencia>  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>64202</Codigo>
+		<Descripcion>Massanassa</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C2 de Cercanias</descripcion>
+		  </Correspondencia>  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>64201</Codigo>
+		<Descripcion>Catarroja</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C2 de Cercanias</descripcion>
+		  </Correspondencia>  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>64200</Codigo>
+		<Descripcion>Silla</Descripcion>
+		<ViaSentidoDestino>3</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C2 de Cercanias</descripcion>
+		  </Correspondencia>  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>69101</Codigo>
+		<Descripcion>El Romaní</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>69102</Codigo>
+		<Descripcion>Sollana</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>69103</Codigo>
+		<Descripcion>Sueca</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>69104</Codigo>
+		<Descripcion>Cullera</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>69105</Codigo>
+		<Descripcion>Tavernes de la Valldigna</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>69107</Codigo>
+		<Descripcion>Xeraco</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>69110</Codigo>
+		<Descripcion>Gandia</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>69111</Codigo>
+		<Descripcion>Platja i Grau de Gandia</Descripcion>
+		<ViaSentidoDestino>ns</ViaSentidoDestino>
+		<ViaSentidoOrigen>ns</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	</Estaciones>
+  </Linea>
+
+
+  <Linea>
+    <Codigo>C2</Codigo>
+	<rgb>FFB210</rgb>
+    <Descripcion>València Nord-Xátiva-Moixent</Descripcion>
+	<Origen>València Nord</Origen>
+	<Destino>Moixent</Destino>
+	<Estaciones>
+	  <Estacion>
+		<Codigo>65000</Codigo>
+		<Descripcion>València Nord</Descripcion>
+		<ViaSentidoDestino>ns</ViaSentidoDestino>
+		<ViaSentidoOrigen>ns</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C1, C5 y C6 de Cercanias</descripcion>
+		  </Correspondencia>
+		  <Correspondencia>
+		    <tipo>metro</tipo>
+			<descripcion>L1</descripcion>
+		  </Correspondencia>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>64203</Codigo>
+		<Descripcion>Alfafar-Benetússer</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C1 de Cercanias</descripcion>
+		  </Correspondencia>  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>64202</Codigo>
+		<Descripcion>Massanassa</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C1 de Cercanias</descripcion>
+		  </Correspondencia>  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>64201</Codigo>
+		<Descripcion>Catarroja</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C1 de Cercanias</descripcion>
+		  </Correspondencia>  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>64200</Codigo>
+		<Descripcion>Silla</Descripcion>
+		<ViaSentidoDestino>3</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C1 de Cercanias</descripcion>
+		  </Correspondencia>  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>64107</Codigo>
+		<Descripcion>Benifaió-Almussafes</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>64105</Codigo>
+		<Descripcion>Algemesí</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>64104</Codigo>
+		<Descripcion>Alzira</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>64103</Codigo>
+		<Descripcion>Carcaixent</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>64102</Codigo>
+		<Descripcion>La Pobla Llarga</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2 ó 4</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>64007</Codigo>
+		<Descripcion>L'Ènova-Manuel</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>64100</Codigo>
+		<Descripcion>Xátiva</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>64006</Codigo>
+		<Descripcion>L'Alcúdia de Crespins</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>64005</Codigo>
+		<Descripcion>Montesa</Descripcion>
+		<ViaSentidoDestino>ns</ViaSentidoDestino>
+		<ViaSentidoOrigen>ns</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>64004</Codigo>
+		<Descripcion>Vallada</Descripcion>
+		<ViaSentidoDestino>ns</ViaSentidoDestino>
+		<ViaSentidoOrigen>ns</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>64003</Codigo>
+		<Descripcion>Moixent</Descripcion>
+		<ViaSentidoDestino>ns</ViaSentidoDestino>
+		<ViaSentidoOrigen>ns</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	</Estaciones>
+  </Linea>
+
+  <Linea>
+    <Codigo>C3</Codigo>
+	<rgb>931A8B</rgb>
+    <Descripcion>València-Sant Isidre-Buñol-Utiel</Descripcion>
+	<Origen>València-Sant Isidre</Origen>
+	<Destino>Utiel</Destino>
+	<Estaciones>
+	  <Estacion>
+		<Codigo>66212</Codigo>
+		<Descripcion>València-Sant Isidre</Descripcion>
+		<ViaSentidoDestino>2 ó 4</ViaSentidoDestino>
+		<ViaSentidoOrigen>2 ó 4</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C4 de Cercanias</descripcion>
+		  </Correspondencia>
+		  <Correspondencia>
+		    <tipo>metro</tipo>
+			<descripcion>L1 y L5</descripcion>
+		  </Correspondencia>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>66214</Codigo>
+		<Descripcion>Xirivella-Alqueríes</Descripcion>
+		<ViaSentidoDestino>ns</ViaSentidoDestino>
+		<ViaSentidoOrigen>ns</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>66211</Codigo>
+		<Descripcion>Aldaia</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>66209</Codigo>
+		<Descripcion>Loriguilla-Reva</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>66210</Codigo>
+		<Descripcion>Circuit R.Tormo</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>66208</Codigo>
+		<Descripcion>Cheste</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>66207</Codigo>
+		<Descripcion>Chiva</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>66206</Codigo>
+		<Descripcion>Buñol</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>66205</Codigo>
+		<Descripcion>Venta Mina</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>66204</Codigo>
+		<Descripcion>Siete Aguas</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>66203</Codigo>
+		<Descripcion>El Rebollar</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>66202</Codigo>
+		<Descripcion>Requena</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>66201</Codigo>
+		<Descripcion>San Antonio de Requena</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>66200</Codigo>
+		<Descripcion>Utiel</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>2</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	</Estaciones>
+  </Linea>
+
+  <Linea>
+    <Codigo>C4</Codigo>
+	<rgb>FF171C</rgb>
+    <Descripcion>València-Sant Isidre-Xirivella L'Alter</Descripcion>
+	<Origen>València-Sant Isidre</Origen>
+	<Destino>Xirivella L'Alter</Destino>
+	<Estaciones>
+	  <Estacion>
+		<Codigo>66212</Codigo>
+		<Descripcion>València-Sant Isidre</Descripcion>
+		<ViaSentidoDestino>ns</ViaSentidoDestino>
+		<ViaSentidoOrigen>ns</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C3 de Cercanias</descripcion>
+		  </Correspondencia>
+		  <Correspondencia>
+		    <tipo>metro</tipo>
+			<descripcion>L1 y L5</descripcion>
+		  </Correspondencia>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>69200</Codigo>
+		<Descripcion>Xirivella-L'Alter</Descripcion>
+		<ViaSentidoDestino>ns</ViaSentidoDestino>
+		<ViaSentidoOrigen>ns</ViaSentidoOrigen>
+		<Correspondencias>
+		</Correspondencias>
+	  </Estacion>
+	</Estaciones>
+  </Linea>
+
+
+  <Linea>
+    <Codigo>C5</Codigo>
+	<rgb>018B2B</rgb>
+    <Descripcion>València Nord-Caudiel</Descripcion>
+	<Origen>València Nord</Origen>
+	<Destino>Caudiel</Destino>
+	<Estaciones>
+	  <Estacion>
+		<Codigo>65000</Codigo>
+		<Descripcion>València Nord</Descripcion>
+		<ViaSentidoDestino>ns</ViaSentidoDestino>
+		<ViaSentidoOrigen>ns</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C1, C2 y C6 de Cercanias</descripcion>
+		  </Correspondencia>
+		  <Correspondencia>
+		    <tipo>metro</tipo>
+			<descripcion>L1</descripcion>
+		  </Correspondencia>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65002</Codigo>
+		<Descripcion>València-F.S.L.</Descripcion>
+		<ViaSentidoDestino>2</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C6 de Cercanias</descripcion>
+		  </Correspondencia>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65003</Codigo>
+		<Descripcion>València-Cabanyal</Descripcion>
+		<ViaSentidoDestino>2</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C6 de Cercanias</descripcion>
+		  </Correspondencia>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65001</Codigo>
+		<Descripcion>Roca-Cúper</Descripcion>
+		<ViaSentidoDestino>2</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C6 de Cercanias</descripcion>
+		  </Correspondencia>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65005</Codigo>
+		<Descripcion>Albuixech</Descripcion>
+		<ViaSentidoDestino>2</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C6 de Cercanias</descripcion>
+		  </Correspondencia>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65006</Codigo>
+		<Descripcion>Massalfassar</Descripcion>
+		<ViaSentidoDestino>4</ViaSentidoDestino>
+		<ViaSentidoOrigen>3</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C6 de Cercanias</descripcion>
+		  </Correspondencia>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65007</Codigo>
+		<Descripcion>El Puig</Descripcion>
+		<ViaSentidoDestino>2</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C6 de Cercanias</descripcion>
+		  </Correspondencia>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65008</Codigo>
+		<Descripcion>Puçol</Descripcion>
+		<ViaSentidoDestino>4</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C6 de Cercanias</descripcion>
+		  </Correspondencia>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65200</Codigo>
+		<Descripcion>Sagunt</Descripcion>
+		<ViaSentidoDestino>4</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C6 de Cercanias</descripcion>
+		  </Correspondencia>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>67223</Codigo>
+		<Descripcion>Gilet</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>67221</Codigo>
+		<Descripcion>Estivella-Albalat dels Tarongers</Descripcion>
+		<ViaSentidoDestino>2</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>67216</Codigo>
+		<Descripcion>Algimia</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>67217</Codigo>
+		<Descripcion>Soneja</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>67215</Codigo>
+		<Descripcion>Segorbe-Ciudad</Descripcion>
+		<ViaSentidoDestino>2</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>67214</Codigo>
+		<Descripcion>Segorbe-Arrabal</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>67213</Codigo>
+		<Descripcion>Navajas</Descripcion>
+		<ViaSentidoDestino>1</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>67212</Codigo>
+		<Descripcion>Jérica-Viver</Descripcion>
+		<ViaSentidoDestino>2</ViaSentidoDestino>
+		<ViaSentidoOrigen>1 ó 5</ViaSentidoOrigen>
+		<Correspondencias>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>67211</Codigo>
+		<Descripcion>Caudiel</Descripcion>
+		<ViaSentidoDestino>1, 3 ó 5</ViaSentidoDestino>
+		<ViaSentidoOrigen>1, 3 ó 5</ViaSentidoOrigen>
+		<Correspondencias>		  
+		</Correspondencias>
+	  </Estacion>
+	</Estaciones>
+  </Linea>
+
+
+  <Linea>
+    <Codigo>C6</Codigo>
+	<rgb>00328B</rgb>
+    <Descripcion>València Nord-Castelló</Descripcion>
+	<Origen>València Nord</Origen>
+	<Destino>Castelló</Destino>
+	<Estaciones>
+	  <Estacion>
+		<Codigo>65000</Codigo>
+		<Descripcion>València Nord</Descripcion>
+		<ViaSentidoDestino>ns</ViaSentidoDestino>
+		<ViaSentidoOrigen>ns</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C1, C2 y C5 de Cercanias</descripcion>
+		  </Correspondencia>
+		  <Correspondencia>
+		    <tipo>metro</tipo>
+			<descripcion>L1</descripcion>
+		  </Correspondencia>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65002</Codigo>
+		<Descripcion>València-F.S.L.</Descripcion>
+		<ViaSentidoDestino>2</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C5 de Cercanias</descripcion>
+		  </Correspondencia>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65003</Codigo>
+		<Descripcion>València-Cabanyal</Descripcion>
+		<ViaSentidoDestino>2</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C5 de Cercanias</descripcion>
+		  </Correspondencia>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65001</Codigo>
+		<Descripcion>Roca-Cúper</Descripcion>
+		<ViaSentidoDestino>2</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C5 de Cercanias</descripcion>
+		  </Correspondencia>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65005</Codigo>
+		<Descripcion>Albuixech</Descripcion>
+		<ViaSentidoDestino>2</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C5 de Cercanias</descripcion>
+		  </Correspondencia>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65006</Codigo>
+		<Descripcion>Massalfassar</Descripcion>
+		<ViaSentidoDestino>4</ViaSentidoDestino>
+		<ViaSentidoOrigen>3</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C5 de Cercanias</descripcion>
+		  </Correspondencia>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65007</Codigo>
+		<Descripcion>El Puig</Descripcion>
+		<ViaSentidoDestino>2</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C5 de Cercanias</descripcion>
+		  </Correspondencia>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65008</Codigo>
+		<Descripcion>Puçol</Descripcion>
+		<ViaSentidoDestino>4</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C5 de Cercanias</descripcion>
+		  </Correspondencia>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65200</Codigo>
+		<Descripcion>Sagunt</Descripcion>
+		<ViaSentidoDestino>4</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>
+		  <Correspondencia>
+		    <tipo>tren</tipo>
+			<descripcion>C5 de Cercanias</descripcion>
+		  </Correspondencia>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65201</Codigo>
+		<Descripcion>Les Valls</Descripcion>
+		<ViaSentidoDestino>2</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65202</Codigo>
+		<Descripcion>Almenara</Descripcion>
+		<ViaSentidoDestino>2</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65203</Codigo>
+		<Descripcion>La Llosa</Descripcion>
+		<ViaSentidoDestino>2</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65204</Codigo>
+		<Descripcion>Xilxes</Descripcion>
+		<ViaSentidoDestino>2</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65205</Codigo>
+		<Descripcion>Moncofa</Descripcion>
+		<ViaSentidoDestino>2</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65206</Codigo>
+		<Descripcion>Nules-La Vilavella</Descripcion>
+		<ViaSentidoDestino>2</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65207</Codigo>
+		<Descripcion>Burriana-Alquerías del Niño Perdido</Descripcion>
+		<ViaSentidoDestino>2</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65208</Codigo>
+		<Descripcion>Vila-real</Descripcion>
+		<ViaSentidoDestino>2</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65209</Codigo>
+		<Descripcion>Almassora</Descripcion>
+		<ViaSentidoDestino>2</ViaSentidoDestino>
+		<ViaSentidoOrigen>1</ViaSentidoOrigen>
+		<Correspondencias>		  
+		</Correspondencias>
+	  </Estacion>
+	  <Estacion>
+		<Codigo>65300</Codigo>
+		<Descripcion>Castelló</Descripcion>
+		<ViaSentidoDestino>1, 2, 3 ó 4</ViaSentidoDestino>
+		<ViaSentidoOrigen>1, 2, 3 ó 4</ViaSentidoOrigen>
+		<Correspondencias>		  
+		</Correspondencias>
+	  </Estacion>
+	</Estaciones>
+  </Linea>
+  
+
+</Lineas>
