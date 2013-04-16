@@ -12,7 +12,7 @@ import java.util.List;
 public class PeticionEstaciones {
 
     private String nucleo;
-    private List<EstacionType> estacion;
+    private List<EstacionCercanias> estacion;
 
     public String getNucleo() {
         return nucleo;
@@ -22,11 +22,11 @@ public class PeticionEstaciones {
         this.nucleo = nucleo;
     }
 
-    public List<EstacionType> getEstacion() {
+    public List<EstacionCercanias> getEstacion() {
         return estacion;
     }
 
-    public void setEstacion(List<EstacionType> estacion) {
+    public void setEstacion(List<EstacionCercanias> estacion) {
         this.estacion = estacion;
     }
 

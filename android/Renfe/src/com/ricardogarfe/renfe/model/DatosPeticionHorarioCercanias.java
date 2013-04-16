@@ -7,7 +7,7 @@ package com.ricardogarfe.renfe.model;
  * @author ricardo
  * 
  */
-public class DatosPeticionType {
+public class DatosPeticionHorarioCercanias {
 
     private String origen;
     private String destino;

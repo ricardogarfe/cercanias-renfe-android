@@ -9,7 +9,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * @author ricardo
  * 
  */
-public class ValidezType {
+public class ValidezHorarioCercanias {
 
     private XMLGregorianCalendar desde;
     private XMLGregorianCalendar hasta;

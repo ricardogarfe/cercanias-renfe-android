@@ -10,14 +10,14 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import android.util.Xml;
 
-import com.ricardogarfe.renfe.model.HorarioType;
+import com.ricardogarfe.renfe.model.HorarioCercanias;
 
 public class HorariosCercaniasParser {
 
     // We don't use namespaces
     private static final String ns = null;
 
-    public List<HorarioType> parse(InputStream in)
+    public List<HorarioCercanias> parse(InputStream in)
             throws XmlPullParserException, IOException {
         try {
             XmlPullParser parser = Xml.newPullParser();
@@ -30,9 +30,9 @@ public class HorariosCercaniasParser {
         }
     }
 
-    private List<HorarioType> readHorarioRequest(XmlPullParser parser)
+    private List<HorarioCercanias> readHorarioRequest(XmlPullParser parser)
             throws XmlPullParserException, IOException {
-        List<HorarioType> horarioTypeList = new ArrayList<HorarioType>();
+        List<HorarioCercanias> horarioTypeList = new ArrayList<HorarioCercanias>();
 
         parser.require(XmlPullParser.START_TAG, ns, "Horarios");
         while (parser.next() != XmlPullParser.END_TAG) {
@@ -50,7 +50,7 @@ public class HorariosCercaniasParser {
         return horarioTypeList;
     }
 
-    private HorarioType readHorarioEntry(XmlPullParser parser)
+    private HorarioCercanias readHorarioEntry(XmlPullParser parser)
             throws XmlPullParserException, IOException {
 
         /*
@@ -64,7 +64,7 @@ public class HorariosCercaniasParser {
          */
         parser.require(XmlPullParser.START_TAG, ns, "Horario");
 
-        HorarioType horarioType = new HorarioType();
+        HorarioCercanias horarioType = new HorarioCercanias();
 
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.getEventType() != XmlPullParser.START_TAG) {

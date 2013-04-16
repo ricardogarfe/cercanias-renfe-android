@@ -3,18 +3,18 @@
  */
 package com.ricardogarfe.renfe.model;
 
-import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
  * @author ricardo
  * 
  */
-public class TransbordoType {
+public class TransbordoCercanias {
 
     private String enlace;
-    private XMLGregorianCalendar horaLlegada;
-    private XMLGregorianCalendar horaSalida;
+    private String horaLlegada;
+    private String horaSalida;
     private String linea;
+    private String codCivis;
 
     public String getEnlace() {
         return enlace;
@@ -24,19 +24,19 @@ public class TransbordoType {
         this.enlace = enlace;
     }
 
-    public XMLGregorianCalendar getHoraLlegada() {
+    public String getHoraLlegada() {
         return horaLlegada;
     }
 
-    public void setHoraLlegada(XMLGregorianCalendar horaLlegada) {
+    public void setHoraLlegada(String horaLlegada) {
         this.horaLlegada = horaLlegada;
     }
 
-    public XMLGregorianCalendar getHoraSalida() {
+    public String getHoraSalida() {
         return horaSalida;
     }
 
-    public void setHoraSalida(XMLGregorianCalendar horaSalida) {
+    public void setHoraSalida(String horaSalida) {
         this.horaSalida = horaSalida;
     }
 
@@ -46,6 +46,14 @@ public class TransbordoType {
 
     public void setLinea(String linea) {
         this.linea = linea;
+    }
+
+    public String getCodCivis() {
+        return codCivis;
+    }
+
+    public void setCodCivis(String codCivis) {
+        this.codCivis = codCivis;
     }
 
 }

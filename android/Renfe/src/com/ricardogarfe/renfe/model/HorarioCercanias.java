@@ -3,17 +3,18 @@
  */
 package com.ricardogarfe.renfe.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author ricardo
  * 
  */
-public class HorarioType {
+public class HorarioCercanias {
 
     private String linea;
     private String horaSalida;
-    private List<TransbordoType> transbordo;
+    private List<TransbordoCercanias> transbordo = new ArrayList<TransbordoCercanias>();
     private String horaLlegada;
     private String duracion;
     private String codCivis;
@@ -34,11 +35,11 @@ public class HorarioType {
         this.horaSalida = horaSalida;
     }
 
-    public List<TransbordoType> getTransbordo() {
+    public List<TransbordoCercanias> getTransbordo() {
         return transbordo;
     }
 
-    public void setTransbordo(List<TransbordoType> transbordo) {
+    public void setTransbordo(List<TransbordoCercanias> transbordo) {
         this.transbordo = transbordo;
     }
 

@@ -7,13 +7,26 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import com.ricardogarfe.renfe.model.HorarioType;
+import android.util.Log;
+
+import com.ricardogarfe.renfe.model.HorarioCercanias;
+import com.ricardogarfe.renfe.model.TransbordoCercanias;
 
 public class HorariosCercaniasHandler extends DefaultHandler {
 
-    private List<HorarioType> horarioTypeList = new ArrayList<HorarioType>();
-    private HorarioType horarioType;
+    private List<HorarioCercanias> horarioTypeList = new ArrayList<HorarioCercanias>();
+    private HorarioCercanias horarioCercanias;
+    private TransbordoCercanias transbordoCercanias;
+
     private String temp;
+
+    private boolean inHorario = false;
+    private boolean inLinea = false;
+    private boolean inHoraSalida = false;
+    private boolean inTransbordo = false;
+    private boolean inHoraLlegada = false;
+    private boolean inDuracion = false;
+    private boolean inCodCivis = false;
 
     /*
      * When the parser encounters plain text (not XML elements), it calls(this
@@ -30,8 +43,13 @@ public class HorariosCercaniasHandler extends DefaultHandler {
     public void startElement(String uri, String localName, String qName,
             Attributes attributes) throws SAXException {
         temp = "";
+
         if (qName.equalsIgnoreCase("Horario")) {
-            horarioType = new HorarioType();
+            horarioCercanias = new HorarioCercanias();
+            inHorario = true;
+        } else if (qName.equalsIgnoreCase("Transbordo")) {
+            transbordoCercanias = new TransbordoCercanias();
+            inTransbordo = true;
         }
     }
 
@@ -42,24 +60,50 @@ public class HorariosCercaniasHandler extends DefaultHandler {
             throws SAXException {
 
         if (qName.equalsIgnoreCase("Horario")) {
-            // add it to the list
-            horarioTypeList.add(horarioType);
+            // add horario to the list
+            inHorario = false;
+            horarioTypeList.add(horarioCercanias);
 
         } else if (qName.equalsIgnoreCase("Linea")) {
-            horarioType.setLinea(temp);
+            if (inTransbordo) {
+                transbordoCercanias.setLinea(temp);
+            } else if (inHorario) {
+                horarioCercanias.setLinea(temp);
+            }
+
         } else if (qName.equalsIgnoreCase("CodCivis")) {
-            horarioType.setCodCivis(temp);
+            if (inTransbordo) {
+                transbordoCercanias.setCodCivis(temp);
+            } else if (inHorario) {
+                horarioCercanias.setCodCivis(temp);
+            }
+
         } else if (qName.equalsIgnoreCase("HoraSalida")) {
-            horarioType.setHoraSalida(temp);
+            if (inTransbordo) {
+                transbordoCercanias.setHoraSalida(temp);
+            } else if (inHorario) {
+                horarioCercanias.setHoraSalida(temp);
+            }
+
         } else if (qName.equalsIgnoreCase("HoraLlegada")) {
-            horarioType.setHoraLlegada(temp);
+            if (inTransbordo) {
+                transbordoCercanias.setHoraLlegada(temp);
+            } else if (inHorario) {
+                horarioCercanias.setHoraLlegada(temp);
+            }
+        } else if (qName.equalsIgnoreCase("Enlace")) {
+            transbordoCercanias.setEnlace(temp);
         } else if (qName.equalsIgnoreCase("Duracion")) {
-            horarioType.setDuracion(temp);
+            horarioCercanias.setDuracion(temp);
+        } else if (qName.equalsIgnoreCase("Transbordo")) {
+            // add transbordo to the list
+            inTransbordo = false;
+            horarioCercanias.getTransbordo().add(transbordoCercanias);
         }
 
     }
 
-    public List<HorarioType> getHorarioTypeList() {
+    public List<HorarioCercanias> getHorarioTypeList() {
         return horarioTypeList;
     }
 

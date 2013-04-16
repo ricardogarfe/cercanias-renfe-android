@@ -19,9 +19,8 @@ import javax.xml.parsers.SAXParserFactory;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
-import com.ricardogarfe.renfe.model.HorarioType;
+import com.ricardogarfe.renfe.model.HorarioCercanias;
 import com.ricardogarfe.renfe.services.parser.HorariosCercaniasHandler;
-import com.ricardogarfe.renfe.services.parser.HorariosCercaniasParser;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -147,7 +146,7 @@ public class HorariosActivity extends Activity {
 
             xr.parse(new InputSource(url.openStream()));
 
-            List<HorarioType> horarioTypeList = horariosCercaniasHandler
+            List<HorarioCercanias> horarioTypeList = horariosCercaniasHandler
                     .getHorarioTypeList();
 
             Message myMessage = new Message();

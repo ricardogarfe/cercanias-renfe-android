@@ -13,9 +13,9 @@ public class PeticionHorarios {
 
     private String error;
     private String fecha;
-    private ValidezType validez;
-    private DatosPeticionType peticion;
-    private List<HorarioType> horarioTypeList;
+    private ValidezHorarioCercanias validez;
+    private DatosPeticionHorarioCercanias peticion;
+    private List<HorarioCercanias> horarioTypeList;
 
     public String getError() {
         return error;
@@ -33,27 +33,27 @@ public class PeticionHorarios {
         this.fecha = fecha;
     }
 
-    public ValidezType getValidez() {
+    public ValidezHorarioCercanias getValidez() {
         return validez;
     }
 
-    public void setValidez(ValidezType validez) {
+    public void setValidez(ValidezHorarioCercanias validez) {
         this.validez = validez;
     }
 
-    public DatosPeticionType getPeticion() {
+    public DatosPeticionHorarioCercanias getPeticion() {
         return peticion;
     }
 
-    public void setPeticion(DatosPeticionType peticion) {
+    public void setPeticion(DatosPeticionHorarioCercanias peticion) {
         this.peticion = peticion;
     }
 
-    public List<HorarioType> getHorarioTypeList() {
+    public List<HorarioCercanias> getHorarioTypeList() {
         return horarioTypeList;
     }
 
-    public void setHorarioTypeList(List<HorarioType> horarioTypeList) {
+    public void setHorarioTypeList(List<HorarioCercanias> horarioTypeList) {
         this.horarioTypeList = horarioTypeList;
     }
 

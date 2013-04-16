@@ -7,7 +7,7 @@ package com.ricardogarfe.renfe.model;
  * @author ricardo
  * 
  */
-public class EstacionType {
+public class EstacionCercanias {
 
     private String codigo;
     private String descripcion;
