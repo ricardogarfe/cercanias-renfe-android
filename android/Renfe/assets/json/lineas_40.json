@@ -1,1 +1,936 @@
-{"Lineas":{"Linea":[{"Codigo":"C1","rgb":"508FC4","Descripcion":"Val\u00e8ncia Nord-Gandia","Origen":"Val\u00e8ncia Nord","Destino":"Gandia","Estaciones":{"Estacion":[{"Codigo":"65000","Descripcion":"Val\u00e8ncia Nord","ViaSentidoDestino":"ns","ViaSentidoOrigen":"ns","Correspondencias":{"Correspondencia":[{"tipo":"tren","descripcion":"C2, C5 y C6 de Cercanias"},{"tipo":"metro","descripcion":"L1"}]}},{"Codigo":"64203","Descripcion":"Alfafar-Benet\u00fasser","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C2 de Cercanias"}}},{"Codigo":"64202","Descripcion":"Massanassa","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C2 de Cercanias"}}},{"Codigo":"64201","Descripcion":"Catarroja","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C2 de Cercanias"}}},{"Codigo":"64200","Descripcion":"Silla","ViaSentidoDestino":"3","ViaSentidoOrigen":"1","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C2 de Cercanias"}}},{"Codigo":"69101","Descripcion":"El Roman\u00ed","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":[]},{"Codigo":"69102","Descripcion":"Sollana","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":[]},{"Codigo":"69103","Descripcion":"Sueca","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":[]},{"Codigo":"69104","Descripcion":"Cullera","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":[]},{"Codigo":"69105","Descripcion":"Tavernes de la Valldigna","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":[]},{"Codigo":"69107","Descripcion":"Xeraco","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":[]},{"Codigo":"69110","Descripcion":"Gandia","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":[]},{"Codigo":"69111","Descripcion":"Platja i Grau de Gandia","ViaSentidoDestino":"ns","ViaSentidoOrigen":"ns","Correspondencias":[]}]}},{"Codigo":"C2","rgb":"FFB210","Descripcion":"Val\u00e8ncia Nord-X\u00e1tiva-Moixent","Origen":"Val\u00e8ncia Nord","Destino":"Moixent","Estaciones":{"Estacion":[{"Codigo":"65000","Descripcion":"Val\u00e8ncia Nord","ViaSentidoDestino":"ns","ViaSentidoOrigen":"ns","Correspondencias":{"Correspondencia":[{"tipo":"tren","descripcion":"C1, C5 y C6 de Cercanias"},{"tipo":"metro","descripcion":"L1"}]}},{"Codigo":"64203","Descripcion":"Alfafar-Benet\u00fasser","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C1 de Cercanias"}}},{"Codigo":"64202","Descripcion":"Massanassa","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C1 de Cercanias"}}},{"Codigo":"64201","Descripcion":"Catarroja","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C1 de Cercanias"}}},{"Codigo":"64200","Descripcion":"Silla","ViaSentidoDestino":"3","ViaSentidoOrigen":"2","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C1 de Cercanias"}}},{"Codigo":"64107","Descripcion":"Benifai\u00f3-Almussafes","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":[]},{"Codigo":"64105","Descripcion":"Algemes\u00ed","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":[]},{"Codigo":"64104","Descripcion":"Alzira","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":[]},{"Codigo":"64103","Descripcion":"Carcaixent","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":[]},{"Codigo":"64102","Descripcion":"La Pobla Llarga","ViaSentidoDestino":"1","ViaSentidoOrigen":"2 \u00f3 4","Correspondencias":[]},{"Codigo":"64007","Descripcion":"L'\u00c8nova-Manuel","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":[]},{"Codigo":"64100","Descripcion":"X\u00e1tiva","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":[]},{"Codigo":"64006","Descripcion":"L'Alc\u00fadia de Crespins","ViaSentidoDestino":"1","ViaSentidoOrigen":"1","Correspondencias":[]},{"Codigo":"64005","Descripcion":"Montesa","ViaSentidoDestino":"ns","ViaSentidoOrigen":"ns","Correspondencias":[]},{"Codigo":"64004","Descripcion":"Vallada","ViaSentidoDestino":"ns","ViaSentidoOrigen":"ns","Correspondencias":[]},{"Codigo":"64003","Descripcion":"Moixent","ViaSentidoDestino":"ns","ViaSentidoOrigen":"ns","Correspondencias":[]}]}},{"Codigo":"C3","rgb":"931A8B","Descripcion":"Val\u00e8ncia-Sant Isidre-Bu\u00f1ol-Utiel","Origen":"Val\u00e8ncia-Sant Isidre","Destino":"Utiel","Estaciones":{"Estacion":[{"Codigo":"66212","Descripcion":"Val\u00e8ncia-Sant Isidre","ViaSentidoDestino":"2 \u00f3 4","ViaSentidoOrigen":"2 \u00f3 4","Correspondencias":{"Correspondencia":[{"tipo":"tren","descripcion":"C4 de Cercanias"},{"tipo":"metro","descripcion":"L1 y L5"}]}},{"Codigo":"66214","Descripcion":"Xirivella-Alquer\u00edes","ViaSentidoDestino":"ns","ViaSentidoOrigen":"ns","Correspondencias":[]},{"Codigo":"66211","Descripcion":"Aldaia","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":[]},{"Codigo":"66209","Descripcion":"Loriguilla-Reva","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":[]},{"Codigo":"66210","Descripcion":"Circuit R.Tormo","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":[]},{"Codigo":"66208","Descripcion":"Cheste","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":[]},{"Codigo":"66207","Descripcion":"Chiva","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":[]},{"Codigo":"66206","Descripcion":"Bu\u00f1ol","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":[]},{"Codigo":"66205","Descripcion":"Venta Mina","ViaSentidoDestino":"1","ViaSentidoOrigen":"1","Correspondencias":[]},{"Codigo":"66204","Descripcion":"Siete Aguas","ViaSentidoDestino":"1","ViaSentidoOrigen":"1","Correspondencias":[]},{"Codigo":"66203","Descripcion":"El Rebollar","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":[]},{"Codigo":"66202","Descripcion":"Requena","ViaSentidoDestino":"1","ViaSentidoOrigen":"1","Correspondencias":[]},{"Codigo":"66201","Descripcion":"San Antonio de Requena","ViaSentidoDestino":"1","ViaSentidoOrigen":"1","Correspondencias":[]},{"Codigo":"66200","Descripcion":"Utiel","ViaSentidoDestino":"1","ViaSentidoOrigen":"2","Correspondencias":[]}]}},{"Codigo":"C4","rgb":"FF171C","Descripcion":"Val\u00e8ncia-Sant Isidre-Xirivella L'Alter","Origen":"Val\u00e8ncia-Sant Isidre","Destino":"Xirivella L'Alter","Estaciones":{"Estacion":[{"Codigo":"66212","Descripcion":"Val\u00e8ncia-Sant Isidre","ViaSentidoDestino":"ns","ViaSentidoOrigen":"ns","Correspondencias":{"Correspondencia":[{"tipo":"tren","descripcion":"C3 de Cercanias"},{"tipo":"metro","descripcion":"L1 y L5"}]}},{"Codigo":"69200","Descripcion":"Xirivella-L'Alter","ViaSentidoDestino":"ns","ViaSentidoOrigen":"ns","Correspondencias":[]}]}},{"Codigo":"C5","rgb":"018B2B","Descripcion":"Val\u00e8ncia Nord-Caudiel","Origen":"Val\u00e8ncia Nord","Destino":"Caudiel","Estaciones":{"Estacion":[{"Codigo":"65000","Descripcion":"Val\u00e8ncia Nord","ViaSentidoDestino":"ns","ViaSentidoOrigen":"ns","Correspondencias":{"Correspondencia":[{"tipo":"tren","descripcion":"C1, C2 y C6 de Cercanias"},{"tipo":"metro","descripcion":"L1"}]}},{"Codigo":"65002","Descripcion":"Val\u00e8ncia-F.S.L.","ViaSentidoDestino":"2","ViaSentidoOrigen":"1","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C6 de Cercanias"}}},{"Codigo":"65003","Descripcion":"Val\u00e8ncia-Cabanyal","ViaSentidoDestino":"2","ViaSentidoOrigen":"1","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C6 de Cercanias"}}},{"Codigo":"65001","Descripcion":"Roca-C\u00faper","ViaSentidoDestino":"2","ViaSentidoOrigen":"1","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C6 de Cercanias"}}},{"Codigo":"65005","Descripcion":"Albuixech","ViaSentidoDestino":"2","ViaSentidoOrigen":"1","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C6 de Cercanias"}}},{"Codigo":"65006","Descripcion":"Massalfassar","ViaSentidoDestino":"4","ViaSentidoOrigen":"3","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C6 de Cercanias"}}},{"Codigo":"65007","Descripcion":"El Puig","ViaSentidoDestino":"2","ViaSentidoOrigen":"1","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C6 de Cercanias"}}},{"Codigo":"65008","Descripcion":"Pu\u00e7ol","ViaSentidoDestino":"4","ViaSentidoOrigen":"1","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C6 de Cercanias"}}},{"Codigo":"65200","Descripcion":"Sagunt","ViaSentidoDestino":"4","ViaSentidoOrigen":"1","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C6 de Cercanias"}}},{"Codigo":"67223","Descripcion":"Gilet","ViaSentidoDestino":"1","ViaSentidoOrigen":"1","Correspondencias":[]},{"Codigo":"67221","Descripcion":"Estivella-Albalat dels Tarongers","ViaSentidoDestino":"2","ViaSentidoOrigen":"1","Correspondencias":[]},{"Codigo":"67216","Descripcion":"Algimia","ViaSentidoDestino":"1","ViaSentidoOrigen":"1","Correspondencias":[]},{"Codigo":"67217","Descripcion":"Soneja","ViaSentidoDestino":"1","ViaSentidoOrigen":"1","Correspondencias":[]},{"Codigo":"67215","Descripcion":"Segorbe-Ciudad","ViaSentidoDestino":"2","ViaSentidoOrigen":"1","Correspondencias":[]},{"Codigo":"67214","Descripcion":"Segorbe-Arrabal","ViaSentidoDestino":"1","ViaSentidoOrigen":"1","Correspondencias":[]},{"Codigo":"67213","Descripcion":"Navajas","ViaSentidoDestino":"1","ViaSentidoOrigen":"1","Correspondencias":[]},{"Codigo":"67212","Descripcion":"J\u00e9rica-Viver","ViaSentidoDestino":"2","ViaSentidoOrigen":"1 \u00f3 5","Correspondencias":[]},{"Codigo":"67211","Descripcion":"Caudiel","ViaSentidoDestino":"1, 3 \u00f3 5","ViaSentidoOrigen":"1, 3 \u00f3 5","Correspondencias":[]}]}},{"Codigo":"C6","rgb":"00328B","Descripcion":"Val\u00e8ncia Nord-Castell\u00f3","Origen":"Val\u00e8ncia Nord","Destino":"Castell\u00f3","Estaciones":{"Estacion":[{"Codigo":"65000","Descripcion":"Val\u00e8ncia Nord","ViaSentidoDestino":"ns","ViaSentidoOrigen":"ns","Correspondencias":{"Correspondencia":[{"tipo":"tren","descripcion":"C1, C2 y C5 de Cercanias"},{"tipo":"metro","descripcion":"L1"}]}},{"Codigo":"65002","Descripcion":"Val\u00e8ncia-F.S.L.","ViaSentidoDestino":"2","ViaSentidoOrigen":"1","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C5 de Cercanias"}}},{"Codigo":"65003","Descripcion":"Val\u00e8ncia-Cabanyal","ViaSentidoDestino":"2","ViaSentidoOrigen":"1","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C5 de Cercanias"}}},{"Codigo":"65001","Descripcion":"Roca-C\u00faper","ViaSentidoDestino":"2","ViaSentidoOrigen":"1","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C5 de Cercanias"}}},{"Codigo":"65005","Descripcion":"Albuixech","ViaSentidoDestino":"2","ViaSentidoOrigen":"1","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C5 de Cercanias"}}},{"Codigo":"65006","Descripcion":"Massalfassar","ViaSentidoDestino":"4","ViaSentidoOrigen":"3","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C5 de Cercanias"}}},{"Codigo":"65007","Descripcion":"El Puig","ViaSentidoDestino":"2","ViaSentidoOrigen":"1","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C5 de Cercanias"}}},{"Codigo":"65008","Descripcion":"Pu\u00e7ol","ViaSentidoDestino":"4","ViaSentidoOrigen":"1","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C5 de Cercanias"}}},{"Codigo":"65200","Descripcion":"Sagunt","ViaSentidoDestino":"4","ViaSentidoOrigen":"1","Correspondencias":{"Correspondencia":{"tipo":"tren","descripcion":"C5 de Cercanias"}}},{"Codigo":"65201","Descripcion":"Les Valls","ViaSentidoDestino":"2","ViaSentidoOrigen":"1","Correspondencias":[]},{"Codigo":"65202","Descripcion":"Almenara","ViaSentidoDestino":"2","ViaSentidoOrigen":"1","Correspondencias":[]},{"Codigo":"65203","Descripcion":"La Llosa","ViaSentidoDestino":"2","ViaSentidoOrigen":"1","Correspondencias":[]},{"Codigo":"65204","Descripcion":"Xilxes","ViaSentidoDestino":"2","ViaSentidoOrigen":"1","Correspondencias":[]},{"Codigo":"65205","Descripcion":"Moncofa","ViaSentidoDestino":"2","ViaSentidoOrigen":"1","Correspondencias":[]},{"Codigo":"65206","Descripcion":"Nules-La Vilavella","ViaSentidoDestino":"2","ViaSentidoOrigen":"1","Correspondencias":[]},{"Codigo":"65207","Descripcion":"Burriana-Alquer\u00edas del Ni\u00f1o Perdido","ViaSentidoDestino":"2","ViaSentidoOrigen":"1","Correspondencias":[]},{"Codigo":"65208","Descripcion":"Vila-real","ViaSentidoDestino":"2","ViaSentidoOrigen":"1","Correspondencias":[]},{"Codigo":"65209","Descripcion":"Almassora","ViaSentidoDestino":"2","ViaSentidoOrigen":"1","Correspondencias":[]},{"Codigo":"65300","Descripcion":"Castell\u00f3","ViaSentidoDestino":"1, 2, 3 \u00f3 4","ViaSentidoOrigen":"1, 2, 3 \u00f3 4","Correspondencias":[]}]}}]}}
+{
+  "Lineas":{
+    "Linea":[
+      {
+        "Codigo":"C1",
+        "rgb":"508FC4",
+        "Descripcion":"Val\u00e8ncia Nord-Gandia",
+        "Origen":"Val\u00e8ncia Nord",
+        "Destino":"Gandia",
+        "Estaciones":{
+          "Estacion":[
+            {
+              "Codigo":"65000",
+              "Descripcion":"Val\u00e8ncia Nord",
+              "ViaSentidoDestino":"ns",
+              "ViaSentidoOrigen":"ns",
+              "Correspondencias":{
+                "Correspondencia":[
+                  {
+                    "tipo":"tren",
+                    "descripcion":"C2, C5 y C6 de Cercanias"
+                  },
+                  {
+                    "tipo":"metro",
+                    "descripcion":"L1"
+                  }
+                ]
+              }
+            },
+            {
+              "Codigo":"64203",
+              "Descripcion":"Alfafar-Benet\u00fasser",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C2 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"64202",
+              "Descripcion":"Massanassa",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C2 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"64201",
+              "Descripcion":"Catarroja",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C2 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"64200",
+              "Descripcion":"Silla",
+              "ViaSentidoDestino":"3",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C2 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"69101",
+              "Descripcion":"El Roman\u00ed",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"69102",
+              "Descripcion":"Sollana",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"69103",
+              "Descripcion":"Sueca",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"69104",
+              "Descripcion":"Cullera",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"69105",
+              "Descripcion":"Tavernes de la Valldigna",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"69107",
+              "Descripcion":"Xeraco",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"69110",
+              "Descripcion":"Gandia",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"69111",
+              "Descripcion":"Platja i Grau de Gandia",
+              "ViaSentidoDestino":"ns",
+              "ViaSentidoOrigen":"ns",
+              "Correspondencias":[
+
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "Codigo":"C2",
+        "rgb":"FFB210",
+        "Descripcion":"Val\u00e8ncia Nord-X\u00e1tiva-Moixent",
+        "Origen":"Val\u00e8ncia Nord",
+        "Destino":"Moixent",
+        "Estaciones":{
+          "Estacion":[
+            {
+              "Codigo":"65000",
+              "Descripcion":"Val\u00e8ncia Nord",
+              "ViaSentidoDestino":"ns",
+              "ViaSentidoOrigen":"ns",
+              "Correspondencias":{
+                "Correspondencia":[
+                  {
+                    "tipo":"tren",
+                    "descripcion":"C1, C5 y C6 de Cercanias"
+                  },
+                  {
+                    "tipo":"metro",
+                    "descripcion":"L1"
+                  }
+                ]
+              }
+            },
+            {
+              "Codigo":"64203",
+              "Descripcion":"Alfafar-Benet\u00fasser",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C1 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"64202",
+              "Descripcion":"Massanassa",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C1 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"64201",
+              "Descripcion":"Catarroja",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C1 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"64200",
+              "Descripcion":"Silla",
+              "ViaSentidoDestino":"3",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C1 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"64107",
+              "Descripcion":"Benifai\u00f3-Almussafes",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"64105",
+              "Descripcion":"Algemes\u00ed",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"64104",
+              "Descripcion":"Alzira",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"64103",
+              "Descripcion":"Carcaixent",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"64102",
+              "Descripcion":"La Pobla Llarga",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2 \u00f3 4",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"64007",
+              "Descripcion":"L'\u00c8nova-Manuel",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"64100",
+              "Descripcion":"X\u00e1tiva",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"64006",
+              "Descripcion":"L'Alc\u00fadia de Crespins",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"64005",
+              "Descripcion":"Montesa",
+              "ViaSentidoDestino":"ns",
+              "ViaSentidoOrigen":"ns",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"64004",
+              "Descripcion":"Vallada",
+              "ViaSentidoDestino":"ns",
+              "ViaSentidoOrigen":"ns",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"64003",
+              "Descripcion":"Moixent",
+              "ViaSentidoDestino":"ns",
+              "ViaSentidoOrigen":"ns",
+              "Correspondencias":[
+
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "Codigo":"C3",
+        "rgb":"931A8B",
+        "Descripcion":"Val\u00e8ncia-Sant Isidre-Bu\u00f1ol-Utiel",
+        "Origen":"Val\u00e8ncia-Sant Isidre",
+        "Destino":"Utiel",
+        "Estaciones":{
+          "Estacion":[
+            {
+              "Codigo":"66212",
+              "Descripcion":"Val\u00e8ncia-Sant Isidre",
+              "ViaSentidoDestino":"2 \u00f3 4",
+              "ViaSentidoOrigen":"2 \u00f3 4",
+              "Correspondencias":{
+                "Correspondencia":[
+                  {
+                    "tipo":"tren",
+                    "descripcion":"C4 de Cercanias"
+                  },
+                  {
+                    "tipo":"metro",
+                    "descripcion":"L1 y L5"
+                  }
+                ]
+              }
+            },
+            {
+              "Codigo":"66214",
+              "Descripcion":"Xirivella-Alquer\u00edes",
+              "ViaSentidoDestino":"ns",
+              "ViaSentidoOrigen":"ns",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"66211",
+              "Descripcion":"Aldaia",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"66209",
+              "Descripcion":"Loriguilla-Reva",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"66210",
+              "Descripcion":"Circuit R.Tormo",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"66208",
+              "Descripcion":"Cheste",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"66207",
+              "Descripcion":"Chiva",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"66206",
+              "Descripcion":"Bu\u00f1ol",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"66205",
+              "Descripcion":"Venta Mina",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"66204",
+              "Descripcion":"Siete Aguas",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"66203",
+              "Descripcion":"El Rebollar",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"66202",
+              "Descripcion":"Requena",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"66201",
+              "Descripcion":"San Antonio de Requena",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"66200",
+              "Descripcion":"Utiel",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"2",
+              "Correspondencias":[
+
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "Codigo":"C4",
+        "rgb":"FF171C",
+        "Descripcion":"Val\u00e8ncia-Sant Isidre-Xirivella L'Alter",
+        "Origen":"Val\u00e8ncia-Sant Isidre",
+        "Destino":"Xirivella L'Alter",
+        "Estaciones":{
+          "Estacion":[
+            {
+              "Codigo":"66212",
+              "Descripcion":"Val\u00e8ncia-Sant Isidre",
+              "ViaSentidoDestino":"ns",
+              "ViaSentidoOrigen":"ns",
+              "Correspondencias":{
+                "Correspondencia":[
+                  {
+                    "tipo":"tren",
+                    "descripcion":"C3 de Cercanias"
+                  },
+                  {
+                    "tipo":"metro",
+                    "descripcion":"L1 y L5"
+                  }
+                ]
+              }
+            },
+            {
+              "Codigo":"69200",
+              "Descripcion":"Xirivella-L'Alter",
+              "ViaSentidoDestino":"ns",
+              "ViaSentidoOrigen":"ns",
+              "Correspondencias":[
+
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "Codigo":"C5",
+        "rgb":"018B2B",
+        "Descripcion":"Val\u00e8ncia Nord-Caudiel",
+        "Origen":"Val\u00e8ncia Nord",
+        "Destino":"Caudiel",
+        "Estaciones":{
+          "Estacion":[
+            {
+              "Codigo":"65000",
+              "Descripcion":"Val\u00e8ncia Nord",
+              "ViaSentidoDestino":"ns",
+              "ViaSentidoOrigen":"ns",
+              "Correspondencias":{
+                "Correspondencia":[
+                  {
+                    "tipo":"tren",
+                    "descripcion":"C1, C2 y C6 de Cercanias"
+                  },
+                  {
+                    "tipo":"metro",
+                    "descripcion":"L1"
+                  }
+                ]
+              }
+            },
+            {
+              "Codigo":"65002",
+              "Descripcion":"Val\u00e8ncia-F.S.L.",
+              "ViaSentidoDestino":"2",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C6 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"65003",
+              "Descripcion":"Val\u00e8ncia-Cabanyal",
+              "ViaSentidoDestino":"2",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C6 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"65001",
+              "Descripcion":"Roca-C\u00faper",
+              "ViaSentidoDestino":"2",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C6 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"65005",
+              "Descripcion":"Albuixech",
+              "ViaSentidoDestino":"2",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C6 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"65006",
+              "Descripcion":"Massalfassar",
+              "ViaSentidoDestino":"4",
+              "ViaSentidoOrigen":"3",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C6 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"65007",
+              "Descripcion":"El Puig",
+              "ViaSentidoDestino":"2",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C6 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"65008",
+              "Descripcion":"Pu\u00e7ol",
+              "ViaSentidoDestino":"4",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C6 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"65200",
+              "Descripcion":"Sagunt",
+              "ViaSentidoDestino":"4",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C6 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"67223",
+              "Descripcion":"Gilet",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"67221",
+              "Descripcion":"Estivella-Albalat dels Tarongers",
+              "ViaSentidoDestino":"2",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"67216",
+              "Descripcion":"Algimia",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"67217",
+              "Descripcion":"Soneja",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"67215",
+              "Descripcion":"Segorbe-Ciudad",
+              "ViaSentidoDestino":"2",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"67214",
+              "Descripcion":"Segorbe-Arrabal",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"67213",
+              "Descripcion":"Navajas",
+              "ViaSentidoDestino":"1",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"67212",
+              "Descripcion":"J\u00e9rica-Viver",
+              "ViaSentidoDestino":"2",
+              "ViaSentidoOrigen":"1 \u00f3 5",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"67211",
+              "Descripcion":"Caudiel",
+              "ViaSentidoDestino":"1, 3 \u00f3 5",
+              "ViaSentidoOrigen":"1, 3 \u00f3 5",
+              "Correspondencias":[
+
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "Codigo":"C6",
+        "rgb":"00328B",
+        "Descripcion":"Val\u00e8ncia Nord-Castell\u00f3",
+        "Origen":"Val\u00e8ncia Nord",
+        "Destino":"Castell\u00f3",
+        "Estaciones":{
+          "Estacion":[
+            {
+              "Codigo":"65000",
+              "Descripcion":"Val\u00e8ncia Nord",
+              "ViaSentidoDestino":"ns",
+              "ViaSentidoOrigen":"ns",
+              "Correspondencias":{
+                "Correspondencia":[
+                  {
+                    "tipo":"tren",
+                    "descripcion":"C1, C2 y C5 de Cercanias"
+                  },
+                  {
+                    "tipo":"metro",
+                    "descripcion":"L1"
+                  }
+                ]
+              }
+            },
+            {
+              "Codigo":"65002",
+              "Descripcion":"Val\u00e8ncia-F.S.L.",
+              "ViaSentidoDestino":"2",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C5 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"65003",
+              "Descripcion":"Val\u00e8ncia-Cabanyal",
+              "ViaSentidoDestino":"2",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C5 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"65001",
+              "Descripcion":"Roca-C\u00faper",
+              "ViaSentidoDestino":"2",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C5 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"65005",
+              "Descripcion":"Albuixech",
+              "ViaSentidoDestino":"2",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C5 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"65006",
+              "Descripcion":"Massalfassar",
+              "ViaSentidoDestino":"4",
+              "ViaSentidoOrigen":"3",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C5 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"65007",
+              "Descripcion":"El Puig",
+              "ViaSentidoDestino":"2",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C5 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"65008",
+              "Descripcion":"Pu\u00e7ol",
+              "ViaSentidoDestino":"4",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C5 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"65200",
+              "Descripcion":"Sagunt",
+              "ViaSentidoDestino":"4",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":{
+                "Correspondencia":{
+                  "tipo":"tren",
+                  "descripcion":"C5 de Cercanias"
+                }
+              }
+            },
+            {
+              "Codigo":"65201",
+              "Descripcion":"Les Valls",
+              "ViaSentidoDestino":"2",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"65202",
+              "Descripcion":"Almenara",
+              "ViaSentidoDestino":"2",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"65203",
+              "Descripcion":"La Llosa",
+              "ViaSentidoDestino":"2",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"65204",
+              "Descripcion":"Xilxes",
+              "ViaSentidoDestino":"2",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"65205",
+              "Descripcion":"Moncofa",
+              "ViaSentidoDestino":"2",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"65206",
+              "Descripcion":"Nules-La Vilavella",
+              "ViaSentidoDestino":"2",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"65207",
+              "Descripcion":"Burriana-Alquer\u00edas del Ni\u00f1o Perdido",
+              "ViaSentidoDestino":"2",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"65208",
+              "Descripcion":"Vila-real",
+              "ViaSentidoDestino":"2",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"65209",
+              "Descripcion":"Almassora",
+              "ViaSentidoDestino":"2",
+              "ViaSentidoOrigen":"1",
+              "Correspondencias":[
+
+              ]
+            },
+            {
+              "Codigo":"65300",
+              "Descripcion":"Castell\u00f3",
+              "ViaSentidoDestino":"1, 2, 3 \u00f3 4",
+              "ViaSentidoOrigen":"1, 2, 3 \u00f3 4",
+              "Correspondencias":[
+
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
