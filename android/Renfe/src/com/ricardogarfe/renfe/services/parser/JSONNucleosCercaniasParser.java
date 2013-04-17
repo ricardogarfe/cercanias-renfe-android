@@ -3,8 +3,19 @@
  */
 package com.ricardogarfe.renfe.services.parser;
 
-import org.json.JSONObject;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
+import android.util.Log;
+
+import com.google.android.maps.GeoPoint;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
 
 /**
@@ -16,14 +27,59 @@ import com.ricardogarfe.renfe.model.NucleoCercanias;
  */
 public class JSONNucleosCercaniasParser extends JSONCercaniasParser {
 
+    public List<NucleoCercanias> retrieveNucleoCercaniasFromJSON(InputStream is)
+            throws IOException, JSONException {
+
+        List<NucleoCercanias> nucleoCercaniasList = new ArrayList<NucleoCercanias>();
+        int size = is.available();
+        byte[] buffer = new byte[size];
+        is.read(buffer);
+        is.close();
+        String bufferString = new String(buffer);
+
+        // convert string to JSONArray
+        JSONTokener jsonTokener = new JSONTokener(bufferString);
+        JSONObject jsonObject = new JSONObject(jsonTokener);
+        Log.i("MAIN", jsonObject.toString());
+        // parse an Object from a random index in the JSONArray
+
+        JSONArray jsonArray = (jsonObject.getJSONObject("Nucleos"))
+                .getJSONArray("Nucleo");
+
+        NucleoCercanias nucleoCercanias;
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject jsonObjectNucleo = jsonArray.getJSONObject(i);
+            nucleoCercanias = retrieveNucleoCercanias(jsonObjectNucleo);
+            nucleoCercaniasList.add(nucleoCercanias);
+        }
+
+        return nucleoCercaniasList;
+
+    }
+
     /**
-     * Retrieve NucleosCercanias from JSONObject data.
+     * Retrieve {@link NucleoCercanias} from {@link JSONObject} data.
      * 
      * @param jsonObject
      *            Object to convert.
-     * @return NucleosCercanias object.
+     * @return NucleoCercanias object.
+     * @throws JSONException
      */
-    public NucleoCercanias retrieveNucleosCercanias(JSONObject jsonObject) {
-        return null;
+    public NucleoCercanias retrieveNucleoCercanias(JSONObject jsonObject)
+            throws JSONException {
+
+        NucleoCercanias nucleoCercanias = new NucleoCercanias();
+
+        nucleoCercanias.setCodigo(jsonObject.getString("Codigo"));
+        nucleoCercanias.setDescripcion(jsonObject.getString("Descripcion"));
+        GeoPoint geoPoint = retrieveGeoPoint(jsonObject.getDouble("Lat"),
+                jsonObject.getDouble("Lon"));
+        nucleoCercanias.setGeoPoint(geoPoint);
+        nucleoCercanias.setIconoMapa(jsonObject.getString("IconoMapa"));
+        nucleoCercanias.setTarifas(jsonObject.getString("Tarifas"));
+        nucleoCercanias.setIncidencias(jsonObject.getString("Incidencias"));
+
+        return nucleoCercanias;
     }
 }

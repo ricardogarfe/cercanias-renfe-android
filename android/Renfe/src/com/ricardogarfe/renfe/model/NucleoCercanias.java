@@ -3,6 +3,8 @@
  */
 package com.ricardogarfe.renfe.model;
 
+import com.google.android.maps.GeoPoint;
+
 import android.location.Geocoder;
 
 /**
@@ -15,7 +17,7 @@ public class NucleoCercanias {
 
     private String codigo;
     private String descripcion;
-    private Geocoder geoCoder;
+    private GeoPoint geoPoint;
     private String iconoMapa;
     private String tarifas;
     private String incidencias;
@@ -60,12 +62,12 @@ public class NucleoCercanias {
         this.incidencias = incidencias;
     }
 
-    public Geocoder getGeoCoder() {
-        return geoCoder;
+    public GeoPoint getGeoPoint() {
+        return geoPoint;
     }
 
-    public void setGeoCoder(Geocoder geoCoder) {
-        this.geoCoder = geoCoder;
+    public void setGeoPoint(GeoPoint geoPoint) {
+        this.geoPoint = geoPoint;
     }
 
 }
