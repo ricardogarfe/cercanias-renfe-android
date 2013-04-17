@@ -7,8 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author ricardo
  * 
+ * {@link HorarioCercanias} represents schedule from a trip between two
+ * {@link EstacionCercanias}
+ * 
+ * @author ricardo
  */
 public class HorarioCercanias {
 

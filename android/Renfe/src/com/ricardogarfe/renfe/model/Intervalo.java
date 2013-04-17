@@ -3,10 +3,12 @@
  */
 package com.ricardogarfe.renfe.model;
 
-
 /**
- * @author ricardo
  * 
+ * {@link Intervalo} represents validation time for {@link HorarioCercanias}
+ * retrieved.
+ * 
+ * @author ricardo
  */
 public class Intervalo {
 

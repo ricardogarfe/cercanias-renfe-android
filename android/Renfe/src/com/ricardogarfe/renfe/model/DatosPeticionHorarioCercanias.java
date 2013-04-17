@@ -4,8 +4,11 @@
 package com.ricardogarfe.renfe.model;
 
 /**
- * @author ricardo
  * 
+ * {@link DatosPeticionHorarioCercanias} represents travel data between two
+ * {@link EstacionCercanias}.
+ * 
+ * @author ricardo
  */
 public class DatosPeticionHorarioCercanias {
 

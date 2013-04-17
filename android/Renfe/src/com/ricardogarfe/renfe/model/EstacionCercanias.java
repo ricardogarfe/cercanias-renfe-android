@@ -4,8 +4,10 @@
 package com.ricardogarfe.renfe.model;
 
 /**
- * @author ricardo
  * 
+ * {@link EstacionCercanias} represents cercanias station data.
+ * 
+ * @author ricardo
  */
 public class EstacionCercanias {
 

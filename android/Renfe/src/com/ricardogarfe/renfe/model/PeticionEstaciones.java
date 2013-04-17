@@ -6,8 +6,10 @@ package com.ricardogarfe.renfe.model;
 import java.util.List;
 
 /**
- * @author ricardo
+ * {@link PeticionEstaciones} represents each {@link EstacionCercanias} per
+ * {@link NucleoCercanias}.
  * 
+ * @author ricardo
  */
 public class PeticionEstaciones {
 

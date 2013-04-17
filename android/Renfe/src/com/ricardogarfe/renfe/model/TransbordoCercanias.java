@@ -3,10 +3,12 @@
  */
 package com.ricardogarfe.renfe.model;
 
-
 /**
- * @author ricardo
  * 
+ * {@link TransbordoCercanias} represents a change to another Cercanias Line in
+ * the same trip.
+ * 
+ * @author ricardo
  */
 public class TransbordoCercanias {
 

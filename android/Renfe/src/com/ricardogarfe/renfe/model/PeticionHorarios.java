@@ -6,8 +6,11 @@ package com.ricardogarfe.renfe.model;
 import java.util.List;
 
 /**
- * @author ricardo
  * 
+ * {@link PeticionHorarios} represents whole data from {@link HorarioCercanias},
+ * {@link ValidezHorarioCercanias} and {@link DatosPeticionHorarioCercanias}.
+ * 
+ * @author ricardo
  */
 public class PeticionHorarios {
 
@@ -15,7 +18,7 @@ public class PeticionHorarios {
     private String fecha;
     private ValidezHorarioCercanias validez;
     private DatosPeticionHorarioCercanias peticion;
-    private List<HorarioCercanias> horarioTypeList;
+    private List<HorarioCercanias> horarioCercaniasList;
 
     public String getError() {
         return error;
@@ -49,12 +52,13 @@ public class PeticionHorarios {
         this.peticion = peticion;
     }
 
-    public List<HorarioCercanias> getHorarioTypeList() {
-        return horarioTypeList;
+    public List<HorarioCercanias> getHorarioCercaniasList() {
+        return horarioCercaniasList;
     }
 
-    public void setHorarioTypeList(List<HorarioCercanias> horarioTypeList) {
-        this.horarioTypeList = horarioTypeList;
+    public void setHorarioCercaniasList(
+            List<HorarioCercanias> horarioCercaniasList) {
+        this.horarioCercaniasList = horarioCercaniasList;
     }
 
 }

@@ -1,4 +1,4 @@
-package com.ricardogarfe.renfe.services.parser;
+package com.ricardogarfe.renfe.services.handler;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -20,7 +20,7 @@ import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
 import com.ricardogarfe.renfe.model.HorarioCercanias;
-import com.ricardogarfe.renfe.services.parser.HorariosCercaniasHandler;
+import com.ricardogarfe.renfe.services.handler.HorariosCercaniasHandler;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -42,22 +42,22 @@ import android.widget.Toast;
 
 public class HorariosActivity extends Activity {
 
-    Thread t;
-    ProgressDialog dialog;
+    private Thread t;
+    private ProgressDialog dialog;
 
-    TextView info_transbordo;
-    String fulldate;
+    private TextView info_transbordo;
+    private String fulldate;
 
-    TableLayout tl;
-    Vector<ParsedHorarioDataSet> test;
+    private TableLayout tl;
+    private Vector<ParsedHorarioDataSet> test;
 
-    String final_dia;
-    String final_mes;
-    String annio;
+    private String final_dia;
+    private String final_mes;
+    private String annio;
 
     // URL completa al script que parsea la web de renfe para obtener los
     // horarios
-    String parser_url = "http://horarios.renfe.com/cer/horarios/horarios.jsp";
+    private final String parser_url = "http://horarios.renfe.com/cer/horarios/horarios.jsp";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -148,6 +148,8 @@ public class HorariosActivity extends Activity {
 
             List<HorarioCercanias> horarioTypeList = horariosCercaniasHandler
                     .getHorarioTypeList();
+
+            test = new Vector<ParsedHorarioDataSet>();
 
             Message myMessage = new Message();
             myMessage.obj = "SUCCESS";
@@ -249,7 +251,6 @@ public class HorariosActivity extends Activity {
         }
     };
 
-    @Override
     protected Dialog onCreateDialog(int id) {
         switch (id) {
         case 0: {

@@ -1,4 +1,4 @@
-package com.ricardogarfe.renfe.services.parser;
+package com.ricardogarfe.renfe.services.handler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +10,10 @@ import org.xml.sax.helpers.DefaultHandler;
 import com.ricardogarfe.renfe.model.HorarioCercanias;
 import com.ricardogarfe.renfe.model.TransbordoCercanias;
 
+/**
+ * @author ricardo
+ * 
+ */
 public class HorariosCercaniasHandler extends DefaultHandler {
 
     private List<HorarioCercanias> horarioTypeList = new ArrayList<HorarioCercanias>();

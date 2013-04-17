@@ -3,30 +3,31 @@
  */
 package com.ricardogarfe.renfe.model;
 
-import javax.xml.datatype.XMLGregorianCalendar;
-
 /**
- * @author ricardo
  * 
+ * {@link ValidezHorarioCercanias} Represents untill which time is valid
+ * retrieved {@link HorarioCercanias}.
+ * 
+ * @author ricardo
  */
 public class ValidezHorarioCercanias {
 
-    private XMLGregorianCalendar desde;
-    private XMLGregorianCalendar hasta;
+    private String desde;
+    private String hasta;
 
-    public XMLGregorianCalendar getDesde() {
+    public String getDesde() {
         return desde;
     }
 
-    public void setDesde(XMLGregorianCalendar desde) {
+    public void setDesde(String desde) {
         this.desde = desde;
     }
 
-    public XMLGregorianCalendar getHasta() {
+    public String getHasta() {
         return hasta;
     }
 
-    public void setHasta(XMLGregorianCalendar hasta) {
+    public void setHasta(String hasta) {
         this.hasta = hasta;
     }
 
