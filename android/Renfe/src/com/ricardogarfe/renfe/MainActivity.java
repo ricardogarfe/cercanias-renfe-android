@@ -7,15 +7,20 @@
  * https://github.com/jonseg/cercanias-renfe-android
  */
 
-package com.jonsegador.Renfe;
+package com.ricardogarfe.renfe;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Calendar;
+import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+
+import com.jonsegador.Renfe.HorariosActivity;
+import com.ricardogarfe.renfe.model.NucleoCercanias;
+import com.ricardogarfe.renfe.services.parser.JSONNucleosCercaniasParser;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -55,6 +60,12 @@ public class MainActivity extends Activity {
     private int station2_id_to_set = 0;
 
     boolean can_change = false;
+
+    private String TAG = getClass().getSimpleName();
+            
+    private List<NucleoCercanias> retrieveNucleoCercaniasFromJSON;
+
+    private JSONNucleosCercaniasParser jsonNucleosCercaniasParser = new JSONNucleosCercaniasParser();
 
     // Seguramente esto vaya mucho mejor en un fichero a parte
 
@@ -418,18 +429,29 @@ public class MainActivity extends Activity {
 
     public void loadNucleosCercanias() throws Exception {
 
-        InputStream is = getAssets().open("json/nucleos_cercanias.json");
-        int size = is.available();
-        byte[] buffer = new byte[size];
-        is.read(buffer);
-        is.close();
-        String bufferString = new String(buffer);
+        InputStream is;
 
-        // convert string to JSONArray
-        JSONTokener jsonTokener = new JSONTokener(bufferString);
-        JSONObject jsonObject = new JSONObject(jsonTokener);
-        Log.i("MAIN", jsonObject.toString());
-        // parse an Object from a random index in the JSONArray
+        try {
+            is = getAssets().open("json/nucleos_cercanias.json");
+
+            retrieveNucleoCercaniasFromJSON = jsonNucleosCercaniasParser
+                    .retrieveNucleoCercaniasFromJSON(is);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            Log.e("MAIN Activity", "Parsing JSON data:\t" + e.getMessage());
+        }
+
+        nucleo = (Spinner) this.findViewById(R.id.spinner1);
+
+        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(
+                this, android.R.layout.simple_spinner_item);
+
+        for (NucleoCercanias nucleoCercanias : retrieveNucleoCercaniasFromJSON) {
+            adapter.add(nucleoCercanias.getDescripcion());
+        }
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        nucleo.setAdapter(adapter);
 
     }
 

@@ -19,6 +19,9 @@ import javax.xml.parsers.SAXParserFactory;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
+import com.ricardogarfe.renfe.R;
+import com.ricardogarfe.renfe.R.id;
+import com.ricardogarfe.renfe.R.layout;
 import com.ricardogarfe.renfe.model.HorarioCercanias;
 import com.ricardogarfe.renfe.services.handler.HorariosCercaniasHandler;
 
