@@ -6,7 +6,7 @@
     android:orientation="horizontal"
     android:paddingBottom="3dip"
     android:paddingTop="3dip"
-    android:background="#FF0000" >
+    android:background="#7A7A7A" >
 
     <ImageView
         android:id="@+id/nucleo_image"
