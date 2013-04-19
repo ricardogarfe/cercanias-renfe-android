@@ -58,7 +58,8 @@ public class NucleoAdapter extends BaseAdapter {
      * @see android.widget.Adapter#getItemId(int)
      */
     public long getItemId(int position) {
-        // TODO Auto-generated method stub
+        // TODO Asignar el identificador asociado a cada nucleo para hacer las
+        // peticiones de horarios.
         return 0;
     }
 
