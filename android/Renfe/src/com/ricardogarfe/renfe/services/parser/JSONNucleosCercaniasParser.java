@@ -13,6 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.google.android.maps.GeoPoint;
@@ -27,8 +28,12 @@ import com.ricardogarfe.renfe.model.NucleoCercanias;
  */
 public class JSONNucleosCercaniasParser extends JSONCercaniasParser {
 
-    public List<NucleoCercanias> retrieveNucleoCercaniasFromJSON(InputStream is)
+    private Context context;
+
+    public List<NucleoCercanias> retrieveNucleoCercaniasFromJSON(String file)
             throws IOException, JSONException {
+
+        InputStream is = context.getAssets().open(file);
 
         List<NucleoCercanias> nucleoCercaniasList = new ArrayList<NucleoCercanias>();
         int size = is.available();
@@ -81,5 +86,13 @@ public class JSONNucleosCercaniasParser extends JSONCercaniasParser {
         nucleoCercanias.setIncidencias(jsonObject.getString("Incidencias"));
 
         return nucleoCercanias;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
     }
 }

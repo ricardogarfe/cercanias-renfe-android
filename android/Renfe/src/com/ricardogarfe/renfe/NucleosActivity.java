@@ -9,7 +9,6 @@
 
 package com.ricardogarfe.renfe;
 
-import java.io.InputStream;
 import java.util.List;
 
 import android.app.ListActivity;
@@ -26,6 +25,8 @@ import com.ricardogarfe.renfe.services.parser.JSONNucleosCercaniasParser;
 
 public class NucleosActivity extends ListActivity {
 
+    private static String NUCLEOS_JSON = "json/nucleos_cercanias.json";
+
     private SharedPreferences mPreferences;
 
     private String TAG = getClass().getSimpleName();
@@ -34,7 +35,7 @@ public class NucleosActivity extends ListActivity {
 
     private List<NucleoCercanias> mNucleoCercaniasList;
 
-    private JSONNucleosCercaniasParser jsonNucleosCercaniasParser = new JSONNucleosCercaniasParser();
+    private JSONNucleosCercaniasParser mJSONNucleosCercaniasParser = new JSONNucleosCercaniasParser();
 
     // Seguramente esto vaya mucho mejor en un fichero a parte
 
@@ -70,6 +71,8 @@ public class NucleosActivity extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        mJSONNucleosCercaniasParser.setContext(this);
+
         try {
             loadNucleosCercanias();
         } catch (Exception e) {
@@ -95,13 +98,10 @@ public class NucleosActivity extends ListActivity {
      */
     public void loadNucleosCercanias() throws Exception {
 
-        InputStream is;
-
         try {
-            is = getAssets().open("json/nucleos_cercanias.json");
-
-            mNucleoCercaniasList = jsonNucleosCercaniasParser
-                    .retrieveNucleoCercaniasFromJSON(is);
+            
+            mNucleoCercaniasList = mJSONNucleosCercaniasParser
+                    .retrieveNucleoCercaniasFromJSON(NUCLEOS_JSON);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             Log.e("MAIN Activity", "Parsing JSON data:\t" + e.getMessage());

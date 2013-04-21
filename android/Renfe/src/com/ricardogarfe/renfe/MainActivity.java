@@ -63,6 +63,8 @@ public class MainActivity extends Activity {
 
     private String TAG = getClass().getSimpleName();
             
+    private static String NUCLEOS_JSON = "json/nucleos_cercanias.json";
+
     private List<NucleoCercanias> retrieveNucleoCercaniasFromJSON;
 
     private JSONNucleosCercaniasParser jsonNucleosCercaniasParser = new JSONNucleosCercaniasParser();
@@ -429,13 +431,10 @@ public class MainActivity extends Activity {
 
     public void loadNucleosCercanias() throws Exception {
 
-        InputStream is;
 
         try {
-            is = getAssets().open("json/nucleos_cercanias.json");
-
             retrieveNucleoCercaniasFromJSON = jsonNucleosCercaniasParser
-                    .retrieveNucleoCercaniasFromJSON(is);
+                    .retrieveNucleoCercaniasFromJSON(NUCLEOS_JSON);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             Log.e("MAIN Activity", "Parsing JSON data:\t" + e.getMessage());
