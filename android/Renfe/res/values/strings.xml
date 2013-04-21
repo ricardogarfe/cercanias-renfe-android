@@ -2,12 +2,12 @@
 <resources>
 
     <string name="app_name">Cercanías Renfe</string>
-    <string name="station1_salida"><u>Salida</u></string>
-    <string name="station2_llegada"><u>Llegada</u></string>
-    <string name="tiempo"><u>Duración</u></string>
-    <string name="linea_salida"><u>Línea</u></string>
+    <string name="station1_salida">Salida</string>
+    <string name="station2_llegada">Llegada</string>
+    <string name="tiempo">Duración</string>
+    <string name="linea_salida">Línea</string>
 
     <!-- Nucleos view -->
-    <string name="textNucleos"><u>Nucleos</u></string>
+    <string name="textNucleos">Nucleos</string>
 
 </resources>
