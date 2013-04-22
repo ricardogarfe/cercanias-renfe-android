@@ -15,18 +15,18 @@ import android.location.Geocoder;
  */
 public class NucleoCercanias {
 
-    private String codigo;
+    private Integer codigo;
     private String descripcion;
     private GeoPoint geoPoint;
     private String iconoMapa;
     private String tarifas;
     private String incidencias;
 
-    public String getCodigo() {
+    public Integer getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }
 

@@ -12,6 +12,7 @@ package com.ricardogarfe.renfe;
 import java.util.List;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -99,7 +100,7 @@ public class NucleosActivity extends ListActivity {
     public void loadNucleosCercanias() throws Exception {
 
         try {
-            
+
             mNucleoCercaniasList = mJSONNucleosCercaniasParser
                     .retrieveNucleoCercaniasFromJSON(NUCLEOS_JSON);
         } catch (Exception e) {
@@ -118,6 +119,15 @@ public class NucleosActivity extends ListActivity {
         Toast.makeText(this,
                 mNucleoCercaniasList.get(position).getDescripcion(),
                 Toast.LENGTH_SHORT).show();
+
+        Intent intentEstacionesNucleos = new Intent(NucleosActivity.this,
+                EstacionesNucleoViajeActivity.class);
+        intentEstacionesNucleos.putExtra("codigo_nucleo", mNucleoCercaniasList.get(position)
+                .getCodigo());
+        intentEstacionesNucleos.putExtra("descripcion_nucleo", mNucleoCercaniasList
+                .get(position).getDescripcion());
+        
+        startActivity(intentEstacionesNucleos);
     }
 
 }

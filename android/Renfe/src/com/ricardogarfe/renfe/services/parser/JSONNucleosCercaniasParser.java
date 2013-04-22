@@ -30,6 +30,8 @@ public class JSONNucleosCercaniasParser extends JSONCercaniasParser {
 
     private Context context;
 
+    private JSONObject mJSONObjectNucleos;
+    
     public List<NucleoCercanias> retrieveNucleoCercaniasFromJSON(String file)
             throws IOException, JSONException {
 
@@ -44,11 +46,11 @@ public class JSONNucleosCercaniasParser extends JSONCercaniasParser {
 
         // convert string to JSONArray
         JSONTokener jsonTokener = new JSONTokener(bufferString);
-        JSONObject jsonObject = new JSONObject(jsonTokener);
-        Log.i("MAIN", jsonObject.toString());
+        setmJSONObjectNucleos(new JSONObject(jsonTokener));
+        Log.i("MAIN", getmJSONObjectNucleos().toString());
         // parse an Object from a random index in the JSONArray
 
-        JSONArray jsonArray = (jsonObject.getJSONObject("Nucleos"))
+        JSONArray jsonArray = (getmJSONObjectNucleos().getJSONObject("Nucleos"))
                 .getJSONArray("Nucleo");
 
         NucleoCercanias nucleoCercanias;
@@ -76,7 +78,7 @@ public class JSONNucleosCercaniasParser extends JSONCercaniasParser {
 
         NucleoCercanias nucleoCercanias = new NucleoCercanias();
 
-        nucleoCercanias.setCodigo(jsonObject.getString("Codigo"));
+        nucleoCercanias.setCodigo(jsonObject.getInt("Codigo"));
         nucleoCercanias.setDescripcion(jsonObject.getString("Descripcion"));
         GeoPoint geoPoint = retrieveGeoPoint(jsonObject.getDouble("Lat"),
                 jsonObject.getDouble("Lon"));
@@ -88,11 +90,32 @@ public class JSONNucleosCercaniasParser extends JSONCercaniasParser {
         return nucleoCercanias;
     }
 
+    /**
+     * Find Nucleo Cercanías by Id Nucleo.
+     * 
+     * TODO: 
+     * 
+     * @param idNucleo to find.
+     * @return Nucleo object.
+     */
+    public NucleoCercanias findNucleoCercaniasByIdNucleo(String idNucleo) {
+
+        return null;
+    }
+
     public Context getContext() {
         return context;
     }
 
     public void setContext(Context context) {
         this.context = context;
+    }
+
+    public JSONObject getmJSONObjectNucleos() {
+        return mJSONObjectNucleos;
+    }
+
+    public void setmJSONObjectNucleos(JSONObject mJSONObjectNucleos) {
+        this.mJSONObjectNucleos = mJSONObjectNucleos;
     }
 }

@@ -11,7 +11,7 @@
         "Incidencias":[ ],
 		"estaciones":"http://api2.mo2o.com/apps/RenfeApp/contents/estaciones_20.xml.gz", 
 		"lineas":"http://api2.mo2o.com/apps/RenfeApp/contents/lineas_20.xml.gz", 
-		"mapaesquematico:"http://api2.mo2o.com/apps/RenfeApp/contents/mapaesquematico_20.xml.gz", 
+		"mapaesquematico":"http://api2.mo2o.com/apps/RenfeApp/contents/mapaesquematico_20.xml.gz", 
 		"mapaesquematicoimg":"http://api2.mo2o.com/apps/RenfeApp/redirect.php?file=esquematico_20.jpg.gz", 
 		"name":"ASTURIAS", 
 		"tarifas":"http://api2.mo2o.com/apps/RenfeApp/contents/matriz_20.xml.gz"
