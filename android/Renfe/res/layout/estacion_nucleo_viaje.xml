@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="6dp"
-        android:textColor="#ff000000"
+        android:textColor="#FFFFFF"
         android:textSize="15sp"
         android:textStyle="bold" />
 
@@ -25,9 +25,17 @@
         android:layout_marginLeft="4dp"
         android:layout_marginTop="6dp"
         android:text="@string/estacionOrigenText"
-        android:textColor="#ff000000"
-        android:textSize="15sp"
-        android:textStyle="bold" />
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/origen_image"
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:layout_below="@id/estacionOrigenText"
+        android:layout_marginLeft="10dip"
+        android:contentDescription="TODO"
+        android:src="@drawable/icono_origen001" />
 
     <Spinner
         android:id="@+id/origenSpinner"
@@ -35,22 +43,29 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/estacionOrigenText"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@id/origen_image"
         android:drawSelectorOnTop="true" />
 
     <TextView
         android:id="@+id/estacionDestinoText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/origenSpinner"
+        android:layout_below="@id/origen_image"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="6dp"
         android:text="@string/estacionDestinoText"
-        android:textColor="#ff000000"
-        android:textSize="15sp"
-        android:textStyle="bold" />
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/destino_image"
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:layout_alignLeft="@id/destino_image"
+        android:layout_below="@id/estacionDestinoText"
+        android:layout_marginLeft="10dip"
+        android:src="@drawable/icono_destino001" />
 
     <Spinner
         android:id="@+id/destinoSpinner"
@@ -58,8 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/estacionDestinoText"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@id/destino_image"
         android:drawSelectorOnTop="true" />
 
     <Button
