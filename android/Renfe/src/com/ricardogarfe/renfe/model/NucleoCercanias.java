@@ -5,8 +5,6 @@ package com.ricardogarfe.renfe.model;
 
 import com.google.android.maps.GeoPoint;
 
-import android.location.Geocoder;
-
 /**
  * 
  * {@link NucleoCercanias} represents data from cercanias city.
@@ -21,6 +19,10 @@ public class NucleoCercanias {
     private String iconoMapa;
     private String tarifas;
     private String incidencias;
+    private String estacionesJSON;
+    private String estacionesXML;
+    private String lineasJSON;
+    private String lineasXML;
 
     public Integer getCodigo() {
         return codigo;
@@ -68,6 +70,38 @@ public class NucleoCercanias {
 
     public void setGeoPoint(GeoPoint geoPoint) {
         this.geoPoint = geoPoint;
+    }
+
+    public String getEstacionesJSON() {
+        return estacionesJSON;
+    }
+
+    public void setEstacionesJSON(String estacionesJSON) {
+        this.estacionesJSON = estacionesJSON;
+    }
+
+    public String getEstacionesXML() {
+        return estacionesXML;
+    }
+
+    public void setEstacionesXML(String estacionesXML) {
+        this.estacionesXML = estacionesXML;
+    }
+
+    public String getLineasJSON() {
+        return lineasJSON;
+    }
+
+    public void setLineasJSON(String lineasJSON) {
+        this.lineasJSON = lineasJSON;
+    }
+
+    public String getLineasXML() {
+        return lineasXML;
+    }
+
+    public void setLineasXML(String lineasXML) {
+        this.lineasXML = lineasXML;
     }
 
 }

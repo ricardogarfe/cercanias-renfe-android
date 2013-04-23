@@ -4,17 +4,12 @@
 package com.ricardogarfe.renfe.services.parser;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONTokener;
-
-import android.content.Context;
-import android.util.Log;
 
 import com.google.android.maps.GeoPoint;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
@@ -28,29 +23,16 @@ import com.ricardogarfe.renfe.model.NucleoCercanias;
  */
 public class JSONNucleosCercaniasParser extends JSONCercaniasParser {
 
-    private Context context;
-
     private JSONObject mJSONObjectNucleos;
-    
+
     public List<NucleoCercanias> retrieveNucleoCercaniasFromJSON(String file)
             throws IOException, JSONException {
 
-        InputStream is = context.getAssets().open(file);
-
         List<NucleoCercanias> nucleoCercaniasList = new ArrayList<NucleoCercanias>();
-        int size = is.available();
-        byte[] buffer = new byte[size];
-        is.read(buffer);
-        is.close();
-        String bufferString = new String(buffer);
 
-        // convert string to JSONArray
-        JSONTokener jsonTokener = new JSONTokener(bufferString);
-        setmJSONObjectNucleos(new JSONObject(jsonTokener));
-        Log.i("MAIN", getmJSONObjectNucleos().toString());
-        // parse an Object from a random index in the JSONArray
+        mJSONObjectNucleos = getJSONFromFile(file);
 
-        JSONArray jsonArray = (getmJSONObjectNucleos().getJSONObject("Nucleos"))
+        JSONArray jsonArray = (mJSONObjectNucleos.getJSONObject("Nucleos"))
                 .getJSONArray("Nucleo");
 
         NucleoCercanias nucleoCercanias;
@@ -86,6 +68,11 @@ public class JSONNucleosCercaniasParser extends JSONCercaniasParser {
         nucleoCercanias.setIconoMapa(jsonObject.getString("IconoMapa"));
         nucleoCercanias.setTarifas(jsonObject.getString("Tarifas"));
         nucleoCercanias.setIncidencias(jsonObject.getString("Incidencias"));
+        nucleoCercanias.setEstacionesJSON(jsonObject
+                .getString("estacionesJSON"));
+        nucleoCercanias.setEstacionesXML(jsonObject.getString("estacionesXML"));
+        nucleoCercanias.setLineasJSON(jsonObject.getString("lineasJSON"));
+        nucleoCercanias.setLineasXML(jsonObject.getString("lineasXML"));
 
         return nucleoCercanias;
     }
@@ -93,9 +80,10 @@ public class JSONNucleosCercaniasParser extends JSONCercaniasParser {
     /**
      * Find Nucleo Cercanías by Id Nucleo.
      * 
-     * TODO: 
+     * TODO:
      * 
-     * @param idNucleo to find.
+     * @param idNucleo
+     *            to find.
      * @return Nucleo object.
      */
     public NucleoCercanias findNucleoCercaniasByIdNucleo(String idNucleo) {
@@ -103,19 +91,11 @@ public class JSONNucleosCercaniasParser extends JSONCercaniasParser {
         return null;
     }
 
-    public Context getContext() {
-        return context;
-    }
-
-    public void setContext(Context context) {
-        this.context = context;
-    }
-
-    public JSONObject getmJSONObjectNucleos() {
+    public JSONObject getMJSONObjectNucleos() {
         return mJSONObjectNucleos;
     }
 
-    public void setmJSONObjectNucleos(JSONObject mJSONObjectNucleos) {
+    public void setMJSONObjectNucleos(JSONObject mJSONObjectNucleos) {
         this.mJSONObjectNucleos = mJSONObjectNucleos;
     }
 }

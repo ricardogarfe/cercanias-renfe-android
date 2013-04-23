@@ -50,6 +50,7 @@ public class EstacionesNucleoViajeActivity extends Activity {
     // Nucleo values
     private int codigoNucleo;
     private String descripcionNucleo;
+    private String estacionesJSON;
 
     // Seguramente esto vaya mucho mejor en un fichero a parte
 
@@ -434,6 +435,8 @@ public class EstacionesNucleoViajeActivity extends Activity {
             }
         }
 
+        estacionesJSON = intentFromActivity.getStringExtra("estaciones_json");
+        
         mPreferences = getSharedPreferences("Renfe", MODE_PRIVATE);
 
         origenSpinner = (Spinner) this.findViewById(R.id.origenSpinner);

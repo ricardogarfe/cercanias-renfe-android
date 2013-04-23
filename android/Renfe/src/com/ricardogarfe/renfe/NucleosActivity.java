@@ -38,18 +38,6 @@ public class NucleosActivity extends ListActivity {
 
     private JSONNucleosCercaniasParser mJSONNucleosCercaniasParser = new JSONNucleosCercaniasParser();
 
-    // Seguramente esto vaya mucho mejor en un fichero a parte
-
-    private String[][] actual_station = { { "0", "Selecciona primero un núcleo" } };
-    private String[][] empty_nucleo = { { "0", "Selecciona primero un núcleo" } };
-
-    private String[][] nucleos = { { "0", "Seleccionar núcleo" },
-            { "20", "Asturias" }, { "50", "Barcelona" }, { "60", "Bilbao" },
-            { "31", "Cádiz" }, { "10", "Madrid" }, { "32", "Málaga" },
-            { "41", "Murcia" }, { "62", "Santander" },
-            { "61", "San Sebastián" }, { "30", "Sevilla" },
-            { "40", "Valencia" }, { "70", "Zaragoza" } };
-
     private String[][] days = { { "01", "1" }, { "02", "2" }, { "03", "3" },
             { "04", "4" }, { "05", "5" }, { "06", "6" }, { "07", "7" },
             { "08", "8" }, { "09", "9" }, { "10", "10" }, { "11", "11" },
@@ -127,6 +115,9 @@ public class NucleosActivity extends ListActivity {
         intentEstacionesNucleos.putExtra("descripcion_nucleo", mNucleoCercaniasList
                 .get(position).getDescripcion());
         
+        intentEstacionesNucleos.putExtra("estaciones_json", mNucleoCercaniasList
+                .get(position).getEstacionesJSON());
+
         startActivity(intentEstacionesNucleos);
     }
 
