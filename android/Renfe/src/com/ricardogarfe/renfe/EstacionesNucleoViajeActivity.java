@@ -9,41 +9,27 @@
 
 package com.ricardogarfe.renfe;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Calendar;
-import java.util.List;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.json.JSONTokener;
-
-import com.jonsegador.Renfe.HorariosActivity;
-import com.ricardogarfe.renfe.model.NucleoCercanias;
-import com.ricardogarfe.renfe.services.parser.JSONNucleosCercaniasParser;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemSelectedListener;
+
+import com.jonsegador.Renfe.HorariosActivity;
 
 public class EstacionesNucleoViajeActivity extends Activity {
 
-    private Button create_btn;
-    private Spinner nucleo;
-    private Spinner station1;
-    private Spinner station2;
+    private Button verHorariosButton;
+    private Spinner origenSpinner;
+    private Spinner destinoSpinner;
 
     private Spinner day;
     private Spinner month;
@@ -450,14 +436,13 @@ public class EstacionesNucleoViajeActivity extends Activity {
 
         mPreferences = getSharedPreferences("Renfe", MODE_PRIVATE);
 
-        nucleo = (Spinner) this.findViewById(R.id.spinner1);
-        station1 = (Spinner) this.findViewById(R.id.spinner2);
-        station2 = (Spinner) this.findViewById(R.id.spinner3);
+        origenSpinner = (Spinner) this.findViewById(R.id.origenSpinner);
+        destinoSpinner = (Spinner) this.findViewById(R.id.destinoSpinner);
 
         configureEstacionesPorNucleo();
 
-        create_btn = (Button) findViewById(R.id.btn_view);
-        create_btn.setOnClickListener(new OnClickListener() {
+        verHorariosButton = (Button) findViewById(R.id.verHorariosButton);
+        verHorariosButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
 
                 // Errores
@@ -472,10 +457,10 @@ public class EstacionesNucleoViajeActivity extends Activity {
                     intent.putExtra("station1_id", station1_id);
                     intent.putExtra("station2_id", station2_id);
 
-                    int pos1 = station1.getSelectedItemPosition();
+                    int pos1 = origenSpinner.getSelectedItemPosition();
                     String station1_name = actual_station[pos1][1];
 
-                    int pos2 = station2.getSelectedItemPosition();
+                    int pos2 = destinoSpinner.getSelectedItemPosition();
                     String station2_name = actual_station[pos2][1];
 
                     int cday = day.getSelectedItemPosition();
@@ -503,9 +488,8 @@ public class EstacionesNucleoViajeActivity extends Activity {
             }
         });
 
-
-        station1.setOnItemSelectedListener(selectListener2);
-        station2.setOnItemSelectedListener(selectListener3);
+        origenSpinner.setOnItemSelectedListener(selectListener2);
+        destinoSpinner.setOnItemSelectedListener(selectListener3);
 
         boolean station1_set = mPreferences.contains("station1");
         boolean station2_set = mPreferences.contains("station2");
@@ -579,9 +563,9 @@ public class EstacionesNucleoViajeActivity extends Activity {
             adapter2.add(actual_station[i][1]);
 
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        station1.setAdapter(adapter2);
+        origenSpinner.setAdapter(adapter2);
 
-        station2.setAdapter(adapter2);
+        destinoSpinner.setAdapter(adapter2);
 
         station1_id = Integer.parseInt(actual_station[0][0]);
         station2_id = Integer.parseInt(actual_station[0][0]);
@@ -593,11 +577,11 @@ public class EstacionesNucleoViajeActivity extends Activity {
                 long id) {
 
             if (can_change) {
-                station1.setSelection(mPreferences.getInt("station1", 0));
+                origenSpinner.setSelection(mPreferences.getInt("station1", 0));
             }
 
-            if (station1.getSelectedItemPosition() >= 0) {
-                int pos = station1.getSelectedItemPosition();
+            if (origenSpinner.getSelectedItemPosition() >= 0) {
+                int pos = origenSpinner.getSelectedItemPosition();
                 station1_id_to_set = pos;
                 station1_id = Integer.parseInt(actual_station[pos][0]);
             }
@@ -612,12 +596,12 @@ public class EstacionesNucleoViajeActivity extends Activity {
                 long id) {
 
             if (can_change) {
-                station2.setSelection(mPreferences.getInt("station2", 0));
+                destinoSpinner.setSelection(mPreferences.getInt("station2", 0));
                 can_change = false;
             }
 
-            if (station2.getSelectedItemPosition() >= 0) {
-                int pos = station2.getSelectedItemPosition();
+            if (destinoSpinner.getSelectedItemPosition() >= 0) {
+                int pos = destinoSpinner.getSelectedItemPosition();
                 station2_id_to_set = pos;
                 station2_id = Integer.parseInt(actual_station[pos][0]);
             }

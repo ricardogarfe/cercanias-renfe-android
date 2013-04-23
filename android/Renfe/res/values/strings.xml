@@ -10,4 +10,9 @@
     <!-- Nucleos view -->
     <string name="textNucleos">Nucleos</string>
 
+    <!-- Estacion Nucleos Layout -->
+    <string name="estacionOrigenText">Estación de origen:</string>
+    <string name="estacionDestinoText">Estación de destino:</string>
+    <string name="verHorariosButton">Ver horarios</string>
+
 </resources>

@@ -1,64 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#ffd9e2f3"
     android:orientation="vertical" >
 
     <TextView
         android:id="@+id/nucleo_text"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4px"
-        android:layout_marginTop="6px"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="6dp"
         android:textColor="#ff000000"
         android:textSize="15sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/spinner2_text"
-        android:layout_width="wrap_content"
+        android:id="@+id/estacionOrigenText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4px"
-        android:layout_marginTop="6px"
-        android:text="Estación de origen:"
+        android:layout_below="@id/nucleo_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="6dp"
+        android:text="@string/estacionOrigenText"
         android:textColor="#ff000000"
         android:textSize="15sp"
         android:textStyle="bold" />
 
     <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="fill_parent"
+        android:id="@+id/origenSpinner"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4px"
-        android:layout_marginTop="2px"
+        android:layout_below="@id/estacionOrigenText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="2dp"
         android:drawSelectorOnTop="true" />
 
     <TextView
-        android:id="@+id/spinner3_text"
-        android:layout_width="wrap_content"
+        android:id="@+id/estacionDestinoText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4px"
-        android:layout_marginTop="6px"
-        android:text="Estación de destino:"
+        android:layout_below="@id/origenSpinner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="6dp"
+        android:text="@string/estacionDestinoText"
         android:textColor="#ff000000"
         android:textSize="15sp"
         android:textStyle="bold" />
 
     <Spinner
-        android:id="@+id/spinner3"
-        android:layout_width="fill_parent"
+        android:id="@+id/destinoSpinner"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4px"
-        android:layout_marginTop="2px"
+        android:layout_below="@id/estacionDestinoText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="2dp"
         android:drawSelectorOnTop="true" />
 
     <Button
-        android:id="@+id/btn_view"
-        android:layout_width="wrap_content"
+        android:id="@+id/verHorariosButton"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10px"
-        android:text="Ver horarios" />
+        android:layout_marginTop="10dp"
+        android:text="@string/verHorariosButton" />
 
-</LinearLayout>
+</RelativeLayout>
