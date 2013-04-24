@@ -9,10 +9,16 @@
 
 package com.ricardogarfe.renfe;
 
+import java.io.IOException;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -24,6 +30,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jonsegador.Renfe.HorariosActivity;
+import com.ricardogarfe.renfe.services.parser.JSONCercaniasParser;
 
 public class EstacionesNucleoViajeActivity extends Activity {
 
@@ -54,6 +61,7 @@ public class EstacionesNucleoViajeActivity extends Activity {
 
     // Seguramente esto vaya mucho mejor en un fichero a parte
 
+    private JSONObject estacionesJSONObject;
     private String[][] actual_station = { { "0", "Selecciona primero un núcleo" } };
 
     private String[][] nucleos = { { "0", "Seleccionar núcleo" },
@@ -437,6 +445,19 @@ public class EstacionesNucleoViajeActivity extends Activity {
 
         estacionesJSON = intentFromActivity.getStringExtra("estaciones_json");
         
+        JSONCercaniasParser jsonCercaniasParser = new JSONCercaniasParser();
+        jsonCercaniasParser.setContext(this);
+
+        try {
+            estacionesJSONObject = jsonCercaniasParser.getJSONFromUrl(estacionesJSON);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
         mPreferences = getSharedPreferences("Renfe", MODE_PRIVATE);
 
         origenSpinner = (Spinner) this.findViewById(R.id.origenSpinner);

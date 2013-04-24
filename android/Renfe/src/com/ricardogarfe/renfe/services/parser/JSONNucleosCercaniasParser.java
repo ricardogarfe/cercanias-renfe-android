@@ -25,12 +25,25 @@ public class JSONNucleosCercaniasParser extends JSONCercaniasParser {
 
     private JSONObject mJSONObjectNucleos;
 
-    public List<NucleoCercanias> retrieveNucleoCercaniasFromJSON(String file)
-            throws IOException, JSONException {
+    /**
+     * Retrieve {@link NucleoCercanias} from JSON data from file or URL
+     * depending on fromFile parameter.
+     * 
+     * @param filePath
+     *            File Path to retrive data.
+     * @param fromFile
+     *            boolean to check if data is retrieved from file or URL.
+     * @return {@link List} of {@link NucleoCercanias}.
+     * @throws IOException
+     * @throws JSONException
+     */
+    public List<NucleoCercanias> retrieveNucleoCercaniasFromJSON(
+            String filePath, boolean fromFile) throws IOException,
+            JSONException {
 
         List<NucleoCercanias> nucleoCercaniasList = new ArrayList<NucleoCercanias>();
 
-        mJSONObjectNucleos = getJSONFromFile(file);
+        mJSONObjectNucleos = getJSONFromFile(filePath);
 
         JSONArray jsonArray = (mJSONObjectNucleos.getJSONObject("Nucleos"))
                 .getJSONArray("Nucleo");

@@ -7,12 +7,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.zip.GZIPInputStream;
 
+import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,7 +23,6 @@ import android.content.Context;
 import android.util.Log;
 
 import com.google.android.maps.GeoPoint;
-import com.ricardogarfe.renfe.model.NucleoCercanias;
 
 /**
  * 
@@ -69,18 +69,26 @@ public class JSONCercaniasParser {
         // Making HTTP request
         InputStream inputStream;
         String json;
-        JSONObject jsonObject;
 
         // defaultHttpClient
         DefaultHttpClient httpClient = new DefaultHttpClient();
-        HttpPost httpPost = new HttpPost(url);
 
-        HttpResponse httpResponse = httpClient.execute(httpPost);
-        HttpEntity httpEntity = httpResponse.getEntity();
-        inputStream = httpEntity.getContent();
+        HttpUriRequest request = new HttpGet(url);
+        request.setHeader("Accept-Encoding", "gzip");
+
+        // Execute request
+        HttpResponse response = httpClient.execute(request);
+
+        HttpEntity entity = response.getEntity();
+        Header contentEncoding = entity.getContentEncoding();
+        inputStream = entity.getContent();
+        if (contentEncoding != null
+                && contentEncoding.getValue().equalsIgnoreCase("gzip")) {
+            inputStream = new GZIPInputStream(inputStream);
+        }
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(
-                inputStream), 8);
+                inputStream));
         StringBuilder sb = new StringBuilder();
         String line = null;
 
@@ -92,10 +100,13 @@ public class JSONCercaniasParser {
         json = sb.toString();
 
         // try parse the string to a JSON object
-        jsonObject = new JSONObject(json);
+        // convert string to JSONObject
+        JSONTokener jsonTokener = new JSONTokener(json);
+        JSONObject jSONObject = new JSONObject(jsonTokener);
 
+        Log.i(TAG, "Convert JSON from URL:\t" + jSONObject.toString());
         // return JSON String
-        return jsonObject;
+        return jSONObject;
 
     }
 
@@ -111,8 +122,6 @@ public class JSONCercaniasParser {
 
         InputStream is = getContext().getAssets().open(file);
 
-        List<NucleoCercanias> nucleoCercaniasList = new ArrayList<NucleoCercanias>();
-
         int size = is.available();
         byte[] buffer = new byte[size];
         is.read(buffer);
@@ -123,7 +132,7 @@ public class JSONCercaniasParser {
         JSONTokener jsonTokener = new JSONTokener(bufferString);
         JSONObject jSONObject = new JSONObject(jsonTokener);
 
-        Log.i("TAG", jSONObject.toString());
+        Log.i(TAG, "Convert JSON from File:\t" + jSONObject.toString());
         // parse an Object from a random index in the JSONArray
 
         return jSONObject;

@@ -434,7 +434,7 @@ public class MainActivity extends Activity {
 
         try {
             retrieveNucleoCercaniasFromJSON = jsonNucleosCercaniasParser
-                    .retrieveNucleoCercaniasFromJSON(NUCLEOS_JSON);
+                    .retrieveNucleoCercaniasFromJSON(NUCLEOS_JSON, true);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             Log.e("MAIN Activity", "Parsing JSON data:\t" + e.getMessage());

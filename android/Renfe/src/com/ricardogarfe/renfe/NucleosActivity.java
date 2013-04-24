@@ -63,10 +63,10 @@ public class NucleosActivity extends ListActivity {
         mJSONNucleosCercaniasParser.setContext(this);
 
         try {
-            loadNucleosCercanias();
+            mNucleoCercaniasList = mJSONNucleosCercaniasParser
+                    .retrieveNucleoCercaniasFromJSON(NUCLEOS_JSON, true);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
-            Log.e("Main", e.getMessage());
+            Log.e(TAG, "Parsing JSON data:\t" + e.getMessage());
         }
 
         setContentView(R.layout.nucleos_main);
@@ -77,24 +77,6 @@ public class NucleosActivity extends ListActivity {
         mNucleoAdapter = new NucleoAdapter(this);
         mNucleoAdapter.setmNucleoCercaniasList(mNucleoCercaniasList);
         setListAdapter(mNucleoAdapter);
-
-    }
-
-    /**
-     * Retrieve Cercanias City nucleos from JSON file.
-     * 
-     * @throws Exception
-     */
-    public void loadNucleosCercanias() throws Exception {
-
-        try {
-
-            mNucleoCercaniasList = mJSONNucleosCercaniasParser
-                    .retrieveNucleoCercaniasFromJSON(NUCLEOS_JSON);
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            Log.e("MAIN Activity", "Parsing JSON data:\t" + e.getMessage());
-        }
 
     }
 
@@ -110,13 +92,13 @@ public class NucleosActivity extends ListActivity {
 
         Intent intentEstacionesNucleos = new Intent(NucleosActivity.this,
                 EstacionesNucleoViajeActivity.class);
-        intentEstacionesNucleos.putExtra("codigo_nucleo", mNucleoCercaniasList.get(position)
-                .getCodigo());
-        intentEstacionesNucleos.putExtra("descripcion_nucleo", mNucleoCercaniasList
-                .get(position).getDescripcion());
-        
-        intentEstacionesNucleos.putExtra("estaciones_json", mNucleoCercaniasList
-                .get(position).getEstacionesJSON());
+        intentEstacionesNucleos.putExtra("codigo_nucleo", mNucleoCercaniasList
+                .get(position).getCodigo());
+        intentEstacionesNucleos.putExtra("descripcion_nucleo",
+                mNucleoCercaniasList.get(position).getDescripcion());
+
+        intentEstacionesNucleos.putExtra("estaciones_json",
+                mNucleoCercaniasList.get(position).getEstacionesJSON());
 
         startActivity(intentEstacionesNucleos);
     }
