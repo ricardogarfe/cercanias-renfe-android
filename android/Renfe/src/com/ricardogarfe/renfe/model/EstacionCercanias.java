@@ -3,6 +3,10 @@
  */
 package com.ricardogarfe.renfe.model;
 
+import java.util.List;
+
+import com.google.android.maps.GeoPoint;
+
 /**
  * 
  * {@link EstacionCercanias} represents cercanias station data.
@@ -11,14 +15,17 @@ package com.ricardogarfe.renfe.model;
  */
 public class EstacionCercanias {
 
-    private String codigo;
+    private Integer codigo;
     private String descripcion;
+    private GeoPoint geoPoint;
+    private Integer zona;
+    private List<Servicio> servicioList;
 
-    public String getCodigo() {
+    public Integer getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }
 
@@ -28,6 +35,30 @@ public class EstacionCercanias {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public GeoPoint getGeoPoint() {
+        return geoPoint;
+    }
+
+    public void setGeoPoint(GeoPoint geoPoint) {
+        this.geoPoint = geoPoint;
+    }
+
+    public Integer getZona() {
+        return zona;
+    }
+
+    public void setZona(Integer zona) {
+        this.zona = zona;
+    }
+
+    public List<Servicio> getServicioList() {
+        return servicioList;
+    }
+
+    public void setServicioList(List<Servicio> servicioList) {
+        this.servicioList = servicioList;
     }
 
 }

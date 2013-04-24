@@ -61,7 +61,7 @@ public class EstacionesNucleoViajeActivity extends Activity {
 
     // Seguramente esto vaya mucho mejor en un fichero a parte
 
-    private JSONObject estacionesJSONObject;
+    private JSONObject estacionesFromNucleoJSONObject;
     private String[][] actual_station = { { "0", "Selecciona primero un núcleo" } };
 
     private String[][] nucleos = { { "0", "Seleccionar núcleo" },
@@ -449,7 +449,7 @@ public class EstacionesNucleoViajeActivity extends Activity {
         jsonCercaniasParser.setContext(this);
 
         try {
-            estacionesJSONObject = jsonCercaniasParser.getJSONFromUrl(estacionesJSON);
+            estacionesFromNucleoJSONObject = jsonCercaniasParser.getJSONFromUrl(estacionesJSON);
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
