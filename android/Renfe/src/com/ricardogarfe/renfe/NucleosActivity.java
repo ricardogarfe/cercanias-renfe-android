@@ -38,24 +38,6 @@ public class NucleosActivity extends ListActivity {
 
     private JSONNucleosCercaniasParser mJSONNucleosCercaniasParser = new JSONNucleosCercaniasParser();
 
-    private String[][] days = { { "01", "1" }, { "02", "2" }, { "03", "3" },
-            { "04", "4" }, { "05", "5" }, { "06", "6" }, { "07", "7" },
-            { "08", "8" }, { "09", "9" }, { "10", "10" }, { "11", "11" },
-            { "12", "12" }, { "13", "13" }, { "14", "14" }, { "15", "15" },
-            { "16", "16" }, { "17", "17" }, { "18", "18" }, { "19", "19" },
-            { "20", "20" }, { "21", "21" }, { "22", "22" }, { "23", "23" },
-            { "24", "24" }, { "25", "25" }, { "26", "26" }, { "27", "27" },
-            { "28", "28" }, { "29", "29" }, { "30", "30" }, { "31", "31" } };
-
-    private String[][] months = { { "01", "Enero" }, { "02", "Febrero" },
-            { "03", "Marzo" }, { "04", "Abril" }, { "05", "Mayo" },
-            { "06", "Junio" }, { "07", "Julio" }, { "08", "Agosto" },
-            { "09", "Septiembre" }, { "10", "Octubre" }, { "11", "Noviembre" },
-            { "12", "Diciembre" } };
-
-    private String[][] years = { { "2012", "2012" }, { "2013", "2013" },
-            { "2014", "2014" }, { "2015", "2015" } };
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,15 +62,15 @@ public class NucleosActivity extends ListActivity {
 
     }
 
+    /**
+     * Create a new intent to call other Activity. Using the methods "putExtra"
+     * we can send data to the new activity
+     */
     protected void onListItemClick(ListView l, View v, int position, long id) {
 
-        // Create a new intent to call other Activity.
-        // Using the methods "putExtra" we can
-        // send data to the new activity
-
-        Toast.makeText(this,
-                mNucleoCercaniasList.get(position).getDescripcion(),
-                Toast.LENGTH_SHORT).show();
+        Log.i(TAG, "Nucleo "
+                + mNucleoCercaniasList.get(position).getDescripcion()
+                + " selected");
 
         Intent intentEstacionesNucleos = new Intent(NucleosActivity.this,
                 EstacionesNucleoViajeActivity.class);

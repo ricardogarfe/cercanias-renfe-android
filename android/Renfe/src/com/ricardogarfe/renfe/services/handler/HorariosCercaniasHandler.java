@@ -16,7 +16,7 @@ import com.ricardogarfe.renfe.model.TransbordoCercanias;
  */
 public class HorariosCercaniasHandler extends DefaultHandler {
 
-    private List<HorarioCercanias> horarioTypeList = new ArrayList<HorarioCercanias>();
+    private List<HorarioCercanias> horarioCercaniasList = new ArrayList<HorarioCercanias>();
     private HorarioCercanias horarioCercanias;
     private TransbordoCercanias transbordoCercanias;
 
@@ -64,7 +64,7 @@ public class HorariosCercaniasHandler extends DefaultHandler {
         if (qName.equalsIgnoreCase("Horario")) {
             // add horario to the list
             inHorario = false;
-            horarioTypeList.add(horarioCercanias);
+            horarioCercaniasList.add(horarioCercanias);
 
         } else if (qName.equalsIgnoreCase("Linea")) {
             if (inTransbordo) {
@@ -106,7 +106,7 @@ public class HorariosCercaniasHandler extends DefaultHandler {
     }
 
     public List<HorarioCercanias> getHorarioTypeList() {
-        return horarioTypeList;
+        return horarioCercaniasList;
     }
 
 }

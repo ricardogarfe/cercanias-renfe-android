@@ -13,7 +13,6 @@ import org.json.JSONObject;
 
 import com.google.android.maps.GeoPoint;
 import com.ricardogarfe.renfe.model.EstacionCercanias;
-import com.ricardogarfe.renfe.model.NucleoCercanias;
 import com.ricardogarfe.renfe.model.Servicio;
 
 /**
@@ -32,7 +31,7 @@ public class JSONEstacionCercaniasParser extends JSONCercaniasParser {
      * depending on fromFile parameter.
      * 
      * @param filePath
-     *            File Path to retrive data.
+     *            File Path or URL to retrive data.
      * @param fromFile
      *            boolean to check if data is retrieved from file or URL.
      * @return {@link List} of {@link EstacionCercanias}.
@@ -45,7 +44,11 @@ public class JSONEstacionCercaniasParser extends JSONCercaniasParser {
 
         List<EstacionCercanias> estacionCercaniasList = new ArrayList<EstacionCercanias>();
 
-        mJSONObjectEstacionCercanias = getJSONFromFile(filePath);
+        if (fromFile) {
+            mJSONObjectEstacionCercanias = getJSONFromFile(filePath);
+        } else {
+            mJSONObjectEstacionCercanias = getJSONFromUrl(filePath);
+        }
 
         JSONArray jsonArray = (mJSONObjectEstacionCercanias
                 .getJSONObject("Estaciones")).getJSONArray("Estacion");
@@ -86,20 +89,6 @@ public class JSONEstacionCercaniasParser extends JSONCercaniasParser {
         List<Servicio> servicioList;
 
         return estacionCercanias;
-    }
-
-    /**
-     * Find Nucleo Cercanías by Id Nucleo.
-     * 
-     * TODO:
-     * 
-     * @param idNucleo
-     *            to find.
-     * @return Nucleo object.
-     */
-    public NucleoCercanias findNucleoCercaniasByIdNucleo(String idNucleo) {
-
-        return null;
     }
 
     public JSONObject getMJSONObjectNucleos() {
