@@ -51,8 +51,8 @@ public class EstacionesNucleoViajeActivity extends Activity {
     private int estacionOrigenId = 0;
     private int estacionDestinoId = 0;
 
-    private int estacionOrigenIdToSet = 0;
-    private int estacionDestinoIdToSet = 0;
+    private int estacionOrigenPosToSet = 0;
+    private int estacionDestinoPosToSet = 0;
 
     boolean can_change = false;
 
@@ -113,28 +113,30 @@ public class EstacionesNucleoViajeActivity extends Activity {
                     mFormat.setRoundingMode(RoundingMode.DOWN);
 
                     int dayInt = c.get(Calendar.DATE);
-                    String current_day = mFormat.format(Double.valueOf(dayInt));
+                    String currentDay = mFormat.format(Double.valueOf(dayInt));
 
                     int monthInt = c.get(Calendar.MONTH);
-                    String current_month = mFormat.format(Double
+                    String currentMonth = mFormat.format(Double
                             .valueOf(monthInt));
 
-                    String current_year2 = Integer.toString(c
+                    String currentYear = Integer.toString(c
                             .get(Calendar.YEAR));
 
-                    intent.putExtra("day", current_day);
-                    intent.putExtra("month", current_month);
-                    intent.putExtra("year", current_year2);
+                    intent.putExtra("day", currentDay);
+                    intent.putExtra("month", currentMonth);
+                    intent.putExtra("year", currentYear);
 
                     intent.putExtra("nucleoId", codigoNucleo);
                     intent.putExtra("estacionOrigenName", estacionOrigenName);
                     intent.putExtra("estacionDestinoName", estacionDestinoName);
 
                     SharedPreferences.Editor editor = mPreferences.edit();
-                    editor.putInt("estacionOrigenIdToSet",
-                            estacionOrigenIdToSet);
-                    editor.putInt("estacionDestinoIdToSet",
-                            estacionDestinoIdToSet);
+                    editor.putInt("codigoNucleo",
+                            codigoNucleo);
+                    editor.putInt("estacionOrigenPosToSet",
+                            estacionOrigenPosToSet);
+                    editor.putInt("estacionDestinoPosToSet",
+                            estacionDestinoPosToSet);
                     editor.commit();
 
                     startActivity(intent);
@@ -149,10 +151,11 @@ public class EstacionesNucleoViajeActivity extends Activity {
                 .setOnItemSelectedListener(estacionDestionSelectedListener);
 
         // Comprobar si existen en sharedPreferences estaciones seleccionadas.
-        boolean station1_set = mPreferences.contains("estacionOrigenIdToSet");
-        boolean station2_set = mPreferences.contains("estacionDestinoIdToSet");
+        boolean codigoNucleoSet = mPreferences.getInt("codigoNucleo", 0) == codigoNucleo; 
+        boolean estacionOrigenSet = mPreferences.contains("estacionOrigenPosToSet");
+        boolean estacioDestinoSet = mPreferences.contains("estacionDestinoPosToSet");
 
-        if (station1_set && station2_set) {
+        if (codigoNucleoSet && estacionOrigenSet && estacioDestinoSet) {
             can_change = true;
         }
 
@@ -220,12 +223,12 @@ public class EstacionesNucleoViajeActivity extends Activity {
                 long id) {
 
             if (can_change) {
-                origenSpinner.setSelection(mPreferences.getInt("station1", 0));
+                origenSpinner.setSelection(mPreferences.getInt("estacionOrigenPosToSet", 0));
             }
 
             if (origenSpinner.getSelectedItemPosition() >= 0) {
                 int pos = origenSpinner.getSelectedItemPosition();
-                estacionOrigenIdToSet = pos;
+                estacionOrigenPosToSet = pos;
                 estacionOrigenId = estacionCercaniasList.get(position)
                         .getCodigo();
             }
@@ -240,13 +243,13 @@ public class EstacionesNucleoViajeActivity extends Activity {
                 long id) {
 
             if (can_change) {
-                destinoSpinner.setSelection(mPreferences.getInt("station2", 0));
+                destinoSpinner.setSelection(mPreferences.getInt("estacionDestinoPosToSet", 0));
                 can_change = false;
             }
 
             if (destinoSpinner.getSelectedItemPosition() >= 0) {
                 int pos = destinoSpinner.getSelectedItemPosition();
-                estacionDestinoIdToSet = pos;
+                estacionDestinoPosToSet = pos;
                 estacionDestinoId = estacionCercaniasList.get(position)
                         .getCodigo();
             }
