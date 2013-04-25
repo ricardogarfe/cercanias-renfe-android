@@ -10,11 +10,12 @@
 package com.ricardogarfe.renfe;
 
 import java.io.IOException;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.List;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -31,10 +32,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.jonsegador.Renfe.HorariosActivity;
 import com.ricardogarfe.renfe.model.EstacionCercanias;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
-import com.ricardogarfe.renfe.services.parser.JSONCercaniasParser;
 import com.ricardogarfe.renfe.services.parser.JSONEstacionCercaniasParser;
 
 public class EstacionesNucleoViajeActivity extends Activity {
@@ -49,11 +48,11 @@ public class EstacionesNucleoViajeActivity extends Activity {
 
     private SharedPreferences mPreferences;
 
-    private int station1_id = 0;
-    private int station2_id = 0;
+    private int estacionOrigenId = 0;
+    private int estacionDestinoId = 0;
 
-    private int station1_id_to_set = 0;
-    private int station2_id_to_set = 0;
+    private int estacionOrigenIdToSet = 0;
+    private int estacionDestinoIdToSet = 0;
 
     boolean can_change = false;
 
@@ -67,24 +66,6 @@ public class EstacionesNucleoViajeActivity extends Activity {
     // Seguramente esto vaya mucho mejor en un fichero a parte
     private JSONEstacionCercaniasParser jsonEstacionCercaniasParser;
     private List<EstacionCercanias> estacionCercaniasList;
-
-    private String[][] days = { { "01", "1" }, { "02", "2" }, { "03", "3" },
-            { "04", "4" }, { "05", "5" }, { "06", "6" }, { "07", "7" },
-            { "08", "8" }, { "09", "9" }, { "10", "10" }, { "11", "11" },
-            { "12", "12" }, { "13", "13" }, { "14", "14" }, { "15", "15" },
-            { "16", "16" }, { "17", "17" }, { "18", "18" }, { "19", "19" },
-            { "20", "20" }, { "21", "21" }, { "22", "22" }, { "23", "23" },
-            { "24", "24" }, { "25", "25" }, { "26", "26" }, { "27", "27" },
-            { "28", "28" }, { "29", "29" }, { "30", "30" }, { "31", "31" } };
-
-    private String[][] months = { { "01", "Enero" }, { "02", "Febrero" },
-            { "03", "Marzo" }, { "04", "Abril" }, { "05", "Mayo" },
-            { "06", "Junio" }, { "07", "Julio" }, { "08", "Agosto" },
-            { "09", "Septiembre" }, { "10", "Octubre" }, { "11", "Noviembre" },
-            { "12", "Diciembre" } };
-
-    private String[][] years = { { "2012", "2012" }, { "2013", "2013" },
-            { "2014", "2014" }, { "2015", "2015" } };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -104,33 +85,40 @@ public class EstacionesNucleoViajeActivity extends Activity {
             public void onClick(View v) {
 
                 // Errores
-                if (station1_id == station2_id) {
+                if (estacionOrigenId == estacionDestinoId) {
                     Toast.makeText(
                             getApplicationContext(),
                             "Las estaciones de origen y destino no pueden ser iguales",
                             Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent(getApplicationContext(),
-                            HorariosActivity.class);
-                    intent.putExtra("station1_id", station1_id);
-                    intent.putExtra("station2_id", station2_id);
+                            HorarioCercaniasActivity.class);
+                    intent.putExtra("estacionOrigenId", estacionOrigenId);
+                    intent.putExtra("estacionDestinoId", estacionDestinoId);
 
                     int origenSpinnerPosition = origenSpinner
                             .getSelectedItemPosition();
-                    String station1_name = estacionCercaniasList.get(
+                    String estacionOrigenName = estacionCercaniasList.get(
                             origenSpinnerPosition).getDescripcion();
 
                     int destinoSpinnerPosition = destinoSpinner
                             .getSelectedItemPosition();
-                    String station2_name = estacionCercaniasList.get(
+                    String estacionDestinoName = estacionCercaniasList.get(
                             destinoSpinnerPosition).getDescripcion();
 
                     // Configure day TODO: select day instance.
                     Calendar c = Calendar.getInstance();
 
-                    String current_day = Integer.toString(c.get(Calendar.DATE));
-                    String current_month = Integer.toString(c
-                            .get(Calendar.MONTH));
+                    DecimalFormat mFormat = new DecimalFormat("00");
+                    mFormat.setRoundingMode(RoundingMode.DOWN);
+
+                    int dayInt = c.get(Calendar.DATE);
+                    String current_day = mFormat.format(Double.valueOf(dayInt));
+
+                    int monthInt = c.get(Calendar.MONTH);
+                    String current_month = mFormat.format(Double
+                            .valueOf(monthInt));
+
                     String current_year2 = Integer.toString(c
                             .get(Calendar.YEAR));
 
@@ -138,12 +126,15 @@ public class EstacionesNucleoViajeActivity extends Activity {
                     intent.putExtra("month", current_month);
                     intent.putExtra("year", current_year2);
 
-                    intent.putExtra("station1_name", station1_name);
-                    intent.putExtra("station2_name", station2_name);
+                    intent.putExtra("nucleoId", codigoNucleo);
+                    intent.putExtra("estacionOrigenName", estacionOrigenName);
+                    intent.putExtra("estacionDestinoName", estacionDestinoName);
 
                     SharedPreferences.Editor editor = mPreferences.edit();
-                    editor.putInt("station1", station1_id_to_set);
-                    editor.putInt("station2", station2_id_to_set);
+                    editor.putInt("estacionOrigenIdToSet",
+                            estacionOrigenIdToSet);
+                    editor.putInt("estacionDestinoIdToSet",
+                            estacionDestinoIdToSet);
                     editor.commit();
 
                     startActivity(intent);
@@ -152,12 +143,14 @@ public class EstacionesNucleoViajeActivity extends Activity {
             }
         });
 
+        // Set listeners for each spinner.
         origenSpinner.setOnItemSelectedListener(estacionOrigenSelectedListener);
         destinoSpinner
                 .setOnItemSelectedListener(estacionDestionSelectedListener);
 
-        boolean station1_set = mPreferences.contains("station1");
-        boolean station2_set = mPreferences.contains("station2");
+        // Comprobar si existen en sharedPreferences estaciones seleccionadas.
+        boolean station1_set = mPreferences.contains("estacionOrigenIdToSet");
+        boolean station2_set = mPreferences.contains("estacionDestinoIdToSet");
 
         if (station1_set && station2_set) {
             can_change = true;
@@ -217,8 +210,8 @@ public class EstacionesNucleoViajeActivity extends Activity {
 
         destinoSpinner.setAdapter(spinnerEstacionAdapter);
 
-        station1_id = estacionCercaniasList.get(0).getCodigo();
-        station2_id = estacionCercaniasList.get(0).getCodigo();
+        estacionOrigenId = estacionCercaniasList.get(0).getCodigo();
+        estacionDestinoId = estacionCercaniasList.get(0).getCodigo();
 
     }
 
@@ -232,8 +225,9 @@ public class EstacionesNucleoViajeActivity extends Activity {
 
             if (origenSpinner.getSelectedItemPosition() >= 0) {
                 int pos = origenSpinner.getSelectedItemPosition();
-                station1_id_to_set = pos;
-                station1_id = estacionCercaniasList.get(position).getCodigo();
+                estacionOrigenIdToSet = pos;
+                estacionOrigenId = estacionCercaniasList.get(position)
+                        .getCodigo();
             }
         }
 
@@ -252,8 +246,9 @@ public class EstacionesNucleoViajeActivity extends Activity {
 
             if (destinoSpinner.getSelectedItemPosition() >= 0) {
                 int pos = destinoSpinner.getSelectedItemPosition();
-                station2_id_to_set = pos;
-                station2_id = estacionCercaniasList.get(position).getCodigo();
+                estacionDestinoIdToSet = pos;
+                estacionDestinoId = estacionCercaniasList.get(position)
+                        .getCodigo();
             }
         }
 

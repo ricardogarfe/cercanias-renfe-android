@@ -67,7 +67,7 @@ public class HorariosActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.horario);
 
-        tl = (TableLayout) findViewById(R.id.myTableLayout);
+        tl = (TableLayout) findViewById(R.id.tableLayoutHorarios);
 
         final int nucleo_id = getIntent().getIntExtra("nucleo_id", 0);
         final int station1_id = getIntent().getIntExtra("station1_id", 0);
@@ -78,9 +78,9 @@ public class HorariosActivity extends Activity {
         final String station2_label = getIntent().getStringExtra(
                 "station2_name");
 
-        TextView info_stations = (TextView) findViewById(R.id.info_stations);
-        TextView info_date = (TextView) findViewById(R.id.info_date);
-        info_transbordo = (TextView) findViewById(R.id.info_transbordo);
+        TextView info_stations = (TextView) findViewById(R.id.textViewInfoStations);
+        TextView info_date = (TextView) findViewById(R.id.textViewInfoDate);
+        info_transbordo = (TextView) findViewById(R.id.textViewInfoTransbordo);
 
         final_dia = getIntent().getStringExtra("day");
         final_mes = getIntent().getStringExtra("month");
@@ -93,7 +93,7 @@ public class HorariosActivity extends Activity {
 
         fulldate = stringBufferDf.toString();
 
-        Button change_btn = (Button) findViewById(R.id.btn_change);
+        Button change_btn = (Button) findViewById(R.id.buttonVuelta);
         change_btn.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
 
@@ -150,7 +150,7 @@ public class HorariosActivity extends Activity {
             xr.parse(new InputSource(url.openStream()));
 
             List<HorarioCercanias> horarioTypeList = horariosCercaniasHandler
-                    .getHorarioTypeList();
+                    .getHorarioCercaniasList();
 
             test = new Vector<ParsedHorarioDataSet>();
 

@@ -6,11 +6,11 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/info_stations"
+        android:id="@+id/textViewInfoStations"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="3px"
-        android:text="Estación origen - Estación destino"
+        android:text="@string/infoStations"
         android:textColor="#ff000000"
         android:textSize="15sp"
         android:textStyle="bold" />
@@ -22,30 +22,29 @@
         android:orientation="horizontal" >
 
         <TextView
-            android:id="@+id/info_date"
+            android:id="@+id/textViewInfoDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5px"
             android:gravity="left"
             android:paddingLeft="3px"
             android:paddingTop="6px"
-            android:text="30/01/2010"
             android:textColor="#ff000000"
             android:textSize="15sp"
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/btn_change"
+            android:id="@+id/buttonVuelta"
             android:layout_width="wrap_content"
             android:layout_height="60px"
             android:layout_gravity="right"
             android:layout_marginLeft="10px"
             android:gravity="right"
-            android:text="Viaje de vuelta" />
+            android:text="@string/buttonVuelta" />
     </LinearLayout>
 
     <TextView
-        android:id="@+id/info_transbordo"
+        android:id="@+id/textViewInfoTransbordo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="3px"
@@ -54,7 +53,7 @@
         android:visibility="invisible" />
 
     <ScrollView
-        android:id="@+id/scrollview"
+        android:id="@+id/scrollViewTableHorarios"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5px"
@@ -62,7 +61,7 @@
         android:orientation="vertical" >
 
         <TableLayout
-            android:id="@+id/myTableLayout"
+            android:id="@+id/tableLayoutHorarios"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" >
 
@@ -71,7 +70,7 @@
                 <TextView
                     android:gravity="center_horizontal"
                     android:padding="3px"
-                    android:text="@string/station1_salida"
+                    android:text="@string/stationSalida"
                     android:textColor="#ff000000"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -79,7 +78,7 @@
                 <TextView
                     android:gravity="center_horizontal"
                     android:padding="3px"
-                    android:text="@string/station2_llegada"
+                    android:text="@string/stationLlegada"
                     android:textColor="#ff000000"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -95,7 +94,7 @@
                 <TextView
                     android:gravity="center_horizontal"
                     android:padding="3px"
-                    android:text="@string/linea_salida"
+                    android:text="@string/lineaSalida"
                     android:textColor="#ff000000"
                     android:textSize="14sp"
                     android:textStyle="bold" />

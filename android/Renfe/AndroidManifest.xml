@@ -37,7 +37,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.jonsegador.Renfe.HorariosActivity"
+            android:name="com.ricardogarfe.renfe.HorarioCercaniasActivity"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.NoTitleBar" >
             <intent-filter>

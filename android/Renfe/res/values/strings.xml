@@ -2,10 +2,10 @@
 <resources>
 
     <string name="app_name">Cercanías Renfe</string>
-    <string name="station1_salida">Salida</string>
-    <string name="station2_llegada">Llegada</string>
+    <string name="stationSalida">Salida</string>
+    <string name="stationLlegada">Llegada</string>
     <string name="tiempo">Duración</string>
-    <string name="linea_salida">Línea</string>
+    <string name="lineaSalida">Línea</string>
 
     <!-- Nucleos view -->
     <string name="textNucleos">Nucleos</string>
@@ -14,5 +14,9 @@
     <string name="estacionOrigenText">Estación de origen:</string>
     <string name="estacionDestinoText">Estación de destino:</string>
     <string name="verHorariosButton">Ver horarios</string>
+
+    <!-- Hoarios Cercanias Layout -->
+    <string name="infoStations">Estación origen - Estación destino</string>
+    <string name="buttonVuelta">Viaje de vuelta</string>
 
 </resources>

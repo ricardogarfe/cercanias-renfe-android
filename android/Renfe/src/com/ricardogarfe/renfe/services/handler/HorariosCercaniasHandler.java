@@ -22,6 +22,9 @@ public class HorariosCercaniasHandler extends DefaultHandler {
 
     private String temp;
 
+    public static final int TASK_COMPLETE = 1;
+    public static final int TASK_ERROR = 2;
+
     private boolean inHorario = false;
     private boolean inLinea = false;
     private boolean inHoraSalida = false;
@@ -105,7 +108,7 @@ public class HorariosCercaniasHandler extends DefaultHandler {
 
     }
 
-    public List<HorarioCercanias> getHorarioTypeList() {
+    public List<HorarioCercanias> getHorarioCercaniasList() {
         return horarioCercaniasList;
     }
 
