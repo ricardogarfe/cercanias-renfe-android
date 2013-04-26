@@ -9,19 +9,19 @@
 
 package com.ricardogarfe.renfe;
 
-import java.io.IOException;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import org.json.JSONException;
-
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -32,6 +32,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ricardogarfe.renfe.asyncTask.RetrieveEstacionesNucleoTask;
 import com.ricardogarfe.renfe.model.EstacionCercanias;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
 import com.ricardogarfe.renfe.services.parser.JSONEstacionCercaniasParser;
@@ -46,6 +47,9 @@ public class EstacionesNucleoViajeActivity extends Activity {
     private Spinner month;
     private Spinner year;
 
+    // Context
+    public static Context mEstacionesNucleoViajeContext;
+
     private SharedPreferences mPreferences;
 
     private int estacionOrigenId = 0;
@@ -56,6 +60,9 @@ public class EstacionesNucleoViajeActivity extends Activity {
 
     boolean can_change = false;
 
+    // AsyncTasks
+    private RetrieveEstacionesNucleoTask retrieveEstacionesNucleoTask;
+
     private String TAG = getClass().getSimpleName();
 
     // Nucleo values
@@ -63,7 +70,7 @@ public class EstacionesNucleoViajeActivity extends Activity {
     private String descripcionNucleo;
     private String estacionesJSON;
 
-    // Seguramente esto vaya mucho mejor en un fichero a parte
+    // Configuracion estaciones.
     private JSONEstacionCercaniasParser jsonEstacionCercaniasParser;
     private List<EstacionCercanias> estacionCercaniasList;
 
@@ -75,16 +82,42 @@ public class EstacionesNucleoViajeActivity extends Activity {
 
         mPreferences = getSharedPreferences("Renfe", MODE_PRIVATE);
 
-        origenSpinner = (Spinner) this.findViewById(R.id.origenSpinner);
-        destinoSpinner = (Spinner) this.findViewById(R.id.destinoSpinner);
+        mEstacionesNucleoViajeContext = this;
+
+        configureWidgets();
 
         configureEstacionesPorNucleo();
+
+        // Set listeners for each spinner.
+        origenSpinner.setOnItemSelectedListener(estacionOrigenSelectedListener);
+        destinoSpinner
+                .setOnItemSelectedListener(estacionDestionSelectedListener);
+
+        // Comprobar si existen en sharedPreferences estaciones seleccionadas.
+        boolean codigoNucleoSet = mPreferences.getInt("codigoNucleo", 0) == codigoNucleo;
+        boolean estacionOrigenSet = mPreferences
+                .contains("estacionOrigenPosToSet");
+        boolean estacioDestinoSet = mPreferences
+                .contains("estacionDestinoPosToSet");
+
+        if (codigoNucleoSet && estacionOrigenSet && estacioDestinoSet) {
+            can_change = true;
+        }
+
+    }
+
+    /**
+     * 
+     */
+    public void configureWidgets() {
+        origenSpinner = (Spinner) this.findViewById(R.id.origenSpinner);
+        destinoSpinner = (Spinner) this.findViewById(R.id.destinoSpinner);
 
         verHorariosButton = (Button) findViewById(R.id.verHorariosButton);
         verHorariosButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
 
-                // Errores
+                // Mostrar error elegir una misma estacion de origen y destino.
                 if (estacionOrigenId == estacionDestinoId) {
                     Toast.makeText(
                             getApplicationContext(),
@@ -119,8 +152,7 @@ public class EstacionesNucleoViajeActivity extends Activity {
                     String currentMonth = mFormat.format(Double
                             .valueOf(monthInt));
 
-                    String currentYear = Integer.toString(c
-                            .get(Calendar.YEAR));
+                    String currentYear = Integer.toString(c.get(Calendar.YEAR));
 
                     intent.putExtra("day", currentDay);
                     intent.putExtra("month", currentMonth);
@@ -131,8 +163,7 @@ public class EstacionesNucleoViajeActivity extends Activity {
                     intent.putExtra("estacionDestinoName", estacionDestinoName);
 
                     SharedPreferences.Editor editor = mPreferences.edit();
-                    editor.putInt("codigoNucleo",
-                            codigoNucleo);
+                    editor.putInt("codigoNucleo", codigoNucleo);
                     editor.putInt("estacionOrigenPosToSet",
                             estacionOrigenPosToSet);
                     editor.putInt("estacionDestinoPosToSet",
@@ -144,21 +175,6 @@ public class EstacionesNucleoViajeActivity extends Activity {
                 }
             }
         });
-
-        // Set listeners for each spinner.
-        origenSpinner.setOnItemSelectedListener(estacionOrigenSelectedListener);
-        destinoSpinner
-                .setOnItemSelectedListener(estacionDestionSelectedListener);
-
-        // Comprobar si existen en sharedPreferences estaciones seleccionadas.
-        boolean codigoNucleoSet = mPreferences.getInt("codigoNucleo", 0) == codigoNucleo; 
-        boolean estacionOrigenSet = mPreferences.contains("estacionOrigenPosToSet");
-        boolean estacioDestinoSet = mPreferences.contains("estacionDestinoPosToSet");
-
-        if (codigoNucleoSet && estacionOrigenSet && estacioDestinoSet) {
-            can_change = true;
-        }
-
     }
 
     /**
@@ -186,44 +202,51 @@ public class EstacionesNucleoViajeActivity extends Activity {
 
         estacionesJSON = intentFromActivity.getStringExtra("estaciones_json");
 
-        jsonEstacionCercaniasParser = new JSONEstacionCercaniasParser();
-
-        try {
-            estacionCercaniasList = jsonEstacionCercaniasParser
-                    .retrieveEstacionCercaniasFromJSON(estacionesJSON, false);
-        } catch (IOException e) {
-            Log.e(TAG,
-                    "Error retrieving JSON file from Estaciones Cercanias:\t"
-                            + e.getMessage());
-        } catch (JSONException e) {
-            Log.e(TAG, "Error Parsing JSON file from Estaciones Cercanias:\t"
-                    + e.getMessage());
-        }
-
-        ArrayAdapter<CharSequence> spinnerEstacionAdapter = new ArrayAdapter<CharSequence>(
-                getApplicationContext(), android.R.layout.simple_spinner_item);
-
-        for (EstacionCercanias estacionCercanias : estacionCercaniasList) {
-            spinnerEstacionAdapter.add(estacionCercanias.getDescripcion());
-        }
-
-        spinnerEstacionAdapter
-                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        origenSpinner.setAdapter(spinnerEstacionAdapter);
-
-        destinoSpinner.setAdapter(spinnerEstacionAdapter);
-
-        estacionOrigenId = estacionCercaniasList.get(0).getCodigo();
-        estacionDestinoId = estacionCercaniasList.get(0).getCodigo();
+        retrieveEstacionesNucleoTask = new RetrieveEstacionesNucleoTask();
+        retrieveEstacionesNucleoTask.execute(estacionesJSON, null, null);
+        retrieveEstacionesNucleoTask
+                .setMessageEstacionesNucleoHandler(messageEstacionesNucleoHandler);
 
     }
+
+    /**
+     * Handler to retrieve values from {@link RetrieveEstacionesNucleoTask}
+     * result.
+     */
+    private Handler messageEstacionesNucleoHandler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+
+            estacionCercaniasList = (ArrayList<EstacionCercanias>) msg.obj;
+
+            ArrayAdapter<CharSequence> spinnerEstacionAdapter = new ArrayAdapter<CharSequence>(
+                    getApplicationContext(),
+                    android.R.layout.simple_spinner_item);
+
+            for (EstacionCercanias estacionCercanias : estacionCercaniasList) {
+                spinnerEstacionAdapter.add(estacionCercanias.getDescripcion());
+            }
+
+            spinnerEstacionAdapter
+                    .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            origenSpinner.setAdapter(spinnerEstacionAdapter);
+
+            destinoSpinner.setAdapter(spinnerEstacionAdapter);
+
+            estacionOrigenId = estacionCercaniasList.get(0).getCodigo();
+            estacionDestinoId = estacionCercaniasList.get(0).getCodigo();
+
+        }
+    };
 
     private OnItemSelectedListener estacionOrigenSelectedListener = new OnItemSelectedListener() {
         public void onItemSelected(AdapterView parent, View v, int position,
                 long id) {
 
             if (can_change) {
-                origenSpinner.setSelection(mPreferences.getInt("estacionOrigenPosToSet", 0));
+                origenSpinner.setSelection(mPreferences.getInt(
+                        "estacionOrigenPosToSet", 0));
             }
 
             if (origenSpinner.getSelectedItemPosition() >= 0) {
@@ -243,7 +266,8 @@ public class EstacionesNucleoViajeActivity extends Activity {
                 long id) {
 
             if (can_change) {
-                destinoSpinner.setSelection(mPreferences.getInt("estacionDestinoPosToSet", 0));
+                destinoSpinner.setSelection(mPreferences.getInt(
+                        "estacionDestinoPosToSet", 0));
                 can_change = false;
             }
 

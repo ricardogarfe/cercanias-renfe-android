@@ -11,6 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.util.Log;
+
 import com.google.android.maps.GeoPoint;
 import com.ricardogarfe.renfe.model.EstacionCercanias;
 import com.ricardogarfe.renfe.model.Servicio;
@@ -25,6 +27,8 @@ import com.ricardogarfe.renfe.model.Servicio;
 public class JSONEstacionCercaniasParser extends JSONCercaniasParser {
 
     private JSONObject mJSONObjectEstacionCercanias;
+
+    private final String TAG = getClass().getSimpleName();
 
     /**
      * Retrieve {@link EstacionCercanias} from JSON data from file or URL
@@ -83,7 +87,14 @@ public class JSONEstacionCercaniasParser extends JSONCercaniasParser {
         GeoPoint geoPoint = retrieveGeoPoint(jsonObject.getDouble("Lat"),
                 jsonObject.getDouble("Lon"));
         estacionCercanias.setGeoPoint(geoPoint);
-        estacionCercanias.setZona(jsonObject.getInt("Zona"));
+        try {
+            estacionCercanias.setZona(jsonObject.getInt("Zona"));
+        } catch (JSONException e) {
+            Log.e(TAG, "Error obteniendo valores del JSON en la Zona "
+                    + jsonObject.getString("Zona") + " de la estacion:\t"
+                    + jsonObject.getInt("Codigo") + "\nJSONObjetc: \t"
+                    + jsonObject.toString());
+        }
 
         // TODO: Obtener servicios asociados a la estacion.
         List<Servicio> servicioList;
