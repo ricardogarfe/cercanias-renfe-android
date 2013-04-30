@@ -15,8 +15,11 @@ public class DatosPeticionHorarioCercanias {
     private String origen;
     private String destino;
     private String fechaViaje;
+    private String nucleo;
     private Intervalo intervalo;
-
+    private String estacionOrigenName;
+    private String estacionDestinoName;
+    
     public String getOrigen() {
         return origen;
     }
@@ -47,6 +50,30 @@ public class DatosPeticionHorarioCercanias {
 
     public void setIntervalo(Intervalo intervalo) {
         this.intervalo = intervalo;
+    }
+
+    public String getNucleo() {
+        return nucleo;
+    }
+
+    public void setNucleo(String nucleo) {
+        this.nucleo = nucleo;
+    }
+
+    public String getEstacionOrigenName() {
+        return estacionOrigenName;
+    }
+
+    public void setEstacionOrigenName(String estacionOrigenName) {
+        this.estacionOrigenName = estacionOrigenName;
+    }
+
+    public String getEstacionDestinoName() {
+        return estacionDestinoName;
+    }
+
+    public void setEstacionDestinoName(String estacionDestinoName) {
+        this.estacionDestinoName = estacionDestinoName;
     }
 
 }

@@ -9,35 +9,17 @@
 
 package com.ricardogarfe.renfe;
 
-import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
-
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-
-import org.xml.sax.InputSource;
-import org.xml.sax.XMLReader;
-
-import com.jonsegador.Renfe.ParsedHorarioDataSet;
-import com.ricardogarfe.renfe.R;
-import com.ricardogarfe.renfe.R.id;
-import com.ricardogarfe.renfe.R.layout;
-import com.ricardogarfe.renfe.model.EstacionCercanias;
-import com.ricardogarfe.renfe.model.HorarioCercanias;
-import com.ricardogarfe.renfe.model.NucleoCercanias;
-import com.ricardogarfe.renfe.model.TransbordoCercanias;
-import com.ricardogarfe.renfe.services.handler.HorariosCercaniasHandler;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -46,6 +28,14 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.ricardogarfe.renfe.asyncTask.HorarioCercaniasTask;
+import com.ricardogarfe.renfe.model.DatosPeticionHorarioCercanias;
+import com.ricardogarfe.renfe.model.EstacionCercanias;
+import com.ricardogarfe.renfe.model.HorarioCercanias;
+import com.ricardogarfe.renfe.model.NucleoCercanias;
+import com.ricardogarfe.renfe.model.TransbordoCercanias;
+import com.ricardogarfe.renfe.services.handler.HorariosCercaniasHandler;
 
 /**
  * Activity that retrieves and represents values from a trip between two
@@ -71,10 +61,14 @@ public class HorarioCercaniasActivity extends Activity {
     private String month;
     private String year;
 
+    // Context
+    public static Context mHorarioCercaniasContext;
+
     private List<HorarioCercanias> mHorarioCercaniasList;
 
-    // URL to make requests.
-    private final static String URL = "http://horarios.renfe.com/cer/horarios/horarios.jsp";
+    private HorarioCercaniasTask mHorarioCercaniasTask;
+
+    private DatosPeticionHorarioCercanias mDatosPeticionHorarioCercanias;
 
     private String TAG = getClass().getSimpleName();
 
@@ -85,21 +79,82 @@ public class HorarioCercaniasActivity extends Activity {
 
         tableLayoutHorarios = (TableLayout) findViewById(R.id.tableLayoutHorarios);
 
-        final int nucleoId = getIntent().getIntExtra("nucleoId", 0);
-        final int estacionOrigenId = getIntent().getIntExtra(
-                "estacionOrigenId", 0);
-        final int estacionDestinoId = getIntent().getIntExtra(
-                "estacionDestinoId", 0);
+    }
 
-        final String estacionOrigenName = getIntent().getStringExtra(
-                "estacionOrigenName");
-        final String estacionDestinoName = getIntent().getStringExtra(
-                "estacionDestinoName");
+    @Override
+    protected void onStart() {
+        // TODO Auto-generated method stub
+        super.onStart();
+
+        mHorarioCercaniasContext = this;
+
+        mDatosPeticionHorarioCercanias = retrieveDatosPeticonHorariosCercanias();
 
         textViewInfoStations = (TextView) findViewById(R.id.textViewInfoStations);
         textViewInfoDate = (TextView) findViewById(R.id.textViewInfoDate);
         textViewInfoTransbordo = (TextView) findViewById(R.id.textViewInfoTransbordo);
+        Button change_btn = (Button) findViewById(R.id.buttonVuelta);
+        change_btn.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
 
+                Intent intent = new Intent(getApplicationContext(),
+                        HorarioCercaniasActivity.class);
+                intent.putExtra("nucleoId", Integer
+                        .parseInt(mDatosPeticionHorarioCercanias.getNucleo()));
+                intent.putExtra("estacionOrigenId", Integer
+                        .parseInt(mDatosPeticionHorarioCercanias.getDestino()));
+                intent.putExtra("estacionDestinoId", Integer
+                        .parseInt(mDatosPeticionHorarioCercanias.getOrigen()));
+
+                intent.putExtra("estacionOrigenName",
+                        mDatosPeticionHorarioCercanias.getEstacionDestinoName());
+                intent.putExtra("estacionDestinoName",
+                        mDatosPeticionHorarioCercanias.getEstacionOrigenName());
+
+                intent.putExtra("day", day);
+                intent.putExtra("month", month);
+                intent.putExtra("year", year);
+
+                startActivity(intent);
+
+            }
+        });
+
+        textViewInfoStations.setText(mDatosPeticionHorarioCercanias
+                .getEstacionOrigenName()
+                + " - "
+                + mDatosPeticionHorarioCercanias.getEstacionDestinoName());
+        textViewInfoDate.setText(day + "/" + month + "/" + year);
+
+        mHorarioCercaniasTask = new HorarioCercaniasTask();
+        mHorarioCercaniasTask.execute(mDatosPeticionHorarioCercanias);
+        mHorarioCercaniasTask
+                .setMessageNucleoCercaniasHandler(messageHorariosCercaniasHandler);
+    }
+
+    /**
+     * Create {@link DatosPeticionHorarioCercanias} object from data retrieved
+     * from intent.
+     * 
+     * @return {@link DatosPeticionHorarioCercanias} to retrieve horarios.
+     * 
+     */
+    public DatosPeticionHorarioCercanias retrieveDatosPeticonHorariosCercanias() {
+
+        DatosPeticionHorarioCercanias datosPeticionHorarioCercanias = new DatosPeticionHorarioCercanias();
+
+        // ids
+        int nucleoId = getIntent().getIntExtra("nucleoId", 0);
+        int estacionOrigenId = getIntent().getIntExtra("estacionOrigenId", 0);
+        int estacionDestinoId = getIntent().getIntExtra("estacionDestinoId", 0);
+
+        // Estacion Names
+        String estacionOrigenName = getIntent().getStringExtra(
+                "estacionOrigenName");
+        String estacionDestinoName = getIntent().getStringExtra(
+                "estacionDestinoName");
+
+        // Date
         day = getIntent().getStringExtra("day");
         month = getIntent().getStringExtra("month");
         year = getIntent().getStringExtra("year");
@@ -111,100 +166,18 @@ public class HorarioCercaniasActivity extends Activity {
 
         fulldate = stringBufferDf.toString();
 
-        Button change_btn = (Button) findViewById(R.id.buttonVuelta);
-        change_btn.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
+        // Create object
+        datosPeticionHorarioCercanias.setNucleo(Integer.toString(nucleoId));
+        datosPeticionHorarioCercanias.setOrigen(Integer
+                .toString(estacionOrigenId));
+        datosPeticionHorarioCercanias.setDestino(Integer
+                .toString(estacionDestinoId));
+        datosPeticionHorarioCercanias.setFechaViaje(fulldate);
+        datosPeticionHorarioCercanias.setEstacionOrigenName(estacionOrigenName);
+        datosPeticionHorarioCercanias
+                .setEstacionDestinoName(estacionDestinoName);
 
-                Intent intent = new Intent(getApplicationContext(),
-                        HorarioCercaniasActivity.class);
-                intent.putExtra("nucleoId", nucleoId);
-                intent.putExtra("estacionOrigenId", estacionDestinoId);
-                intent.putExtra("estacionDestinoId", estacionOrigenId);
-
-                intent.putExtra("estacionOrigenName", estacionDestinoName);
-                intent.putExtra("estacionDestinoName", estacionOrigenName);
-
-                intent.putExtra("day", day);
-                intent.putExtra("month", month);
-                intent.putExtra("year", year);
-
-                startActivity(intent);
-
-            }
-        });
-
-        textViewInfoStations.setText(estacionOrigenName + " - " + estacionDestinoName);
-        textViewInfoDate.setText(day + "/" + month + "/" + year);
-
-        fulldate = year + month + day;
-
-        showDialog(0);
-        t = new Thread() {
-            public void run() {
-                loadSchedule(nucleoId, estacionOrigenId, estacionDestinoId,
-                        fulldate);
-            }
-        };
-        t.start();
-
-    }
-
-    /**
-     * Retreive train trip schedules from URL and selected parameters using XML
-     * Parser {@link HorariosCercaniasHandler} to convert result to a Java
-     * {@link HorarioCercanias} List and send correct or error message to
-     * handler.
-     * 
-     * @param nucleoId
-     *            Nucleo ID from Cercanias City.
-     * @param estacionOrigenId
-     *            Estacion ID to start the trip.
-     * @param estacionDestinoId
-     *            Estacion ID to end the trip.
-     * @param fulldate
-     *            Date in String using 'YYYYMMDD' format.
-     */
-    public void loadSchedule(int nucleoId, int estacionOrigenId, int estacionDestinoId,
-            String fulldate) {
-
-        Message myMessage = new Message();
-        try {
-            // nucleo=40&d=65003&df=20130306&hd=24&ho=07&o=64105
-            URL url = new URL(URL + "?nucleo=" + nucleoId + "&o="
-                    + estacionOrigenId + "&d=" + estacionDestinoId + "&df=" + fulldate
-                    + "&hd=24&ho=07");
-
-            SAXParserFactory spf = SAXParserFactory.newInstance();
-            SAXParser sp = spf.newSAXParser();
-
-            XMLReader xr = sp.getXMLReader();
-            HorariosCercaniasHandler horariosCercaniasHandler = new HorariosCercaniasHandler();
-            xr.setContentHandler(horariosCercaniasHandler);
-
-            xr.parse(new InputSource(url.openStream()));
-
-            mHorarioCercaniasList = horariosCercaniasHandler
-                    .getHorarioCercaniasList();
-
-            // Send result message
-            if (mHorarioCercaniasList != null
-                    && !mHorarioCercaniasList.isEmpty()) {
-
-                myMessage.what = HorariosCercaniasHandler.TASK_COMPLETE;
-                myMessage.obj = "SUCCESS";
-            } else {
-                myMessage.what = HorariosCercaniasHandler.TASK_ERROR;
-                myMessage.obj = "No se han encontrado Horarios Cercanias.";
-            }
-            messageHorariosCercaniasHandler.sendMessage(myMessage);
-
-        } catch (Exception e) {
-            Log.e(TAG, "Error retrieving schedule in Nucleo '" + nucleoId
-                    + "', from " + estacionOrigenId + " to " + estacionDestinoId + ":\t"
-                    + e.getMessage());
-            myMessage.obj = "Error obteniendo los horarios de cercanías.";
-        }
-
+        return datosPeticionHorarioCercanias;
     }
 
     /**
@@ -222,10 +195,10 @@ public class HorarioCercaniasActivity extends Activity {
         @Override
         public void handleMessage(Message msg) {
 
-            String objectMessage = (String) msg.obj;
-
             switch (msg.what) {
             case HorariosCercaniasHandler.TASK_COMPLETE:
+
+                mHorarioCercaniasList = (ArrayList<HorarioCercanias>) msg.obj;
 
                 int i = 0;
 
@@ -299,29 +272,13 @@ public class HorarioCercaniasActivity extends Activity {
 
                 break;
             case HorariosCercaniasHandler.TASK_ERROR:
-
                 // Recibe un error y lo muestra al usuario.
-                Toast.makeText(getApplicationContext(), objectMessage,
+                Toast.makeText(getApplicationContext(), msg.obj.toString(),
                         Toast.LENGTH_SHORT).show();
                 break;
             }
-            // Remove loading dialog (all dialogs).
-            removeDialog(0);
 
         }
     };
-
-    protected Dialog onCreateDialog(int id) {
-        switch (id) {
-        case 0: {
-            dialog = new ProgressDialog(this);
-            dialog.setMessage("Cargando...");
-            dialog.setIndeterminate(true);
-            dialog.setCancelable(true);
-            return dialog;
-        }
-        }
-        return null;
-    }
 
 }

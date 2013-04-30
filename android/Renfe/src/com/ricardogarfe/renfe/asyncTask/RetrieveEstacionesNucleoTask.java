@@ -94,10 +94,8 @@ public class RetrieveEstacionesNucleoTask extends
 
             getMessageEstacionesNucleoHandler().sendMessage(messageEstacionesNucleo);
 
-            Toast.makeText(
-                    EstacionesNucleoViajeActivity.mEstacionesNucleoViajeContext,
-                    urlJSON + " Retrieve Estaciones correctly",
-                    Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Retrieve Estaciones correctly from:\t" + urlJSON);
+
         } else {
             Toast.makeText(
                     EstacionesNucleoViajeActivity.mEstacionesNucleoViajeContext,
