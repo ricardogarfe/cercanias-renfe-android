@@ -18,15 +18,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.ricardogarfe.renfe.adapter.NucleoAdapter;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
 import com.ricardogarfe.renfe.services.parser.JSONNucleosCercaniasParser;
 
 public class NucleosActivity extends ListActivity {
-
-    private static String NUCLEOS_JSON = "json/nucleos_cercanias.json";
 
     private SharedPreferences mPreferences;
 
@@ -46,7 +43,8 @@ public class NucleosActivity extends ListActivity {
 
         try {
             mNucleoCercaniasList = mJSONNucleosCercaniasParser
-                    .retrieveNucleoCercaniasFromJSON(NUCLEOS_JSON, true);
+                    .retrieveNucleoCercaniasFromJSON(
+                            JSONNucleosCercaniasParser.NUCLEOS_JSON, true);
         } catch (Exception e) {
             Log.e(TAG, "Parsing JSON data:\t" + e.getMessage());
         }

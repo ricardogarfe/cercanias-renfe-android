@@ -23,6 +23,8 @@ import com.ricardogarfe.renfe.model.NucleoCercanias;
  */
 public class JSONNucleosCercaniasParser extends JSONCercaniasParser {
 
+    public static String NUCLEOS_JSON = "json/nucleos_cercanias.json";
+
     private JSONObject mJSONObjectNucleos;
 
     /**

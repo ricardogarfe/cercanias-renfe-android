@@ -7,7 +7,7 @@
  * https://github.com/jonseg/cercanias-renfe-android
  */
 
-package com.ricardogarfe.renfe;
+package com.jonsegador.Renfe;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,7 +18,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import com.jonsegador.Renfe.HorariosActivity;
+import com.ricardogarfe.renfe.R;
+import com.ricardogarfe.renfe.R.id;
+import com.ricardogarfe.renfe.R.layout;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
 import com.ricardogarfe.renfe.services.parser.JSONNucleosCercaniasParser;
 
