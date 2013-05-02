@@ -1,5 +1,5 @@
 /*
- * Copyright [2013] [Ricardo García Fernández] [ricarodgarfe@gmail.com]
+ * Copyright [2013] [Ricardo García Fernández] [ricardogarfe@gmail.com]
  * 
  * This file is free software: you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
@@ -20,7 +20,6 @@ import java.util.List;
 
 import android.app.ListActivity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -31,8 +30,6 @@ import com.ricardogarfe.renfe.model.NucleoCercanias;
 import com.ricardogarfe.renfe.services.parser.JSONNucleosCercaniasParser;
 
 public class NucleosActivity extends ListActivity {
-
-    private SharedPreferences mPreferences;
 
     private String TAG = getClass().getSimpleName();
 
@@ -57,8 +54,6 @@ public class NucleosActivity extends ListActivity {
         }
 
         setContentView(R.layout.nucleos_main);
-
-        mPreferences = getSharedPreferences("Renfe", MODE_PRIVATE);
 
         // Asociar el adapter para tratar la información.
         mNucleoAdapter = new NucleoAdapter(this);

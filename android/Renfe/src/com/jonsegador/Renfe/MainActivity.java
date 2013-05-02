@@ -1,5 +1,5 @@
 /*  
- * Copyright [2013] [Ricardo García Fernández] [ricarodgarfe@gmail.com]  
+ * Copyright [2013] [Ricardo García Fernández] [ricardogarfe@gmail.com]  
  *  
  * This file is free software: you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
