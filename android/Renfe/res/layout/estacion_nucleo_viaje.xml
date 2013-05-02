@@ -61,7 +61,8 @@
             android:id="@+id/origenSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawSelectorOnTop="true" />
+            android:drawSelectorOnTop="true"
+            android:prompt="@string/estacionOrigenText" />
     </LinearLayout>
 
     <TextView
@@ -94,7 +95,8 @@
             android:id="@+id/destinoSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawSelectorOnTop="true" />
+            android:drawSelectorOnTop="true"
+            android:prompt="@string/estacionDestinoText" />
     </LinearLayout>
 
     <Button

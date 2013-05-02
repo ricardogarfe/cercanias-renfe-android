@@ -2,101 +2,122 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#ffffffff"
+    android:background="#FF0000"
     android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textViewNucleo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:text="@string/infoNucleo"
+        android:textColor="#ffffff"
+        android:textSize="15sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textViewInfoStations"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="3px"
+        android:padding="3dp"
         android:text="@string/infoStations"
-        android:textColor="#ff000000"
+        android:textColor="#ffffff"
         android:textSize="15sp"
         android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffffff"
         android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/textViewInfoDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5px"
+            android:layout_marginTop="5dp"
             android:gravity="left"
-            android:paddingLeft="3px"
-            android:paddingTop="6px"
-            android:textColor="#ff000000"
+            android:paddingLeft="3dp"
+            android:paddingTop="6dp"
+            android:textColor="#ffffff"
             android:textSize="15sp"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/buttonVuelta"
             android:layout_width="wrap_content"
-            android:layout_height="60px"
+            android:layout_height="60dp"
             android:layout_gravity="right"
-            android:layout_marginLeft="10px"
+            android:layout_marginLeft="10dp"
             android:gravity="right"
             android:text="@string/buttonVuelta" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/textViewInfoTransbordo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="3px"
-        android:textColor="#ff000000"
+        android:padding="3dp"
+        android:textColor="#ffffff"
         android:textSize="15sp"
         android:visibility="invisible" />
 
     <ScrollView
         android:id="@+id/scrollViewTableHorarios"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5px"
-        android:background="#ffffffff"
+        android:layout_marginTop="5dp"
         android:orientation="vertical" >
 
         <TableLayout
             android:id="@+id/tableLayoutHorarios"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#000000" >
 
-            <TableRow android:background="#ffd9e2f3" >
+            <TableRow>
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:padding="3px"
+                    android:padding="3dp"
                     android:text="@string/stationSalida"
-                    android:textColor="#ff000000"
-                    android:textSize="14sp"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:padding="3px"
+                    android:padding="3dp"
                     android:text="@string/stationLlegada"
-                    android:textColor="#ff000000"
-                    android:textSize="14sp"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:padding="3px"
+                    android:padding="3dp"
                     android:text="@string/tiempo"
-                    android:textColor="#ff000000"
-                    android:textSize="14sp"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:padding="3px"
+                    android:padding="3dp"
                     android:text="@string/lineaSalida"
-                    android:textColor="#ff000000"
-                    android:textSize="14sp"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
             </TableRow>
         </TableLayout>

@@ -159,6 +159,7 @@ public class EstacionesNucleoViajeActivity extends Activity {
                     intent.putExtra("year", currentYear);
 
                     intent.putExtra("nucleoId", codigoNucleo);
+                    intent.putExtra("nucleoName", descripcionNucleo);
                     intent.putExtra("estacionOrigenName", estacionOrigenName);
                     intent.putExtra("estacionDestinoName", estacionDestinoName);
 

@@ -13,10 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -26,6 +26,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TableRow.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,11 +47,9 @@ import com.ricardogarfe.renfe.services.handler.HorariosCercaniasHandler;
  */
 public class HorarioCercaniasActivity extends Activity {
 
-    private Thread t;
-    private ProgressDialog dialog;
-
     private TextView textViewInfoTransbordo;
     private TextView textViewInfoStations;
+    private TextView textViewNucleo;
     private TextView textViewInfoDate;
 
     private String fulldate;
@@ -90,17 +89,22 @@ public class HorarioCercaniasActivity extends Activity {
 
         mDatosPeticionHorarioCercanias = retrieveDatosPeticonHorariosCercanias();
 
+        textViewNucleo = (TextView) findViewById(R.id.textViewNucleo);
         textViewInfoStations = (TextView) findViewById(R.id.textViewInfoStations);
         textViewInfoDate = (TextView) findViewById(R.id.textViewInfoDate);
         textViewInfoTransbordo = (TextView) findViewById(R.id.textViewInfoTransbordo);
-        Button change_btn = (Button) findViewById(R.id.buttonVuelta);
-        change_btn.setOnClickListener(new OnClickListener() {
+
+        Button buttonVuelta = (Button) findViewById(R.id.buttonVuelta);
+        buttonVuelta.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
 
                 Intent intent = new Intent(getApplicationContext(),
                         HorarioCercaniasActivity.class);
                 intent.putExtra("nucleoId", Integer
                         .parseInt(mDatosPeticionHorarioCercanias.getNucleo()));
+                intent.putExtra("nucleoName",
+                        mDatosPeticionHorarioCercanias.getNucleoName());
+
                 intent.putExtra("estacionOrigenId", Integer
                         .parseInt(mDatosPeticionHorarioCercanias.getDestino()));
                 intent.putExtra("estacionDestinoId", Integer
@@ -126,6 +130,8 @@ public class HorarioCercaniasActivity extends Activity {
                 + mDatosPeticionHorarioCercanias.getEstacionDestinoName());
         textViewInfoDate.setText(day + "/" + month + "/" + year);
 
+        textViewNucleo.setText(mDatosPeticionHorarioCercanias.getNucleoName());
+
         mHorarioCercaniasTask = new HorarioCercaniasTask();
         mHorarioCercaniasTask.execute(mDatosPeticionHorarioCercanias);
         mHorarioCercaniasTask
@@ -148,6 +154,8 @@ public class HorarioCercaniasActivity extends Activity {
         int estacionOrigenId = getIntent().getIntExtra("estacionOrigenId", 0);
         int estacionDestinoId = getIntent().getIntExtra("estacionDestinoId", 0);
 
+        // Nucleo
+        String nucleoName = getIntent().getStringExtra("nucleoName");
         // Estacion Names
         String estacionOrigenName = getIntent().getStringExtra(
                 "estacionOrigenName");
@@ -168,6 +176,7 @@ public class HorarioCercaniasActivity extends Activity {
 
         // Create object
         datosPeticionHorarioCercanias.setNucleo(Integer.toString(nucleoId));
+        datosPeticionHorarioCercanias.setNucleoName(nucleoName);
         datosPeticionHorarioCercanias.setOrigen(Integer
                 .toString(estacionOrigenId));
         datosPeticionHorarioCercanias.setDestino(Integer
@@ -202,42 +211,68 @@ public class HorarioCercaniasActivity extends Activity {
 
                 int i = 0;
 
+                // Text font style.
+                Typeface typeFaceHorarioFont = Typeface.createFromAsset(
+                        getAssets(), "fonts/LCDPHONE.ttf");
+
+                LayoutParams tableRowLayoutParams = new TableRow.LayoutParams(
+                        LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT,
+                        1.0f);
                 for (HorarioCercanias horarioCercanias : mHorarioCercaniasList) {
 
-                    TableRow tr = new TableRow(HorarioCercaniasActivity.this);
+                    TableRow tableRowHorario = new TableRow(
+                            HorarioCercaniasActivity.this);
 
                     if (i % 2 != 0)
-                        tr.setBackgroundColor((Color.argb(0xFF, 0xD9, 0xE2,
-                                0xF3)));
+                        tableRowHorario.setBackgroundColor(Color.LTGRAY);
 
-                    TextView a = new TextView(HorarioCercaniasActivity.this);
-                    a.setText(horarioCercanias.getHoraSalida());
-                    a.setTextSize(15);
-                    a.setTextColor((Color.argb(0xFF, 0, 0, 0)));
-                    a.setPadding(3, 3, 5, 3);
-                    a.setGravity(Gravity.CENTER_HORIZONTAL);
+                    // Hora salida
+                    TextView textViewHoraSalida = new TextView(
+                            HorarioCercaniasActivity.this);
+                    textViewHoraSalida
+                            .setText(horarioCercanias.getHoraSalida());
+                    textViewHoraSalida.setTextSize(15);
+                    textViewHoraSalida.setTextColor(Color.YELLOW);
+                    textViewHoraSalida.setPadding(3, 3, 5, 3);
+                    textViewHoraSalida.setGravity(Gravity.CENTER_HORIZONTAL);
+                    textViewHoraSalida.setTypeface(typeFaceHorarioFont);
+                    textViewHoraSalida.setLayoutParams(tableRowLayoutParams);
 
-                    TextView b = new TextView(HorarioCercaniasActivity.this);
-                    b.setText(horarioCercanias.getHoraLlegada());
-                    b.setTextSize(15);
-                    b.setTextColor((Color.argb(0xFF, 0, 0, 0)));
-                    b.setPadding(3, 3, 3, 3);
-                    b.setGravity(Gravity.CENTER_HORIZONTAL);
+                    // Hora llegada
+                    TextView textViewHoraLlegada = new TextView(
+                            HorarioCercaniasActivity.this);
+                    textViewHoraLlegada.setText(horarioCercanias
+                            .getHoraLlegada());
+                    textViewHoraLlegada.setTextSize(15);
+                    textViewHoraLlegada.setTextColor(Color.YELLOW);
+                    textViewHoraLlegada.setPadding(3, 3, 3, 3);
+                    textViewHoraLlegada.setGravity(Gravity.CENTER_HORIZONTAL);
+                    textViewHoraLlegada.setTypeface(typeFaceHorarioFont);
+                    textViewHoraLlegada.setLayoutParams(tableRowLayoutParams);
 
-                    TextView d = new TextView(HorarioCercaniasActivity.this);
-                    d.setText(horarioCercanias.getDuracion());
-                    d.setTextSize(15);
-                    d.setTextColor((Color.argb(0xFF, 0, 0, 0)));
-                    d.setPadding(3, 3, 3, 3);
-                    d.setGravity(Gravity.CENTER_HORIZONTAL);
+                    // Hora Duracion
+                    TextView textViewDuracion = new TextView(
+                            HorarioCercaniasActivity.this);
+                    textViewDuracion.setText(horarioCercanias.getDuracion());
+                    textViewDuracion.setTextSize(15);
+                    textViewDuracion.setTextColor(Color.YELLOW);
+                    textViewDuracion.setPadding(3, 3, 3, 3);
+                    textViewDuracion.setGravity(Gravity.CENTER_HORIZONTAL);
+                    textViewDuracion.setTypeface(typeFaceHorarioFont);
+                    textViewDuracion.setLayoutParams(tableRowLayoutParams);
 
-                    TextView e = new TextView(HorarioCercaniasActivity.this);
-                    e.setText(horarioCercanias.getLinea());
-                    e.setTextSize(15);
-                    e.setTextColor((Color.argb(0xFF, 0, 0, 0)));
-                    e.setPadding(3, 3, 3, 3);
-                    e.setGravity(Gravity.CENTER_HORIZONTAL);
+                    // Linea
+                    TextView textViewLinea = new TextView(
+                            HorarioCercaniasActivity.this);
+                    textViewLinea.setText(horarioCercanias.getLinea());
+                    textViewLinea.setTextSize(15);
+                    textViewLinea.setTextColor(Color.YELLOW);
+                    textViewLinea.setPadding(3, 3, 3, 3);
+                    textViewLinea.setGravity(Gravity.CENTER_HORIZONTAL);
+                    textViewLinea.setTypeface(typeFaceHorarioFont);
+                    textViewLinea.setLayoutParams(tableRowLayoutParams);
 
+                    // Transbordo
                     if (!horarioCercanias.getTransbordo().isEmpty()) {
 
                         for (TransbordoCercanias transbordoCercanias : horarioCercanias
@@ -259,12 +294,12 @@ public class HorarioCercaniasActivity extends Activity {
                         textViewInfoTransbordo.setHeight(1);
                     }
 
-                    tr.addView(a);
-                    tr.addView(b);
-                    tr.addView(d);
-                    tr.addView(e);
+                    tableRowHorario.addView(textViewHoraSalida);
+                    tableRowHorario.addView(textViewHoraLlegada);
+                    tableRowHorario.addView(textViewDuracion);
+                    tableRowHorario.addView(textViewLinea);
 
-                    tableLayoutHorarios.addView(tr);
+                    tableLayoutHorarios.addView(tableRowHorario);
 
                     i++;
 

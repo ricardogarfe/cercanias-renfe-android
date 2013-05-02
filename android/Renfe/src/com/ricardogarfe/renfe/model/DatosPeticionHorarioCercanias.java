@@ -16,10 +16,11 @@ public class DatosPeticionHorarioCercanias {
     private String destino;
     private String fechaViaje;
     private String nucleo;
+    private String nucleoName;
     private Intervalo intervalo;
     private String estacionOrigenName;
     private String estacionDestinoName;
-    
+
     public String getOrigen() {
         return origen;
     }
@@ -74,6 +75,14 @@ public class DatosPeticionHorarioCercanias {
 
     public void setEstacionDestinoName(String estacionDestinoName) {
         this.estacionDestinoName = estacionDestinoName;
+    }
+
+    public String getNucleoName() {
+        return nucleoName;
+    }
+
+    public void setNucleoName(String nucleoName) {
+        this.nucleoName = nucleoName;
     }
 
 }

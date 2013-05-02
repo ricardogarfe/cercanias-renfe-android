@@ -13,13 +13,13 @@
     <!-- Estacion Nucleos Layout -->
     <string name="seleccionEstaciones">Estaciones</string>
 
-    <string name="estacionOrigenText">Estación de origen:</string>
-    <string name="estacionDestinoText">Estación de destino:</string>
+    <string name="estacionOrigenText">Estación de origen</string>
+    <string name="estacionDestinoText">Estación de destino</string>
     <string name="verHorariosButton">Ver horarios</string>
 
     <!-- Hoarios Cercanias Layout -->
     <string name="mostrarHorarios">Horarios</string>
-    
+    <string name="infoNucleo">Nucleo</string>
     <string name="infoStations">Estación origen - Estación destino</string>
     <string name="buttonVuelta">Viaje de vuelta</string>
 
