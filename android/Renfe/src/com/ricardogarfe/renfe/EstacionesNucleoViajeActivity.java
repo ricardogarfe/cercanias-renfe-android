@@ -91,7 +91,7 @@ public class EstacionesNucleoViajeActivity extends Activity {
         // Set listeners for each spinner.
         origenSpinner.setOnItemSelectedListener(estacionOrigenSelectedListener);
         destinoSpinner
-                .setOnItemSelectedListener(estacionDestionSelectedListener);
+                .setOnItemSelectedListener(estacionDestinoSelectedListener);
 
         // Comprobar si existen en sharedPreferences estaciones seleccionadas.
         boolean codigoNucleoSet = mPreferences.getInt("codigoNucleo", 0) == codigoNucleo;
@@ -107,7 +107,7 @@ public class EstacionesNucleoViajeActivity extends Activity {
     }
 
     /**
-     * 
+     * Configure Widget values to initialize ui.
      */
     public void configureWidgets() {
         origenSpinner = (Spinner) this.findViewById(R.id.origenSpinner);
@@ -262,7 +262,7 @@ public class EstacionesNucleoViajeActivity extends Activity {
         }
     };
 
-    private OnItemSelectedListener estacionDestionSelectedListener = new OnItemSelectedListener() {
+    private OnItemSelectedListener estacionDestinoSelectedListener = new OnItemSelectedListener() {
         public void onItemSelected(AdapterView parent, View v, int position,
                 long id) {
 
