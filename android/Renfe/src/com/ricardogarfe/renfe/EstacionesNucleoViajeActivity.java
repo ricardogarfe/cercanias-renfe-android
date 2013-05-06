@@ -147,19 +147,19 @@ public class EstacionesNucleoViajeActivity extends Activity {
                             destinoSpinnerPosition).getDescripcion();
 
                     // Configure day TODO: select day instance.
-                    Calendar c = Calendar.getInstance();
+                    Calendar calendar = Calendar.getInstance();
 
                     DecimalFormat mFormat = new DecimalFormat("00");
                     mFormat.setRoundingMode(RoundingMode.DOWN);
 
-                    int dayInt = c.get(Calendar.DATE);
+                    int dayInt = calendar.get(Calendar.DATE);
                     String currentDay = mFormat.format(Double.valueOf(dayInt));
 
-                    int monthInt = c.get(Calendar.MONTH);
+                    int monthInt = calendar.get(Calendar.MONTH) + 1;
                     String currentMonth = mFormat.format(Double
                             .valueOf(monthInt));
 
-                    String currentYear = Integer.toString(c.get(Calendar.YEAR));
+                    String currentYear = Integer.toString(calendar.get(Calendar.YEAR));
 
                     intent.putExtra("day", currentDay);
                     intent.putExtra("month", currentMonth);
