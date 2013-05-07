@@ -93,10 +93,14 @@ public class NucleoAdapter extends BaseAdapter implements Filterable {
         // TODO Auto-generated method stub
         View view;
 
-        LayoutInflater inflater = (LayoutInflater) mContext
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        if (convertView == null) {
 
-        view = inflater.inflate(R.layout.complex_list_main, null);
+            LayoutInflater inflater = (LayoutInflater) mContext
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+            view = inflater.inflate(R.layout.complex_list_main, parent, false);
+        } else
+            view = convertView;
 
         // Dar valores a los Widgets del elemento complejo de la lista
         // descrito en complex_list_main.xml
@@ -124,23 +128,6 @@ public class NucleoAdapter extends BaseAdapter implements Filterable {
 
         view.setId(mNucleoCercaniasList.get(position).getCodigo());
         return view;
-    }
-
-    public Context getmContext() {
-        return mContext;
-    }
-
-    public void setmContext(Context mContext) {
-        this.mContext = mContext;
-    }
-
-    public List<NucleoCercanias> getmNucleoCercaniasList() {
-        return mNucleoCercaniasList;
-    }
-
-    public void setmNucleoCercaniasList(
-            List<NucleoCercanias> mNucleoCercaniasList) {
-        this.mNucleoCercaniasList = mNucleoCercaniasList;
     }
 
     /*
@@ -212,6 +199,23 @@ public class NucleoAdapter extends BaseAdapter implements Filterable {
             }
         };
         return filter;
+    }
+
+    public Context getmContext() {
+        return mContext;
+    }
+
+    public void setmContext(Context mContext) {
+        this.mContext = mContext;
+    }
+
+    public List<NucleoCercanias> getmNucleoCercaniasList() {
+        return mNucleoCercaniasList;
+    }
+
+    public void setmNucleoCercaniasList(
+            List<NucleoCercanias> mNucleoCercaniasList) {
+        this.mNucleoCercaniasList = mNucleoCercaniasList;
     }
 
 }

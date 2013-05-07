@@ -38,6 +38,7 @@
     <string name="mostrarHorarios">Horarios</string>
     <string name="infoNucleo">Nucleo</string>
     <string name="infoStations">Estación origen - Estación destino</string>
+    <string name="infoFecha">Fecha</string>
     <string name="buttonVuelta">Viaje de vuelta</string>
 
 </resources>
