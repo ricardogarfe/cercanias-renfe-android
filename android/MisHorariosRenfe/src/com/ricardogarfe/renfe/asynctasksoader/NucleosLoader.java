@@ -14,7 +14,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.ricardogarfe.renfe.asyncTaskLoader;
+package com.ricardogarfe.renfe.asynctasksoader;
 
 import java.util.List;
 

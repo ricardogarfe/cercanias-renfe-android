@@ -37,7 +37,7 @@ import android.widget.TableRow.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ricardogarfe.renfe.asyncTask.HorarioCercaniasTask;
+import com.ricardogarfe.renfe.asynctasks.HorarioCercaniasTask;
 import com.ricardogarfe.renfe.model.DatosPeticionHorarioCercanias;
 import com.ricardogarfe.renfe.model.EstacionCercanias;
 import com.ricardogarfe.renfe.model.HorarioCercanias;

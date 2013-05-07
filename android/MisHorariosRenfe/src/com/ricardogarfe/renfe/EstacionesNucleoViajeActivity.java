@@ -39,7 +39,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ricardogarfe.renfe.asyncTask.RetrieveEstacionesNucleoTask;
+import com.ricardogarfe.renfe.asynctasks.RetrieveEstacionesNucleoTask;
 import com.ricardogarfe.renfe.model.EstacionCercanias;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
 import com.ricardogarfe.renfe.services.parser.JSONEstacionCercaniasParser;

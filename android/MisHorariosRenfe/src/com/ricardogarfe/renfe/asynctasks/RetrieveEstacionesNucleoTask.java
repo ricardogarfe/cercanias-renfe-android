@@ -14,7 +14,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.ricardogarfe.renfe.asyncTask;
+package com.ricardogarfe.renfe.asynctasks;
 
 import java.io.IOException;
 import java.util.ArrayList;

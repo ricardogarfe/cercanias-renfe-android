@@ -67,7 +67,7 @@ public class NucleoAdapter extends BaseAdapter implements Filterable {
      */
     public Object getItem(int position) {
         // TODO Auto-generated method stub
-        return null;
+        return mNucleoCercaniasList.get(position);
     }
 
     /*
@@ -76,9 +76,10 @@ public class NucleoAdapter extends BaseAdapter implements Filterable {
      * @see android.widget.Adapter#getItemId(int)
      */
     public long getItemId(int position) {
-        // TODO Asignar el identificador asociado a cada nucleo para hacer las
+        // Asignar el identificador asociado a cada nucleo para hacer las
         // peticiones de horarios.
-        return 0;
+        NucleoCercanias nucleoCercaniasSelected = (NucleoCercanias) getItem(position);
+        return nucleoCercaniasSelected.getCodigo();
     }
 
     /*
@@ -121,6 +122,7 @@ public class NucleoAdapter extends BaseAdapter implements Filterable {
         imageViewLogo.setImageDrawable(mContext.getResources().getDrawable(
                 R.drawable.logo_cercanias));
 
+        view.setId(mNucleoCercaniasList.get(position).getCodigo());
         return view;
     }
 

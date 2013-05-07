@@ -98,15 +98,18 @@ public class NucleosActivity extends ListActivity {
                 + mNucleoCercaniasList.get(position).getDescripcion()
                 + " selected");
 
+        NucleoCercanias nucleosCercaniasSelected = (NucleoCercanias) mNucleoAdapter
+                .getItem(position);
+
         Intent intentEstacionesNucleos = new Intent(NucleosActivity.this,
                 EstacionesNucleoViajeActivity.class);
-        intentEstacionesNucleos.putExtra("codigo_nucleo", mNucleoCercaniasList
-                .get(position).getCodigo());
+        intentEstacionesNucleos.putExtra("codigo_nucleo",
+                nucleosCercaniasSelected.getCodigo());
         intentEstacionesNucleos.putExtra("descripcion_nucleo",
-                mNucleoCercaniasList.get(position).getDescripcion());
+                nucleosCercaniasSelected.getDescripcion());
 
         intentEstacionesNucleos.putExtra("estaciones_json",
-                mNucleoCercaniasList.get(position).getEstacionesJSON());
+                nucleosCercaniasSelected.getEstacionesJSON());
 
         startActivity(intentEstacionesNucleos);
     }
