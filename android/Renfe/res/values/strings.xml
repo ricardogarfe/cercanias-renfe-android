@@ -25,7 +25,8 @@
 
     <!-- Nucleos view -->
     <string name="textNucleos">Nucleos</string>
-
+    <string name="nucleosSearch">Buscar nucleos</string>
+    
     <!-- Estacion Nucleos Layout -->
     <string name="seleccionEstaciones">Estaciones</string>
 

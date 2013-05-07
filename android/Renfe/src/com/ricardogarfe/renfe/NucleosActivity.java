@@ -21,8 +21,11 @@ import java.util.List;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.ricardogarfe.renfe.adapter.NucleoAdapter;
@@ -35,6 +38,8 @@ public class NucleosActivity extends ListActivity {
 
     private NucleoAdapter mNucleoAdapter;
 
+    private EditText nucleosSearch;
+
     private List<NucleoCercanias> mNucleoCercaniasList;
 
     private JSONNucleosCercaniasParser mJSONNucleosCercaniasParser = new JSONNucleosCercaniasParser();
@@ -42,6 +47,8 @@ public class NucleosActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.nucleos_main);
 
         mJSONNucleosCercaniasParser.setContext(this);
 
@@ -53,13 +60,32 @@ public class NucleosActivity extends ListActivity {
             Log.e(TAG, "Parsing JSON data:\t" + e.getMessage());
         }
 
-        setContentView(R.layout.nucleos_main);
-
         // Asociar el adapter para tratar la información.
         mNucleoAdapter = new NucleoAdapter(this);
         mNucleoAdapter.setmNucleoCercaniasList(mNucleoCercaniasList);
         setListAdapter(mNucleoAdapter);
 
+        // Autocomplete nucleos search
+        nucleosSearch = (EditText) findViewById(R.id.nucleosSearch);
+
+        nucleosSearch.addTextChangedListener(new TextWatcher() {
+
+            public void onTextChanged(CharSequence cs, int arg1, int arg2,
+                    int arg3) {
+                // When user changed the Text
+                mNucleoAdapter.getFilter().filter(cs);
+            }
+
+            public void beforeTextChanged(CharSequence arg0, int arg1,
+                    int arg2, int arg3) {
+                // TODO Auto-generated method stub
+
+            }
+
+            public void afterTextChanged(Editable arg0) {
+                // TODO Auto-generated method stub
+            }
+        });
     }
 
     /**

@@ -16,6 +16,7 @@
 
 package com.ricardogarfe.renfe.adapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.ricardogarfe.renfe.R;
@@ -27,6 +28,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,9 +37,11 @@ import android.widget.TextView;
  * @author ricardo
  * 
  */
-public class NucleoAdapter extends BaseAdapter {
+public class NucleoAdapter extends BaseAdapter implements Filterable {
 
     private Context mContext;
+
+    private List<NucleoCercanias> mFilteredNucleoCercaniasList;
 
     private List<NucleoCercanias> mNucleoCercaniasList;
 
@@ -134,6 +139,77 @@ public class NucleoAdapter extends BaseAdapter {
     public void setmNucleoCercaniasList(
             List<NucleoCercanias> mNucleoCercaniasList) {
         this.mNucleoCercaniasList = mNucleoCercaniasList;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see android.widget.Filterable#getFilter()
+     */
+    public Filter getFilter() {
+        // TODO Auto-generated method stub
+        Filter filter = new Filter() {
+
+            @SuppressWarnings("unchecked")
+            @Override
+            protected void publishResults(CharSequence constraint,
+                    FilterResults results) {
+
+                // arraylist original mNucleoCercaniasList moriganal filter
+                // mFilteredNucleoCercaniasList
+                mNucleoCercaniasList = (List<NucleoCercanias>) results.values; // has
+                                                                               // the
+                                                                               // filtered
+                                                                               // values
+                notifyDataSetChanged(); // notifies the data with new filtered
+                                        // values
+            }
+
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                FilterResults results = new FilterResults(); // Holds the
+                                                             // results of a
+                                                             // filtering
+                                                             // operation in
+                                                             // values
+                List<NucleoCercanias> FilteredArrList = new ArrayList<NucleoCercanias>();
+
+                if (mFilteredNucleoCercaniasList == null) {
+                    mFilteredNucleoCercaniasList = new ArrayList<NucleoCercanias>(
+                            mNucleoCercaniasList); // saves the original data in
+                                                   // mOriginalValues
+                }
+
+                /********
+                 * 
+                 * If constraint(CharSequence that is received) is null returns
+                 * the mOriginalValues(Original) values else does the Filtering
+                 * and returns FilteredArrList(Filtered)
+                 * 
+                 ********/
+                if (constraint == null || constraint.length() == 0) {
+
+                    // set the Original result to return
+                    results.count = mFilteredNucleoCercaniasList.size();
+                    results.values = mFilteredNucleoCercaniasList;
+                } else {
+                    constraint = constraint.toString().toLowerCase();
+                    for (int i = 0; i < mFilteredNucleoCercaniasList.size(); i++) {
+                        NucleoCercanias nucleoCercanias = mFilteredNucleoCercaniasList
+                                .get(i);
+                        if (nucleoCercanias.getDescripcion().toLowerCase()
+                                .startsWith(constraint.toString())) {
+                            FilteredArrList.add(nucleoCercanias);
+                        }
+                    }
+                    // set the Filtered result to return
+                    results.count = FilteredArrList.size();
+                    results.values = FilteredArrList;
+                }
+                return results;
+            }
+        };
+        return filter;
     }
 
 }

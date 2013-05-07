@@ -21,14 +21,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textNucleos"
-        android:layout_width="wrap_content"
+     <!-- Editext for Search -->
+    <EditText android:id="@+id/nucleosSearch"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/textNucleos"
-        />
-
+        android:hint="@string/nucleosSearch"
+        android:inputType="textVisiblePassword"/>
+    
     <ListView
         android:id="@id/android:list"
         android:layout_width="match_parent"
