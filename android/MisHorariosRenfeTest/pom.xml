@@ -53,6 +53,13 @@
     </dependency>
 
     <dependency>
+      <artifactId>mishorarios-renfe-app</artifactId>
+      <groupId>com.ricardogarfe.renfe</groupId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>apklib</type>
+    </dependency>
+
+    <dependency>
       <groupId>com.google.android</groupId>
       <artifactId>support-v4</artifactId>
     </dependency>

@@ -11,7 +11,6 @@
   <artifactId>mishorarios-renfe-app</artifactId>
   <packaging>apk</packaging>
 
-
   <dependencies>
     <dependency>
       <groupId>com.google.android</groupId>
@@ -28,7 +27,6 @@
       <artifactId>support-v4</artifactId>
     </dependency>
   </dependencies>
-
 
   <build>
     <finalName>${project.artifactId}</finalName>
