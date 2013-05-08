@@ -57,10 +57,23 @@
 
         <pluginManagement>
             <plugins>
+				
+				<plugin>
+					<artifactId>maven-jarsigner-plugin</artifactId>
+					<version>1.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.5</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+
                 <plugin>
                     <groupId>com.jayway.maven.plugins.android.generation2</groupId>
                     <artifactId>android-maven-plugin</artifactId>
-                    <version>3.4.1</version>
+                    <version>3.5.3</version>
                     <configuration>
                         <sdk>
                             <!-- platform or api level (api level 17 = platform 4.1.1.4) -->
@@ -70,6 +83,38 @@
 
                     <extensions>true</extensions>
                 </plugin>
+
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>1.5</version>
+				</plugin>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>com.jayway.maven.plugins.android.generation2</groupId>
+										<artifactId>android-maven-plugin</artifactId>
+										<versionRange>[3.2.0,)</versionRange>
+										<goals>
+											<goal>manifest-update</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<execute />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
                 <plugin>
                     <artifactId>maven-source-plugin</artifactId>
                     <version>2.2</version>
@@ -114,6 +159,17 @@
     </build>
 
     <profiles>
+		<profile>
+			<!-- the standard profile runs the instrumentation tests -->
+			<id>standard</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<modules>
+                <module>MisHorariosRenfe</module>
+                <module>MisHorariosRenfeTest</module>
+			</modules>
+		</profile>
         <!-- MSOURCES-13 related workaround overriding super-pom.
              http://blog.peterlynch.ca/2010/05/maven-how-to-prevent-generate-sources.html -->
         <profile>
@@ -124,6 +180,10 @@
                     <value>true</value>
                 </property>
             </activation>
+			<modules>
+                <module>MisHorariosRenfe</module>
+                <module>MisHorariosRenfeTest</module>
+			</modules>
             <build>
                 <plugins>
                     <plugin>
