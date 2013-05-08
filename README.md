@@ -1,50 +1,60 @@
-# Aplicación Cercanías Renfe para dispositivos Android #
+# Horarios Cercanías Renfe para dispositivos Android
 
-Este repositorio alberga el código fuente de la aplicación Cercanías Renfe para Android que fue suspendida a raiz de una denuncia de Renfe al departamento Android de Google, alegando que la aplicación incurría en competencia desleal al utilizar su logotipo.
+[![Build Status](https://travis-ci.org/ricardogarfe/cercanias-renfe-android.png?branch=development)](https://travis-ci.org/ricardogarfe/cercanias-renfe-android)
 
-La aplicación estuvo en el Android Market 2 años y contaba con 100.730 instalaciones totales y 51.896 instalaciones activas, siendo la aplicación más utilizada para consultar los horarios de Renfe en un dispositivo Android.
+Aplicación cliente para la visualización de los horarios de Cercanías Renfe en todo el territorio español adaptada para todo tipo de dispositivos Android.
 
-Si quieres saber más sobre este tema, puedes leerlo en mi blog:
-*[Me han suspendido la aplicación de Cercanías Renfe para Android](http://jonsegador.com/2012/01/me-han-suspendido-la-aplicacion-de-cercanias-renfe-para-android/)*
+Esta aplicación ha sido generada a partir del proyecto de Jon Segador (puedes ver el fork en el histórico del repositorior) con la intención de mejorar la aplicación y aprender a programar en Android.
 
+La información sobre la versión de Jon se encuentra en la wiki del proyecto:
 
-## Sobre la aplicación ##
+* [Versión 1](../../wiki/Version-1---Jon-Segador)
+* Tag [Versión 1](https://github.com/ricardogarfe/cercanias-renfe-android/tree/version-jonseg)
 
-La aplicación se divide en dos partes:
+## Documentación
 
-## Parser ##
-Se encuentra en la carpeta "parser". Es el código fuente que debe ir en nuestro servidor web y es el que "lee" la web de Renfe para extraer los horarios. La aplicación Android realiza llamadas a este script php para obtener los horarios.
+**TBC** En el wiki del proyecto se encuentra una guía del desarrollador y del usuario.
 
-Esta técnica es más conocida como "web scraping". Sería mucho más fácil que los datos estuvieran disponibles de forma libre a todo el mundo pero dudo que nadie en Renfe haya escuchado nunca nada sobre *[Open Data](http://en.wikipedia.org/wiki/Open_data)*.
+## Licencia GPLv3
 
-## Aplicación Android ##
-La encontraremos en la carpeta "android". Es el código fuente de la aplicación para Android. 
+Esta apliación se ha publicado bajo licencia [GPLv3](http://www.gnu.org/licenses/gpl.html) después de un proceso de relicenciamiento para pasar de una versión MIT con variaciones para convertirla en Copyleft a utilizar los pasor para utilizar una Copyleft Real **GPLv3**.
 
-El código fuente se ha publicado "tal cual" según la última versión de la aplicación. Puede contener errores y el código se puede optimizar y mejorar con total seguridad. Echa un vistazo al archivo LICENSE.
+Se ha utilizado el manual de la FSF (Free Software Foundation) para mantener los archivos de licencias permisivas de un proyecto al licenciarse como GPLv3:
 
-El código no está muy comentado, de hecho, apenas hay comentarios y la documentación es básica. En próximas revisiones del código intentaré aclarar algunas partes del código o quizás haga un tutorial en mi blog explicando paso a paso el funcionamiento de la aplicación.
+* [Maintaining Permissive-Licensed Files in a GPL-Licensed Project: Guidelines for Developers](http://www.softwarefreedom.org/resources/2007/gpl-non-gpl-collaboration.html).
 
-Básicamente debes saber que modificando el fichero HorariosActivity.java (línea 54) con la url donde hayas alojado el "parser" de la sección anterior, tienes más que suficiente para que la aplicación funcione.
+Por lo tanto, este proyecto de Software Libre obliga a que todas las modificaciones que se hagan se publiquen como Software Libre por ello el carácter de la licencia Copyleft.
 
-~~~
-// URL completa al script que parsea la web de renfe para obtener los horarios
-String parser_url = "http://mipaginaweb.com/renfe/parser.php";   
-~~~
+## Aplicación Android
 
-Puedes descargarte directamente el fichero .apk e instalar la aplicación en tu dispositivo Android directamente.
-*[Descargar fichero .apk de la aplicación Cercanías Renfe](http://jonsegador.com/cercanias/app/Renfe.apk)*
+**TBC**
 
+### Tests
 
-## Screenshots ##
+Test **TBC**
 
-[![Inicio](http://jonsegador.com/cercanias/screenshots/inicio_thumb.png)](http://jonsegador.com/cercanias/screenshots/inicio.png)
-[![Horarios1](http://jonsegador.com/cercanias/screenshots/horarios1_thumb.png)](http://jonsegador.com/cercanias/screenshots/horarios1.png)
-[![Horarios2](http://jonsegador.com/cercanias/screenshots/horarios2_thumb.png)](http://jonsegador.com/cercanias/screenshots/horarios2.png)
+### Maven
 
+Maven **TBC**
 
-## Autor ##
+### Integración continua
 
-* Jon Segador <jonseg@gmail.com>
-* Twitter : *[@jonseg](http://twitter.com/#!/jonseg)*
-* Linkedin: *[http://es.linkedin.com/pub/jon-segador/11/685/602](http://es.linkedin.com/pub/jon-segador/11/685/602)*
-* Blog    : *[http://jonsegador.com/](http://jonsegador.com/)*
+Travis-CI **TBC**
+
+## Screenshots
+
+**TBC**
+
+## Autor
+
+* Ricardo García Fernández <ricardogarfe@gmail.com>
+* Twitter *[@ricardogarfe](http://twitter.com/ricardogarfe)*
+* Linkedin *[http://es.linkedin.com/in/ricardogarfe](http://es.linkedin.com/in/ricardogarfe)*
+* Blog *[http://mastersfwlurjc.blogspot.com.es/)*
+
+## License
+
+<a href="http://creativecommons.org/licenses/by/3.0/" rel="Creative Commons Attribution 3.0">![Foo](http://i.creativecommons.org/l/by/3.0/88x31.png)</a>
+
+This work by Ricardo Gracía Fernández - ricardogarfe [at] gmail [dot] com is licensed under a [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/).
+
