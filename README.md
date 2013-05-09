@@ -1,6 +1,6 @@
 # Mis Horarios Cercanías
 
-[![Build Status](https://travis-ci.org/ricardogarfe/cercanias-renfe-android.png?branch=development)](https://travis-ci.org/ricardogarfe/cercanias-renfe-android)
+[![Build Status](https://travis-ci.org/ricardogarfe/cercanias-renfe-android.png?branch=master)](https://travis-ci.org/ricardogarfe/cercanias-renfe-android)
 
 *Aplicación Android* cliente para la visualización de los horarios de Cercanías Renfe en todo el territorio español adaptada para todo tipo de dispositivos Android.
 
