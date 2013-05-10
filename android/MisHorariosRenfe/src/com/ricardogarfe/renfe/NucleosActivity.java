@@ -60,6 +60,14 @@ public class NucleosActivity extends ListActivity {
             Log.e(TAG, "Parsing JSON data:\t" + e.getMessage());
         }
 
+        configureWidgets();
+    }
+
+    /**
+     * Configure Widget values to initialize ui.
+     */
+    public void configureWidgets() {
+
         // Asociar el adapter para tratar la información.
         mNucleoAdapter = new NucleoAdapter(this);
         mNucleoAdapter.setmNucleoCercaniasList(mNucleoCercaniasList);

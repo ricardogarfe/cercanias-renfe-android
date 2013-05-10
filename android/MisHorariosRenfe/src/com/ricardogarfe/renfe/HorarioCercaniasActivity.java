@@ -96,6 +96,19 @@ public class HorarioCercaniasActivity extends Activity {
 
         mDatosPeticionHorarioCercanias = retrieveDatosPeticonHorariosCercanias();
 
+        configureWidgets();
+
+        mHorarioCercaniasTask = new HorarioCercaniasTask();
+        mHorarioCercaniasTask.execute(mDatosPeticionHorarioCercanias);
+        mHorarioCercaniasTask
+                .setMessageNucleoCercaniasHandler(messageHorariosCercaniasHandler);
+    }
+
+    /**
+     * Configure Widget values to initialize ui.
+     */
+    public void configureWidgets() {
+
         textViewNucleo = (TextView) findViewById(R.id.textViewNucleo);
         textViewInfoStations = (TextView) findViewById(R.id.textViewInfoStations);
         textViewInfoDate = (TextView) findViewById(R.id.textViewInfoDate);
@@ -138,11 +151,6 @@ public class HorarioCercaniasActivity extends Activity {
         textViewInfoDate.setText(day + "/" + month + "/" + year);
 
         textViewNucleo.setText(mDatosPeticionHorarioCercanias.getNucleoName());
-
-        mHorarioCercaniasTask = new HorarioCercaniasTask();
-        mHorarioCercaniasTask.execute(mDatosPeticionHorarioCercanias);
-        mHorarioCercaniasTask
-                .setMessageNucleoCercaniasHandler(messageHorariosCercaniasHandler);
     }
 
     /**
