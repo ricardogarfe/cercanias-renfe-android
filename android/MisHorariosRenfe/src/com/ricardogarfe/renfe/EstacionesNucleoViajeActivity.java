@@ -42,7 +42,6 @@ import android.widget.Toast;
 import com.ricardogarfe.renfe.asynctasks.RetrieveEstacionesNucleoTask;
 import com.ricardogarfe.renfe.model.EstacionCercanias;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
-import com.ricardogarfe.renfe.services.parser.JSONEstacionCercaniasParser;
 
 public class EstacionesNucleoViajeActivity extends Activity {
 
@@ -65,7 +64,7 @@ public class EstacionesNucleoViajeActivity extends Activity {
     private int estacionOrigenPosToSet = 0;
     private int estacionDestinoPosToSet = 0;
 
-    boolean can_change = false;
+    boolean retrieveSharedPreferences = false;
 
     // AsyncTasks
     private RetrieveEstacionesNucleoTask retrieveEstacionesNucleoTask;
@@ -78,8 +77,7 @@ public class EstacionesNucleoViajeActivity extends Activity {
     private String estacionesJSON;
 
     // Configuracion estaciones.
-    private JSONEstacionCercaniasParser jsonEstacionCercaniasParser;
-    private List<EstacionCercanias> estacionCercaniasList;
+    private static List<EstacionCercanias> estacionCercaniasList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -100,17 +98,22 @@ public class EstacionesNucleoViajeActivity extends Activity {
         destinoSpinner
                 .setOnItemSelectedListener(estacionDestinoSelectedListener);
 
+    }
+
+    /**
+     * Check if exist shared preferences to update spinners.
+     * 
+     * @return true if exist.
+     */
+    public boolean isNucleoChangedFromSharedPreferences() {
         // Comprobar si existen en sharedPreferences estaciones seleccionadas.
-        boolean codigoNucleoSet = mPreferences.getInt("codigoNucleo", 0) == codigoNucleo;
-        boolean estacionOrigenSet = mPreferences
+        final boolean codigoNucleoSet = mPreferences.getInt("codigoNucleo", 0) == codigoNucleo;
+        final boolean estacionOrigenSet = mPreferences
                 .contains("estacionOrigenPosToSet");
-        boolean estacioDestinoSet = mPreferences
+        final boolean estacioDestinoSet = mPreferences
                 .contains("estacionDestinoPosToSet");
 
-        if (codigoNucleoSet && estacionOrigenSet && estacioDestinoSet) {
-            can_change = true;
-        }
-
+        return (codigoNucleoSet && estacionOrigenSet && estacioDestinoSet);
     }
 
     /**
@@ -159,7 +162,8 @@ public class EstacionesNucleoViajeActivity extends Activity {
                     String currentMonth = mFormat.format(Double
                             .valueOf(monthInt));
 
-                    String currentYear = Integer.toString(calendar.get(Calendar.YEAR));
+                    String currentYear = Integer.toString(calendar
+                            .get(Calendar.YEAR));
 
                     intent.putExtra("day", currentDay);
                     intent.putExtra("month", currentMonth);
@@ -170,13 +174,8 @@ public class EstacionesNucleoViajeActivity extends Activity {
                     intent.putExtra("estacionOrigenName", estacionOrigenName);
                     intent.putExtra("estacionDestinoName", estacionDestinoName);
 
-                    SharedPreferences.Editor editor = mPreferences.edit();
-                    editor.putInt("codigoNucleo", codigoNucleo);
-                    editor.putInt("estacionOrigenPosToSet",
-                            estacionOrigenPosToSet);
-                    editor.putInt("estacionDestinoPosToSet",
-                            estacionDestinoPosToSet);
-                    editor.commit();
+                    // save preferences.
+                    saveSharedPreferences();
 
                     startActivity(intent);
 
@@ -208,13 +207,25 @@ public class EstacionesNucleoViajeActivity extends Activity {
             }
         }
 
+        retrieveSharedPreferences = isNucleoChangedFromSharedPreferences();
+
         estacionesJSON = intentFromActivity.getStringExtra("estaciones_json");
 
-        retrieveEstacionesNucleoTask = new RetrieveEstacionesNucleoTask();
-        retrieveEstacionesNucleoTask.execute(estacionesJSON, null, null);
-        retrieveEstacionesNucleoTask
-                .setMessageEstacionesNucleoHandler(messageEstacionesNucleoHandler);
+        if (!retrieveSharedPreferences
+                || (estacionCercaniasList == null || estacionCercaniasList
+                        .isEmpty())) {
+            retrieveEstacionesNucleoTask = new RetrieveEstacionesNucleoTask();
+            retrieveEstacionesNucleoTask.execute(estacionesJSON,
+                    descripcionNucleo, null, null);
+            retrieveEstacionesNucleoTask
+                    .setMessageEstacionesNucleoHandler(messageEstacionesNucleoHandler);
+        } else {
 
+            Message messageEstacionesNucleo = new Message();
+            messageEstacionesNucleo.obj = estacionCercaniasList;
+            messageEstacionesNucleoHandler.sendMessage(messageEstacionesNucleo);
+
+        }
     }
 
     /**
@@ -252,9 +263,10 @@ public class EstacionesNucleoViajeActivity extends Activity {
         public void onItemSelected(AdapterView parent, View v, int position,
                 long id) {
 
-            if (can_change) {
+            if (retrieveSharedPreferences) {
                 origenSpinner.setSelection(mPreferences.getInt(
                         "estacionOrigenPosToSet", 0));
+                retrieveSharedPreferences = false;
             }
 
             if (origenSpinner.getSelectedItemPosition() >= 0) {
@@ -273,10 +285,10 @@ public class EstacionesNucleoViajeActivity extends Activity {
         public void onItemSelected(AdapterView parent, View v, int position,
                 long id) {
 
-            if (can_change) {
+            if (retrieveSharedPreferences) {
                 destinoSpinner.setSelection(mPreferences.getInt(
                         "estacionDestinoPosToSet", 0));
-                can_change = false;
+                retrieveSharedPreferences = false;
             }
 
             if (destinoSpinner.getSelectedItemPosition() >= 0) {
@@ -291,4 +303,21 @@ public class EstacionesNucleoViajeActivity extends Activity {
         }
     };
 
+    protected void onSaveInstanceState(Bundle outState) {
+
+        saveSharedPreferences();
+    }
+
+    /**
+     * Save values from nucleos y estaciones in Shared Preferences.
+     */
+    public void saveSharedPreferences() {
+        SharedPreferences.Editor editor = mPreferences.edit();
+        editor.putInt("codigoNucleo", codigoNucleo);
+        editor.putInt("estacionOrigenPosToSet", estacionOrigenPosToSet);
+        editor.putInt("estacionDestinoPosToSet", estacionDestinoPosToSet);
+        editor.putBoolean("isNucleoRetrieved", estacionCercaniasList != null
+                && !estacionCercaniasList.isEmpty());
+        editor.commit();
+    };
 }

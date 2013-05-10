@@ -13,7 +13,7 @@
  
  You should have received a copy of the GNU General Public License along with
  this program. If not, see <http://www.gnu.org/licenses/>. 
- -->
+-->
 
 <resources>
 
@@ -26,10 +26,9 @@
     <!-- Nucleos view -->
     <string name="textNucleos">Nucleos</string>
     <string name="nucleosSearch">Buscar nucleos</string>
-    
+
     <!-- Estacion Nucleos Layout -->
     <string name="seleccionEstaciones">Estaciones</string>
-
     <string name="estacionOrigenText">Estación de origen</string>
     <string name="estacionDestinoText">Estación de destino</string>
     <string name="verHorariosButton">Ver horarios</string>
@@ -40,5 +39,8 @@
     <string name="infoStations">Estación origen - Estación destino</string>
     <string name="infoFecha">Fecha</string>
     <string name="buttonVuelta">Viaje de vuelta</string>
+
+    <!-- Google Maps API key -->
+    <string name="map_key">0Tp7WsIDiyqoDmSF9LMprvDzte-hj_A6r-qxbow</string>
 
 </resources>

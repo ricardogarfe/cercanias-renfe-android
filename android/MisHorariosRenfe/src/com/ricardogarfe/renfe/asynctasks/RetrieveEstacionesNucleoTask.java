@@ -50,6 +50,7 @@ public class RetrieveEstacionesNucleoTask extends
     private List<EstacionCercanias> estacionCercaniasList = null;
 
     private String urlJSON;
+    private String mNucleoDescripcion;
 
     private final String TAG = getClass().getSimpleName();
 
@@ -61,7 +62,7 @@ public class RetrieveEstacionesNucleoTask extends
         progressDialog = new ProgressDialog(
                 EstacionesNucleoViajeActivity.mEstacionesNucleoViajeContext);
         progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        progressDialog.setTitle("ProgressDialog");
+        progressDialog.setTitle(mNucleoDescripcion);
         progressDialog.setMessage("Obteniendo estaciones...");
         progressDialog.show();
     }
@@ -72,6 +73,8 @@ public class RetrieveEstacionesNucleoTask extends
         jsonEstacionCercaniasParser = new JSONEstacionCercaniasParser();
 
         urlJSON = urlJSONString[0].toString();
+        mNucleoDescripcion = urlJSONString[1].toString();
+
         Log.d(TAG, urlJSON);
 
         try {
