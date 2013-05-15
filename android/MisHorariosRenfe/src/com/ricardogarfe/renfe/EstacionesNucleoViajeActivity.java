@@ -23,6 +23,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -42,6 +43,9 @@ import android.widget.Toast;
 import com.ricardogarfe.renfe.asynctasks.RetrieveEstacionesNucleoTask;
 import com.ricardogarfe.renfe.model.EstacionCercanias;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
+import com.ricardogarfe.renfe.widgets.dateslider.DateSlider;
+import com.ricardogarfe.renfe.widgets.dateslider.DateTimeSlider;
+import com.ricardogarfe.renfe.widgets.dateslider.labeler.TimeLabeler;
 
 public class EstacionesNucleoViajeActivity extends Activity {
 
@@ -49,9 +53,14 @@ public class EstacionesNucleoViajeActivity extends Activity {
     private Spinner origenSpinner;
     private Spinner destinoSpinner;
 
+    // Date time slider
+    static final int DATETIMESELECTOR_ID = 5;
     private Spinner day;
     private Spinner month;
     private Spinner year;
+
+    private Button dateTimeButton;
+    private TextView dateText;
 
     // Context
     public static Context mEstacionesNucleoViajeContext;
@@ -182,6 +191,19 @@ public class EstacionesNucleoViajeActivity extends Activity {
                 }
             }
         });
+
+        // Date Picker widgets
+        dateText = (TextView) this.findViewById(R.id.selectedDateLabel);
+
+        dateTimeButton = (Button) this.findViewById(R.id.dateTimeSelectButton);
+        // set up a listener for when the button is pressed
+        dateTimeButton.setOnClickListener(new OnClickListener() {
+            public void onClick(View arg0) {
+                // call the internal showDialog method using the predefined ID
+                showDialog(DATETIMESELECTOR_ID);
+            }
+        });
+
     }
 
     /**
@@ -320,4 +342,32 @@ public class EstacionesNucleoViajeActivity extends Activity {
                 && !estacionCercaniasList.isEmpty());
         editor.commit();
     };
+
+    private DateSlider.OnDateSetListener mDateTimeSetListener =
+            new DateSlider.OnDateSetListener() {
+                public void onDateSet(DateSlider view, Calendar selectedDate) {
+                    // update the dateText view with the corresponding date
+                    int minute = selectedDate.get(Calendar.MINUTE) /
+                            TimeLabeler.MINUTEINTERVAL*TimeLabeler.MINUTEINTERVAL;
+                    dateText.setText(String.format("The chosen date and time:%n%te. %tB %tY%n%tH:%02d",
+                            selectedDate, selectedDate, selectedDate, selectedDate, minute));
+                }
+        };
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+
+        // this method is called after invoking 'showDialog' for the first time
+        // here we initiate the corresponding DateSlideSelector and return the
+        // dialog to its caller
+
+        final Calendar c = Calendar.getInstance();
+        switch (id) {
+
+        case DATETIMESELECTOR_ID:
+            return new DateTimeSlider(this, mDateTimeSetListener, c);
+        }
+        return null;
+
+    }
 }

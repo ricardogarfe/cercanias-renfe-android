@@ -13,7 +13,7 @@
  
  You should have received a copy of the GNU General Public License along with
  this program. If not, see <http://www.gnu.org/licenses/>. 
- -->
+-->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
@@ -115,14 +115,35 @@
             android:prompt="@string/estacionDestinoText" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/verHorariosButton"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/linearLayoutBottomButtons"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:text="@string/verHorariosButton" />
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/selectedDateLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textSize="25dp" >
+        </TextView>
+
+        <Button
+            android:id="@+id/dateTimeSelectButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select DateTime" >
+        </Button>
+
+        <Button
+            android:id="@+id/verHorariosButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/verHorariosButton" />
+    </LinearLayout>
 
 </RelativeLayout>

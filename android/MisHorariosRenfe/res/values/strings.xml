@@ -43,4 +43,7 @@
     <!-- Google Maps API key -->
     <string name="map_key">0Tp7WsIDiyqoDmSF9LMprvDzte-hj_A6r-qxbow</string>
 
+    <!-- Date time -->
+    <string name="dateSliderTitle">Selected date</string>
+
 </resources>
