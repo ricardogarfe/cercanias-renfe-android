@@ -30,6 +30,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -58,9 +59,11 @@ public class EstacionesNucleoViajeActivity extends Activity {
     private Spinner day;
     private Spinner month;
     private Spinner year;
+    private Calendar selectedCalendar;
 
     private Button dateTimeButton;
-    private TextView dateText;
+    static final String HORAINICIO_ZERO = "00";
+    static final String HORAFINAL = "24";
 
     // Context
     public static Context mEstacionesNucleoViajeContext;
@@ -136,65 +139,14 @@ public class EstacionesNucleoViajeActivity extends Activity {
         verHorariosButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
 
-                // Mostrar error elegir una misma estacion de origen y destino.
-                if (estacionOrigenId == estacionDestinoId) {
-                    Toast.makeText(
-                            getApplicationContext(),
-                            "Las estaciones de origen y destino no pueden ser iguales",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Intent intent = new Intent(getApplicationContext(),
-                            HorarioCercaniasActivity.class);
-                    intent.putExtra("estacionOrigenId", estacionOrigenId);
-                    intent.putExtra("estacionDestinoId", estacionDestinoId);
-
-                    int origenSpinnerPosition = origenSpinner
-                            .getSelectedItemPosition();
-                    String estacionOrigenName = estacionCercaniasList.get(
-                            origenSpinnerPosition).getDescripcion();
-
-                    int destinoSpinnerPosition = destinoSpinner
-                            .getSelectedItemPosition();
-                    String estacionDestinoName = estacionCercaniasList.get(
-                            destinoSpinnerPosition).getDescripcion();
-
-                    // Configure day TODO: select day instance.
-                    Calendar calendar = Calendar.getInstance();
-
-                    DecimalFormat mFormat = new DecimalFormat("00");
-                    mFormat.setRoundingMode(RoundingMode.DOWN);
-
-                    int dayInt = calendar.get(Calendar.DATE);
-                    String currentDay = mFormat.format(Double.valueOf(dayInt));
-
-                    int monthInt = calendar.get(Calendar.MONTH) + 1;
-                    String currentMonth = mFormat.format(Double
-                            .valueOf(monthInt));
-
-                    String currentYear = Integer.toString(calendar
-                            .get(Calendar.YEAR));
-
-                    intent.putExtra("day", currentDay);
-                    intent.putExtra("month", currentMonth);
-                    intent.putExtra("year", currentYear);
-
-                    intent.putExtra("nucleoId", codigoNucleo);
-                    intent.putExtra("nucleoName", descripcionNucleo);
-                    intent.putExtra("estacionOrigenName", estacionOrigenName);
-                    intent.putExtra("estacionDestinoName", estacionDestinoName);
-
-                    // save preferences.
-                    saveSharedPreferences();
-
-                    startActivity(intent);
-
-                }
+                // Send values to HorariosActivity.
+                Calendar nextCalendar = Calendar.getInstance();
+                sendToHorariosActivity(nextCalendar);
             }
+
         });
 
         // Date Picker widgets
-        dateText = (TextView) this.findViewById(R.id.selectedDateLabel);
-
         dateTimeButton = (Button) this.findViewById(R.id.dateTimeSelectButton);
         // set up a listener for when the button is pressed
         dateTimeButton.setOnClickListener(new OnClickListener() {
@@ -204,6 +156,74 @@ public class EstacionesNucleoViajeActivity extends Activity {
             }
         });
 
+    }
+
+    /**
+     * Check values from UI and send to HorariosActivity
+     * <ul>
+     * <li>Estación Origen</li>
+     * <li>Estación Destino</li>
+     * <li>Fecha</li>
+     * 
+     * @param selectedCalendar
+     *            Calendar with date values to retrieve horarios.
+     */
+    public void sendToHorariosActivity(Calendar selectedCalendar) {
+
+        // Mostrar error elegir una misma estacion de origen y destino.
+        if (estacionOrigenId == estacionDestinoId) {
+            Toast.makeText(getApplicationContext(),
+                    "Las estaciones de origen y destino no pueden ser iguales",
+                    Toast.LENGTH_SHORT).show();
+        } else {
+            Intent intent = new Intent(getApplicationContext(),
+                    HorarioCercaniasActivity.class);
+            intent.putExtra("estacionOrigenId", estacionOrigenId);
+            intent.putExtra("estacionDestinoId", estacionDestinoId);
+
+            int origenSpinnerPosition = origenSpinner.getSelectedItemPosition();
+            String estacionOrigenName = estacionCercaniasList.get(
+                    origenSpinnerPosition).getDescripcion();
+
+            int destinoSpinnerPosition = destinoSpinner
+                    .getSelectedItemPosition();
+            String estacionDestinoName = estacionCercaniasList.get(
+                    destinoSpinnerPosition).getDescripcion();
+
+            DecimalFormat mFormat = new DecimalFormat("00");
+            mFormat.setRoundingMode(RoundingMode.DOWN);
+
+            final Integer dayInt = selectedCalendar.get(Calendar.DATE);
+            final String currentDay = mFormat.format(Double.valueOf(dayInt));
+
+            final Integer monthInt = selectedCalendar.get(Calendar.MONTH) + 1;
+            final String currentMonth = mFormat
+                    .format(Double.valueOf(monthInt));
+
+            final String currentYear = Integer.toString(selectedCalendar
+                    .get(Calendar.YEAR));
+
+            String horaInicio;
+
+            Integer horaInicioInt = selectedCalendar.get(Calendar.HOUR_OF_DAY);
+            horaInicio = mFormat.format(Double.valueOf(horaInicioInt));
+
+            intent.putExtra("day", currentDay);
+            intent.putExtra("month", currentMonth);
+            intent.putExtra("year", currentYear);
+            intent.putExtra("horaInicio", horaInicio);
+            intent.putExtra("horaFinal", HORAFINAL);
+            intent.putExtra("nucleoId", codigoNucleo);
+            intent.putExtra("nucleoName", descripcionNucleo);
+            intent.putExtra("estacionOrigenName", estacionOrigenName);
+            intent.putExtra("estacionDestinoName", estacionDestinoName);
+
+            // save preferences.
+            saveSharedPreferences();
+
+            startActivity(intent);
+
+        }
     }
 
     /**
@@ -343,16 +363,21 @@ public class EstacionesNucleoViajeActivity extends Activity {
         editor.commit();
     };
 
-    private DateSlider.OnDateSetListener mDateTimeSetListener =
-            new DateSlider.OnDateSetListener() {
-                public void onDateSet(DateSlider view, Calendar selectedDate) {
-                    // update the dateText view with the corresponding date
-                    int minute = selectedDate.get(Calendar.MINUTE) /
-                            TimeLabeler.MINUTEINTERVAL*TimeLabeler.MINUTEINTERVAL;
-                    dateText.setText(String.format("The chosen date and time:%n%te. %tB %tY%n%tH:%02d",
-                            selectedDate, selectedDate, selectedDate, selectedDate, minute));
-                }
-        };
+    private DateSlider.OnDateSetListener mDateTimeSetListener = new DateSlider.OnDateSetListener() {
+        public void onDateSet(DateSlider view, Calendar selectedDate) {
+            // update the dateText view with the corresponding date
+            int minute = selectedDate.get(Calendar.MINUTE)
+                    / TimeLabeler.MINUTEINTERVAL * TimeLabeler.MINUTEINTERVAL;
+
+            Log.i(TAG, String.format(
+                    "The chosen date and time:%n%te. %tB %tY%n%tH:%02d",
+                    selectedDate, selectedDate, selectedDate, selectedDate,
+                    minute));
+
+            // Send using Date values.
+            sendToHorariosActivity(selectedDate);
+        }
+    };
 
     @Override
     protected Dialog onCreateDialog(int id) {
@@ -361,11 +386,21 @@ public class EstacionesNucleoViajeActivity extends Activity {
         // here we initiate the corresponding DateSlideSelector and return the
         // dialog to its caller
 
-        final Calendar c = Calendar.getInstance();
+        final Calendar calendar = Calendar.getInstance();
         switch (id) {
 
         case DATETIMESELECTOR_ID:
-            return new DateTimeSlider(this, mDateTimeSetListener, c);
+
+            final Calendar maxTime = Calendar.getInstance();
+            maxTime.add(Calendar.DAY_OF_MONTH, 29);
+
+            final Calendar minTime = Calendar.getInstance();
+            minTime.add(Calendar.DAY_OF_MONTH, -68);
+
+            // You can define minimum time and max time using a calendar
+            // instance for DateTimeSlider constructor.
+            return new DateTimeSlider(this, mDateTimeSetListener, calendar,
+                    minTime, maxTime);
         }
         return null;
 

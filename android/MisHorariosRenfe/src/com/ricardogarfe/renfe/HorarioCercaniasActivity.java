@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -66,6 +67,8 @@ public class HorarioCercaniasActivity extends Activity {
     private String day;
     private String month;
     private String year;
+    private String horaInicio;
+    private String horaFinal;
 
     // Context
     public static Context mHorarioCercaniasContext;
@@ -98,7 +101,25 @@ public class HorarioCercaniasActivity extends Activity {
 
         configureWidgets();
 
+        runHorariosCercaniasTask();
+    }
+
+    /**
+     * Configure and execute horariosCercanias Task.
+     */
+    public void runHorariosCercaniasTask() {
+
         mHorarioCercaniasTask = new HorarioCercaniasTask();
+        ProgressDialog progressDialog = new ProgressDialog(
+                HorarioCercaniasActivity.mHorarioCercaniasContext);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progressDialog.setTitle(mDatosPeticionHorarioCercanias.getNucleoName());
+        progressDialog.setMessage(mDatosPeticionHorarioCercanias
+                .getEstacionOrigenName()
+                + " - "
+                + mDatosPeticionHorarioCercanias.getEstacionDestinoName());
+        mHorarioCercaniasTask.setProgressDialog(progressDialog);
+
         mHorarioCercaniasTask.execute(mDatosPeticionHorarioCercanias);
         mHorarioCercaniasTask
                 .setMessageNucleoCercaniasHandler(messageHorariosCercaniasHandler);
@@ -125,6 +146,7 @@ public class HorarioCercaniasActivity extends Activity {
                 intent.putExtra("nucleoName",
                         mDatosPeticionHorarioCercanias.getNucleoName());
 
+                // Invertir destino por origen y viceversa.
                 intent.putExtra("estacionOrigenId", Integer
                         .parseInt(mDatosPeticionHorarioCercanias.getDestino()));
                 intent.putExtra("estacionDestinoId", Integer
@@ -138,6 +160,8 @@ public class HorarioCercaniasActivity extends Activity {
                 intent.putExtra("day", day);
                 intent.putExtra("month", month);
                 intent.putExtra("year", year);
+                intent.putExtra("horaInicio", horaInicio);
+                intent.putExtra("horaFinal", horaFinal);
 
                 startActivity(intent);
 
@@ -189,6 +213,10 @@ public class HorarioCercaniasActivity extends Activity {
 
         fulldate = stringBufferDf.toString();
 
+        // Hora Inicio Final
+        horaInicio = getIntent().getStringExtra("horaInicio");
+        horaFinal = getIntent().getStringExtra("horaFinal");
+
         // Create object
         datosPeticionHorarioCercanias.setNucleo(Integer.toString(nucleoId));
         datosPeticionHorarioCercanias.setNucleoName(nucleoName);
@@ -200,6 +228,8 @@ public class HorarioCercaniasActivity extends Activity {
         datosPeticionHorarioCercanias.setEstacionOrigenName(estacionOrigenName);
         datosPeticionHorarioCercanias
                 .setEstacionDestinoName(estacionDestinoName);
+        datosPeticionHorarioCercanias.setHoraInicio(horaInicio);
+        datosPeticionHorarioCercanias.setHoraFinal(horaFinal);
 
         return datosPeticionHorarioCercanias;
     }
@@ -323,6 +353,7 @@ public class HorarioCercaniasActivity extends Activity {
                 break;
             case HorariosCercaniasHandler.TASK_ERROR:
                 // Recibe un error y lo muestra al usuario.
+                // TODO: Ha de seleccionar otra fecha.
                 Toast.makeText(getApplicationContext(), msg.obj.toString(),
                         Toast.LENGTH_SHORT).show();
                 break;

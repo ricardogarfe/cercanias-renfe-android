@@ -23,6 +23,8 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import android.util.Log;
+
 import com.ricardogarfe.renfe.model.HorarioCercanias;
 import com.ricardogarfe.renfe.model.TransbordoCercanias;
 
@@ -48,6 +50,9 @@ public class HorariosCercaniasHandler extends DefaultHandler {
     private boolean inHoraLlegada = false;
     private boolean inDuracion = false;
     private boolean inCodCivis = false;
+    private boolean inError = false;
+
+    private String TAG = getClass().getSimpleName();
 
     /*
      * When the parser encounters plain text (not XML elements), it calls(this
@@ -65,7 +70,10 @@ public class HorariosCercaniasHandler extends DefaultHandler {
             Attributes attributes) throws SAXException {
         temp = "";
 
-        if (qName.equalsIgnoreCase("Horario")) {
+        if (qName.equalsIgnoreCase("Error")) {
+            horarioCercanias = new HorarioCercanias();
+            inError = true;
+        } else if (qName.equalsIgnoreCase("Horario")) {
             horarioCercanias = new HorarioCercanias();
             inHorario = true;
         } else if (qName.equalsIgnoreCase("Transbordo")) {
@@ -80,7 +88,11 @@ public class HorariosCercaniasHandler extends DefaultHandler {
     public void endElement(String uri, String localName, String qName)
             throws SAXException {
 
-        if (qName.equalsIgnoreCase("Horario")) {
+        if (qName.equalsIgnoreCase("Error")) {
+            horarioCercanias.setError(temp);
+            inError = false;
+            horarioCercaniasList.add(horarioCercanias);
+        } else if (qName.equalsIgnoreCase("Horario")) {
             // add horario to the list
             inHorario = false;
             horarioCercaniasList.add(horarioCercanias);

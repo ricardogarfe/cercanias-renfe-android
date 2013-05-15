@@ -34,6 +34,7 @@ public class HorarioCercanias {
     private String horaLlegada;
     private String duracion;
     private String codCivis;
+    private String error;
 
     public String getLinea() {
         return linea;
@@ -81,6 +82,14 @@ public class HorarioCercanias {
 
     public void setCodCivis(String codCivis) {
         this.codCivis = codCivis;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
     }
 
 }

@@ -17,7 +17,7 @@
 
 <resources>
 
-    <string name="app_name">Cercanías Renfe</string>
+    <string name="app_name">Mis Horarios</string>
     <string name="stationSalida">Salida</string>
     <string name="stationLlegada">Llegada</string>
     <string name="tiempo">Duración</string>
@@ -31,7 +31,8 @@
     <string name="seleccionEstaciones">Estaciones</string>
     <string name="estacionOrigenText">Estación de origen</string>
     <string name="estacionDestinoText">Estación de destino</string>
-    <string name="verHorariosButton">Ver horarios</string>
+    <string name="verHorariosButton">Próximo tren</string>
+    <string name="dateTimeSelectButton">Seleccionar Fecha</string>
 
     <!-- Hoarios Cercanias Layout -->
     <string name="mostrarHorarios">Horarios</string>
