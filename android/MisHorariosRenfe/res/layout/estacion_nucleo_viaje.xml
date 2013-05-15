@@ -46,23 +46,11 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/estacionOrigenText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/linearLayoutNucleo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="6dp"
-        android:text="@string/estacionOrigenText"
-        android:textColor="#FFFFFF"
-        android:textSize="15sp" />
-
     <LinearLayout
         android:id="@+id/linearLayoutOrigen"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/estacionOrigenText"
+        android:layout_below="@id/linearLayoutNucleo"
         android:orientation="horizontal" >
 
         <ImageView
@@ -71,7 +59,7 @@
             android:layout_height="40dip"
             android:layout_marginLeft="10dip"
             android:contentDescription="TODO"
-            android:src="@drawable/icono_origen003" />
+            android:src="@drawable/icono_origen004" />
 
         <Spinner
             android:id="@+id/origenSpinner"
@@ -81,23 +69,11 @@
             android:prompt="@string/estacionOrigenText" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/estacionDestinoText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/linearLayoutOrigen"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="6dp"
-        android:text="@string/estacionDestinoText"
-        android:textColor="#FFFFFF"
-        android:textSize="15sp" />
-
     <LinearLayout
         android:id="@+id/linearLayoutDestino"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/estacionDestinoText"
+        android:layout_below="@id/linearLayoutOrigen"
         android:orientation="horizontal" >
 
         <ImageView
@@ -105,7 +81,7 @@
             android:layout_width="40dip"
             android:layout_height="40dip"
             android:layout_marginLeft="10dip"
-            android:src="@drawable/icono_destino003" />
+            android:src="@drawable/icono_destino004" />
 
         <Spinner
             android:id="@+id/destinoSpinner"
@@ -119,12 +95,12 @@
         android:id="@+id/linearLayoutBottomButtons"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/linearLayoutDestino"
+        android:layout_alignParentBottom="true"
         android:orientation="horizontal" >
 
         <Button
             android:id="@+id/verHorariosButton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
@@ -132,7 +108,7 @@
 
         <Button
             android:id="@+id/dateTimeSelectButton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/dateTimeSelectButton" />

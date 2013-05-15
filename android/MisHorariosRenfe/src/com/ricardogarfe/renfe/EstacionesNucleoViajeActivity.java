@@ -119,7 +119,8 @@ public class EstacionesNucleoViajeActivity extends Activity {
      */
     public boolean isNucleoChangedFromSharedPreferences() {
         // Comprobar si existen en sharedPreferences estaciones seleccionadas.
-        final boolean codigoNucleoSet = mPreferences.getInt("codigoNucleo", 0) == codigoNucleo;
+        final boolean codigoNucleoSet = mPreferences.getInt("codigoNucleo", 0) == codigoNucleo ? true
+                : false;
         final boolean estacionOrigenSet = mPreferences
                 .contains("estacionOrigenPosToSet");
         final boolean estacioDestinoSet = mPreferences
@@ -140,7 +141,7 @@ public class EstacionesNucleoViajeActivity extends Activity {
             public void onClick(View v) {
 
                 // Send values to HorariosActivity.
-                Calendar nextCalendar = Calendar.getInstance();
+                final Calendar nextCalendar = Calendar.getInstance();
                 sendToHorariosActivity(nextCalendar);
             }
 
@@ -203,15 +204,21 @@ public class EstacionesNucleoViajeActivity extends Activity {
             final String currentYear = Integer.toString(selectedCalendar
                     .get(Calendar.YEAR));
 
-            String horaInicio;
+            final Integer horaInicioInt = selectedCalendar
+                    .get(Calendar.HOUR_OF_DAY);
+            final String horaInicio = mFormat.format(Double
+                    .valueOf(horaInicioInt));
 
-            Integer horaInicioInt = selectedCalendar.get(Calendar.HOUR_OF_DAY);
-            horaInicio = mFormat.format(Double.valueOf(horaInicioInt));
+            final Integer minutoInicioInt = selectedCalendar
+                    .get(Calendar.MINUTE);
+            final String minutoInicio = mFormat.format(Double
+                    .valueOf(minutoInicioInt));
 
             intent.putExtra("day", currentDay);
             intent.putExtra("month", currentMonth);
             intent.putExtra("year", currentYear);
             intent.putExtra("horaInicio", horaInicio);
+            intent.putExtra("minutoInicio", minutoInicio);
             intent.putExtra("horaFinal", HORAFINAL);
             intent.putExtra("nucleoId", codigoNucleo);
             intent.putExtra("nucleoName", descripcionNucleo);
