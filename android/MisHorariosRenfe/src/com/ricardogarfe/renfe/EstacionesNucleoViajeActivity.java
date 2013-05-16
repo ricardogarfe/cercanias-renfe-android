@@ -225,9 +225,6 @@ public class EstacionesNucleoViajeActivity extends Activity {
             intent.putExtra("estacionOrigenName", estacionOrigenName);
             intent.putExtra("estacionDestinoName", estacionDestinoName);
 
-            // save preferences.
-            saveSharedPreferences();
-
             startActivity(intent);
 
         }
@@ -357,6 +354,12 @@ public class EstacionesNucleoViajeActivity extends Activity {
         saveSharedPreferences();
     }
 
+    @Override
+    protected void onStop() {
+
+        saveSharedPreferences();
+        super.onStop();
+    }
     /**
      * Save values from nucleos y estaciones in Shared Preferences.
      */
