@@ -18,35 +18,35 @@
 <resources>
 
     <string name="app_name">Mis Horarios</string>
-    <string name="stationSalida">Departure</string>
-    <string name="stationLlegada">Destination</string>
-    <string name="tiempo">Duration</string>
-    <string name="lineaSalida">Line</string>
+    <string name="stationSalida">Eixida</string>
+    <string name="stationLlegada">Arribada</string>
+    <string name="tiempo">Duració</string>
+    <string name="lineaSalida">Linea</string>
 
     <!-- Nucleos view -->
-    <string name="textNucleos">Nucleus</string>
-    <string name="nucleosSearch">Search nucleus</string>
+    <string name="textNucleos">Nuclis</string>
+    <string name="nucleosSearch">Cercar nuclis</string>
 
     <!-- Estacion Nucleos Layout -->
-    <string name="seleccionEstaciones">Stations</string>
-    <string name="estacionOrigenText">Departure station</string>
-    <string name="estacionDestinoText">Destination station</string>
-    <string name="verHorariosButton">Next train</string>
-    <string name="dateTimeSelectButton">Date</string>
+    <string name="seleccionEstaciones">Estacions</string>
+    <string name="estacionOrigenText">Estació d'origen</string>
+    <string name="estacionDestinoText">Estació de destinació</string>
+    <string name="verHorariosButton">Próxim tren</string>
+    <string name="dateTimeSelectButton">Data</string>
 
     <!-- Hoarios Cercanias Layout -->
-    <string name="mostrarHorarios">Timetables</string>
-    <string name="infoNucleo">Nucleus</string>
-    <string name="infoStations">Departure station - Destination station</string>
-    <string name="infoFecha">Date</string>
-    <string name="buttonVuelta">Return timetable</string>
+    <string name="mostrarHorarios">Horaris</string>
+    <string name="infoNucleo">Nucleo</string>
+    <string name="infoStations">Estació origen - Estació destinació</string>
+    <string name="infoFecha">Data</string>
+    <string name="buttonVuelta">Viatge de tornada</string>
 
     <!-- Google Maps API key -->
     <string name="map_key">0Tp7WsIDiyqoDmSF9LMprvDzte-hj_A6r-qxbow</string>
 
     <!-- Date time -->
-    <string name="dateSliderTitle">Selected date</string>
-    <string name="dateSliderSet">Timetables</string>
-    <string name="dateSliderCancel">Cancel</string>
+    <string name="dateSliderTitle">Data seleccionada</string>
+    <string name="dateSliderSet">Horaris</string>
+    <string name="dateSliderCancel">Cancel·lar</string>
 
 </resources>
