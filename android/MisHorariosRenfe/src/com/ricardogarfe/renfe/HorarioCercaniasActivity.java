@@ -137,10 +137,18 @@ public class HorarioCercaniasActivity extends Activity {
      */
     public void configureWidgets() {
 
+        // Text font style.
+        Typeface typeFaceHorarioFont = Typeface.createFromAsset(
+                getAssets(), "fonts/LCDPHONE.ttf");
+
         textViewNucleo = (TextView) findViewById(R.id.textViewNucleo);
+        textViewNucleo.setTypeface(typeFaceHorarioFont);
         textViewInfoStations = (TextView) findViewById(R.id.textViewInfoStations);
+        textViewInfoStations.setTypeface(typeFaceHorarioFont);
         textViewInfoDate = (TextView) findViewById(R.id.textViewInfoDate);
+        textViewInfoDate.setTypeface(typeFaceHorarioFont);
         textViewInfoTransbordo = (TextView) findViewById(R.id.textViewInfoTransbordo);
+        textViewInfoTransbordo.setTypeface(typeFaceHorarioFont);
 
         Button buttonVuelta = (Button) findViewById(R.id.buttonVuelta);
         buttonVuelta.setOnClickListener(new OnClickListener() {

@@ -56,4 +56,14 @@
             android:textSize="12sp" />
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/info_image"
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="5dip"
+        android:clickable="true"
+        android:paddingTop="10dip" />
+
 </LinearLayout>

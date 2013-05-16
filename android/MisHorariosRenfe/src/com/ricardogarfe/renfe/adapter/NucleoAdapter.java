@@ -26,12 +26,14 @@ import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * @author ricardo
@@ -108,8 +110,9 @@ public class NucleoAdapter extends BaseAdapter implements Filterable {
         // Text Tittle Nucleo.
         TextView titleTextView = (TextView) view.findViewById(R.id.nucleo_name);
 
-        titleTextView.setText(mNucleoCercaniasList.get(position)
-                .getDescripcion());
+        final String nucleoDescription = mNucleoCercaniasList.get(position)
+                .getDescripcion();
+        titleTextView.setText(nucleoDescription);
         titleTextView.setTextColor(Color.WHITE);
 
         // TODO: Añadir descripcion.
@@ -125,6 +128,23 @@ public class NucleoAdapter extends BaseAdapter implements Filterable {
 
         imageViewLogo.setImageDrawable(mContext.getResources().getDrawable(
                 R.drawable.logo_cercanias));
+
+        // Imageinfo behavior
+        ImageView imageInfoView = (ImageView) view
+                .findViewById(R.id.info_image);
+
+        imageInfoView.setImageDrawable(mContext.getResources().getDrawable(
+                R.drawable.infobox_white));
+
+        imageInfoView.setOnClickListener(new OnClickListener() {
+
+            public void onClick(View v) {
+                // TODO Enviar a la actividad de información del nucleo
+                // seleccionado
+                Toast.makeText(mContext, nucleoDescription, Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
 
         view.setId(mNucleoCercaniasList.get(position).getCodigo());
         return view;
