@@ -33,7 +33,8 @@
     <string name="estacionDestinoText">Destination station</string>
     <string name="verHorariosButton">Next train</string>
     <string name="dateTimeSelectButton">Date</string>
-
+    <string name="retrievingStations">Retrieving stations</string>
+    
     <!-- Hoarios Cercanias Layout -->
     <string name="mostrarHorarios">Timetables</string>
     <string name="infoNucleo">Nucleus</string>

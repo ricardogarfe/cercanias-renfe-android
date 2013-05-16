@@ -24,6 +24,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -56,10 +57,6 @@ public class EstacionesNucleoViajeActivity extends Activity {
 
     // Date time slider
     static final int DATETIMESELECTOR_ID = 5;
-    private Spinner day;
-    private Spinner month;
-    private Spinner year;
-    private Calendar selectedCalendar;
 
     private Button dateTimeButton;
     static final String HORAINICIO_ZERO = "00";
@@ -261,6 +258,16 @@ public class EstacionesNucleoViajeActivity extends Activity {
                 || (estacionCercaniasList == null || estacionCercaniasList
                         .isEmpty())) {
             retrieveEstacionesNucleoTask = new RetrieveEstacionesNucleoTask();
+
+            ProgressDialog progressDialog = new ProgressDialog(
+                    EstacionesNucleoViajeActivity.mEstacionesNucleoViajeContext);
+            progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            progressDialog.setTitle(descripcionNucleo);
+            progressDialog.setMessage(getResources().getString(
+                    R.string.retrievingStations));
+
+            retrieveEstacionesNucleoTask.setProgressDialog(progressDialog);
+
             retrieveEstacionesNucleoTask.execute(estacionesJSON,
                     descripcionNucleo, null, null);
             retrieveEstacionesNucleoTask
@@ -360,6 +367,7 @@ public class EstacionesNucleoViajeActivity extends Activity {
         saveSharedPreferences();
         super.onStop();
     }
+
     /**
      * Save values from nucleos y estaciones in Shared Preferences.
      */

@@ -59,11 +59,6 @@ public class RetrieveEstacionesNucleoTask extends
 
     protected void onPreExecute() {
         // Show progressDialog
-        progressDialog = new ProgressDialog(
-                EstacionesNucleoViajeActivity.mEstacionesNucleoViajeContext);
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        progressDialog.setTitle(mNucleoDescripcion);
-        progressDialog.setMessage("Obteniendo estaciones...");
         progressDialog.show();
     }
 
@@ -180,4 +175,13 @@ public class RetrieveEstacionesNucleoTask extends
             Handler messageEstacionesNucleoHandler) {
         this.messageEstacionesNucleoHandler = messageEstacionesNucleoHandler;
     }
+
+    public ProgressDialog getProgressDialog() {
+        return progressDialog;
+    }
+
+    public void setProgressDialog(ProgressDialog progressDialog) {
+        this.progressDialog = progressDialog;
+    }
+
 }

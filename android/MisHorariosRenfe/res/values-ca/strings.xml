@@ -29,11 +29,12 @@
 
     <!-- Estacion Nucleos Layout -->
     <string name="seleccionEstaciones">Estacions</string>
-    <string name="estacionOrigenText">Estació d'origen</string>
+    <string name="estacionOrigenText">Estació d\'origen</string>
     <string name="estacionDestinoText">Estació de destinació</string>
     <string name="verHorariosButton">Próxim tren</string>
     <string name="dateTimeSelectButton">Data</string>
-
+    <string name="retrievingStations">Obtenint estacions</string>
+    
     <!-- Hoarios Cercanias Layout -->
     <string name="mostrarHorarios">Horaris</string>
     <string name="infoNucleo">Nucleo</string>

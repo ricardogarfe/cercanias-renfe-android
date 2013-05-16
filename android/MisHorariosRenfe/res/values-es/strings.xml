@@ -33,6 +33,7 @@
     <string name="estacionDestinoText">Estación de destino</string>
     <string name="verHorariosButton">Próximo tren</string>
     <string name="dateTimeSelectButton">Fecha</string>
+    <string name="retrievingStations">Obteniendo estaciones</string>
 
     <!-- Hoarios Cercanias Layout -->
     <string name="mostrarHorarios">Horarios</string>
