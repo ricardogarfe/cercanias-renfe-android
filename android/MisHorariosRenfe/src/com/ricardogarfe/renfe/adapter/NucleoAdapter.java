@@ -19,10 +19,14 @@ package com.ricardogarfe.renfe.adapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ricardogarfe.renfe.EstacionesNucleoViajeActivity;
+import com.ricardogarfe.renfe.NucleoDetail;
+import com.ricardogarfe.renfe.NucleosActivity;
 import com.ricardogarfe.renfe.R;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -100,7 +104,8 @@ public class NucleoAdapter extends BaseAdapter implements Filterable {
             LayoutInflater inflater = (LayoutInflater) mContext
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-            view = inflater.inflate(R.layout.complex_list_main, parent, false);
+            view = inflater.inflate(R.layout.nucleos_complex_list, parent,
+                    false);
         } else
             view = convertView;
 
@@ -134,15 +139,20 @@ public class NucleoAdapter extends BaseAdapter implements Filterable {
                 .findViewById(R.id.info_image);
 
         imageInfoView.setImageDrawable(mContext.getResources().getDrawable(
-                R.drawable.infobox_white));
+                R.drawable.infowhite));
 
         imageInfoView.setOnClickListener(new OnClickListener() {
 
             public void onClick(View v) {
+
                 // TODO Enviar a la actividad de información del nucleo
                 // seleccionado
                 Toast.makeText(mContext, nucleoDescription, Toast.LENGTH_SHORT)
                         .show();
+                Intent intentNucleoDetail = new Intent(mContext,
+                        NucleoDetail.class);
+                mContext.startActivity(intentNucleoDetail);
+
             }
         });
 

@@ -33,6 +33,7 @@
         android:label="@string/app_name" >
         <uses-library android:name="com.google.android.maps" />
 
+        <!-- Nucleos -->
         <activity
             android:name="com.ricardogarfe.renfe.NucleosActivity"
             android:label="@string/app_name" >
@@ -42,6 +43,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.ricardogarfe.renfe.NucleoDetail"
+            android:label="@string/title_activity_nucleo_detail" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="android.app.TabActivity" />
+        </activity>
+        <activity
+            android:name="com.ricardogarfe.renfe.views.MapTabView"
+            android:label="@string/mapNucleosView" >
+            <intent-filter>
+                <category android:name="android.intent.category.EMBED" >
+                </category>
+            </intent-filter>
+        </activity>
+        <!-- Estaciones -->
         <activity
             android:name="com.ricardogarfe.renfe.EstacionesNucleoViajeActivity"
             android:label="@string/seleccionEstaciones" >

@@ -276,6 +276,7 @@ public class HorarioCercaniasActivity extends Activity {
         @Override
         public void handleMessage(Message msg) {
 
+            // TODO: Crear y asociar un adapter para mostrar los resultados.
             switch (msg.what) {
             case HorariosCercaniasHandler.TASK_COMPLETE:
 
