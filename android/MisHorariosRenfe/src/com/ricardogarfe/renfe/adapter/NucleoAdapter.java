@@ -19,12 +19,6 @@ package com.ricardogarfe.renfe.adapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ricardogarfe.renfe.EstacionesNucleoViajeActivity;
-import com.ricardogarfe.renfe.NucleoDetail;
-import com.ricardogarfe.renfe.NucleosActivity;
-import com.ricardogarfe.renfe.R;
-import com.ricardogarfe.renfe.model.NucleoCercanias;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -38,6 +32,10 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.ricardogarfe.renfe.NucleoDetail;
+import com.ricardogarfe.renfe.R;
+import com.ricardogarfe.renfe.model.NucleoCercanias;
 
 /**
  * @author ricardo
@@ -99,6 +97,9 @@ public class NucleoAdapter extends BaseAdapter implements Filterable {
         // TODO Auto-generated method stub
         View view;
 
+        final NucleoCercanias nucleoCercanias = mNucleoCercaniasList
+                .get(position);
+
         if (convertView == null) {
 
             LayoutInflater inflater = (LayoutInflater) mContext
@@ -112,11 +113,10 @@ public class NucleoAdapter extends BaseAdapter implements Filterable {
         // Dar valores a los Widgets del elemento complejo de la lista
         // descrito en complex_list_main.xml
 
-        // Text Tittle Nucleo.
+        // Text Title Nucleo.
         TextView titleTextView = (TextView) view.findViewById(R.id.nucleo_name);
 
-        final String nucleoDescription = mNucleoCercaniasList.get(position)
-                .getDescripcion();
+        final String nucleoDescription = nucleoCercanias.getDescripcion();
         titleTextView.setText(nucleoDescription);
         titleTextView.setTextColor(Color.WHITE);
 
@@ -145,13 +145,12 @@ public class NucleoAdapter extends BaseAdapter implements Filterable {
 
             public void onClick(View v) {
 
-                // TODO Enviar a la actividad de información del nucleo
+                // Enviar a la actividad de información del nucleo
                 // seleccionado
-                Toast.makeText(mContext, nucleoDescription, Toast.LENGTH_SHORT)
-                        .show();
-                Intent intentNucleoDetail = new Intent(mContext,
+                Intent intentLineasDetail = new Intent(mContext,
                         NucleoDetail.class);
-                mContext.startActivity(intentNucleoDetail);
+                intentLineasDetail.putExtra("nucleoCercanias", nucleoCercanias);
+                mContext.startActivity(intentLineasDetail);
 
             }
         });

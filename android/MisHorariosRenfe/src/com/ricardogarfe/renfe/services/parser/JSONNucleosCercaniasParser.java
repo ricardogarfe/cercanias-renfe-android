@@ -24,7 +24,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.google.android.maps.GeoPoint;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
 
 /**
@@ -90,9 +89,8 @@ public class JSONNucleosCercaniasParser extends JSONCercaniasParser {
 
         nucleoCercanias.setCodigo(jsonObject.getInt("Codigo"));
         nucleoCercanias.setDescripcion(jsonObject.getString("Descripcion"));
-        GeoPoint geoPoint = retrieveGeoPoint(jsonObject.getDouble("Lat"),
-                jsonObject.getDouble("Lon"));
-        nucleoCercanias.setGeoPoint(geoPoint);
+        nucleoCercanias.setLatitude(jsonObject.getDouble("Lat"));
+        nucleoCercanias.setLongitude(jsonObject.getDouble("Lon"));
         nucleoCercanias.setIconoMapa(jsonObject.getString("IconoMapa"));
         nucleoCercanias.setTarifas(jsonObject.getString("Tarifas"));
         nucleoCercanias.setIncidencias(jsonObject.getString("Incidencias"));

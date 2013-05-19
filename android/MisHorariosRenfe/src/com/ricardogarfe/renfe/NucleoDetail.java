@@ -16,8 +16,6 @@
 
 package com.ricardogarfe.renfe;
 
-import com.ricardogarfe.renfe.views.MapTabView;
-
 import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -28,10 +26,16 @@ import android.widget.TabHost;
 import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TabHost.TabSpec;
 
+import com.ricardogarfe.renfe.model.NucleoCercanias;
+import com.ricardogarfe.renfe.views.MapTabView;
+
 public class NucleoDetail extends TabActivity implements OnTabChangeListener {
 
-    private static final String LIST_TAB_TAG = "List";
+    private static final String LIST_TAB_TAG = "Details";
     private static final String MAP_TAB_TAG = "Map";
+
+    // Nucleo values
+    private NucleoCercanias mNucleoCercanias;
 
     private TabHost mTabHost;
     private FrameLayout mFrameLayout;
@@ -42,12 +46,22 @@ public class NucleoDetail extends TabActivity implements OnTabChangeListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nucleo_detail);
 
+        // Retrieve value from nucleos activity.
+        Intent intentFromActivity = getIntent();
+
+        if (intentFromActivity != null) {
+
+            mNucleoCercanias = intentFromActivity
+                    .getParcelableExtra("nucleoCercanias");
+        }
+
         mTabHost = getTabHost();
         Context context = this.getApplicationContext();
 
         TabSpec tabNucleosSpec = mTabHost.newTabSpec(LIST_TAB_TAG);
         tabNucleosSpec.setIndicator(LIST_TAB_TAG);
-        Intent nucleosIntent = new Intent(context, NucleosActivity.class);
+        Intent nucleosIntent = new Intent(context, LineasActivity.class);
+        nucleosIntent.putExtra("nucleoCercanias", mNucleoCercanias);
         tabNucleosSpec.setContent(nucleosIntent);
 
         mTabHost.addTab(tabNucleosSpec);

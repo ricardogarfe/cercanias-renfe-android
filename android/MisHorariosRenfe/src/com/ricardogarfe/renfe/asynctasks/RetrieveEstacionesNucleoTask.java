@@ -31,7 +31,6 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.ricardogarfe.renfe.EstacionesNucleoViajeActivity;
 import com.ricardogarfe.renfe.model.EstacionCercanias;
 import com.ricardogarfe.renfe.services.parser.JSONEstacionCercaniasParser;
 
@@ -50,7 +49,6 @@ public class RetrieveEstacionesNucleoTask extends
     private List<EstacionCercanias> estacionCercaniasList = null;
 
     private String urlJSON;
-    private String mNucleoDescripcion;
 
     private final String TAG = getClass().getSimpleName();
 
@@ -68,7 +66,6 @@ public class RetrieveEstacionesNucleoTask extends
         jsonEstacionCercaniasParser = new JSONEstacionCercaniasParser();
 
         urlJSON = urlJSONString[0].toString();
-        mNucleoDescripcion = urlJSONString[1].toString();
 
         Log.d(TAG, urlJSON);
 
@@ -109,8 +106,7 @@ public class RetrieveEstacionesNucleoTask extends
             Log.d(TAG, "Retrieve Estaciones correctly from:\t" + urlJSON);
 
         } else {
-            Toast.makeText(
-                    EstacionesNucleoViajeActivity.mEstacionesNucleoViajeContext,
+            Toast.makeText(progressDialog.getContext(),
                     "Estaciones retriving error :" + urlJSON, Toast.LENGTH_LONG)
                     .show();
         }

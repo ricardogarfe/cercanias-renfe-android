@@ -50,6 +50,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="android.app.TabActivity" />
         </activity>
+        <!-- Lineas -->
+        <activity
+            android:name="com.ricardogarfe.renfe.LineasActivity"
+            android:label="@string/app_name" >
+        </activity>
         <activity
             android:name="com.ricardogarfe.renfe.views.MapTabView"
             android:label="@string/mapNucleosView" >

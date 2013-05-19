@@ -81,9 +81,7 @@ public class EstacionesNucleoViajeActivity extends Activity {
     private String TAG = getClass().getSimpleName();
 
     // Nucleo values
-    private int codigoNucleo;
-    private String descripcionNucleo;
-    private String estacionesJSON;
+    private NucleoCercanias mNucleoCercanias;
 
     // Configuracion estaciones.
     private static List<EstacionCercanias> estacionCercaniasList;
@@ -116,8 +114,8 @@ public class EstacionesNucleoViajeActivity extends Activity {
      */
     public boolean isNucleoChangedFromSharedPreferences() {
         // Comprobar si existen en sharedPreferences estaciones seleccionadas.
-        final boolean codigoNucleoSet = mPreferences.getInt("codigoNucleo", 0) == codigoNucleo ? true
-                : false;
+        final boolean codigoNucleoSet = mPreferences.getInt("codigoNucleo", 0) == mNucleoCercanias
+                .getCodigo() ? true : false;
         final boolean estacionOrigenSet = mPreferences
                 .contains("estacionOrigenPosToSet");
         final boolean estacioDestinoSet = mPreferences
@@ -217,8 +215,8 @@ public class EstacionesNucleoViajeActivity extends Activity {
             intent.putExtra("horaInicio", horaInicio);
             intent.putExtra("minutoInicio", minutoInicio);
             intent.putExtra("horaFinal", HORAFINAL);
-            intent.putExtra("nucleoId", codigoNucleo);
-            intent.putExtra("nucleoName", descripcionNucleo);
+            intent.putExtra("nucleoId", mNucleoCercanias.getCodigo());
+            intent.putExtra("nucleoName", mNucleoCercanias.getDescripcion());
             intent.putExtra("estacionOrigenName", estacionOrigenName);
             intent.putExtra("estacionDestinoName", estacionDestinoName);
 
@@ -241,18 +239,12 @@ public class EstacionesNucleoViajeActivity extends Activity {
 
         if (intentFromActivity != null) {
 
-            codigoNucleo = intentFromActivity.getIntExtra("codigo_nucleo", 0);
-            descripcionNucleo = intentFromActivity
-                    .getStringExtra("descripcion_nucleo");
-
-            if (descripcionNucleo != null) {
-                textViewNucleo.setText(descripcionNucleo);
-            }
+            mNucleoCercanias = intentFromActivity
+                    .getParcelableExtra("nucleoCercanias");
+            textViewNucleo.setText(mNucleoCercanias.getDescripcion());
         }
 
         retrieveSharedPreferences = isNucleoChangedFromSharedPreferences();
-
-        estacionesJSON = intentFromActivity.getStringExtra("estaciones_json");
 
         if (!retrieveSharedPreferences
                 || (estacionCercaniasList == null || estacionCercaniasList
@@ -260,16 +252,16 @@ public class EstacionesNucleoViajeActivity extends Activity {
             retrieveEstacionesNucleoTask = new RetrieveEstacionesNucleoTask();
 
             ProgressDialog progressDialog = new ProgressDialog(
-                    EstacionesNucleoViajeActivity.mEstacionesNucleoViajeContext);
+                    mEstacionesNucleoViajeContext);
             progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-            progressDialog.setTitle(descripcionNucleo);
+            progressDialog.setTitle(mNucleoCercanias.getDescripcion());
             progressDialog.setMessage(getResources().getString(
                     R.string.retrievingStations));
 
             retrieveEstacionesNucleoTask.setProgressDialog(progressDialog);
 
-            retrieveEstacionesNucleoTask.execute(estacionesJSON,
-                    descripcionNucleo, null, null);
+            retrieveEstacionesNucleoTask.execute(
+                    mNucleoCercanias.getEstacionesJSON(), null, null);
             retrieveEstacionesNucleoTask
                     .setMessageEstacionesNucleoHandler(messageEstacionesNucleoHandler);
         } else {
@@ -373,7 +365,7 @@ public class EstacionesNucleoViajeActivity extends Activity {
      */
     public void saveSharedPreferences() {
         SharedPreferences.Editor editor = mPreferences.edit();
-        editor.putInt("codigoNucleo", codigoNucleo);
+        editor.putInt("codigoNucleo", mNucleoCercanias.getCodigo());
         editor.putInt("estacionOrigenPosToSet", estacionOrigenPosToSet);
         editor.putInt("estacionDestinoPosToSet", estacionDestinoPosToSet);
         editor.putBoolean("isNucleoRetrieved", estacionCercaniasList != null

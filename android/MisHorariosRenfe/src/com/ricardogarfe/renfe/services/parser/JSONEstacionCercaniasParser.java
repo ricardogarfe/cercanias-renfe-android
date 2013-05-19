@@ -24,9 +24,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.util.Log;
-
-import com.google.android.maps.GeoPoint;
 import com.ricardogarfe.renfe.model.EstacionCercanias;
 import com.ricardogarfe.renfe.model.Servicio;
 
@@ -48,7 +45,7 @@ public class JSONEstacionCercaniasParser extends JSONCercaniasParser {
      * depending on fromFile parameter.
      * 
      * @param filePath
-     *            File Path or URL to retrive data.
+     *            File Path or URL to retrieve data.
      * @param fromFile
      *            boolean to check if data is retrieved from file or URL.
      * @return {@link List} of {@link EstacionCercanias}.
@@ -59,16 +56,32 @@ public class JSONEstacionCercaniasParser extends JSONCercaniasParser {
             String filePath, boolean fromFile) throws IOException,
             JSONException {
 
-        List<EstacionCercanias> estacionCercaniasList = new ArrayList<EstacionCercanias>();
-
         if (fromFile) {
-            mJSONObjectEstacionCercanias = getJSONFromFile(filePath);
+            setmJSONObjectEstacionCercanias(getJSONFromFile(filePath));
         } else {
-            mJSONObjectEstacionCercanias = getJSONFromUrl(filePath);
+            setmJSONObjectEstacionCercanias(getJSONFromUrl(filePath));
         }
 
-        JSONArray jsonArray = (mJSONObjectEstacionCercanias
+        JSONArray jsonArray = (getmJSONObjectEstacionCercanias()
                 .getJSONObject("Estaciones")).getJSONArray("Estacion");
+
+        List<EstacionCercanias> estacionCercaniasList = retrieveEstacionCercaniasFromJSONArray(jsonArray);
+
+        return estacionCercaniasList;
+
+    }
+
+    /**
+     * Retrieve {@link EstacionCercanias} from {@link JSONArray}.
+     * 
+     * @param jsonArray
+     *            Containing {@link EstacionCercanias} to parse.
+     * @return {@link EstacionCercanias} list parsed.
+     * @throws JSONException
+     */
+    public List<EstacionCercanias> retrieveEstacionCercaniasFromJSONArray(
+            JSONArray jsonArray) throws JSONException {
+        List<EstacionCercanias> estacionCercaniasList = new ArrayList<EstacionCercanias>();
 
         EstacionCercanias estacionCercanias;
 
@@ -77,9 +90,7 @@ public class JSONEstacionCercaniasParser extends JSONCercaniasParser {
             estacionCercanias = retrieveEstacionCercanias(jsonObjectEstacionCercanias);
             estacionCercaniasList.add(estacionCercanias);
         }
-
         return estacionCercaniasList;
-
     }
 
     /**
@@ -97,17 +108,9 @@ public class JSONEstacionCercaniasParser extends JSONCercaniasParser {
 
         estacionCercanias.setCodigo(jsonObject.getInt("Codigo"));
         estacionCercanias.setDescripcion(jsonObject.getString("Descripcion"));
-        GeoPoint geoPoint = retrieveGeoPoint(jsonObject.getDouble("Lat"),
-                jsonObject.getDouble("Lon"));
-        estacionCercanias.setGeoPoint(geoPoint);
-        try {
-            estacionCercanias.setZona(jsonObject.getInt("Zona"));
-        } catch (JSONException e) {
-            Log.e(TAG, "Error obteniendo valores del JSON en la Zona "
-                    + jsonObject.getString("Zona") + " de la estacion:\t"
-                    + jsonObject.getInt("Codigo") + "\nJSONObjetc: \t"
-                    + jsonObject.toString());
-        }
+        estacionCercanias.setLatitude(jsonObject.getDouble("Lat"));
+        estacionCercanias.setLongitude(jsonObject.getDouble("Lon"));
+        estacionCercanias.setZona(jsonObject.getString("Zona"));
 
         // TODO: Obtener servicios asociados a la estacion.
         List<Servicio> servicioList;
@@ -115,11 +118,13 @@ public class JSONEstacionCercaniasParser extends JSONCercaniasParser {
         return estacionCercanias;
     }
 
-    public JSONObject getMJSONObjectNucleos() {
+    public JSONObject getmJSONObjectEstacionCercanias() {
         return mJSONObjectEstacionCercanias;
     }
 
-    public void setMJSONObjectNucleos(JSONObject mJSONObjectNucleos) {
-        this.mJSONObjectEstacionCercanias = mJSONObjectNucleos;
+    public void setmJSONObjectEstacionCercanias(
+            JSONObject mJSONObjectEstacionCercanias) {
+        this.mJSONObjectEstacionCercanias = mJSONObjectEstacionCercanias;
     }
+
 }

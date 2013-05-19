@@ -111,13 +111,8 @@ public class NucleosActivity extends ListActivity {
 
         Intent intentEstacionesNucleos = new Intent(NucleosActivity.this,
                 EstacionesNucleoViajeActivity.class);
-        intentEstacionesNucleos.putExtra("codigo_nucleo",
-                nucleosCercaniasSelected.getCodigo());
-        intentEstacionesNucleos.putExtra("descripcion_nucleo",
-                nucleosCercaniasSelected.getDescripcion());
-
-        intentEstacionesNucleos.putExtra("estaciones_json",
-                nucleosCercaniasSelected.getEstacionesJSON());
+        intentEstacionesNucleos.putExtra("nucleoCercanias",
+                nucleosCercaniasSelected);
 
         startActivity(intentEstacionesNucleos);
     }

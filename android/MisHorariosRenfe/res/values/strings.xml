@@ -35,6 +35,9 @@
     <string name="dateTimeSelectButton">Date</string>
     <string name="retrievingStations">Retrieving stations</string>
 
+    <!-- Lineas -->
+    <string name="retrievingLines">Retrieving Lines</string>
+
     <!-- Hoarios Cercanias Layout -->
     <string name="mostrarHorarios">Timetables</string>
     <string name="infoNucleo">Nucleus</string>
@@ -47,7 +50,7 @@
     <string name="mapNucleosView">Cancel</string>
     <string name="title_activity_nucleo_detail">NucleoDetailActivity</string>
     <string name="action_settings">Settings</string>
-    
+
     <!-- Date time -->
     <string name="dateSliderTitle">Selected date</string>
     <string name="dateSliderSet">Timetables</string>
