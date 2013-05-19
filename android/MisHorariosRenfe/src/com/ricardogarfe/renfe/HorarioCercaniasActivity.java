@@ -64,6 +64,8 @@ public class HorarioCercaniasActivity extends Activity {
     private TextView textViewNucleo;
     private TextView textViewInfoDate;
 
+    private Button buttonVuelta;
+
     private String mFulldate;
 
     private TableLayout mTableLayoutHorarios;
@@ -150,7 +152,7 @@ public class HorarioCercaniasActivity extends Activity {
         textViewInfoTransbordo = (TextView) findViewById(R.id.textViewInfoTransbordo);
         textViewInfoTransbordo.setTypeface(typeFaceHorarioFont);
 
-        Button buttonVuelta = (Button) findViewById(R.id.buttonVuelta);
+        buttonVuelta = (Button) findViewById(R.id.buttonVuelta);
         buttonVuelta.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
 
