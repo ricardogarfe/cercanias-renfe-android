@@ -116,9 +116,16 @@ public class JSONLineasCercaniasParser extends JSONCercaniasParser {
         lineaCercanias.setDestino(jsonObject.getString("Destino"));
 
         // TODO: Obtener estaciones asociadas a la línea.
-//        List<EstacionCercanias> estacionCercaniasList = mJsonEstacionCercaniasParser
-//                .retrieveEstacionCercaniasFromJSONArray(jsonObject
-//                        .getJSONArray("Estaciones"));
+        JSONObject estacionesJsonObject = jsonObject
+                .getJSONObject("Estaciones");
+
+        if (estacionesJsonObject != null) {
+
+            List<EstacionCercanias> estacionCercaniasList = mJsonEstacionCercaniasParser
+                    .retrieveLineasEstacionCercaniasFromJSONArray(estacionesJsonObject
+                            .getJSONArray("Estacion"));
+            lineaCercanias.setEstacionCercaniasList(estacionCercaniasList);
+        }
 
         return lineaCercanias;
     }

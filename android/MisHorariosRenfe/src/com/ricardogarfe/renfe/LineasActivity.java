@@ -133,10 +133,6 @@ public class LineasActivity extends ListActivity {
 
             mLineaCercaniasList = (ArrayList<LineaCercanias>) msg.obj;
 
-            ArrayAdapter<CharSequence> spinnerEstacionAdapter = new ArrayAdapter<CharSequence>(
-                    getApplicationContext(),
-                    android.R.layout.simple_spinner_item);
-
             // Asociar el adapter para tratar la información.
             mLineaAdapter = new LineaAdapter(mLineasActivityContext);
             mLineaAdapter.setmLineaCercaniasList(mLineaCercaniasList);

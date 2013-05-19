@@ -24,7 +24,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.ricardogarfe.renfe.model.Correspondencia;
 import com.ricardogarfe.renfe.model.EstacionCercanias;
+import com.ricardogarfe.renfe.model.LineaCercanias;
 import com.ricardogarfe.renfe.model.Servicio;
 
 /**
@@ -114,6 +116,56 @@ public class JSONEstacionCercaniasParser extends JSONCercaniasParser {
 
         // TODO: Obtener servicios asociados a la estacion.
         List<Servicio> servicioList;
+
+        return estacionCercanias;
+    }
+
+    /**
+     * Retrieve {@link EstacionCercanias} from {@link JSONArray} by
+     * {@link LineaCercanias}.
+     * 
+     * @param jsonArray
+     *            Containing {@link EstacionCercanias} to parse.
+     * @return {@link EstacionCercanias} list parsed.
+     * @throws JSONException
+     */
+    public List<EstacionCercanias> retrieveLineasEstacionCercaniasFromJSONArray(
+            JSONArray jsonArray) throws JSONException {
+        List<EstacionCercanias> estacionCercaniasList = new ArrayList<EstacionCercanias>();
+
+        EstacionCercanias estacionCercanias;
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject jsonObjectEstacionCercanias = jsonArray.getJSONObject(i);
+            estacionCercanias = retrieveLineasEstacionCercanias(jsonObjectEstacionCercanias);
+            estacionCercaniasList.add(estacionCercanias);
+        }
+        return estacionCercaniasList;
+    }
+
+    /**
+     * Retrieve {@link EstacionCercanias} from {@link JSONObject} data from
+     * {@link LineaCercanias}.
+     * 
+     * @param jsonObject
+     *            Object to convert.
+     * @return {@link EstacionCercanias} object.
+     * @throws JSONException
+     */
+    public EstacionCercanias retrieveLineasEstacionCercanias(
+            JSONObject jsonObject) throws JSONException {
+
+        EstacionCercanias estacionCercanias = new EstacionCercanias();
+
+        estacionCercanias.setCodigo(jsonObject.getInt("Codigo"));
+        estacionCercanias.setDescripcion(jsonObject.getString("Descripcion"));
+        estacionCercanias.setViaSentidoDestino(jsonObject
+                .getString("ViaSentidoDestino"));
+        estacionCercanias.setViaSentidoOrigen(jsonObject
+                .getString("ViaSentidoOrigen"));
+
+        // TODO: Obtener Correspondencia asociados a la estacion.
+        List<Correspondencia> correspondenciaList;
 
         return estacionCercanias;
     }

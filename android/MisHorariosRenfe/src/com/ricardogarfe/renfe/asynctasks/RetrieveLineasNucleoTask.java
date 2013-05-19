@@ -31,8 +31,10 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.ricardogarfe.renfe.model.EstacionCercanias;
 import com.ricardogarfe.renfe.model.LineaCercanias;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
+import com.ricardogarfe.renfe.services.parser.JSONEstacionCercaniasParser;
 import com.ricardogarfe.renfe.services.parser.JSONLineasCercaniasParser;
 
 /**
@@ -46,9 +48,13 @@ public class RetrieveLineasNucleoTask extends
 
     private JSONLineasCercaniasParser mJSONLineasCercaniasParser;
 
+    private JSONEstacionCercaniasParser mJSONEstacionCercaniasParser;
+
     private JSONObject mJSONObjectLineaCercanias;
 
     private List<LineaCercanias> mLineaCercaniasList = null;
+
+    private List<EstacionCercanias> mEstacionCercaniasList;
 
     private NucleoCercanias mNucleoCercanias;
 
@@ -67,11 +73,21 @@ public class RetrieveLineasNucleoTask extends
 
         mJSONLineasCercaniasParser = new JSONLineasCercaniasParser();
 
+        mJSONEstacionCercaniasParser = new JSONEstacionCercaniasParser();
+        mJSONLineasCercaniasParser
+                .setmJsonEstacionCercaniasParser(mJSONEstacionCercaniasParser);
+
         mNucleoCercanias = (NucleoCercanias) nucleoCercanias[0];
 
         try {
+
+            mEstacionCercaniasList = mJSONEstacionCercaniasParser
+                    .retrieveEstacionCercaniasFromJSON(
+                            mNucleoCercanias.getEstacionesJSON(), false);
+
             mLineaCercaniasList = retrieveLineasCercaniasFromJSON(
                     mNucleoCercanias.getLineasJSON(), false);
+
         } catch (IOException e) {
             Log.e(TAG,
                     "Error retrieving JSON file from nucleo Cercanias '"
@@ -161,6 +177,9 @@ public class RetrieveLineasNucleoTask extends
             JSONObject jsonObjectEstacionCercanias = jsonArray.getJSONObject(i);
             lineaCercanias = mJSONLineasCercaniasParser
                     .retrieveLineaCercanias(jsonObjectEstacionCercanias);
+
+            // Retrieve Lat and Long from estacionesCercaniasList
+            retrieveLatLongFromEstacion(lineaCercanias);
             lineaCercaniasList.add(lineaCercanias);
 
             // publishing the progress....
@@ -172,6 +191,43 @@ public class RetrieveLineasNucleoTask extends
 
         return lineaCercaniasList;
 
+    }
+
+    /**
+     * Update Location values from {@link EstacionCercanias} from
+     * {@link LineaCercanias}.
+     * 
+     * @param lineaCercanias
+     *            to update.
+     */
+    public void retrieveLatLongFromEstacion(LineaCercanias lineaCercanias) {
+
+        for (EstacionCercanias estacionCercanias : lineaCercanias
+                .getEstacionCercaniasList()) {
+
+            for (EstacionCercanias estacionCercaniasFromList : mEstacionCercaniasList) {
+
+                if (estacionCercanias.getCodigo().compareTo(
+                        estacionCercaniasFromList.getCodigo()) == 0) {
+
+                    final Integer positionToUpdate = lineaCercanias
+                            .getEstacionCercaniasList().indexOf(
+                                    estacionCercanias);
+
+                    estacionCercanias.setLatitude(estacionCercaniasFromList
+                            .getLatitude());
+                    estacionCercanias.setLongitude(estacionCercaniasFromList
+                            .getLongitude());
+                    estacionCercanias.setZona(estacionCercaniasFromList
+                            .getZona());
+
+                    lineaCercanias.getEstacionCercaniasList().set(
+                            positionToUpdate, estacionCercanias);
+
+                    break;
+                }
+            }
+        }
     }
 
     public ProgressDialog getProgressDialog() {
