@@ -33,6 +33,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ricardogarfe.renfe.LineasActivity;
 import com.ricardogarfe.renfe.NucleoDetail;
 import com.ricardogarfe.renfe.R;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
@@ -148,7 +149,7 @@ public class NucleoAdapter extends BaseAdapter implements Filterable {
                 // Enviar a la actividad de información del nucleo
                 // seleccionado
                 Intent intentLineasDetail = new Intent(mContext,
-                        NucleoDetail.class);
+                        LineasActivity.class);
                 intentLineasDetail.putExtra("nucleoCercanias", nucleoCercanias);
                 mContext.startActivity(intentLineasDetail);
 

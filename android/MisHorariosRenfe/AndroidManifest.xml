@@ -26,6 +26,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -64,7 +65,7 @@
         </activity>
         <activity
             android:name="com.ricardogarfe.renfe.views.MapTabView"
-            android:label="@string/mapNucleosView" >
+            android:label="@string/app_name" >
             <intent-filter>
                 <category android:name="android.intent.category.EMBED" >
                 </category>
@@ -79,6 +80,10 @@
             android:name="com.ricardogarfe.renfe.HorarioCercaniasActivity"
             android:label="@string/mostrarHorarios" >
         </activity>
+
+        <!-- Services -->
+        <service android:name="com.ricardogarfe.renfe.service.LocService" >
+        </service>
     </application>
 
 </manifest>

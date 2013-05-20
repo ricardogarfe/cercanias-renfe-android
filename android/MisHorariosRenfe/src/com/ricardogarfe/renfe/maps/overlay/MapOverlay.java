@@ -69,8 +69,8 @@ public class MapOverlay extends Overlay {
             paint.setFakeBoldText(true);
 
             Point point2 = new Point();
-            Projection p = mapView.getProjection();
-            p.toPixels(mGeoPoint, point2);
+            Projection projection = mapView.getProjection();
+            projection.toPixels(mGeoPoint, point2);
 
             canvas.drawText(textToShow, point2.x + mMarkerXOffset/2, point2.y + 50, paint);
             super.draw(canvas, mapView, shadow);

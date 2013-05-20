@@ -1,4 +1,17 @@
 /*
+ * Copyright [2013] [Ricardo García Fernández] [ricardogarfe@gmail.com]
+ * 
+ * This file is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * This file is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with
+ * this program. If not, see <http://www.gnu.org/licenses/>.
  * 
  * Copyright (C) Roberto Calvo Palomino
  * 
@@ -31,7 +44,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
 
-public class LocService extends Service {
+public class LocService extends Service implements LocationListener {
 
     private final String TAG = getClass().getSimpleName();
 
@@ -39,7 +52,6 @@ public class LocService extends Service {
     private static Location mCurrentLocation = null;
     public static Location lastKnownLocation = null;
     private static LocationManager mLocationManager;
-    private MyLocListener mLocationListener;
 
     // Location Periodic in seconds
     private final Integer LocationPeriodic = 300;
@@ -81,10 +93,8 @@ public class LocService extends Service {
     private void startService() {
 
         mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        mLocationListener = new MyLocListener();
-
         mLocationManager.requestLocationUpdates(LocProvider, LocationPeriodic,
-                MinimumDistance, mLocationListener);
+                MinimumDistance, this);
 
     }
 
@@ -99,33 +109,30 @@ public class LocService extends Service {
 
     }
 
-    private class MyLocListener implements LocationListener {
+    public void onLocationChanged(Location loc) {
 
-        public void onLocationChanged(Location loc) {
+        if (loc != null) {
 
-            if (loc != null) {
+            // Save the current location
+            mCurrentLocation = loc;
+            Log.d(TAG, String.valueOf(mCurrentLocation.getLatitude()) + " "
+                    + String.valueOf(mCurrentLocation.getLongitude()));
 
-                // Save the current location
-                mCurrentLocation = loc;
-                Log.d(TAG, String.valueOf(mCurrentLocation.getLatitude()) + " "
-                        + String.valueOf(mCurrentLocation.getLongitude()));
+            notifyLocation();
 
-                notifyLocation();
-
-            }
         }
+    }
 
-        public void onProviderDisabled(String provider) {
-            // TODO Auto-generated method stub
-        }
+    public void onProviderDisabled(String provider) {
+        // TODO Auto-generated method stub
+    }
 
-        public void onProviderEnabled(String provider) {
-            // TODO Auto-generated method stub
-        }
+    public void onProviderEnabled(String provider) {
+        // TODO Auto-generated method stub
+    }
 
-        public void onStatusChanged(String provider, int status, Bundle extras) {
-            // TODO Auto-generated method stub
-        }
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+        // TODO Auto-generated method stub
     }
 
 }

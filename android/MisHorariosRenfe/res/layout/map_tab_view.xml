@@ -15,6 +15,7 @@
         android:id="@+id/mapView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:layout_below="@id/textViewLocation"
         android:apiKey="@string/map_key"
         android:clickable="true" />
 

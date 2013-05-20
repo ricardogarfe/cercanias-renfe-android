@@ -17,13 +17,8 @@
 package com.ricardogarfe.renfe.views;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
-import org.codehaus.jackson.JsonParseException;
-import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import android.content.Intent;
@@ -40,11 +35,13 @@ import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.ricardogarfe.renfe.R;
+import com.ricardogarfe.renfe.maps.overlay.CercaniasMyLocationOverlay;
 import com.ricardogarfe.renfe.maps.overlay.MapOverlay;
 import com.ricardogarfe.renfe.model.EstacionCercanias;
 import com.ricardogarfe.renfe.model.LineaCercanias;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
 import com.ricardogarfe.renfe.service.ILocService;
+import com.ricardogarfe.renfe.service.LocService;
 
 public class MapTabView extends MapActivity implements ILocService {
 
@@ -54,9 +51,12 @@ public class MapTabView extends MapActivity implements ILocService {
     private LineaCercanias mLineaCercanias;
 
     private NucleoCercanias mNucleoCercanias;
+
     private String mLineaFileName;
 
     private TextView textViewLocation;
+
+    private CercaniasMyLocationOverlay myLocationOverlay;
 
     private ObjectMapper objectMapper;
 
@@ -76,6 +76,9 @@ public class MapTabView extends MapActivity implements ILocService {
 
         // Map controller para interactuar con la vista.
         mapController = mapView.getController();
+
+        startService(new Intent(this, LocService.class));
+        LocService.registerListener((ILocService) MapTabView.this);
 
         initializeValuesFromIntent();
 
@@ -100,7 +103,14 @@ public class MapTabView extends MapActivity implements ILocService {
 
     }
 
+    /**
+     * Update map with new content.
+     */
     private void refreshMap() {
+
+        myLocationOverlay = new CercaniasMyLocationOverlay(this, mapView);
+        myLocationOverlay.enableMyLocation();
+        myLocationOverlay.enableCompass();
 
         FileInputStream lineaFileInputStream;
         objectMapper = new ObjectMapper();
@@ -157,7 +167,9 @@ public class MapTabView extends MapActivity implements ILocService {
 
         }
 
-        mapController.setZoom(18);
+        lineaOverlays.add(myLocationOverlay);
+
+        mapController.setZoom(5);
 
         mapView.setBuiltInZoomControls(true);
 
@@ -186,6 +198,42 @@ public class MapTabView extends MapActivity implements ILocService {
     }
 
     @Override
+    protected void onResume() {
+        // TODO Auto-generated method stub
+        super.onResume();
+        myLocationOverlay.enableMyLocation();
+    }
+
+    @Override
+    protected void onPause() {
+        // TODO Auto-generated method stub
+        myLocationOverlay.disableMyLocation();
+        super.onPause();
+    }
+
+    /**
+     * This method zooms to the user's location with a zoom level of 10.
+     */
+    private void zoomToMyLocation() {
+        GeoPoint myLocationGeoPoint = myLocationOverlay.getMyLocation();
+        if (myLocationGeoPoint != null) {
+            mapView.getController().animateTo(myLocationGeoPoint);
+            mapView.getController().setZoom(5);
+        } else {
+            Toast.makeText(this, "Cannot determine location",
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        // TODO Auto-generated method stub
+        super.onDestroy();
+
+        stopService(new Intent(this, LocService.class));
+    }
+
+    @Override
     protected boolean isRouteDisplayed() {
         // TODO Auto-generated method stub
         return false;
@@ -193,7 +241,7 @@ public class MapTabView extends MapActivity implements ILocService {
 
     public void updateLocation(Location loc) {
         // TODO Auto-generated method stub
+        Log.d(TAG, "Location Updated:\n" + loc.toString());
 
     }
-
 }
