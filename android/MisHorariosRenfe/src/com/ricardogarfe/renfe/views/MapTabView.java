@@ -70,9 +70,6 @@ public class MapTabView extends MapActivity implements ILocService {
         // Obtener mapView para configurar sus valores.
         mapView = (MapView) findViewById(R.id.mapView);
 
-        // TexViewLocation
-        textViewLocation = (TextView) findViewById(R.id.textViewLocation);
-
         // Aplicar Zoom y clickable
         mapView.setBuiltInZoomControls(true);
         mapView.setClickable(true);
@@ -113,16 +110,15 @@ public class MapTabView extends MapActivity implements ILocService {
 
             mLineaCercanias = objectMapper.readValue(lineaFileInputStream,
                     LineaCercanias.class);
-        } catch (JsonParseException e) {
-            Log.e(TAG, "JSON lineaCercanias error reading file:\n"
-                    + e.getStackTrace().toString());
-        } catch (JsonMappingException e) {
-            Log.e(TAG, "JSON lineaCercanias error reading file:\n"
-                    + e.getStackTrace().toString());
-        } catch (IOException e) {
+        } catch (Exception e) {
             Log.e(TAG, "JSON lineaCercanias error reading file:\n"
                     + e.getStackTrace().toString());
         }
+
+        // TexViewLocation
+        textViewLocation = (TextView) findViewById(R.id.textViewLocation);
+        textViewLocation.setText(mLineaCercanias.getDescripcion() + " - "
+                + mLineaCercanias.getCodigo());
 
         if (mLineaCercanias == null) {
             Toast.makeText(getBaseContext(),
@@ -147,7 +143,7 @@ public class MapTabView extends MapActivity implements ILocService {
             Log.d(TAG, "Estación:\t" + estacionCercanias.getDescripcion());
 
             estacionMapOverlay = new MapOverlay();
-            Drawable drawable = getResources().getDrawable(R.drawable.marker);
+            Drawable drawable = getResources().getDrawable(R.drawable.icon);
             drawable.setBounds(0, 0, 50, 50);
 
             estacionMapOverlay.setDrawable(drawable);

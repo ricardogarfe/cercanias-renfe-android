@@ -33,15 +33,22 @@
         android:label="@string/app_name" >
         <uses-library android:name="com.google.android.maps" />
 
-        <!-- Nucleos -->
+        <!-- SplahScreen -->
         <activity
-            android:name="com.ricardogarfe.renfe.NucleosActivity"
-            android:label="@string/app_name" >
+            android:name="com.ricardogarfe.renfe.SplashScreenActivity"
+            android:label="@string/app_name"
+            android:noHistory="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <!-- Nucleos -->
+        <activity
+            android:name="com.ricardogarfe.renfe.NucleosActivity"
+            android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.ricardogarfe.renfe.NucleoDetail"
