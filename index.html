@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Cercanias-renfe-android by ricardogarfe</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Cercanias-renfe-android</h1>
+        <h2>Android Cercanias Renfe Spain client application using JSON and XML</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/ricardogarfe/cercanias-renfe-android/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/ricardogarfe/cercanias-renfe-android/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/ricardogarfe/cercanias-renfe-android" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>Mis Horarios Cercanías</h1>
+
+<p><a href="https://travis-ci.org/ricardogarfe/cercanias-renfe-android"><img src="https://travis-ci.org/ricardogarfe/cercanias-renfe-android.png?branch=master" alt="Build Status"></a></p>
+
+<p><em>Aplicación Android</em> cliente para la visualización de los horarios de Cercanías Renfe en todo el territorio español adaptada para todo tipo de dispositivos Android.</p>
+
+<h2>Aplicación Android</h2>
+
+<p>Esta aplicación provee de los horarios de cercanías de las redes españolas.</p>
+
+<p>Selección de Núcleo urbano:</p>
+
+<p><img src="https://raw.github.com/ricardogarfe/cercanias-renfe-android/development/screenshots/filtro_nucleos.png" alt="Filtro Nucleo"></p>
+
+<p>Selección de estación:</p>
+
+<p><img src="https://raw.github.com/ricardogarfe/cercanias-renfe-android/development/screenshots/seleccionar_estaciones.png" alt="Seleccionar Estaciones"></p>
+
+<p>Próximos Trenes:</p>
+
+<p><img src="https://raw.github.com/ricardogarfe/cercanias-renfe-android/development/screenshots/proximos_trenes.png" alt="Próximos Trenes"></p>
+
+<p>Selección de fecha:</p>
+
+<p><img src="https://raw.github.com/ricardogarfe/cercanias-renfe-android/development/screenshots/seleccionar_fecha_viaje.png" alt="Selección de Fecha viaje"></p>
+
+<p>Información sobre las líneas disponibles en cada Núcleo urbano:</p>
+
+<p><img src="https://raw.github.com/ricardogarfe/cercanias-renfe-android/development/screenshots/informacion_lineas_nucleo.png" alt="Información Estaciones Línea/Nucleo"></p>
+
+<p>Visualización en el mapa:</p>
+
+<p><img src="https://raw.github.com/ricardogarfe/cercanias-renfe-android/development/screenshots/estaciones_linea_nucleo_mapa.png" alt="Mapa Estaciones Línea/Nucleo"></p>
+
+<h3>Tests</h3>
+
+<p>Para el apartado de Test he utilizado <code>Robotium</code> para crearlos. Por lo tanto se encuentra dentro del proyecto de test.</p>
+
+<h3>Maven</h3>
+
+<p>Maven se ha añadido pensando en la integración continua y los tests. Además el proyecto está enlazado con <a href="https://travis-ci.org/ricardogarfe/cercanias-renfe-android">Travis-CI</a> para que automáticamente se compruebe si funciona la compilación y/o tests como indica la imagen en la cabecera del documento sobre el estado del proyecto.</p>
+
+<p><strong>No está preparado</strong> para lanzar ni empaquetar el proyecto con las claves por lo que estas instalaciones son inservibles. Si se quiere generar una instalación se ha de crear a partir de Eclipse.</p>
+
+<p>Para lanzar los test del proyecto utilizando maven se han de seguir los siguientes pasos:</p>
+
+<ul>
+<li><p>Descargar el proyecto <a href="https://github.com/mosabua/maven-android-sdk-deployer">Maven-SDK-Deployer</a> e instalar las dependencias necesarias.</p></li>
+<li><p>Crear un emulador de test sin interfaz gráfica y lanzar los tests en el directorio de <code>android</code>:</p></li>
+</ul><pre lang="shell"><code>$ android delete avd -n test
+$ echo no | android create avd --force -n test -t 'Google Inc.:Google APIs:10' --abi armeabi
+$ emulator -avd test -no-skin -no-audio -no-window &amp;
+$ mvn clean install -Pintegration-tests -Dandroid.device=test
+</code></pre>
+
+<p>El comando <code>-t 'Google Inc.:Google APIs:10'</code> es el nombre del SDK que se va a utilizar en la compilación de este proyecto.</p>
+
+<p>Es recomendable crear una máquina virtual a través de eclipse (completa) por si ocurre algún error.</p>
+
+<h2>Documentación</h2>
+
+<p>Esta aplicación es de tipo cliente/servidor por lo que he intentado ser fiel a esta estructura y sabiendo el funcionamiento se puede seguir fácilmente el proceso.</p>
+
+<p>Se ha documentado el código de la mejor forma posible, <strong>es totalmente mejorable</strong>.</p>
+
+<h2>Licencia GPLv3</h2>
+
+<p>Esta apliación se ha publicado bajo licencia <a href="http://www.gnu.org/licenses/gpl.html">GPLv3</a> después de un proceso de relicenciamiento para pasar de una versión MIT con variaciones para convertirla en Copyleft a utilizar los pasor para utilizar una Copyleft Real <strong>GPLv3</strong>.</p>
+
+<p>Se ha utilizado el manual de la FSF (Free Software Foundation) para mantener los archivos de licencias permisivas de un proyecto al licenciarse como GPLv3:</p>
+
+<ul>
+<li>
+<a href="http://www.softwarefreedom.org/resources/2007/gpl-non-gpl-collaboration.html">Maintaining Permissive-Licensed Files in a GPL-Licensed Project: Guidelines for Developers</a>.</li>
+</ul><p>Por lo tanto, este proyecto de Software Libre obliga a que todas las modificaciones que se hagan se publiquen como Software Libre por ello el carácter de la licencia Copyleft.</p>
+
+<p>Esta aplicación ha sido generada a partir del proyecto de Jon Segador (puedes ver el fork en el histórico del repositorior) con la intención de mejorar la aplicación y aprender a programar en Android.</p>
+
+<p>La información sobre la versión de Jon se encuentra en la wiki del proyecto:</p>
+
+<ul>
+<li><a href="../../wiki/Version-1---Jon-Segador">Versión 1</a></li>
+<li>Tag <a href="https://github.com/ricardogarfe/cercanias-renfe-android/tree/version-jonseg">Versión 1</a>
+</li>
+</ul><h2>A mejorar</h2>
+
+<ul>
+<li>Configuración completa con maven para generar paquetes firmados oficiales.</li>
+<li>Incluir <code>Google Services</code> en vez de <code>Google Maps API</code>.</li>
+<li>Generar más tests de navegabilidad.</li>
+<li>Viajes Favoritos y fácil accesibilidad a los mismos.</li>
+</ul><h2>Autor</h2>
+
+<ul>
+<li>Ricardo García Fernández <a href="mailto:ricardogarfe@gmail.com">ricardogarfe@gmail.com</a>
+</li>
+<li>Twitter <em><a href="http://twitter.com/ricardogarfe">@ricardogarfe</a></em>
+</li>
+<li>Linkedin <em><a href="http://es.linkedin.com/in/ricardogarfe">http://es.linkedin.com/in/ricardogarfe</a></em>
+</li>
+<li>Blog <em>[<a href="http://mastersfwlurjc.blogspot.com.es/">http://mastersfwlurjc.blogspot.com.es/</a>)</em>
+</li>
+</ul><h2>Document License</h2>
+
+<p><a href="http://creativecommons.org/licenses/by/3.0/" rel="Creative Commons Attribution 3.0"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Foo"></a></p>
+
+<p>This work by Ricardo Gracía Fernández - ricardogarfe [at] gmail [dot] com is licensed under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.</p>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
