@@ -52,6 +52,8 @@ public class MapTabView extends MapActivity implements ILocService {
 
     private NucleoCercanias mNucleoCercanias;
 
+    public static final double FIT_FACTOR = 1.5;
+
     private String mLineaFileName;
 
     private TextView textViewLocation;
@@ -143,23 +145,33 @@ public class MapTabView extends MapActivity implements ILocService {
 
         MapOverlay estacionMapOverlay;
 
+        int minLat = Integer.MAX_VALUE;
+        int maxLat = Integer.MIN_VALUE;
+        int minLon = Integer.MAX_VALUE;
+        int maxLon = Integer.MIN_VALUE;
+
+        GeoPoint geoPoint;
+
         for (EstacionCercanias estacionCercanias : mLineaCercanias
                 .getEstacionCercaniasList()) {
 
-            if (estacionCercanias == null) {
-                continue;
-            }
+            geoPoint = retrieveGeoPoint(estacionCercanias.getLatitude(),
+                    estacionCercanias.getLongitude());
 
-            Log.d(TAG, "Estación:\t" + estacionCercanias.getDescripcion());
+            int lat = geoPoint.getLatitudeE6();
+            int lon = geoPoint.getLongitudeE6();
+
+            maxLat = Math.max(lat, maxLat);
+            minLat = Math.min(lat, minLat);
+            maxLon = Math.max(lon, maxLon);
+            minLon = Math.min(lon, minLon);
 
             estacionMapOverlay = new MapOverlay();
             Drawable drawable = getResources().getDrawable(R.drawable.icon);
             drawable.setBounds(0, 0, 50, 50);
 
             estacionMapOverlay.setDrawable(drawable);
-            estacionMapOverlay.setGeoPoint(retrieveGeoPoint(
-                    estacionCercanias.getLatitude(),
-                    estacionCercanias.getLongitude()));
+            estacionMapOverlay.setGeoPoint(geoPoint);
             estacionMapOverlay
                     .setTextToShow(estacionCercanias.getDescripcion());
 
@@ -169,7 +181,12 @@ public class MapTabView extends MapActivity implements ILocService {
 
         lineaOverlays.add(myLocationOverlay);
 
-        mapController.setZoom(5);
+        mapController.zoomToSpan(
+                (int) (Math.abs(maxLat - minLat) * FIT_FACTOR),
+                (int) (Math.abs(maxLon - minLon) * FIT_FACTOR));
+
+        mapController.animateTo(new GeoPoint((maxLat + minLat) / 2,
+                (maxLon + minLon) / 2));
 
         mapView.setBuiltInZoomControls(true);
 
