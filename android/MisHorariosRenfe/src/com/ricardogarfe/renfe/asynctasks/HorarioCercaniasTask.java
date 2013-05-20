@@ -31,10 +31,7 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.ricardogarfe.renfe.EstacionesNucleoViajeActivity;
-import com.ricardogarfe.renfe.HorarioCercaniasActivity;
 import com.ricardogarfe.renfe.handler.HorariosCercaniasHandler;
 import com.ricardogarfe.renfe.model.DatosPeticionHorarioCercanias;
 import com.ricardogarfe.renfe.model.HorarioCercanias;

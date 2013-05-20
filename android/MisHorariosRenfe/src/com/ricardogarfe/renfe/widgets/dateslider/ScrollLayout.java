@@ -20,10 +20,6 @@ package com.ricardogarfe.renfe.widgets.dateslider;
 
 import java.lang.reflect.Constructor;
 
-import com.ricardogarfe.renfe.R;
-import com.ricardogarfe.renfe.widgets.dateslider.labeler.Labeler;
-import com.ricardogarfe.renfe.widgets.dateslider.timeview.TimeView;
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -39,6 +35,10 @@ import android.view.ViewConfiguration;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
+
+import com.ricardogarfe.renfe.R;
+import com.ricardogarfe.renfe.widgets.dateslider.labeler.Labeler;
+import com.ricardogarfe.renfe.widgets.dateslider.timeview.TimeView;
 
 /**
  * This is where most of the magic happens. This is a subclass of LinearLayout

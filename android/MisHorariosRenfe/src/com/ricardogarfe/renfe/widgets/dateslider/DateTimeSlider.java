@@ -20,10 +20,10 @@ package com.ricardogarfe.renfe.widgets.dateslider;
 
 import java.util.Calendar;
 
+import android.content.Context;
+
 import com.ricardogarfe.renfe.R;
 import com.ricardogarfe.renfe.widgets.dateslider.labeler.TimeLabeler;
-
-import android.content.Context;
 
 public class DateTimeSlider extends DateSlider {
 
