@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright [2013] [Ricardo García Fernández] [ricardogarfe@gmail.com]
+ 
+ This file is free software: you can redistribute it and/or modify it under
+ the terms of the GNU General Public License as published by the Free Software
+ Foundation, either version 3 of the License, or (at your option) any later
+ version.
+ 
+ This file is distributed in the hope that it will be useful, but WITHOUT ANY
+ WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License along with
+ this program. If not, see <http://www.gnu.org/licenses/>. 
+-->
+
+<resources>
+
+    <string name="app_name">Mis Horarios</string>
+    <string name="stationSalida">Eixida</string>
+    <string name="stationLlegada">Arribada</string>
+    <string name="tiempo">Duració</string>
+    <string name="lineaSalida">Linea</string>
+
+    <!-- Nucleos view -->
+    <string name="textNucleos">Nuclis</string>
+    <string name="nucleosSearch">Cercar nuclis</string>
+
+    <!-- Estacion Nucleos Layout -->
+    <string name="seleccionEstaciones">Estacions</string>
+    <string name="estacionOrigenText">Estació d\'origen</string>
+    <string name="estacionDestinoText">Estació de destinació</string>
+    <string name="verHorariosButton">Próxim tren</string>
+    <string name="dateTimeSelectButton">Data</string>
+    <string name="retrievingStations">Obtenint estacions</string>
+    <string name="origen_destino">Les estacions d\'origen i destinació no poden ser iguals</string>
+
+    <!-- Lineas -->
+    <string name="retrievingLines">Obtenint Linies</string>
+
+    <!-- Hoarios Cercanias Layout -->
+    <string name="mostrarHorarios">Horaris</string>
+    <string name="infoNucleo">Nucleo</string>
+    <string name="infoStations">Estació origen - Estació destinació</string>
+    <string name="infoFecha">Data</string>
+    <string name="buttonVuelta">Viatge de tornada</string>
+
+    <!-- Google Maps API key -->
+    <string name="map_key">0Tp7WsIDiyqoDmSF9LMprvDzte-hj_A6r-qxbow</string>
+    <string name="mapNucleosView">Estacions</string>
+    <string name="title_activity_nucleo_detail">Informació</string>
+    <string name="action_settings">Configuració</string>
+
+    <!-- Map View -->
+    <string name="no_location_values">No hi valors per la linea</string>
+
+    <!-- Date time -->
+    <string name="dateSliderTitle">Data seleccionada</string>
+    <string name="dateSliderSet">Horaris</string>
+    <string name="dateSliderCancel">Cancel·lar</string>
+
+</resources>

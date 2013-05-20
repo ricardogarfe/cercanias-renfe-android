@@ -31,9 +31,8 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.ricardogarfe.renfe.EstacionesNucleoViajeActivity;
 import com.ricardogarfe.renfe.model.EstacionCercanias;
-import com.ricardogarfe.renfe.services.parser.JSONEstacionCercaniasParser;
+import com.ricardogarfe.renfe.parser.JSONEstacionCercaniasParser;
 
 /**
  * @author ricardo
@@ -58,11 +57,6 @@ public class RetrieveEstacionesNucleoTask extends
 
     protected void onPreExecute() {
         // Show progressDialog
-        progressDialog = new ProgressDialog(
-                EstacionesNucleoViajeActivity.mEstacionesNucleoViajeContext);
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        progressDialog.setTitle("ProgressDialog");
-        progressDialog.setMessage("Obteniendo estaciones...");
         progressDialog.show();
     }
 
@@ -72,6 +66,7 @@ public class RetrieveEstacionesNucleoTask extends
         jsonEstacionCercaniasParser = new JSONEstacionCercaniasParser();
 
         urlJSON = urlJSONString[0].toString();
+
         Log.d(TAG, urlJSON);
 
         try {
@@ -111,8 +106,7 @@ public class RetrieveEstacionesNucleoTask extends
             Log.d(TAG, "Retrieve Estaciones correctly from:\t" + urlJSON);
 
         } else {
-            Toast.makeText(
-                    EstacionesNucleoViajeActivity.mEstacionesNucleoViajeContext,
+            Toast.makeText(progressDialog.getContext(),
                     "Estaciones retriving error :" + urlJSON, Toast.LENGTH_LONG)
                     .show();
         }
@@ -177,4 +171,13 @@ public class RetrieveEstacionesNucleoTask extends
             Handler messageEstacionesNucleoHandler) {
         this.messageEstacionesNucleoHandler = messageEstacionesNucleoHandler;
     }
+
+    public ProgressDialog getProgressDialog() {
+        return progressDialog;
+    }
+
+    public void setProgressDialog(ProgressDialog progressDialog) {
+        this.progressDialog = progressDialog;
+    }
+
 }

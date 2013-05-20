@@ -13,7 +13,7 @@
  
  You should have received a copy of the GNU General Public License along with
  this program. If not, see <http://www.gnu.org/licenses/>. 
- -->
+-->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
@@ -46,23 +46,11 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/estacionOrigenText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/linearLayoutNucleo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="6dp"
-        android:text="@string/estacionOrigenText"
-        android:textColor="#FFFFFF"
-        android:textSize="15sp" />
-
     <LinearLayout
         android:id="@+id/linearLayoutOrigen"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/estacionOrigenText"
+        android:layout_below="@id/linearLayoutNucleo"
         android:orientation="horizontal" >
 
         <ImageView
@@ -71,7 +59,7 @@
             android:layout_height="40dip"
             android:layout_marginLeft="10dip"
             android:contentDescription="TODO"
-            android:src="@drawable/icono_origen003" />
+            android:src="@drawable/icono_origen004" />
 
         <Spinner
             android:id="@+id/origenSpinner"
@@ -81,23 +69,11 @@
             android:prompt="@string/estacionOrigenText" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/estacionDestinoText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/linearLayoutOrigen"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="6dp"
-        android:text="@string/estacionDestinoText"
-        android:textColor="#FFFFFF"
-        android:textSize="15sp" />
-
     <LinearLayout
         android:id="@+id/linearLayoutDestino"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/estacionDestinoText"
+        android:layout_below="@id/linearLayoutOrigen"
         android:orientation="horizontal" >
 
         <ImageView
@@ -105,7 +81,7 @@
             android:layout_width="40dip"
             android:layout_height="40dip"
             android:layout_marginLeft="10dip"
-            android:src="@drawable/icono_destino003" />
+            android:src="@drawable/icono_destino004" />
 
         <Spinner
             android:id="@+id/destinoSpinner"
@@ -115,14 +91,27 @@
             android:prompt="@string/estacionDestinoText" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/verHorariosButton"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/linearLayoutBottomButtons"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:text="@string/verHorariosButton" />
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/verHorariosButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:text="@string/verHorariosButton" />
+
+        <Button
+            android:id="@+id/dateTimeSelectButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/dateTimeSelectButton" />
+    </LinearLayout>
 
 </RelativeLayout>

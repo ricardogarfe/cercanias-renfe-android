@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ricardogarfe.renfe.widgets.dateslider.SliderContainer xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.ricardogarfe.renfe"
+    android:id="@+id/dateSliderContainer"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <com.ricardogarfe.renfe.widgets.dateslider.ScrollLayout
+        style="@style/Scroller"
+        app:childWidth="90dp"
+        app:labelerClass="com.ricardogarfe.renfe.widgets.dateslider.labeler.MonthYearLabeler"
+        app:labelerFormat="%tb %tY" />
+
+    <com.ricardogarfe.renfe.widgets.dateslider.ScrollLayout
+        style="@style/Scroller"
+        app:childWidth="45dp"
+        app:labelerClass="com.ricardogarfe.renfe.widgets.dateslider.labeler.DayDateLabeler"
+        app:labelerFormat="%td %ta" />
+
+    <include layout="@layout/dialogbuttons" />
+
+</com.ricardogarfe.renfe.widgets.dateslider.SliderContainer>

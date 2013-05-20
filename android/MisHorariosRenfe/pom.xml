@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
- Copyright [2013] [Ricardo García Fernández] [ricardogarfe@gmail.com]
- 
- This file is free software: you can redistribute it and/or modify it under
- the terms of the GNU General Public License as published by the Free Software
- Foundation, either version 3 of the License, or (at your option) any later
- version.
- 
- This file is distributed in the hope that it will be useful, but WITHOUT ANY
- WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
- A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- 
- You should have received a copy of the GNU General Public License along with
- this program. If not, see <http://www.gnu.org/licenses/>. 
- -->
+<!-- Copyright [2013] [Ricardo García Fernández] [ricardogarfe@gmail.com] This file 
+  is free software: you can redistribute it and/or modify it under the terms of the 
+  GNU General Public License as published by the Free Software Foundation, either version 
+  3 of the License, or (at your option) any later version. This file is distributed 
+  in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied 
+  warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General 
+  Public License for more details. You should have received a copy of the GNU General 
+  Public License along with this program. If not, see <http://www.gnu.org/licenses/>. -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -26,6 +19,10 @@
 
   <artifactId>mishorarios-renfe-app</artifactId>
   <packaging>apk</packaging>
+
+  <properties>
+    <jackson.version>1.9.12</jackson.version>
+  </properties>
 
   <dependencies>
     <dependency>
@@ -42,6 +39,17 @@
       <groupId>com.google.android</groupId>
       <artifactId>support-v4</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-core-asl</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+
   </dependencies>
 
   <build>

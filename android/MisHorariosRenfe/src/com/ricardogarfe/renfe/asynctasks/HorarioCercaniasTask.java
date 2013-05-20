@@ -35,10 +35,10 @@ import android.widget.Toast;
 
 import com.ricardogarfe.renfe.EstacionesNucleoViajeActivity;
 import com.ricardogarfe.renfe.HorarioCercaniasActivity;
+import com.ricardogarfe.renfe.handler.HorariosCercaniasHandler;
 import com.ricardogarfe.renfe.model.DatosPeticionHorarioCercanias;
 import com.ricardogarfe.renfe.model.HorarioCercanias;
-import com.ricardogarfe.renfe.services.handler.HorariosCercaniasHandler;
-import com.ricardogarfe.renfe.services.parser.JSONEstacionCercaniasParser;
+import com.ricardogarfe.renfe.parser.JSONEstacionCercaniasParser;
 
 /**
  * @author ricardo
@@ -57,6 +57,8 @@ public class HorarioCercaniasTask
 
     private final String TAG = getClass().getSimpleName();
 
+    private final String ERROR_MESSAGE = "No se han encontrado Horarios Cercanias";
+
     private Handler messageNucleoCercaniasHandler;
     private Message messageNucleoCercanias;
 
@@ -67,11 +69,6 @@ public class HorarioCercaniasTask
 
     protected void onPreExecute() {
         // Show progressDialog
-        progressDialog = new ProgressDialog(
-                HorarioCercaniasActivity.mHorarioCercaniasContext);
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        progressDialog.setTitle("ProgressDialog");
-        progressDialog.setMessage("Obteniendo horarios...");
         progressDialog.show();
     }
 
@@ -93,8 +90,9 @@ public class HorarioCercaniasTask
                     + datosPeticionHorarioCercanias.getNucleo() + "&o="
                     + datosPeticionHorarioCercanias.getOrigen() + "&d="
                     + datosPeticionHorarioCercanias.getDestino() + "&df="
-                    + datosPeticionHorarioCercanias.getFechaViaje()
-                    + "&hd=24&ho=07");
+                    + datosPeticionHorarioCercanias.getFechaViaje() + "&hd="
+                    + datosPeticionHorarioCercanias.getHoraFinal() + "&ho="
+                    + datosPeticionHorarioCercanias.getHoraInicio());
 
             SAXParserFactory spf = SAXParserFactory.newInstance();
             SAXParser sp = spf.newSAXParser();
@@ -132,21 +130,27 @@ public class HorarioCercaniasTask
         // Send result message
         if (horariosCercaniasList != null && !horariosCercaniasList.isEmpty()) {
 
-            messageNucleoCercanias.what = HorariosCercaniasHandler.TASK_COMPLETE;
-            messageNucleoCercanias.obj = mHorarioCercaniasList;
-            Log.d(TAG, "Retrieve Horarios Cercanias correctly from:\t"
-                    + datosPeticionHorarioCercanias.toString());
+            // Check error message from server
+            HorarioCercanias horarioCercanias = horariosCercaniasList.get(0);
+            if (horarioCercanias.getError() == null
+                    || horarioCercanias.getError().isEmpty()) {
+                messageNucleoCercanias.what = HorariosCercaniasHandler.TASK_COMPLETE;
+                messageNucleoCercanias.obj = mHorarioCercaniasList;
+                Log.d(TAG, "Retrieve Horarios Cercanias correctly from:\t"
+                        + datosPeticionHorarioCercanias.toString());
+            } else {
+                messageNucleoCercanias.what = HorariosCercaniasHandler.TASK_ERROR;
+                messageNucleoCercanias.obj = ERROR_MESSAGE
+                        + horarioCercanias.getError();
+                Log.e(TAG, "Error al obtener los Horarios de Cercanias:\t"
+                        + horarioCercanias.getError());
+            }
 
         } else {
             messageNucleoCercanias.what = HorariosCercaniasHandler.TASK_ERROR;
-            messageNucleoCercanias.obj = "No se han encontrado Horarios Cercanias.";
+            messageNucleoCercanias.obj = ERROR_MESSAGE;
             Log.e(TAG, "Error al obtener los Horarios de Cercanias from:\t"
                     + datosPeticionHorarioCercanias.toString());
-
-            Toast.makeText(
-                    EstacionesNucleoViajeActivity.mEstacionesNucleoViajeContext,
-                    "Error al obtener los Horarios de Cercanias",
-                    Toast.LENGTH_LONG).show();
         }
 
         getMessageNucleoCercaniasHandler().sendMessage(messageNucleoCercanias);
@@ -160,5 +164,13 @@ public class HorarioCercaniasTask
     public void setMessageNucleoCercaniasHandler(
             Handler messageNucleoCercaniasHandler) {
         this.messageNucleoCercaniasHandler = messageNucleoCercaniasHandler;
+    }
+
+    public ProgressDialog getProgressDialog() {
+        return progressDialog;
+    }
+
+    public void setProgressDialog(ProgressDialog progressDialog) {
+        this.progressDialog = progressDialog;
     }
 }

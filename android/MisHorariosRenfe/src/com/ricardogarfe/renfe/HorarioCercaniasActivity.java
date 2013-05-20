@@ -16,10 +16,14 @@
 
 package com.ricardogarfe.renfe;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -27,6 +31,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -38,12 +43,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ricardogarfe.renfe.asynctasks.HorarioCercaniasTask;
+import com.ricardogarfe.renfe.handler.HorariosCercaniasHandler;
 import com.ricardogarfe.renfe.model.DatosPeticionHorarioCercanias;
 import com.ricardogarfe.renfe.model.EstacionCercanias;
 import com.ricardogarfe.renfe.model.HorarioCercanias;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
 import com.ricardogarfe.renfe.model.TransbordoCercanias;
-import com.ricardogarfe.renfe.services.handler.HorariosCercaniasHandler;
 
 /**
  * Activity that retrieves and represents values from a trip between two
@@ -59,13 +64,20 @@ public class HorarioCercaniasActivity extends Activity {
     private TextView textViewNucleo;
     private TextView textViewInfoDate;
 
-    private String fulldate;
+    private Button buttonVuelta;
 
-    private TableLayout tableLayoutHorarios;
+    private String mFulldate;
 
-    private String day;
-    private String month;
-    private String year;
+    private TableLayout mTableLayoutHorarios;
+
+    private String mDay;
+    private String mMonth;
+    private String mYear;
+    private String mHoraInicio;
+    private String mHoraFinal;
+    private String mMinutoInicio;
+
+    private Date mInitialDate;
 
     // Context
     public static Context mHorarioCercaniasContext;
@@ -83,7 +95,7 @@ public class HorarioCercaniasActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.horario);
 
-        tableLayoutHorarios = (TableLayout) findViewById(R.id.tableLayoutHorarios);
+        mTableLayoutHorarios = (TableLayout) findViewById(R.id.tableLayoutHorarios);
 
     }
 
@@ -96,12 +108,51 @@ public class HorarioCercaniasActivity extends Activity {
 
         mDatosPeticionHorarioCercanias = retrieveDatosPeticonHorariosCercanias();
 
-        textViewNucleo = (TextView) findViewById(R.id.textViewNucleo);
-        textViewInfoStations = (TextView) findViewById(R.id.textViewInfoStations);
-        textViewInfoDate = (TextView) findViewById(R.id.textViewInfoDate);
-        textViewInfoTransbordo = (TextView) findViewById(R.id.textViewInfoTransbordo);
+        configureWidgets();
 
-        Button buttonVuelta = (Button) findViewById(R.id.buttonVuelta);
+        runHorariosCercaniasTask();
+    }
+
+    /**
+     * Configure and execute horariosCercanias Task.
+     */
+    public void runHorariosCercaniasTask() {
+
+        mHorarioCercaniasTask = new HorarioCercaniasTask();
+        ProgressDialog progressDialog = new ProgressDialog(
+                HorarioCercaniasActivity.mHorarioCercaniasContext);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progressDialog.setTitle(mDatosPeticionHorarioCercanias.getNucleoName());
+        progressDialog.setMessage(mDatosPeticionHorarioCercanias
+                .getEstacionOrigenName()
+                + " - "
+                + mDatosPeticionHorarioCercanias.getEstacionDestinoName());
+        mHorarioCercaniasTask.setProgressDialog(progressDialog);
+
+        mHorarioCercaniasTask.execute(mDatosPeticionHorarioCercanias);
+        mHorarioCercaniasTask
+                .setMessageNucleoCercaniasHandler(messageHorariosCercaniasHandler);
+    }
+
+    /**
+     * Configure Widget values to initialize ui.
+     */
+    public void configureWidgets() {
+
+        // Text font style.
+        Typeface typeFaceHorarioFont = Typeface.createFromAsset(
+                getAssets(), "fonts/LCDPHONE.ttf");
+
+        textViewNucleo = (TextView) findViewById(R.id.textViewNucleo);
+        textViewNucleo.setTypeface(typeFaceHorarioFont);
+        textViewInfoStations = (TextView) findViewById(R.id.textViewInfoStations);
+        textViewInfoStations.setTypeface(typeFaceHorarioFont);
+        textViewInfoDate = (TextView) findViewById(R.id.textViewInfoDate);
+        textViewInfoDate.setTypeface(typeFaceHorarioFont);
+        textViewInfoTransbordo = (TextView) findViewById(R.id.textViewInfoTransbordo);
+        textViewInfoTransbordo.setTypeface(typeFaceHorarioFont);
+
+        buttonVuelta = (Button) findViewById(R.id.buttonVuelta);
         buttonVuelta.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
 
@@ -112,6 +163,7 @@ public class HorarioCercaniasActivity extends Activity {
                 intent.putExtra("nucleoName",
                         mDatosPeticionHorarioCercanias.getNucleoName());
 
+                // Invertir destino por origen y viceversa.
                 intent.putExtra("estacionOrigenId", Integer
                         .parseInt(mDatosPeticionHorarioCercanias.getDestino()));
                 intent.putExtra("estacionDestinoId", Integer
@@ -122,9 +174,12 @@ public class HorarioCercaniasActivity extends Activity {
                 intent.putExtra("estacionDestinoName",
                         mDatosPeticionHorarioCercanias.getEstacionOrigenName());
 
-                intent.putExtra("day", day);
-                intent.putExtra("month", month);
-                intent.putExtra("year", year);
+                intent.putExtra("day", mDay);
+                intent.putExtra("month", mMonth);
+                intent.putExtra("year", mYear);
+                intent.putExtra("horaInicio", mHoraInicio);
+                intent.putExtra("horaFinal", mHoraFinal);
+                intent.putExtra("minutoInicio", mMinutoInicio);
 
                 startActivity(intent);
 
@@ -135,14 +190,9 @@ public class HorarioCercaniasActivity extends Activity {
                 .getEstacionOrigenName()
                 + " - "
                 + mDatosPeticionHorarioCercanias.getEstacionDestinoName());
-        textViewInfoDate.setText(day + "/" + month + "/" + year);
+        textViewInfoDate.setText(mDay + "/" + mMonth + "/" + mYear);
 
         textViewNucleo.setText(mDatosPeticionHorarioCercanias.getNucleoName());
-
-        mHorarioCercaniasTask = new HorarioCercaniasTask();
-        mHorarioCercaniasTask.execute(mDatosPeticionHorarioCercanias);
-        mHorarioCercaniasTask
-                .setMessageNucleoCercaniasHandler(messageHorariosCercaniasHandler);
     }
 
     /**
@@ -170,16 +220,31 @@ public class HorarioCercaniasActivity extends Activity {
                 "estacionDestinoName");
 
         // Date
-        day = getIntent().getStringExtra("day");
-        month = getIntent().getStringExtra("month");
-        year = getIntent().getStringExtra("year");
+        mDay = getIntent().getStringExtra("day");
+        mMonth = getIntent().getStringExtra("month");
+        mYear = getIntent().getStringExtra("year");
 
         StringBuffer stringBufferDf = new StringBuffer();
-        stringBufferDf.append(year);
-        stringBufferDf.append(month);
-        stringBufferDf.append(day);
+        stringBufferDf.append(mYear);
+        stringBufferDf.append(mMonth);
+        stringBufferDf.append(mDay);
 
-        fulldate = stringBufferDf.toString();
+        mFulldate = stringBufferDf.toString();
+
+        // Hora Inicio Final
+        mHoraInicio = getIntent().getStringExtra("horaInicio");
+        mHoraFinal = getIntent().getStringExtra("horaFinal");
+        mMinutoInicio = getIntent().getStringExtra("minutoInicio");
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+        try {
+            mInitialDate = dateFormat.parse(mYear + "-" + mMonth + "-" + mDay
+                    + " " + mHoraInicio + ":" + mMinutoInicio);
+        } catch (ParseException e) {
+            Log.e(TAG,
+                    "Error converting base data, result could have worng start date.");
+        }
 
         // Create object
         datosPeticionHorarioCercanias.setNucleo(Integer.toString(nucleoId));
@@ -188,10 +253,12 @@ public class HorarioCercaniasActivity extends Activity {
                 .toString(estacionOrigenId));
         datosPeticionHorarioCercanias.setDestino(Integer
                 .toString(estacionDestinoId));
-        datosPeticionHorarioCercanias.setFechaViaje(fulldate);
+        datosPeticionHorarioCercanias.setFechaViaje(mFulldate);
         datosPeticionHorarioCercanias.setEstacionOrigenName(estacionOrigenName);
         datosPeticionHorarioCercanias
                 .setEstacionDestinoName(estacionDestinoName);
+        datosPeticionHorarioCercanias.setHoraInicio(mHoraInicio);
+        datosPeticionHorarioCercanias.setHoraFinal(mHoraFinal);
 
         return datosPeticionHorarioCercanias;
     }
@@ -211,6 +278,7 @@ public class HorarioCercaniasActivity extends Activity {
         @Override
         public void handleMessage(Message msg) {
 
+            // TODO: Crear y asociar un adapter para mostrar los resultados.
             switch (msg.what) {
             case HorariosCercaniasHandler.TASK_COMPLETE:
 
@@ -225,7 +293,11 @@ public class HorarioCercaniasActivity extends Activity {
                 LayoutParams tableRowLayoutParams = new TableRow.LayoutParams(
                         LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT,
                         1.0f);
+
                 for (HorarioCercanias horarioCercanias : mHorarioCercaniasList) {
+
+                    if (!checkCorrectInitialDate(horarioCercanias))
+                        continue;
 
                     TableRow tableRowHorario = new TableRow(
                             HorarioCercaniasActivity.this);
@@ -306,7 +378,7 @@ public class HorarioCercaniasActivity extends Activity {
                     tableRowHorario.addView(textViewDuracion);
                     tableRowHorario.addView(textViewLinea);
 
-                    tableLayoutHorarios.addView(tableRowHorario);
+                    mTableLayoutHorarios.addView(tableRowHorario);
 
                     i++;
 
@@ -315,11 +387,42 @@ public class HorarioCercaniasActivity extends Activity {
                 break;
             case HorariosCercaniasHandler.TASK_ERROR:
                 // Recibe un error y lo muestra al usuario.
+                // TODO: Ha de seleccionar otra fecha.
                 Toast.makeText(getApplicationContext(), msg.obj.toString(),
                         Toast.LENGTH_SHORT).show();
                 break;
             }
 
+        }
+
+        /**
+         * Comprueba si la hora de salida es posterior a la especificada.
+         * 
+         * @param horarioCercanias
+         * @return true si es posterior.
+         */
+        public Boolean checkCorrectInitialDate(HorarioCercanias horarioCercanias) {
+
+            SimpleDateFormat dateFormat = new SimpleDateFormat(
+                    "yyyy-MM-dd HH:mm:ss");
+
+            Date dateSalida;
+            String horaSalida = horarioCercanias.getHoraSalida();
+            try {
+                dateSalida = dateFormat.parse(mYear + "-" + mMonth + "-" + mDay
+                        + " " + horaSalida);
+
+                // Si la fecha inicial es mayor que la respuesta,
+                // continua la siguiente iteración.
+                if (mInitialDate.compareTo(dateSalida) > 0) {
+                    return false;
+                }
+            } catch (ParseException e) {
+                Log.e(TAG,
+                        "Error converting base data, result could have worng start date.");
+            }
+
+            return true;
         }
     };
 

@@ -33,6 +33,8 @@ public class DatosPeticionHorarioCercanias {
     private Intervalo intervalo;
     private String estacionOrigenName;
     private String estacionDestinoName;
+    private String horaInicio;
+    private String horaFinal;
 
     public String getOrigen() {
         return origen;
@@ -96,6 +98,22 @@ public class DatosPeticionHorarioCercanias {
 
     public void setNucleoName(String nucleoName) {
         this.nucleoName = nucleoName;
+    }
+
+    public String getHoraInicio() {
+        return horaInicio;
+    }
+
+    public void setHoraInicio(String horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    public String getHoraFinal() {
+        return horaFinal;
+    }
+
+    public void setHoraFinal(String horaFinal) {
+        this.horaFinal = horaFinal;
     }
 
 }

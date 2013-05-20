@@ -16,7 +16,8 @@
 
 package com.ricardogarfe.renfe.model;
 
-import com.google.android.maps.GeoPoint;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 /**
  * 
@@ -24,11 +25,12 @@ import com.google.android.maps.GeoPoint;
  * 
  * @author ricardo
  */
-public class NucleoCercanias {
+public class NucleoCercanias implements Parcelable {
 
     private Integer codigo;
     private String descripcion;
-    private GeoPoint geoPoint;
+    private Double latitude;
+    private Double longitude;
     private String iconoMapa;
     private String tarifas;
     private String incidencias;
@@ -36,6 +38,11 @@ public class NucleoCercanias {
     private String estacionesXML;
     private String lineasJSON;
     private String lineasXML;
+
+    public NucleoCercanias() {
+        // TODO Auto-generated constructor stub
+        super();
+    }
 
     public Integer getCodigo() {
         return codigo;
@@ -77,14 +84,6 @@ public class NucleoCercanias {
         this.incidencias = incidencias;
     }
 
-    public GeoPoint getGeoPoint() {
-        return geoPoint;
-    }
-
-    public void setGeoPoint(GeoPoint geoPoint) {
-        this.geoPoint = geoPoint;
-    }
-
     public String getEstacionesJSON() {
         return estacionesJSON;
     }
@@ -115,6 +114,84 @@ public class NucleoCercanias {
 
     public void setLineasXML(String lineasXML) {
         this.lineasXML = lineasXML;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public static final Parcelable.Creator<NucleoCercanias> CREATOR = new Creator<NucleoCercanias>() {
+
+        public NucleoCercanias[] newArray(int size) {
+            // TODO Auto-generated method stub
+            return new NucleoCercanias[size];
+        }
+
+        public NucleoCercanias createFromParcel(Parcel source) {
+            // TODO Auto-generated method stub
+            return new NucleoCercanias(source);
+        }
+    };
+
+    /**
+     * Constructor that takes a Parcel and gives you an object populated with
+     * it's values
+     * 
+     * @param source
+     *            Parcel values to compose object.
+     */
+    private NucleoCercanias(Parcel source) {
+        // TODO Auto-generated constructor stub
+        codigo = source.readInt();
+        descripcion = source.readString();
+        latitude = source.readDouble();
+        longitude = source.readDouble();
+        iconoMapa = source.readString();
+        tarifas = source.readString();
+        incidencias = source.readString();
+        estacionesJSON = source.readString();
+        estacionesXML = source.readString();
+        lineasJSON = source.readString();
+        lineasXML = source.readString();
+    }
+
+    public int describeContents() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    /**
+     * {@inheritDoc}
+     * 
+     * <p>
+     * Write values from object to Parcel dest.
+     * </p>
+     */
+    public void writeToParcel(Parcel dest, int flags) {
+        // TODO Auto-generated method stub
+        dest.writeInt(codigo);
+        dest.writeString(descripcion);
+        dest.writeDouble(latitude);
+        dest.writeDouble(longitude);
+        dest.writeString(iconoMapa);
+        dest.writeString(tarifas);
+        dest.writeString(incidencias);
+        dest.writeString(estacionesJSON);
+        dest.writeString(estacionesXML);
+        dest.writeString(lineasJSON);
+        dest.writeString(lineasXML);
     }
 
 }

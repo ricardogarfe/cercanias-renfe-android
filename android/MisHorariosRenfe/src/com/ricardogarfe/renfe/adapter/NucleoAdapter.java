@@ -19,19 +19,22 @@ package com.ricardogarfe.renfe.adapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ricardogarfe.renfe.R;
-import com.ricardogarfe.renfe.model.NucleoCercanias;
-
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.ricardogarfe.renfe.LineasActivity;
+import com.ricardogarfe.renfe.R;
+import com.ricardogarfe.renfe.model.NucleoCercanias;
 
 /**
  * @author ricardo
@@ -93,23 +96,27 @@ public class NucleoAdapter extends BaseAdapter implements Filterable {
         // TODO Auto-generated method stub
         View view;
 
+        final NucleoCercanias nucleoCercanias = mNucleoCercaniasList
+                .get(position);
+
         if (convertView == null) {
 
             LayoutInflater inflater = (LayoutInflater) mContext
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-            view = inflater.inflate(R.layout.complex_list_main, parent, false);
+            view = inflater.inflate(R.layout.nucleos_complex_list, parent,
+                    false);
         } else
             view = convertView;
 
         // Dar valores a los Widgets del elemento complejo de la lista
         // descrito en complex_list_main.xml
 
-        // Text Tittle Nucleo.
+        // Text Title Nucleo.
         TextView titleTextView = (TextView) view.findViewById(R.id.nucleo_name);
 
-        titleTextView.setText(mNucleoCercaniasList.get(position)
-                .getDescripcion());
+        final String nucleoDescription = nucleoCercanias.getDescripcion();
+        titleTextView.setText(nucleoDescription);
         titleTextView.setTextColor(Color.WHITE);
 
         // TODO: Añadir descripcion.
@@ -125,6 +132,27 @@ public class NucleoAdapter extends BaseAdapter implements Filterable {
 
         imageViewLogo.setImageDrawable(mContext.getResources().getDrawable(
                 R.drawable.logo_cercanias));
+
+        // Imageinfo behavior
+        ImageView imageInfoView = (ImageView) view
+                .findViewById(R.id.info_image);
+
+        imageInfoView.setImageDrawable(mContext.getResources().getDrawable(
+                R.drawable.infowhite));
+
+        imageInfoView.setOnClickListener(new OnClickListener() {
+
+            public void onClick(View v) {
+
+                // Enviar a la actividad de información del nucleo
+                // seleccionado
+                Intent intentLineasDetail = new Intent(mContext,
+                        LineasActivity.class);
+                intentLineasDetail.putExtra("nucleoCercanias", nucleoCercanias);
+                mContext.startActivity(intentLineasDetail);
+
+            }
+        });
 
         view.setId(mNucleoCercaniasList.get(position).getCodigo());
         return view;

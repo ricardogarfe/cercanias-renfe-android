@@ -23,12 +23,15 @@ import java.util.Calendar;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -42,7 +45,9 @@ import android.widget.Toast;
 import com.ricardogarfe.renfe.asynctasks.RetrieveEstacionesNucleoTask;
 import com.ricardogarfe.renfe.model.EstacionCercanias;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
-import com.ricardogarfe.renfe.services.parser.JSONEstacionCercaniasParser;
+import com.ricardogarfe.renfe.widgets.dateslider.DateSlider;
+import com.ricardogarfe.renfe.widgets.dateslider.DateTimeSlider;
+import com.ricardogarfe.renfe.widgets.dateslider.labeler.TimeLabeler;
 
 public class EstacionesNucleoViajeActivity extends Activity {
 
@@ -50,9 +55,12 @@ public class EstacionesNucleoViajeActivity extends Activity {
     private Spinner origenSpinner;
     private Spinner destinoSpinner;
 
-    private Spinner day;
-    private Spinner month;
-    private Spinner year;
+    // Date time slider
+    static final int DATETIMESELECTOR_ID = 5;
+
+    private Button dateTimeButton;
+    static final String HORAINICIO_ZERO = "00";
+    static final String HORAFINAL = "24";
 
     // Context
     public static Context mEstacionesNucleoViajeContext;
@@ -65,7 +73,7 @@ public class EstacionesNucleoViajeActivity extends Activity {
     private int estacionOrigenPosToSet = 0;
     private int estacionDestinoPosToSet = 0;
 
-    boolean can_change = false;
+    boolean retrieveSharedPreferences = false;
 
     // AsyncTasks
     private RetrieveEstacionesNucleoTask retrieveEstacionesNucleoTask;
@@ -73,13 +81,10 @@ public class EstacionesNucleoViajeActivity extends Activity {
     private String TAG = getClass().getSimpleName();
 
     // Nucleo values
-    private int codigoNucleo;
-    private String descripcionNucleo;
-    private String estacionesJSON;
+    private NucleoCercanias mNucleoCercanias;
 
     // Configuracion estaciones.
-    private JSONEstacionCercaniasParser jsonEstacionCercaniasParser;
-    private List<EstacionCercanias> estacionCercaniasList;
+    private static List<EstacionCercanias> estacionCercaniasList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -100,17 +105,23 @@ public class EstacionesNucleoViajeActivity extends Activity {
         destinoSpinner
                 .setOnItemSelectedListener(estacionDestinoSelectedListener);
 
+    }
+
+    /**
+     * Check if exist shared preferences to update spinners.
+     * 
+     * @return true if exist.
+     */
+    public boolean isNucleoChangedFromSharedPreferences() {
         // Comprobar si existen en sharedPreferences estaciones seleccionadas.
-        boolean codigoNucleoSet = mPreferences.getInt("codigoNucleo", 0) == codigoNucleo;
-        boolean estacionOrigenSet = mPreferences
+        final boolean codigoNucleoSet = mPreferences.getInt("codigoNucleo", 0) == mNucleoCercanias
+                .getCodigo() ? true : false;
+        final boolean estacionOrigenSet = mPreferences
                 .contains("estacionOrigenPosToSet");
-        boolean estacioDestinoSet = mPreferences
+        final boolean estacioDestinoSet = mPreferences
                 .contains("estacionDestinoPosToSet");
 
-        if (codigoNucleoSet && estacionOrigenSet && estacioDestinoSet) {
-            can_change = true;
-        }
-
+        return (codigoNucleoSet && estacionOrigenSet && estacioDestinoSet);
     }
 
     /**
@@ -124,65 +135,93 @@ public class EstacionesNucleoViajeActivity extends Activity {
         verHorariosButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
 
-                // Mostrar error elegir una misma estacion de origen y destino.
-                if (estacionOrigenId == estacionDestinoId) {
-                    Toast.makeText(
-                            getApplicationContext(),
-                            "Las estaciones de origen y destino no pueden ser iguales",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Intent intent = new Intent(getApplicationContext(),
-                            HorarioCercaniasActivity.class);
-                    intent.putExtra("estacionOrigenId", estacionOrigenId);
-                    intent.putExtra("estacionDestinoId", estacionDestinoId);
+                // Send values to HorariosActivity.
+                final Calendar nextCalendar = Calendar.getInstance();
+                sendToHorariosActivity(nextCalendar);
+            }
 
-                    int origenSpinnerPosition = origenSpinner
-                            .getSelectedItemPosition();
-                    String estacionOrigenName = estacionCercaniasList.get(
-                            origenSpinnerPosition).getDescripcion();
+        });
 
-                    int destinoSpinnerPosition = destinoSpinner
-                            .getSelectedItemPosition();
-                    String estacionDestinoName = estacionCercaniasList.get(
-                            destinoSpinnerPosition).getDescripcion();
-
-                    // Configure day TODO: select day instance.
-                    Calendar calendar = Calendar.getInstance();
-
-                    DecimalFormat mFormat = new DecimalFormat("00");
-                    mFormat.setRoundingMode(RoundingMode.DOWN);
-
-                    int dayInt = calendar.get(Calendar.DATE);
-                    String currentDay = mFormat.format(Double.valueOf(dayInt));
-
-                    int monthInt = calendar.get(Calendar.MONTH) + 1;
-                    String currentMonth = mFormat.format(Double
-                            .valueOf(monthInt));
-
-                    String currentYear = Integer.toString(calendar.get(Calendar.YEAR));
-
-                    intent.putExtra("day", currentDay);
-                    intent.putExtra("month", currentMonth);
-                    intent.putExtra("year", currentYear);
-
-                    intent.putExtra("nucleoId", codigoNucleo);
-                    intent.putExtra("nucleoName", descripcionNucleo);
-                    intent.putExtra("estacionOrigenName", estacionOrigenName);
-                    intent.putExtra("estacionDestinoName", estacionDestinoName);
-
-                    SharedPreferences.Editor editor = mPreferences.edit();
-                    editor.putInt("codigoNucleo", codigoNucleo);
-                    editor.putInt("estacionOrigenPosToSet",
-                            estacionOrigenPosToSet);
-                    editor.putInt("estacionDestinoPosToSet",
-                            estacionDestinoPosToSet);
-                    editor.commit();
-
-                    startActivity(intent);
-
-                }
+        // Date Picker widgets
+        dateTimeButton = (Button) this.findViewById(R.id.dateTimeSelectButton);
+        // set up a listener for when the button is pressed
+        dateTimeButton.setOnClickListener(new OnClickListener() {
+            public void onClick(View arg0) {
+                // call the internal showDialog method using the predefined ID
+                showDialog(DATETIMESELECTOR_ID);
             }
         });
+
+    }
+
+    /**
+     * Check values from UI and send to HorariosActivity
+     * <ul>
+     * <li>Estación Origen</li>
+     * <li>Estación Destino</li>
+     * <li>Fecha</li>
+     * 
+     * @param selectedCalendar
+     *            Calendar with date values to retrieve horarios.
+     */
+    public void sendToHorariosActivity(Calendar selectedCalendar) {
+
+        // Mostrar error elegir una misma estacion de origen y destino.
+        if (estacionOrigenId == estacionDestinoId) {
+            Toast.makeText(getApplicationContext(), getResources().getString(R.string.origen_destino),
+                    Toast.LENGTH_SHORT).show();
+        } else {
+            Intent intent = new Intent(getApplicationContext(),
+                    HorarioCercaniasActivity.class);
+            intent.putExtra("estacionOrigenId", estacionOrigenId);
+            intent.putExtra("estacionDestinoId", estacionDestinoId);
+
+            int origenSpinnerPosition = origenSpinner.getSelectedItemPosition();
+            String estacionOrigenName = estacionCercaniasList.get(
+                    origenSpinnerPosition).getDescripcion();
+
+            int destinoSpinnerPosition = destinoSpinner
+                    .getSelectedItemPosition();
+            String estacionDestinoName = estacionCercaniasList.get(
+                    destinoSpinnerPosition).getDescripcion();
+
+            DecimalFormat mFormat = new DecimalFormat("00");
+            mFormat.setRoundingMode(RoundingMode.DOWN);
+
+            final Integer dayInt = selectedCalendar.get(Calendar.DATE);
+            final String currentDay = mFormat.format(Double.valueOf(dayInt));
+
+            final Integer monthInt = selectedCalendar.get(Calendar.MONTH) + 1;
+            final String currentMonth = mFormat
+                    .format(Double.valueOf(monthInt));
+
+            final String currentYear = Integer.toString(selectedCalendar
+                    .get(Calendar.YEAR));
+
+            final Integer horaInicioInt = selectedCalendar
+                    .get(Calendar.HOUR_OF_DAY);
+            final String horaInicio = mFormat.format(Double
+                    .valueOf(horaInicioInt));
+
+            final Integer minutoInicioInt = selectedCalendar
+                    .get(Calendar.MINUTE);
+            final String minutoInicio = mFormat.format(Double
+                    .valueOf(minutoInicioInt));
+
+            intent.putExtra("day", currentDay);
+            intent.putExtra("month", currentMonth);
+            intent.putExtra("year", currentYear);
+            intent.putExtra("horaInicio", horaInicio);
+            intent.putExtra("minutoInicio", minutoInicio);
+            intent.putExtra("horaFinal", HORAFINAL);
+            intent.putExtra("nucleoId", mNucleoCercanias.getCodigo());
+            intent.putExtra("nucleoName", mNucleoCercanias.getDescripcion());
+            intent.putExtra("estacionOrigenName", estacionOrigenName);
+            intent.putExtra("estacionDestinoName", estacionDestinoName);
+
+            startActivity(intent);
+
+        }
     }
 
     /**
@@ -199,22 +238,38 @@ public class EstacionesNucleoViajeActivity extends Activity {
 
         if (intentFromActivity != null) {
 
-            codigoNucleo = intentFromActivity.getIntExtra("codigo_nucleo", 0);
-            descripcionNucleo = intentFromActivity
-                    .getStringExtra("descripcion_nucleo");
-
-            if (descripcionNucleo != null) {
-                textViewNucleo.setText(descripcionNucleo);
-            }
+            mNucleoCercanias = intentFromActivity
+                    .getParcelableExtra("nucleoCercanias");
+            textViewNucleo.setText(mNucleoCercanias.getDescripcion());
         }
 
-        estacionesJSON = intentFromActivity.getStringExtra("estaciones_json");
+        retrieveSharedPreferences = isNucleoChangedFromSharedPreferences();
 
-        retrieveEstacionesNucleoTask = new RetrieveEstacionesNucleoTask();
-        retrieveEstacionesNucleoTask.execute(estacionesJSON, null, null);
-        retrieveEstacionesNucleoTask
-                .setMessageEstacionesNucleoHandler(messageEstacionesNucleoHandler);
+        if (!retrieveSharedPreferences
+                || (estacionCercaniasList == null || estacionCercaniasList
+                        .isEmpty())) {
+            retrieveEstacionesNucleoTask = new RetrieveEstacionesNucleoTask();
 
+            ProgressDialog progressDialog = new ProgressDialog(
+                    mEstacionesNucleoViajeContext);
+            progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            progressDialog.setTitle(mNucleoCercanias.getDescripcion());
+            progressDialog.setMessage(getResources().getString(
+                    R.string.retrievingStations));
+
+            retrieveEstacionesNucleoTask.setProgressDialog(progressDialog);
+
+            retrieveEstacionesNucleoTask.execute(
+                    mNucleoCercanias.getEstacionesJSON(), null, null);
+            retrieveEstacionesNucleoTask
+                    .setMessageEstacionesNucleoHandler(messageEstacionesNucleoHandler);
+        } else {
+
+            Message messageEstacionesNucleo = new Message();
+            messageEstacionesNucleo.obj = estacionCercaniasList;
+            messageEstacionesNucleoHandler.sendMessage(messageEstacionesNucleo);
+
+        }
     }
 
     /**
@@ -252,9 +307,10 @@ public class EstacionesNucleoViajeActivity extends Activity {
         public void onItemSelected(AdapterView parent, View v, int position,
                 long id) {
 
-            if (can_change) {
+            if (retrieveSharedPreferences) {
                 origenSpinner.setSelection(mPreferences.getInt(
                         "estacionOrigenPosToSet", 0));
+                retrieveSharedPreferences = false;
             }
 
             if (origenSpinner.getSelectedItemPosition() >= 0) {
@@ -273,10 +329,10 @@ public class EstacionesNucleoViajeActivity extends Activity {
         public void onItemSelected(AdapterView parent, View v, int position,
                 long id) {
 
-            if (can_change) {
+            if (retrieveSharedPreferences) {
                 destinoSpinner.setSelection(mPreferences.getInt(
                         "estacionDestinoPosToSet", 0));
-                can_change = false;
+                retrieveSharedPreferences = false;
             }
 
             if (destinoSpinner.getSelectedItemPosition() >= 0) {
@@ -291,4 +347,71 @@ public class EstacionesNucleoViajeActivity extends Activity {
         }
     };
 
+    protected void onSaveInstanceState(Bundle outState) {
+
+        saveSharedPreferences();
+    }
+
+    @Override
+    protected void onStop() {
+
+        saveSharedPreferences();
+        super.onStop();
+    }
+
+    /**
+     * Save values from nucleos y estaciones in Shared Preferences.
+     */
+    public void saveSharedPreferences() {
+        SharedPreferences.Editor editor = mPreferences.edit();
+        editor.putInt("codigoNucleo", mNucleoCercanias.getCodigo());
+        editor.putInt("estacionOrigenPosToSet", estacionOrigenPosToSet);
+        editor.putInt("estacionDestinoPosToSet", estacionDestinoPosToSet);
+        editor.putBoolean("isNucleoRetrieved", estacionCercaniasList != null
+                && !estacionCercaniasList.isEmpty());
+        editor.commit();
+    };
+
+    private DateSlider.OnDateSetListener mDateTimeSetListener = new DateSlider.OnDateSetListener() {
+        public void onDateSet(DateSlider view, Calendar selectedDate) {
+            // update the dateText view with the corresponding date
+            int minute = selectedDate.get(Calendar.MINUTE)
+                    / TimeLabeler.MINUTEINTERVAL * TimeLabeler.MINUTEINTERVAL;
+
+            Log.i(TAG, String.format(
+                    "The chosen date and time:%n%te. %tB %tY%n%tH:%02d",
+                    selectedDate, selectedDate, selectedDate, selectedDate,
+                    minute));
+
+            // Send using Date values.
+            sendToHorariosActivity(selectedDate);
+        }
+    };
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+
+        // this method is called after invoking 'showDialog' for the first time
+        // here we initiate the corresponding DateSlideSelector and return the
+        // dialog to its caller
+
+        final Calendar calendar = Calendar.getInstance();
+        switch (id) {
+
+        case DATETIMESELECTOR_ID:
+
+            final Calendar maxTime = Calendar.getInstance();
+            maxTime.add(Calendar.DAY_OF_MONTH, 29);
+
+            final Calendar minTime = Calendar.getInstance();
+            minTime.add(Calendar.DAY_OF_MONTH, -68);
+
+            // You can define minimum time and max time using a calendar
+            // instance for DateTimeSlider constructor.
+            return new DateTimeSlider(this, mDateTimeSetListener, calendar,
+                    minTime, maxTime);
+        }
+        return null;
+
+    }
 }

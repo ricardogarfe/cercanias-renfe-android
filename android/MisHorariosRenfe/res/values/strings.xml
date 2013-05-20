@@ -13,32 +13,51 @@
  
  You should have received a copy of the GNU General Public License along with
  this program. If not, see <http://www.gnu.org/licenses/>. 
- -->
+-->
 
 <resources>
 
-    <string name="app_name">Cercanías Renfe</string>
-    <string name="stationSalida">Salida</string>
-    <string name="stationLlegada">Llegada</string>
-    <string name="tiempo">Duración</string>
-    <string name="lineaSalida">Línea</string>
+    <string name="app_name">Mis Horarios</string>
+    <string name="stationSalida">Departure</string>
+    <string name="stationLlegada">Destination</string>
+    <string name="tiempo">Duration</string>
+    <string name="lineaSalida">Line</string>
 
     <!-- Nucleos view -->
-    <string name="textNucleos">Nucleos</string>
-    <string name="nucleosSearch">Buscar nucleos</string>
-    
-    <!-- Estacion Nucleos Layout -->
-    <string name="seleccionEstaciones">Estaciones</string>
+    <string name="textNucleos">Nucleus</string>
+    <string name="nucleosSearch">Search nucleus</string>
 
-    <string name="estacionOrigenText">Estación de origen</string>
-    <string name="estacionDestinoText">Estación de destino</string>
-    <string name="verHorariosButton">Ver horarios</string>
+    <!-- Estacion Nucleos Layout -->
+    <string name="seleccionEstaciones">Stations</string>
+    <string name="estacionOrigenText">Departure station</string>
+    <string name="estacionDestinoText">Destination station</string>
+    <string name="verHorariosButton">Next train</string>
+    <string name="dateTimeSelectButton">Date</string>
+    <string name="retrievingStations">Retrieving stations</string>
+    <string name="origen_destino">Departure and Destination stations can\'t be the same</string>
+
+    <!-- Lineas -->
+    <string name="retrievingLines">Retrieving Lines</string>
 
     <!-- Hoarios Cercanias Layout -->
-    <string name="mostrarHorarios">Horarios</string>
-    <string name="infoNucleo">Nucleo</string>
-    <string name="infoStations">Estación origen - Estación destino</string>
-    <string name="infoFecha">Fecha</string>
-    <string name="buttonVuelta">Viaje de vuelta</string>
+    <string name="mostrarHorarios">Timetables</string>
+    <string name="infoNucleo">Nucleus</string>
+    <string name="infoStations">Departure station - Destination station</string>
+    <string name="infoFecha">Date</string>
+    <string name="buttonVuelta">Return timetable</string>
+
+    <!-- Google Maps API key -->
+    <string name="map_key">0Tp7WsIDiyqoDmSF9LMprvDzte-hj_A6r-qxbow</string>
+    <string name="mapNucleosView">Stations</string>
+    <string name="title_activity_nucleo_detail">Information</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Map View -->
+    <string name="no_location_values">No values for line</string>
+
+    <!-- Date time -->
+    <string name="dateSliderTitle">Selected date</string>
+    <string name="dateSliderSet">Timetables</string>
+    <string name="dateSliderCancel">Cancel</string>
 
 </resources>

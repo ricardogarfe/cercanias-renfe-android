@@ -30,7 +30,7 @@ import android.widget.ListView;
 
 import com.ricardogarfe.renfe.adapter.NucleoAdapter;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
-import com.ricardogarfe.renfe.services.parser.JSONNucleosCercaniasParser;
+import com.ricardogarfe.renfe.parser.JSONNucleosCercaniasParser;
 
 public class NucleosActivity extends ListActivity {
 
@@ -59,6 +59,14 @@ public class NucleosActivity extends ListActivity {
         } catch (Exception e) {
             Log.e(TAG, "Parsing JSON data:\t" + e.getMessage());
         }
+
+        configureWidgets();
+    }
+
+    /**
+     * Configure Widget values to initialize ui.
+     */
+    public void configureWidgets() {
 
         // Asociar el adapter para tratar la información.
         mNucleoAdapter = new NucleoAdapter(this);
@@ -103,13 +111,8 @@ public class NucleosActivity extends ListActivity {
 
         Intent intentEstacionesNucleos = new Intent(NucleosActivity.this,
                 EstacionesNucleoViajeActivity.class);
-        intentEstacionesNucleos.putExtra("codigo_nucleo",
-                nucleosCercaniasSelected.getCodigo());
-        intentEstacionesNucleos.putExtra("descripcion_nucleo",
-                nucleosCercaniasSelected.getDescripcion());
-
-        intentEstacionesNucleos.putExtra("estaciones_json",
-                nucleosCercaniasSelected.getEstacionesJSON());
+        intentEstacionesNucleos.putExtra("nucleoCercanias",
+                nucleosCercaniasSelected);
 
         startActivity(intentEstacionesNucleos);
     }
