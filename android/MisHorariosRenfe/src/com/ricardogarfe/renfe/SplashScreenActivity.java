@@ -1,8 +1,12 @@
 package com.ricardogarfe.renfe;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Window;
 
 public class SplashScreenActivity extends Activity {
@@ -10,6 +14,8 @@ public class SplashScreenActivity extends Activity {
     private long splashTime = 2000;
     private boolean splashActive = true;
     private boolean paused = false;
+
+    private String TAG = getClass().getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +26,8 @@ public class SplashScreenActivity extends Activity {
 
         setContentView(R.layout.splash);
 
+        // TODO: Check and Download all files from internet.
+        isNetworkConnected();
         Thread mythread = new Thread() {
             public void run() {
                 try {
@@ -37,5 +45,18 @@ public class SplashScreenActivity extends Activity {
             }
         };
         mythread.start();
+    }
+
+    private boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo ni = cm.getActiveNetworkInfo();
+        if (ni == null) {
+            // There are no active networks.
+            Log.d(TAG, "Network is not connected.");
+            return false;
+        } else {
+            Log.d(TAG, "Network is connected.");
+            return true;
+        }
     }
 }
