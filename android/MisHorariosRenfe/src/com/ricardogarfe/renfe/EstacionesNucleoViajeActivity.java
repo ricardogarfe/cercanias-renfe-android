@@ -168,8 +168,7 @@ public class EstacionesNucleoViajeActivity extends Activity {
 
         // Mostrar error elegir una misma estacion de origen y destino.
         if (estacionOrigenId == estacionDestinoId) {
-            Toast.makeText(getApplicationContext(),
-                    "Las estaciones de origen y destino no pueden ser iguales",
+            Toast.makeText(getApplicationContext(), getResources().getString(R.string.origen_destino),
                     Toast.LENGTH_SHORT).show();
         } else {
             Intent intent = new Intent(getApplicationContext(),

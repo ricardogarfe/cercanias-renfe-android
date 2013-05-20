@@ -34,6 +34,7 @@
     <string name="verHorariosButton">Próxim tren</string>
     <string name="dateTimeSelectButton">Data</string>
     <string name="retrievingStations">Obtenint estacions</string>
+    <string name="origen_destino">Les estacions d\'origen i destinació no poden ser iguals</string>
 
     <!-- Lineas -->
     <string name="retrievingLines">Obtenint Linies</string>

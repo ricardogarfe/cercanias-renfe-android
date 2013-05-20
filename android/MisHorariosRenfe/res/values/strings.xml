@@ -34,6 +34,7 @@
     <string name="verHorariosButton">Next train</string>
     <string name="dateTimeSelectButton">Date</string>
     <string name="retrievingStations">Retrieving stations</string>
+    <string name="origen_destino">Departure and Destination stations can\'t be the same</string>
 
     <!-- Lineas -->
     <string name="retrievingLines">Retrieving Lines</string>
