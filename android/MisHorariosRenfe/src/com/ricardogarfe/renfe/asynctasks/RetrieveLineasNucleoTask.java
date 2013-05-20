@@ -34,8 +34,8 @@ import android.widget.Toast;
 import com.ricardogarfe.renfe.model.EstacionCercanias;
 import com.ricardogarfe.renfe.model.LineaCercanias;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
-import com.ricardogarfe.renfe.services.parser.JSONEstacionCercaniasParser;
-import com.ricardogarfe.renfe.services.parser.JSONLineasCercaniasParser;
+import com.ricardogarfe.renfe.parser.JSONEstacionCercaniasParser;
+import com.ricardogarfe.renfe.parser.JSONLineasCercaniasParser;
 
 /**
  * @author ricardo

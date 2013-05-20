@@ -23,7 +23,7 @@ import android.support.v4.content.AsyncTaskLoader;
 import android.util.Log;
 
 import com.ricardogarfe.renfe.model.NucleoCercanias;
-import com.ricardogarfe.renfe.services.parser.JSONNucleosCercaniasParser;
+import com.ricardogarfe.renfe.parser.JSONNucleosCercaniasParser;
 
 /**
  * @author ricardo

@@ -16,8 +16,11 @@
 
 package com.ricardogarfe.renfe;
 
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.codehaus.jackson.map.ObjectMapper;
 
 import android.app.ListActivity;
 import android.app.ProgressDialog;
@@ -28,15 +31,14 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ricardogarfe.renfe.adapter.LineaAdapter;
 import com.ricardogarfe.renfe.asynctasks.RetrieveLineasNucleoTask;
 import com.ricardogarfe.renfe.model.LineaCercanias;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
+import com.ricardogarfe.renfe.views.MapTabView;
 
 public class LineasActivity extends ListActivity {
 
@@ -52,6 +54,8 @@ public class LineasActivity extends ListActivity {
 
     private TextView nucleoNameTextView;
 
+    private ObjectMapper objectMapper;
+
     private RetrieveLineasNucleoTask mRetrieveLineasNucleoTask;
 
     @Override
@@ -65,7 +69,6 @@ public class LineasActivity extends ListActivity {
         configureWidgets();
 
         configureLineasPorNucleo();
-
     }
 
     /**
@@ -114,13 +117,43 @@ public class LineasActivity extends ListActivity {
      */
     protected void onListItemClick(ListView l, View v, int position, long id) {
 
-        Log.i(TAG, "Nucleo "
+        Log.d(TAG, "Nucleo "
                 + mLineaCercaniasList.get(position).getDescripcion()
                 + " selected");
 
-        Toast.makeText(this,
-                "Nucleo " + mLineaCercaniasList.get(position).getDescripcion(),
-                Toast.LENGTH_SHORT).show();
+        LineaCercanias lineaCercanias = (LineaCercanias) mLineaAdapter
+                .getItem(position);
+
+        FileOutputStream fileOutputStreamLinea;
+        String lineaFileName = "nucleo_" + mNucleoCercanias.getCodigo()
+                + "_linea_" + lineaCercanias.getCodigo() + "_estaciones"
+                + ".json";
+        try {
+            fileOutputStreamLinea = openFileOutput(lineaFileName,
+                    Context.MODE_PRIVATE);
+
+            objectMapper = new ObjectMapper();
+            objectMapper.writeValue(fileOutputStreamLinea, lineaCercanias);
+
+            Log.d(TAG, "JSON lineaCercanias:\n"
+                    + objectMapper.writerWithDefaultPrettyPrinter()
+                            .writeValueAsString(lineaCercanias));
+
+            Intent intentLineaEstacionesNucleo = new Intent(this,
+                    MapTabView.class);
+            intentLineaEstacionesNucleo.putExtra("nucleoCercanias",
+                    mNucleoCercanias);
+            intentLineaEstacionesNucleo
+                    .putExtra("lineaFileName", lineaFileName);
+
+            startActivity(intentLineaEstacionesNucleo);
+
+        } catch (Exception e) {
+
+            Log.e(TAG,
+                    "JSON lineaCercanias error creating file:\n"
+                            + e.getMessage());
+        }
     }
 
     /**
@@ -137,7 +170,6 @@ public class LineasActivity extends ListActivity {
             mLineaAdapter = new LineaAdapter(mLineasActivityContext);
             mLineaAdapter.setmLineaCercaniasList(mLineaCercaniasList);
             setListAdapter(mLineaAdapter);
-
         }
     };
 }

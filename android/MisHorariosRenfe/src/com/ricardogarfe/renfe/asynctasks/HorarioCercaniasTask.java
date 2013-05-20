@@ -35,10 +35,10 @@ import android.widget.Toast;
 
 import com.ricardogarfe.renfe.EstacionesNucleoViajeActivity;
 import com.ricardogarfe.renfe.HorarioCercaniasActivity;
+import com.ricardogarfe.renfe.handler.HorariosCercaniasHandler;
 import com.ricardogarfe.renfe.model.DatosPeticionHorarioCercanias;
 import com.ricardogarfe.renfe.model.HorarioCercanias;
-import com.ricardogarfe.renfe.services.handler.HorariosCercaniasHandler;
-import com.ricardogarfe.renfe.services.parser.JSONEstacionCercaniasParser;
+import com.ricardogarfe.renfe.parser.JSONEstacionCercaniasParser;
 
 /**
  * @author ricardo

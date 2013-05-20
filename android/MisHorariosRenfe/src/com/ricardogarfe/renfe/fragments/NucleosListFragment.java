@@ -35,7 +35,7 @@ import com.ricardogarfe.renfe.R;
 import com.ricardogarfe.renfe.adapter.NucleoAdapter;
 import com.ricardogarfe.renfe.asynctasksoader.NucleosLoader;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
-import com.ricardogarfe.renfe.services.parser.JSONNucleosCercaniasParser;
+import com.ricardogarfe.renfe.parser.JSONNucleosCercaniasParser;
 
 public class NucleosListFragment extends ListFragment implements
         LoaderManager.LoaderCallbacks<List<NucleoCercanias>> {

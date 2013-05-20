@@ -32,7 +32,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.ricardogarfe.renfe.model.EstacionCercanias;
-import com.ricardogarfe.renfe.services.parser.JSONEstacionCercaniasParser;
+import com.ricardogarfe.renfe.parser.JSONEstacionCercaniasParser;
 
 /**
  * @author ricardo

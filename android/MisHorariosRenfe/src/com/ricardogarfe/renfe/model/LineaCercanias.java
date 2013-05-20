@@ -16,6 +16,7 @@
 
 package com.ricardogarfe.renfe.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.os.Parcel;
@@ -138,7 +139,9 @@ public class LineaCercanias implements Parcelable {
         descripcion = source.readString();
         origen = source.readString();
         destino = source.readString();
-        source.readList(estacionCercaniasList, null);
+
+        estacionCercaniasList = new ArrayList<EstacionCercanias>();
+        source.readTypedList(estacionCercaniasList, EstacionCercanias.CREATOR);
     }
 
 }

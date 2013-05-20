@@ -5,6 +5,12 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
+    <TextView
+        android:id="@+id/textViewLocation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center" />
+
     <com.google.android.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="fill_parent"

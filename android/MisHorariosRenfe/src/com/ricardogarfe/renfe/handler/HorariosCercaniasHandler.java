@@ -14,7 +14,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.ricardogarfe.renfe.services.handler;
+package com.ricardogarfe.renfe.handler;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -47,9 +47,12 @@
 
     <!-- Google Maps API key -->
     <string name="map_key">0Tp7WsIDiyqoDmSF9LMprvDzte-hj_A6r-qxbow</string>
-    <string name="mapNucleosView">Cancel</string>
+    <string name="mapNucleosView">Stations</string>
     <string name="title_activity_nucleo_detail">Information</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Map View -->
+    <string name="no_location_values">No values for line</string>
 
     <!-- Date time -->
     <string name="dateSliderTitle">Selected date</string>

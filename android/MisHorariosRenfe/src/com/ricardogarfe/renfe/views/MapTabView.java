@@ -16,12 +16,21 @@
 
 package com.ricardogarfe.renfe.views;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
+
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.location.Location;
 import android.os.Bundle;
-import android.view.Menu;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,15 +40,27 @@ import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.ricardogarfe.renfe.R;
+import com.ricardogarfe.renfe.maps.overlay.MapOverlay;
+import com.ricardogarfe.renfe.model.EstacionCercanias;
+import com.ricardogarfe.renfe.model.LineaCercanias;
+import com.ricardogarfe.renfe.model.NucleoCercanias;
+import com.ricardogarfe.renfe.service.ILocService;
 
-public class MapTabView extends MapActivity {
+public class MapTabView extends MapActivity implements ILocService {
 
     private MapView mapView;
     private MapController mapController;
 
-    private GeoPoint mGeoPoint;
+    private LineaCercanias mLineaCercanias;
+
+    private NucleoCercanias mNucleoCercanias;
+    private String mLineaFileName;
 
     private TextView textViewLocation;
+
+    private ObjectMapper objectMapper;
+
+    private String TAG = getClass().getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +71,7 @@ public class MapTabView extends MapActivity {
         mapView = (MapView) findViewById(R.id.mapView);
 
         // TexViewLocation
-        // textViewLocation = (TextView) findViewById(R.id.textViewLocation);
+        textViewLocation = (TextView) findViewById(R.id.textViewLocation);
 
         // Aplicar Zoom y clickable
         mapView.setBuiltInZoomControls(true);
@@ -72,69 +93,111 @@ public class MapTabView extends MapActivity {
         // Retrieve value from nucleos activity.
         Intent intentFromActivity = getIntent();
 
-        // if (intentFromActivity != null) {
-        //
-        // double latitudSelected = intentFromActivity
-        // .getDoubleExtra("Lat", 0);
-        // double longitudSelected = intentFromActivity.getDoubleExtra("Lon",
-        // 0);
-        //
-        // mNodeMap = new Node();
-        // mNodeMap.mLat = latitudSelected;
-        // mNodeMap.mLon = longitudSelected;
-        // mNodeMap.mTitle = intentFromActivity.getStringExtra("title");
-        // mNodeMap.mDescription = intentFromActivity
-        // .getStringExtra("description");
-        // mNodeMap.mImageResource = intentFromActivity
-        // .getIntExtra("image", 0);
-        //
-        // }
+        if (intentFromActivity != null) {
+
+            mLineaFileName = intentFromActivity.getStringExtra("lineaFileName");
+            mNucleoCercanias = intentFromActivity
+                    .getParcelableExtra("nucleoCercanias");
+
+        }
 
     }
 
     private void refreshMap() {
 
-        // if (mNodeMap == null) {
-        // Toast.makeText(getBaseContext(), "Location not available!",
-        // Toast.LENGTH_LONG).show();
-        //
-        // return;
-        // }
-        //
-        // mGeoPoint = new GeoPoint((int) (mNodeMap.mLat * 1E6),
-        // (int) (mNodeMap.mLon * 1E6));
-        //
-        // mapController.setZoom(18);
-        // mapController.animateTo(mGeoPoint);
-        //
-        // MapOverlay myMapOver = new MapOverlay();
-        //
-        // Drawable drawable =
-        // getResources().getDrawable(mNodeMap.mImageResource);
-        // drawable.setBounds(0, 0, 50, 50);
-        //
-        // myMapOver.setDrawable(drawable);
-        // myMapOver.setGeoPoint(mGeoPoint);
-        // myMapOver.setTextToShow(mNodeMap.mTitle);
-        //
-        // final List<Overlay> overlays = mapView.getOverlays();
-        // overlays.clear();
-        //
-        // overlays.add(myMapOver);
-        //
-        // mapView.setBuiltInZoomControls(true);
-        //
-        // mapView.setClickable(true);
-        //
-        // textViewLocation.setText("Your Current Location: \n"
-        // + String.valueOf(mGeoPoint.getLatitudeE6()) + " , "
-        // + String.valueOf(mGeoPoint.getLongitudeE6()));
+        FileInputStream lineaFileInputStream;
+        objectMapper = new ObjectMapper();
+
+        try {
+            lineaFileInputStream = openFileInput(mLineaFileName);
+
+            mLineaCercanias = objectMapper.readValue(lineaFileInputStream,
+                    LineaCercanias.class);
+        } catch (JsonParseException e) {
+            Log.e(TAG, "JSON lineaCercanias error reading file:\n"
+                    + e.getStackTrace().toString());
+        } catch (JsonMappingException e) {
+            Log.e(TAG, "JSON lineaCercanias error reading file:\n"
+                    + e.getStackTrace().toString());
+        } catch (IOException e) {
+            Log.e(TAG, "JSON lineaCercanias error reading file:\n"
+                    + e.getStackTrace().toString());
+        }
+
+        if (mLineaCercanias == null) {
+            Toast.makeText(getBaseContext(),
+                    getString(R.string.no_location_values), Toast.LENGTH_LONG)
+                    .show();
+
+            return;
+        }
+
+        final List<Overlay> lineaOverlays = mapView.getOverlays();
+        lineaOverlays.clear();
+
+        MapOverlay estacionMapOverlay;
+
+        for (EstacionCercanias estacionCercanias : mLineaCercanias
+                .getEstacionCercaniasList()) {
+
+            if (estacionCercanias == null) {
+                continue;
+            }
+
+            Log.d(TAG, "Estación:\t" + estacionCercanias.getDescripcion());
+
+            estacionMapOverlay = new MapOverlay();
+            Drawable drawable = getResources().getDrawable(R.drawable.marker);
+            drawable.setBounds(0, 0, 50, 50);
+
+            estacionMapOverlay.setDrawable(drawable);
+            estacionMapOverlay.setGeoPoint(retrieveGeoPoint(
+                    estacionCercanias.getLatitude(),
+                    estacionCercanias.getLongitude()));
+            estacionMapOverlay
+                    .setTextToShow(estacionCercanias.getDescripcion());
+
+            lineaOverlays.add(estacionMapOverlay);
+
+        }
+
+        mapController.setZoom(18);
+
+        mapView.setBuiltInZoomControls(true);
+
+        mapView.setClickable(true);
+
+        textViewLocation.setText(mLineaCercanias.getCodigo() + " - "
+                + mLineaCercanias.getDescripcion());
+    }
+
+    /**
+     * Retrieve {@link GeoPoint} object from latitude and longitude.
+     * 
+     * @param latitude
+     *            Latitude values greater than -90 and less than 90
+     * @param longitude
+     *            Latitude values greater than -80 and less than 180.
+     * 
+     * @throws IllegalArgumentException
+     *             if latitude is less than -90 or greater than 90
+     * @throws IllegalArgumentException
+     *             if longitude is less than -180 or greater than 180
+     * @return {@link GeoPoint} object complete.
+     */
+    public GeoPoint retrieveGeoPoint(double latitude, double longitude) {
+        return new GeoPoint((int) (latitude * 1E6), (int) (longitude * 1E6));
     }
 
     @Override
     protected boolean isRouteDisplayed() {
         // TODO Auto-generated method stub
         return false;
+    }
+
+    public void updateLocation(Location loc) {
+        // TODO Auto-generated method stub
+
     }
 
 }

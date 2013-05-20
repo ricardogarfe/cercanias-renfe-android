@@ -47,9 +47,12 @@
 
     <!-- Google Maps API key -->
     <string name="map_key">0Tp7WsIDiyqoDmSF9LMprvDzte-hj_A6r-qxbow</string>
-    <string name="mapNucleosView">Cancel·lar</string>
+    <string name="mapNucleosView">Estacions</string>
     <string name="title_activity_nucleo_detail">Informació</string>
     <string name="action_settings">Configuració</string>
+
+    <!-- Map View -->
+    <string name="no_location_values">No hi valors per la linea</string>
 
     <!-- Date time -->
     <string name="dateSliderTitle">Data seleccionada</string>

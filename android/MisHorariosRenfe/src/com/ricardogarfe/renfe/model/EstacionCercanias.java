@@ -147,8 +147,8 @@ public class EstacionCercanias implements Parcelable {
         longitude = source.readDouble();
         viaSentidoDestino = source.readString();
         viaSentidoOrigen = source.readString();
-        source.readList(servicioList, null);
-        source.readList(correspondenciaList, null);
+//        source.readList(servicioList, null);
+//        source.readList(correspondenciaList, null);
     }
 
     public int describeContents() {
@@ -172,8 +172,8 @@ public class EstacionCercanias implements Parcelable {
         dest.writeString(zona);
         dest.writeString(viaSentidoDestino);
         dest.writeString(viaSentidoOrigen);
-        dest.writeList(servicioList);
-        dest.writeList(correspondenciaList);
+//        dest.writeList(servicioList);
+//        dest.writeList(correspondenciaList);
 
     }
 }

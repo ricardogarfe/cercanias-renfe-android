@@ -14,7 +14,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.ricardogarfe.renfe.services.parser;
+package com.ricardogarfe.renfe.parser;
 
 import java.io.BufferedReader;
 import java.io.IOException;

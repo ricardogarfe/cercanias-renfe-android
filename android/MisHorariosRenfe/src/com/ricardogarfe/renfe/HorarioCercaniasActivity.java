@@ -43,12 +43,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ricardogarfe.renfe.asynctasks.HorarioCercaniasTask;
+import com.ricardogarfe.renfe.handler.HorariosCercaniasHandler;
 import com.ricardogarfe.renfe.model.DatosPeticionHorarioCercanias;
 import com.ricardogarfe.renfe.model.EstacionCercanias;
 import com.ricardogarfe.renfe.model.HorarioCercanias;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
 import com.ricardogarfe.renfe.model.TransbordoCercanias;
-import com.ricardogarfe.renfe.services.handler.HorariosCercaniasHandler;
 
 /**
  * Activity that retrieves and represents values from a trip between two

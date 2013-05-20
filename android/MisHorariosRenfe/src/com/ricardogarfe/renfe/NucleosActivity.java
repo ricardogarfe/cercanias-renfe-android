@@ -30,7 +30,7 @@ import android.widget.ListView;
 
 import com.ricardogarfe.renfe.adapter.NucleoAdapter;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
-import com.ricardogarfe.renfe.services.parser.JSONNucleosCercaniasParser;
+import com.ricardogarfe.renfe.parser.JSONNucleosCercaniasParser;
 
 public class NucleosActivity extends ListActivity {
 

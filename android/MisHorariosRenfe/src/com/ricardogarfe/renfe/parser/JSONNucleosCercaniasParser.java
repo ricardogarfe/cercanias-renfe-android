@@ -14,7 +14,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.ricardogarfe.renfe.services.parser;
+package com.ricardogarfe.renfe.parser;
 
 import java.io.IOException;
 import java.util.ArrayList;
