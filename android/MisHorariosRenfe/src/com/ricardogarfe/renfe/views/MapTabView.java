@@ -26,17 +26,19 @@ import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
-import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
+import com.google.android.maps.OverlayItem;
 import com.ricardogarfe.renfe.R;
+import com.ricardogarfe.renfe.maps.OnSingleTapListener;
 import com.ricardogarfe.renfe.maps.overlay.CercaniasMyLocationOverlay;
-import com.ricardogarfe.renfe.maps.overlay.MapOverlay;
+import com.ricardogarfe.renfe.maps.overlay.SimpleItemizedOverlay;
 import com.ricardogarfe.renfe.model.EstacionCercanias;
 import com.ricardogarfe.renfe.model.LineaCercanias;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
@@ -45,12 +47,14 @@ import com.ricardogarfe.renfe.service.LocService;
 
 public class MapTabView extends MapActivity implements ILocService {
 
-    private MapView mapView;
+    private TapControlledMapView mapView;
     private MapController mapController;
 
     private LineaCercanias mLineaCercanias;
 
     private NucleoCercanias mNucleoCercanias;
+
+    public static final double FIT_FACTOR = 1.5;
 
     private String mLineaFileName;
 
@@ -62,17 +66,29 @@ public class MapTabView extends MapActivity implements ILocService {
 
     private String TAG = getClass().getSimpleName();
 
+    Drawable drawable;
+    SimpleItemizedOverlay itemizedOverlay;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.map_tab_view);
 
         // Obtener mapView para configurar sus valores.
-        mapView = (MapView) findViewById(R.id.mapView);
+        mapView = (TapControlledMapView) findViewById(R.id.mapView);
 
         // Aplicar Zoom y clickable
         mapView.setBuiltInZoomControls(true);
         mapView.setClickable(true);
+
+        // dismiss balloon upon single tap of MapView (iOS behavior)
+        mapView.setOnSingleTapListener(new OnSingleTapListener() {
+
+            public boolean onSingleTap(MotionEvent e) {
+                itemizedOverlay.hideAllBalloons();
+                return false;
+            }
+        });
 
         // Map controller para interactuar con la vista.
         mapController = mapView.getController();
@@ -141,35 +157,57 @@ public class MapTabView extends MapActivity implements ILocService {
         final List<Overlay> lineaOverlays = mapView.getOverlays();
         lineaOverlays.clear();
 
-        MapOverlay estacionMapOverlay;
+        drawable = getResources().getDrawable(R.drawable.icon);
+        drawable.setBounds(0, 0, 50, 50);
+
+        // Balloon test
+        OverlayItem overlayItem;
+        // first overlay
+        itemizedOverlay = new SimpleItemizedOverlay(drawable, mapView);
+        // set iOS behavior attributes for overlay
+        itemizedOverlay.setShowClose(true);
+        itemizedOverlay.setShowDisclosure(true);
+        itemizedOverlay.setSnapToCenter(true);
+
+        int minLat = Integer.MAX_VALUE;
+        int maxLat = Integer.MIN_VALUE;
+        int minLon = Integer.MAX_VALUE;
+        int maxLon = Integer.MIN_VALUE;
+
+        GeoPoint geoPoint;
 
         for (EstacionCercanias estacionCercanias : mLineaCercanias
                 .getEstacionCercaniasList()) {
 
-            if (estacionCercanias == null) {
-                continue;
-            }
+            geoPoint = retrieveGeoPoint(estacionCercanias.getLatitude(),
+                    estacionCercanias.getLongitude());
 
-            Log.d(TAG, "Estación:\t" + estacionCercanias.getDescripcion());
+            int lat = geoPoint.getLatitudeE6();
+            int lon = geoPoint.getLongitudeE6();
 
-            estacionMapOverlay = new MapOverlay();
-            Drawable drawable = getResources().getDrawable(R.drawable.icon);
-            drawable.setBounds(0, 0, 50, 50);
+            maxLat = Math.max(lat, maxLat);
+            minLat = Math.min(lat, minLat);
+            maxLon = Math.max(lon, maxLon);
+            minLon = Math.min(lon, minLon);
 
-            estacionMapOverlay.setDrawable(drawable);
-            estacionMapOverlay.setGeoPoint(retrieveGeoPoint(
-                    estacionCercanias.getLatitude(),
-                    estacionCercanias.getLongitude()));
-            estacionMapOverlay
-                    .setTextToShow(estacionCercanias.getDescripcion());
+            overlayItem = new OverlayItem(geoPoint,
+                    estacionCercanias.getDescripcion(),
+                    estacionCercanias.getZona());
 
-            lineaOverlays.add(estacionMapOverlay);
+            itemizedOverlay.addOverlay(overlayItem);
+
+            lineaOverlays.add(itemizedOverlay);
 
         }
 
         lineaOverlays.add(myLocationOverlay);
 
-        mapController.setZoom(5);
+        mapController.zoomToSpan(
+                (int) (Math.abs(maxLat - minLat) * FIT_FACTOR),
+                (int) (Math.abs(maxLon - minLon) * FIT_FACTOR));
+
+        mapController.animateTo(new GeoPoint((maxLat + minLat) / 2,
+                (maxLon + minLon) / 2));
 
         mapView.setBuiltInZoomControls(true);
 

@@ -31,7 +31,6 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.ricardogarfe.renfe.EstacionesNucleoViajeActivity;
-import com.ricardogarfe.renfe.R;
 import com.ricardogarfe.renfe.adapter.NucleoAdapter;
 import com.ricardogarfe.renfe.asynctasksoader.NucleosLoader;
 import com.ricardogarfe.renfe.model.NucleoCercanias;

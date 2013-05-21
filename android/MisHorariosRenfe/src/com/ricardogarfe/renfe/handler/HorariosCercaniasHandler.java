@@ -23,8 +23,6 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import android.util.Log;
-
 import com.ricardogarfe.renfe.model.HorarioCercanias;
 import com.ricardogarfe.renfe.model.TransbordoCercanias;
 
