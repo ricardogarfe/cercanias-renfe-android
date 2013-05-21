@@ -38,7 +38,6 @@ import com.ricardogarfe.renfe.adapter.LineaAdapter;
 import com.ricardogarfe.renfe.asynctasks.RetrieveLineasNucleoTask;
 import com.ricardogarfe.renfe.model.LineaCercanias;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
-import com.ricardogarfe.renfe.views.MapTabView;
 
 public class LineasActivity extends ListActivity {
 

@@ -1,4 +1,4 @@
-package com.ricardogarfe.renfe.views;
+package com.ricardogarfe.renfe.maps.views;
 
 import android.content.Context;
 import android.util.AttributeSet;

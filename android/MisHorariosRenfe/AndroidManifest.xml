@@ -66,12 +66,8 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.ricardogarfe.renfe.views.MapTabView"
+            android:name="com.ricardogarfe.renfe.MapTabView"
             android:label="@string/app_name" >
-            <intent-filter>
-                <category android:name="android.intent.category.EMBED" >
-                </category>
-            </intent-filter>
         </activity>
         <!-- Estaciones -->
         <activity

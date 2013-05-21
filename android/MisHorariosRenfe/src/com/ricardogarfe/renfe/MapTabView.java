@@ -14,7 +14,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.ricardogarfe.renfe.views;
+package com.ricardogarfe.renfe;
 
 import java.io.FileInputStream;
 import java.util.List;
@@ -39,6 +39,7 @@ import com.ricardogarfe.renfe.R;
 import com.ricardogarfe.renfe.maps.OnSingleTapListener;
 import com.ricardogarfe.renfe.maps.overlay.CercaniasMyLocationOverlay;
 import com.ricardogarfe.renfe.maps.overlay.SimpleItemizedOverlay;
+import com.ricardogarfe.renfe.maps.views.TapControlledMapView;
 import com.ricardogarfe.renfe.model.EstacionCercanias;
 import com.ricardogarfe.renfe.model.LineaCercanias;
 import com.ricardogarfe.renfe.model.NucleoCercanias;
