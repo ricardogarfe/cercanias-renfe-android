@@ -19,6 +19,7 @@ package com.ricardogarfe.renfe.adapter;
 import java.util.List;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -110,6 +111,9 @@ public class LineaAdapter extends BaseAdapter {
                 .findViewById(R.id.descripcion_linea);
         descriptionTextView.setText(lineaCercanias.getDescripcion());
 
+        // Set background Color.
+        view.setBackgroundColor(Color.parseColor("#".concat(lineaCercanias
+                .getRgb())));
         return view;
 
     }
