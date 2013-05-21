@@ -22,6 +22,7 @@ import java.util.List;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.Bundle;
@@ -146,6 +147,8 @@ public class MapTabView extends MapActivity implements ILocService {
         textViewLocation = (TextView) findViewById(R.id.textViewLocation);
         textViewLocation.setText(mLineaCercanias.getDescripcion() + " - "
                 + mLineaCercanias.getCodigo());
+        textViewLocation.setBackgroundColor(Color.parseColor("#"
+                .concat(mLineaCercanias.getRgb())));
 
         if (mLineaCercanias == null) {
             Toast.makeText(getBaseContext(),
