@@ -1,6 +1,7 @@
 # Mis Horarios Cercanías
 
 [![Build Status](https://travis-ci.org/ricardogarfe/cercanias-renfe-android.png?branch=master)](https://travis-ci.org/ricardogarfe/cercanias-renfe-android)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fricardogarfe%2Fcercanias-renfe-android.svg?type=shield)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fricardogarfe%2Fcercanias-renfe-android?ref=badge_shield)
 
 *Aplicación Android* cliente para la visualización de los horarios de Cercanías Renfe en todo el territorio español adaptada para todo tipo de dispositivos Android.
 
@@ -81,6 +82,9 @@ La información sobre la versión de Jon se encuentra en la wiki del proyecto:
 * [Versión 1](../../wiki/Version-1---Jon-Segador)
 * Tag [Versión 1](https://github.com/ricardogarfe/cercanias-renfe-android/tree/version-jonseg)
 
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fricardogarfe%2Fcercanias-renfe-android.svg?type=large)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fricardogarfe%2Fcercanias-renfe-android?ref=badge_large)
+
 ## A mejorar
 
 * Configuración completa con maven para generar paquetes firmados oficiales.
@@ -100,4 +104,3 @@ La información sobre la versión de Jon se encuentra en la wiki del proyecto:
 <a href="http://creativecommons.org/licenses/by/3.0/" rel="Creative Commons Attribution 3.0">![Foo](http://i.creativecommons.org/l/by/3.0/88x31.png)</a>
 
 This work by Ricardo Gracía Fernández - ricardogarfe [at] gmail [dot] com is licensed under a [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/).
-
